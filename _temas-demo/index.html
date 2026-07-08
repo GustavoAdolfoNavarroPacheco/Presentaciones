@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Demo · Theming por cliente (paleta derivada del logo)</title>
+<style>
+  @font-face { font-family:'Playfair Display'; src:url('../../recursos/fonts/PlayfairDisplay-Black.ttf') format('truetype'); font-weight:900; font-style:normal; }
+  @font-face { font-family:'Playfair Display'; src:url('../../recursos/fonts/PlayfairDisplay-BlackItalic.ttf') format('truetype'); font-weight:900; font-style:italic; }
+  @font-face { font-family:'Montserrat'; src:url('../../recursos/fonts/Montserrat-SemiBold.ttf') format('truetype'); font-weight:600; }
+  @font-face { font-family:'Poppins'; src:url('../../recursos/fonts/Poppins-Light.ttf') format('truetype'); font-weight:300; }
+  @font-face { font-family:'Poppins'; src:url('../../recursos/fonts/Poppins-Regular.ttf') format('truetype'); font-weight:400; }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:#0b0e14;font-family:'Poppins',sans-serif;color:#fff;padding:34px;display:grid;grid-template-columns:repeat(3,1fr);gap:28px;}
+  h1{grid-column:1/-1;font-family:'Montserrat';font-weight:600;letter-spacing:.2em;text-transform:uppercase;font-size:13px;color:#8fa0b8;}
+  /* --- Mini-lámina: idéntica estructura, tokens por tile --- */
+  .tile{
+    border-radius:14px; overflow:hidden; box-shadow:0 16px 40px rgba(0,0,0,.5);
+    aspect-ratio:16/9; position:relative; padding:26px 26px 20px;
+    display:flex; flex-direction:column; justify-content:space-between;
+    background:
+      radial-gradient(90% 80% at 15% 18%, var(--glowA) 0%, transparent 45%),
+      radial-gradient(110% 110% at 95% 96%, var(--glowB) 0%, transparent 52%),
+      linear-gradient(150deg, var(--bg0) 0%, var(--bg1) 55%, var(--deep) 100%);
+    border:1px solid var(--cardBorder);
+  }
+  .eb{font-family:'Montserrat';font-weight:600;font-size:8px;letter-spacing:.28em;text-transform:uppercase;
+     background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}
+  .ttl{font-family:'Playfair Display';font-weight:900;font-size:23px;line-height:1.04;color:#fff;margin-top:6px;}
+  .ttl em{font-style:italic;background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}
+  .card{background:var(--bg2);border:1px solid var(--cardBorder);border-radius:10px;padding:12px 13px;position:relative;overflow:hidden;margin-top:10px;}
+  .card::before{content:"";position:absolute;left:0;right:0;top:0;height:3px;background:var(--grad);}
+  .card p{font-weight:300;font-size:9.5px;line-height:1.4;color:var(--txtMid);}
+  .row{display:flex;align-items:center;gap:8px;}
+  .pill{height:10px;border-radius:99px;background:var(--grad);flex:1;}
+  .dot{width:9px;height:9px;border-radius:50%;background:var(--dot);box-shadow:0 0 9px 1px var(--dotGlow);}
+  .name{font-family:'Montserrat';font-weight:600;font-size:9px;letter-spacing:.06em;color:var(--txtLo);}
+
+  /* ===== CAMPUSLANDS (default tech) ===== */
+  .t-camp{--bg0:#05070F;--bg1:#0A0E1A;--bg2:#0D1424;--deep:#0B1120;
+    --glowA:rgba(53,208,240,.12);--glowB:rgba(139,92,246,.12);
+    --grad:linear-gradient(100deg,#35D0F0,#4A7DFF 42%,#8B5CF6 76%,#C05CF6);
+    --cardBorder:rgba(120,150,220,.16);--txtMid:#C3CBDA;--txtLo:#7A8699;--dot:#F5A623;--dotGlow:rgba(245,166,35,.7);}
+  /* ===== COMPUMAX (azul) ===== */
+  .t-cmx{--bg0:#04070E;--bg1:#061019;--bg2:#0A1622;--deep:#07172A;
+    --glowA:rgba(27,155,215,.14);--glowB:rgba(46,107,240,.12);
+    --grad:linear-gradient(100deg,#35D0F0,#1B9BD7 40%,#2E6BF0 74%,#6E8BFF);
+    --cardBorder:rgba(90,150,210,.18);--txtMid:#BFD3E6;--txtLo:#7690A8;--dot:#F5A623;--dotGlow:rgba(245,166,35,.7);}
+  /* ===== GREENMETAL (verde lima) ===== */
+  .t-gm{--bg0:#040A06;--bg1:#07130D;--bg2:#0B1B14;--deep:#08160F;
+    --glowA:rgba(47,224,194,.13);--glowB:rgba(55,200,113,.12);
+    --grad:linear-gradient(100deg,#A6E22E,#37C871 42%,#1FB6A6 74%,#2FE0C2);
+    --cardBorder:rgba(120,200,160,.18);--txtMid:#C3D6C9;--txtLo:#7E9187;--dot:#F5A623;--dotGlow:rgba(245,166,35,.7);}
+  /* ===== MCHAILEH (verde-esmeralda / teal, distinto de GreenMetal) ===== */
+  .t-mch{--bg0:#04090A;--bg1:#061313;--bg2:#0A1B1D;--deep:#07171C;
+    --glowA:rgba(52,224,176,.13);--glowB:rgba(58,160,224,.11);
+    --grad:linear-gradient(100deg,#34E0B0,#22C58A 40%,#1FA6B8 74%,#3AA0E0);
+    --cardBorder:rgba(90,190,180,.18);--txtMid:#BFD8D3;--txtLo:#78948F;--dot:#F5A623;--dotGlow:rgba(245,166,35,.7);}
+  /* ===== Ejemplo cálido (ámbar/coral) — punto confidencial FRÍO ===== */
+  .t-warm{--bg0:#0C0703;--bg1:#160D06;--bg2:#20140A;--deep:#1A0F07;
+    --glowA:rgba(245,148,60,.14);--glowB:rgba(224,72,106,.12);
+    --grad:linear-gradient(100deg,#FFC24B,#F5943C 40%,#F0663C 74%,#E0486A);
+    --cardBorder:rgba(210,150,90,.20);--txtMid:#E6D3C0;--txtLo:#A89076;--dot:#35D0F0;--dotGlow:rgba(53,208,240,.7);}
+  /* ===== Ejemplo púrpura/magenta ===== */
+  .t-purple{--bg0:#08050F;--bg1:#100A1B;--bg2:#160F24;--deep:#130C22;
+    --glowA:rgba(181,123,255,.14);--glowB:rgba(224,92,192,.12);
+    --grad:linear-gradient(100deg,#B57BFF,#8B5CF6 40%,#C05CF6 74%,#E05CC0);
+    --cardBorder:rgba(150,120,220,.20);--txtMid:#D8CBE6;--txtLo:#948AA8;--dot:#F5A623;--dotGlow:rgba(245,166,35,.7);}
+</style>
+</head>
+<body>
+  <h1>Theming por cliente — misma plantilla, paleta (y fondo) derivados del logo</h1>
+
+  <div class="tile t-camp">
+    <div><div class="eb">Campuslands · default</div><div class="ttl">Estilo <em>base</em></div>
+      <div class="card"><p>Fondo azul-noche · gradiente cian→violeta.</p></div></div>
+    <div class="row"><span class="dot"></span><span class="name">CAMPUSLANDS</span><span class="pill"></span></div>
+  </div>
+
+  <div class="tile t-cmx">
+    <div><div class="eb">Compumax · azul</div><div class="ttl">Fondo <em>azul-noche</em></div>
+      <div class="card"><p>Base teñida al azul de marca · gradiente cian→índigo.</p></div></div>
+    <div class="row"><span class="dot"></span><span class="name">COMPUMAX</span><span class="pill"></span></div>
+  </div>
+
+  <div class="tile t-gm">
+    <div><div class="eb">GreenMetal · verde</div><div class="ttl">Fondo <em>verde-negro</em></div>
+      <div class="card"><p>Base teñida al verde · gradiente lima→teal.</p></div></div>
+    <div class="row"><span class="dot"></span><span class="name">GREENMETAL</span><span class="pill"></span></div>
+  </div>
+
+  <div class="tile t-mch">
+    <div><div class="eb">Mchaileh · esmeralda</div><div class="ttl">Fondo <em>teal-negro</em></div>
+      <div class="card"><p>Verde esmeralda-teal, distinto del lima de GreenMetal.</p></div></div>
+    <div class="row"><span class="dot"></span><span class="name">MCHAILEH</span><span class="pill"></span></div>
+  </div>
+
+  <div class="tile t-warm">
+    <div><div class="eb">Ejemplo · cálido</div><div class="ttl">Fondo <em>ámbar-negro</em></div>
+      <div class="card"><p>Marca cálida → punto confidencial en cian (acento frío).</p></div></div>
+    <div class="row"><span class="dot"></span><span class="name">ÁMBAR / CORAL</span><span class="pill"></span></div>
+  </div>
+
+  <div class="tile t-purple">
+    <div><div class="eb">Ejemplo · púrpura</div><div class="ttl">Fondo <em>violeta-negro</em></div>
+      <div class="card"><p>Base teñida al púrpura · gradiente lila→magenta.</p></div></div>
+    <div class="row"><span class="dot"></span><span class="name">PÚRPURA</span><span class="pill"></span></div>
+  </div>
+</body>
+</html>

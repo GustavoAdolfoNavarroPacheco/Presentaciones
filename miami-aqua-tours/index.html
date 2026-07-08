@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Propuesta Técnico-Comercial — Miami Aqua Tours</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Slide 1: Portada Corporativa -->
+  <div class="slide slide-cover">
+    <div class="cover-content">
+      <div class="tag-confidential">Confidencial</div>
+      <h1>Plataforma de Venta y Gestión de Tours<br>con Control de Acceso QR</h1>
+      <div class="subtitle">Propuesta Técnica y Comercial</div>
+      
+      <div class="meta-info">
+        <div class="meta-item">
+          <div class="meta-label">Preparado para</div>
+          <div class="meta-val">Dirección — Miami Aqua Tours</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Preparado por</div>
+          <div class="meta-val">Campuslands · Full Service</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Detalles</div>
+          <div class="meta-val">Julio 2026 · Versión 0.2</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slide 2: Lo Que Nos Contaron -->
+  <div class="slide">
+    <header class="slide-header">
+      <img src="assets/logo-campuslands.png" alt="Campuslands Full Service" class="logo-brand">
+      <img src="assets/logo-cliente.png" alt="Miami Aqua Tours" class="logo-client">
+    </header>
+    <div class="slide-content">
+      <h2>01 LO QUE NOS CONTARON</h2>
+      <h3>Escuchamos a su operación. Esto fue lo que estructuramos.</h3>
+      <div class="grid-cards">
+        <div class="card">
+          <div class="card-number">22</div>
+          <div class="card-title">Módulos definidos</div>
+          <div class="card-desc">Para una sola plataforma integrada que centraliza toda la operación turística del negocio.</div>
+        </div>
+        <div class="card">
+          <div class="card-number">QR</div>
+          <div class="card-title">Llave única de acceso</div>
+          <div class="card-desc">Un único código agrupa a todas las personas del grupo de la orden al momento de abordar el barco.</div>
+        </div>
+        <div class="card">
+          <div class="card-number">SaaS</div>
+          <div class="card-title">Multi-operador</div>
+          <div class="card-desc">Múltiples empresas turísticas (aliadas o propias) operando de forma independiente sobre el mismo software.</div>
+        </div>
+        <div class="card">
+          <div class="card-number">iPad</div>
+          <div class="card-title">Venta web + POS</div>
+          <div class="card-desc">Portal público en línea y punto de venta presencial en puertos sincronizados con cupos en tiempo real.</div>
+        </div>
+      </div>
+    </div>
+    <footer class="slide-footer">
+      <span>CAMPUSLANDS · EXPLORAMOS · DESPEGAMOS · CONQUISTAMOS</span>
+      <span>PROPUESTA MIAMI AQUA TOURS FULL SERVICE 2026</span>
+      <span>02</span>
+    </footer>
+  </div>
+
+  <!-- Slide 3: El Reto de Miami Aqua Tours -->
+  <div class="slide">
+    <header class="slide-header">
+      <img src="assets/logo-campuslands.png" alt="Campuslands Full Service" class="logo-brand">
+      <img src="assets/logo-cliente.png" alt="Miami Aqua Tours" class="logo-client">
+    </header>
+    <div class="slide-content">
+      <h2>02 EL RETO DE MIAMI AQUA TOURS</h2>
+      <h3>Con cada salida, la información se dispersa y el control se vuelve manual.</h3>
+      <div class="cols-2">
+        <div class="col-left-pitch">
+          "Necesitamos evitar el pago de comisiones individuales por persona de plataformas externas y unificar el control de venta con el de abordaje."
+        </div>
+        <div class="list-bullets-negative">
+          <div class="bullet-negative">
+            <span class="icon">✕</span>
+            <span class="text">Venta y disponibilidad en múltiples canales que deben reflejar el mismo cupo en tiempo real.</span>
+          </div>
+          <div class="bullet-negative">
+            <span class="icon">✕</span>
+            <span class="text">Control de acceso al barco basado en validación puramente manual, sin trazabilidad digital del embarque.</span>
+          </div>
+          <div class="bullet-negative">
+            <span class="icon">✕</span>
+            <span class="text">Operación de venta en el bar a bordo y existencias de inventario desconectadas de las salidas del barco.</span>
+          </div>
+          <div class="bullet-negative">
+            <span class="icon">✕</span>
+            <span class="text">Varios operadores turísticos que requieren gestionarse de manera independiente en una misma plataforma.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="slide-footer">
+      <span>CAMPUSLANDS · EXPLORAMOS · DESPEGAMOS · CONQUISTAMOS</span>
+      <span>PROPUESTA MIAMI AQUA TOURS FULL SERVICE 2026</span>
+      <span>03</span>
+    </footer>
+  </div>
+
+  <!-- Slide 4: La Solución (Arquitectura) -->
+  <div class="slide">
+    <header class="slide-header">
+      <img src="assets/logo-campuslands.png" alt="Campuslands Full Service" class="logo-brand">
+      <img src="assets/logo-cliente.png" alt="Miami Aqua Tours" class="logo-client">
+    </header>
+    <div class="slide-content">
+      <h2>03 LA SOLUCIÓN</h2>
+      <h3>Una arquitectura en 3 capas integradas para toda la operación.</h3>
+      <div class="architectural-layers">
+        <div class="layer">
+          <div class="layer-num">1</div>
+          <div class="layer-title">Fuentes de datos</div>
+          <div class="layer-desc">Booking web, POS en iPad, escáner QR de embarque, POS del bar e inventario — todos los canales de venta del operador conectados.</div>
+        </div>
+        <div class="layer">
+          <div class="layer-num">2</div>
+          <div class="layer-title">Motor de plataforma</div>
+          <div class="layer-desc">Núcleo multiempresa (SaaS) que procesa y sincroniza disponibilidad de cupos, reservas de tours, embarcaciones y pagos en tiempo real.</div>
+        </div>
+        <div class="layer">
+          <div class="layer-num">3</div>
+          <div class="layer-title">Valor para usuario</div>
+          <div class="layer-desc">Dashboard operativo y comercial en vivo, manifiestos automáticos de pasajeros, reportes y preparación técnica para el agente de IA.</div>
+        </div>
+      </div>
+    </div>
+    <footer class="slide-footer">
+      <span>CAMPUSLANDS · EXPLORAMOS · DESPEGAMOS · CONQUISTAMOS</span>
+      <span>PROPUESTA MIAMI AQUA TOURS FULL SERVICE 2026</span>
+      <span>04</span>
+    </footer>
+  </div>
+
+  <!-- Slide 5: Módulos Clave (Capacidades Centrales) -->
+  <div class="slide">
+    <header class="slide-header">
+      <img src="assets/logo-campuslands.png" alt="Campuslands Full Service" class="logo-brand">
+      <img src="assets/logo-cliente.png" alt="Miami Aqua Tours" class="logo-client">
+    </header>
+    <div class="slide-content">
+      <h2>04 LA PLATAFORMA · CAPACIDADES CENTRALES</h2>
+      <h3>Módulos clave, una sola plataforma (Lámina I).</h3>
+      <div class="grid-modules">
+        <div class="module-box">
+          <div class="module-header">
+            <span class="icon">🏢</span>
+            <span>Administración Multiempresa</span>
+          </div>
+          <div class="module-desc">Crear, modificar, activar, suspender o eliminar operadores turísticos (empresas aliadas) de manera independiente.</div>
+        </div>
+        <div class="module-box">
+          <div class="module-header">
+            <span class="icon">⚙</span>
+            <span>Configuración General</span>
+          </div>
+          <div class="module-desc">Definición de parámetros operativos globales: horarios de operación, monedas, impuestos, políticas de cancelación y temporadas.</div>
+        </div>
+        <div class="module-box">
+          <div class="module-header">
+            <span class="icon">🧭</span>
+            <span>Tours y Disponibilidad</span>
+          </div>
+          <div class="module-desc">Catálogo de tours comercial, programación de salidas (fechas/horarios/precios) y cupos en tiempo real sincronizados por canal.</div>
+        </div>
+        <div class="module-box">
+          <div class="module-header">
+            <span class="icon">⛵</span>
+            <span>Gestión de Embarcaciones</span>
+          </div>
+          <div class="module-desc">Registro del catálogo de barcos (capacidades, características técnicas) y control de su estado operativo o mantenimientos.</div>
+        </div>
+        <div class="module-box">
+          <div class="module-header">
+            <span class="icon">📅</span>
+            <span>Calendario Operativo</span>
+          </div>
+          <div class="module-desc">Visualización y planificación centralizada de salidas mediante calendarios interactivos diarios, semanales y mensuales de operación.</div>
+        </div>
+        <div class="module-box">
+          <div class="module-header">
+            <span class="icon">🌐</span>
+            <span>Venta Web (Booking)</span>
+          </div>
+          <div class="module-desc">Portal comercial en línea con carrito de reservas, registro de pasajeros, pasarela de pago y emisión de tickets con código QR.</div>
+        </div>
+      </div>
+    </div>
+    <footer class="slide-footer">
+      <span>CAMPUSLANDS · EXPLORAMOS · DESPEGAMOS · CONQUISTAMOS</span>
+      <span>PROPUESTA MIAMI AQUA TOURS FULL SERVICE 2026</span>
+      <span>05</span>
+    </footer>
+  </div>
+
+  <!-- Slide 6: Módulos Clave (Capacidades Operativas) -->
+  <div class="slide">
+    <header class="slide-header">
+      <img src="assets/logo-campuslands.png" alt="Campuslands Full Service" class="logo-brand">
+      <img src="assets/logo-cliente.png" alt="Miami Aqua Tours" class="logo-client">
+    </header>
+    <div class="slide-content">
+      <h2>05 LA PLATAFORMA · CAPACIDADES OPERATIVAS</h2>
+      <h3>Del abordaje al cierre de caja, todo conectado (Lámina II).</h3>
+      <div class="grid-modules">
+        <div class="module-box">
+          <div class="module-header">
+            <span class="icon">🎫</span>
+            <span>Punto de Venta (iPad)</span>
+          </div>
+          <div class="module-desc">POS táctil optimizado para iPads que permite realizar ventas presenciales fluidas integrándose con el procesador actual (Square).</div>
+        </div>
+        <div class="module-box">
+          <div class="module-header">
+            <span class="icon">✅</span>
+            <span>Check-in y Abordaje</span>
+          </div>
+          <div class="module-desc">Validación de tickets mediante el escaneo del código QR de la orden, registro de manifiesto y control de accesos denegados.</div>
+        </div>
+        <div class="module-box">
+          <div class="module-header">
+            <span class="icon">🍹</span>
+            <span>POS del Bar a Bordo</span>
+          </div>
+          <div class="module-desc">Venta ágil de bebidas/snacks vinculada al inventario del bar del barco y a la salida específica para cuadre automático.</div>
+        </div>
+        <div class="module-box">
+          <div class="module-header">
+            <span class="icon">👥</span>
+            <span>Clientes y CRM</span>
+          </div>
+          <div class="module-desc">Directorio centralizado con historial de compras de boletos, preferencias de consumo, segmentación y programa de puntos.</div>
+        </div>
+        <div class="module-box">
+          <div class="module-header">
+            <span class="icon">🏷</span>
+            <span>Promociones e Inversión</span>
+          </div>
+          <div class="module-desc">Definición de cupones de descuento, reglas comerciales temporales por volumen y reprogramación de reservas o devoluciones.</div>
+        </div>
+        <div class="module-box">
+          <div class="module-header">
+            <span class="icon">📊</span>
+            <span>Dashboard y Seguridad</span>
+          </div>
+          <div class="module-desc">Indicadores en vivo del día, reportes exportables financieros y de ocupación, perfiles de roles/permisos y respaldos.</div>
+        </div>
+      </div>
+    </div>
+    <footer class="slide-footer">
+      <span>CAMPUSLANDS · EXPLORAMOS · DESPEGAMOS · CONQUISTAMOS</span>
+      <span>PROPUESTA MIAMI AQUA TOURS FULL SERVICE 2026</span>
+      <span>06</span>
+    </footer>
+  </div>
+
+  <!-- Slide 7: Flujo e Interfaz -->
+  <div class="slide">
+    <header class="slide-header">
+      <img src="assets/logo-campuslands.png" alt="Campuslands Full Service" class="logo-brand">
+      <img src="assets/logo-cliente.png" alt="Miami Aqua Tours" class="logo-client">
+    </header>
+    <div class="slide-content">
+      <h2>06 FLUJO E INTERFAZ</h2>
+      <h3>Del escaneo de tickets a la visualización de la operación diaria.</h3>
+      <div class="mockup-container">
+        <div class="mockup-card">
+          <div class="mockup-card-title">
+            <span>Check-in · Escaneo QR</span>
+            <span class="status-badge">Salida 10:30</span>
+          </div>
+          <div class="mockup-item">
+            <span class="mockup-label">Pasajeros abordados:</span>
+            <span class="mockup-val">142 / 160</span>
+          </div>
+          <div class="progress-bar-container">
+            <div class="progress-bar" style="width: 88.7%;"></div>
+          </div>
+          <div class="mockup-item" style="margin-top: 15px;">
+            <span class="mockup-label">Resultado del escaneo:</span>
+            <span class="mockup-val" style="color: var(--accent-green);">TICKET VÁLIDO</span>
+          </div>
+          <div class="mockup-item">
+            <span class="mockup-label">Detalle del grupo:</span>
+            <span class="mockup-val">Familia Gómez (4 personas)</span>
+          </div>
+        </div>
+        <div class="mockup-card">
+          <div class="mockup-card-title">
+            <span>Dashboard · Operación del día</span>
+            <span class="status-badge" style="background-color: var(--accent-violet); color: white;">En vivo</span>
+          </div>
+          <div class="mockup-item">
+            <span class="mockup-label">Reservas registradas hoy:</span>
+            <span class="mockup-val">318 reservas</span>
+          </div>
+          <div class="mockup-item">
+            <span class="mockup-label">Ocupación promedio global:</span>
+            <span class="mockup-val" style="color: var(--accent-violet);">89.4%</span>
+          </div>
+          <div class="mockup-item">
+            <span class="mockup-label">Ventas acumuladas Bar:</span>
+            <span class="mockup-val">$1.240 USD</span>
+          </div>
+          <div class="mockup-item">
+            <span class="mockup-label">Estado de integraciones:</span>
+            <span class="mockup-val" style="color: var(--accent-green);">Square Activo</span>
+          </div>
+        </div>
+      </div>
+      <div class="mockup-footer-text">
+        El equipo en puerto y a bordo controla el embarque en un segundo y la gerencia visualiza los ingresos consolidados al instante.
+      </div>
+    </div>
+    <footer class="slide-footer">
+      <span>CAMPUSLANDS · EXPLORAMOS · DESPEGAMOS · CONQUISTAMOS</span>
+      <span>PROPUESTA MIAMI AQUA TOURS FULL SERVICE 2026</span>
+      <span>07</span>
+    </footer>
+  </div>
+
+  <!-- Slide 8: ROI (El Dinero Habla) -->
+  <div class="slide">
+    <header class="slide-header">
+      <img src="assets/logo-campuslands.png" alt="Campuslands Full Service" class="logo-brand">
+      <img src="assets/logo-cliente.png" alt="Miami Aqua Tours" class="logo-client">
+    </header>
+    <div class="slide-content">
+      <h2>07 ROI (EL DINERO HABLA)</h2>
+      <h3>Lo que la industria tecnológica ya demostró con fuentes verificables.</h3>
+      <div class="grid-metrics">
+        <div class="metric-card">
+          <div class="metric-large">74%</div>
+          <div class="metric-label">Del valor económico de la IA lo captura el 20% de las empresas líderes.</div>
+          <div class="metric-source">PwC · AI Performance Study 2026</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-large">+40%</div>
+          <div class="metric-label">Más crecimiento de productividad en las empresas más automatizadas.</div>
+          <div class="metric-source">PwC · Global AI Jobs Barometer 2026</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-large">74%</div>
+          <div class="metric-label">De las empresas logra ROI de la IA en su primer año de despliegue.</div>
+          <div class="metric-source">Google Cloud · Tech Report 2025</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-large">15.2%</div>
+          <div class="metric-label">De ahorro directo en costos y 22.6% de mejora en productividad operativa.</div>
+          <div class="metric-source">Gartner · Early Adopters Study 2025</div>
+        </div>
+      </div>
+      <div class="mockup-footer-text" style="margin-top: 15px;">
+        La conclusión la saca Miami Aqua Tours. Nosotros solo mostramos los números de los líderes.
+      </div>
+    </div>
+    <footer class="slide-footer">
+      <span>CAMPUSLANDS · EXPLORAMOS · DESPEGAMOS · CONQUISTAMOS</span>
+      <span>PROPUESTA MIAMI AQUA TOURS FULL SERVICE 2026</span>
+      <span>08</span>
+    </footer>
+  </div>
+
+  <!-- Slide 9: El Sector Ya Se Mueve -->
+  <div class="slide">
+    <header class="slide-header">
+      <img src="assets/logo-campuslands.png" alt="Campuslands Full Service" class="logo-brand">
+      <img src="assets/logo-cliente.png" alt="Miami Aqua Tours" class="logo-client">
+    </header>
+    <div class="slide-content">
+      <h2>08 EL SECTOR YA SE MUEVE</h2>
+      <h3>Las empresas que se transformaron con software a medida ya van adelante.</h3>
+      <div class="cols-3">
+        <div class="col-box">
+          <div class="col-box-title">Turismo y Experiencias</div>
+          <div class="col-box-desc">La venta y reserva online ágil sincronizada con analítica predictiva de ocupación es hoy el estándar mínimo en operadores de tours a nivel global.</div>
+        </div>
+        <div class="col-box">
+          <div class="col-box-title">Retail y Consumo</div>
+          <div class="col-box-desc">Personalización de promociones y dinámicas de precios basadas en la disponibilidad para optimizar el ingreso por boleto vendido.</div>
+        </div>
+        <div class="col-box">
+          <div class="col-box-title">Operaciones a Escala</div>
+          <div class="col-box-desc">Los líderes rediseñan flujos operativos completos e integrados (no automatizan pasos aislados) para capturar el valor real de sus datos de negocio.</div>
+        </div>
+      </div>
+      <div class="mockup-footer-text" style="font-size: 9.5pt; text-align: left; margin-top: 20px;">
+        FUENTES: McKinsey · State of AI 2025 (78% de organizaciones usando IA en producción) · PwC Business Predictions 2025 (20-30% mejora de ingresos).
+      </div>
+    </div>
+    <footer class="slide-footer">
+      <span>CAMPUSLANDS · EXPLORAMOS · DESPEGAMOS · CONQUISTAMOS</span>
+      <span>PROPUESTA MIAMI AQUA TOURS FULL SERVICE 2026</span>
+      <span>09</span>
+    </footer>
+  </div>
+
+  <!-- Slide 10: Quiénes Somos -->
+  <div class="slide">
+    <header class="slide-header">
+      <img src="assets/logo-campuslands.png" alt="Campuslands Full Service" class="logo-brand">
+      <img src="assets/logo-cliente.png" alt="Miami Aqua Tours" class="logo-client">
+    </header>
+    <div class="slide-content">
+      <h2>09 QUIÉNES SOMOS</h2>
+      <h3>No solo formamos el talento de TI del futuro: construimos el futuro junto a ellos.</h3>
+      <div class="pitch-container">
+        <div class="pitch-text">
+          <p><strong>Campuslands S.A.S. BIC</strong> es una Software House colombiana con sede física en la Zona Franca Santander (Floridablanca). Formamos a los mejores desarrolladores de software del país bajo metodologías intensivas de ingeniería.</p>
+          <p>Construimos soluciones robustas y a medida para clientes enterprise de diversos sectores, integrando metodologías ágiles de desarrollo y tecnologías de inteligencia artificial de última generación.</p>
+        </div>
+        <div class="cases-list">
+          <div style="font-size: 9.5pt; font-weight: bold; text-transform: uppercase; color: var(--accent-violet); margin-bottom: 5px;">Casos reales desarrollados:</div>
+          <div class="case-item">
+            <span class="case-name">Avicampo / El Madroño</span>
+            <span class="case-tag">Avícola</span>
+          </div>
+          <div class="case-item">
+            <span class="case-name">Constructora Andes</span>
+            <span class="case-tag">Construcción</span>
+          </div>
+          <div class="case-item">
+            <span class="case-name">Colbeef</span>
+            <span class="case-tag">Cárnico</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="slide-footer">
+      <span>CAMPUSLANDS · EXPLORAMOS · DESPEGAMOS · CONQUISTAMOS</span>
+      <span>PROPUESTA MIAMI AQUA TOURS FULL SERVICE 2026</span>
+      <span>10</span>
+    </footer>
+  </div>
+
+  <!-- Slide 11: El Equipo (Tripulación) -->
+  <div class="slide">
+    <header class="slide-header">
+      <img src="assets/logo-campuslands.png" alt="Campuslands Full Service" class="logo-brand">
+      <img src="assets/logo-cliente.png" alt="Miami Aqua Tours" class="logo-client">
+    </header>
+    <div class="slide-content">
+      <h2>10 EL EQUIPO DEL PROYECTO</h2>
+      <h3>Una tripulación dedicada a la excelencia en el desarrollo del software.</h3>
+      <div class="grid-team">
+        <div class="team-card">
+          <div class="team-avatar">PM</div>
+          <div class="team-role">Product Manager</div>
+          <div class="team-seniority">Senior</div>
+        </div>
+        <div class="team-card">
+          <div class="team-avatar">LT</div>
+          <div class="team-role">Líder Técnico</div>
+          <div class="team-seniority">Senior</div>
+        </div>
+        <div class="team-card">
+          <div class="team-avatar">UX</div>
+          <div class="team-role">Diseño UI/UX</div>
+          <div class="team-seniority">Senior</div>
+        </div>
+        <div class="team-card">
+          <div class="team-avatar">FE</div>
+          <div class="team-role">Frontend Dev</div>
+          <div class="team-seniority">Senior</div>
+        </div>
+        <div class="team-card">
+          <div class="team-avatar">BE</div>
+          <div class="team-role">Backend Dev</div>
+          <div class="team-seniority">Senior</div>
+        </div>
+      </div>
+      <div class="grid-team" style="margin-top: 10px; justify-content: center;">
+        <div class="team-card" style="width: 18%; margin-left: 2%;">
+          <div class="team-avatar">IA</div>
+          <div class="team-role">Ingeniero IA</div>
+          <div class="team-seniority">Senior</div>
+        </div>
+        <div class="team-card" style="width: 18%;">
+          <div class="team-avatar">DO</div>
+          <div class="team-role">DevOps Eng.</div>
+          <div class="team-seniority">Senior</div>
+        </div>
+        <div class="team-card" style="width: 18%;">
+          <div class="team-avatar">QA</div>
+          <div class="team-role">Ingeniero QA</div>
+          <div class="team-seniority">Senior</div>
+        </div>
+        <div class="team-card" style="width: 18%;">
+          <div class="team-avatar">IC</div>
+          <div class="team-role">Capacitación</div>
+          <div class="team-seniority" style="color: #4FE07B; background: rgba(79, 224, 123, 0.1);">Esp.</div>
+        </div>
+      </div>
+      <div class="team-footer-text">
+        <strong>Modelo Campers:</strong> Talento junior calificado y de alto rendimiento que apoya en la programación ágil, dirigido por directores sénior, garantizando transferibilidad del código.
+      </div>
+    </div>
+    <footer class="slide-footer">
+      <span>CAMPUSLANDS · EXPLORAMOS · DESPEGAMOS · CONQUISTAMOS</span>
+      <span>PROPUESTA MIAMI AQUA TOURS FULL SERVICE 2026</span>
+      <span>11</span>
+    </footer>
+  </div>
+
+  <!-- Slide 12: Cronograma Fásico -->
+  <div class="slide">
+    <header class="slide-header">
+      <img src="assets/logo-campuslands.png" alt="Campuslands Full Service" class="logo-brand">
+      <img src="assets/logo-cliente.png" alt="Miami Aqua Tours" class="logo-client">
+    </header>
+    <div class="slide-content">
+      <h2>11 CRONOGRAMA</h2>
+      <h3>Entrega modular por fases con un esfuerzo total estimado de 3.652 horas.</h3>
+      <div class="timeline">
+        <div class="timeline-node active">
+          <div class="timeline-circle">1</div>
+          <div class="timeline-title">Fase 1</div>
+          <div class="timeline-desc">Arquitectura del proyecto, UX de pantallas y estructura del agente IA.</div>
+        </div>
+        <div class="timeline-node">
+          <div class="timeline-circle">2</div>
+          <div class="timeline-title">Fase 2</div>
+          <div class="timeline-desc">Administración SaaS, configuración global e integraciones de Square.</div>
+        </div>
+        <div class="timeline-node">
+          <div class="timeline-circle">3</div>
+          <div class="timeline-title">Fase 3</div>
+          <div class="timeline-desc">Salidas, disponibilidad, calendario de barcos y portal booking web.</div>
+        </div>
+        <div class="timeline-node">
+          <div class="timeline-circle">4</div>
+          <div class="timeline-title">Fase 4</div>
+          <div class="timeline-desc">Punto de venta POS iPad, check-in QR y POS de bar e inventario.</div>
+        </div>
+        <div class="timeline-node">
+          <div class="timeline-circle">5</div>
+          <div class="timeline-title">Fase 5</div>
+          <div class="timeline-desc">CRM, reportes, dashboards, pruebas de seguridad, QA y Go-Live.</div>
+        </div>
+      </div>
+      <div class="timeline-footer">
+        Metodología ágil estructurada en <strong>sprints quincenales</strong> con demostraciones funcionales de avances al cliente.
+      </div>
+    </div>
+    <footer class="slide-footer">
+      <span>CAMPUSLANDS · EXPLORAMOS · DESPEGAMOS · CONQUISTAMOS</span>
+      <span>PROPUESTA MIAMI AQUA TOURS FULL SERVICE 2026</span>
+      <span>12</span>
+    </footer>
+  </div>
+
+  <!-- Slide 13: Matriz de Transformación (Antes y Después) -->
+  <div class="slide">
+    <header class="slide-header">
+      <img src="assets/logo-campuslands.png" alt="Campuslands Full Service" class="logo-brand">
+      <img src="assets/logo-cliente.png" alt="Miami Aqua Tours" class="logo-client">
+    </header>
+    <div class="slide-content">
+      <h2>12 LO QUE CAMBIA</h2>
+      <h3>Resumen del impacto directo de la plataforma en la operación diaria.</h3>
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th>Dolor de Hoy (Operación Manual)</th>
+            <th>Con la Plataforma (Operación Integrada)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="table-cross">✕</span> Disponibilidad y cupos gestionados de manera manual entre canales (riesgo de sobreventa).</td>
+            <td><span class="table-check">✓</span> Sincronización automática de cupos desde el booking online, POS iPad y barcos.</td>
+          </tr>
+          <tr>
+            <td><span class="table-cross">✕</span> Proceso de abordaje lento sin validación digital ni manifiesto en vivo.</td>
+            <td><span class="table-check">✓</span> Escaneo de QR ágil por orden de grupo con generación de manifiesto digital al instante.</td>
+          </tr>
+          <tr>
+            <td><span class="table-cross">✕</span> Ventas en el bar del barco y stock de botellas sin conexión con cada salida.</td>
+            <td><span class="table-check">✓</span> POS de bar e inventario vinculados directamente a la salida para cuadre automático.</td>
+          </tr>
+          <tr>
+            <td><span class="table-cross">✕</span> Cada operador turístico administrado por sistemas o planillas separadas.</td>
+            <td><span class="table-check">✓</span> Plataforma multiempresa: múltiples operadores gestionados en un solo software (SaaS).</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <footer class="slide-footer">
+      <span>CAMPUSLANDS · EXPLORAMOS · DESPEGAMOS · CONQUISTAMOS</span>
+      <span>PROPUESTA MIAMI AQUA TOURS FULL SERVICE 2026</span>
+      <span>13</span>
+    </footer>
+  </div>
+
+  <!-- Slide 14: Inversión -->
+  <div class="slide">
+    <header class="slide-header">
+      <img src="assets/logo-campuslands.png" alt="Campuslands Full Service" class="logo-brand">
+      <img src="assets/logo-cliente.png" alt="Miami Aqua Tours" class="logo-client">
+    </header>
+    <div class="slide-content">
+      <h2>13 INVERSIÓN</h2>
+      <h3>Presupuesto consolidado en COP para el proyecto completo.</h3>
+      <div class="investment-container">
+        <div class="investment-box">
+          <div class="investment-label">Proyecto Completo</div>
+          <div class="investment-value">$161.340.551,95 COP</div>
+          <div class="investment-notes">Valores de acuerdo a estimación por rol (3.652 horas). No incluye impuestos.</div>
+        </div>
+        <div class="investment-list">
+          <div class="investment-item">
+            <span class="bullet">✓</span>
+            <span>Desarrollo de los 22 módulos operativos y administrativos descritos en el alcance.</span>
+          </div>
+          <div class="investment-item">
+            <span class="bullet">✓</span>
+            <span>Consola de administración multiempresa (SaaS) con panel de Super Administrador corporativo.</span>
+          </div>
+          <div class="investment-item">
+            <span class="bullet">✓</span>
+            <span>Despliegue de los portales web, POS iPad con integraciones de Square y QR.</span>
+          </div>
+          <div class="investment-item">
+            <span class="bullet">✓</span>
+            <span>Garantía de estabilización (2 semanas), transferencia de conocimiento y capacitación formal.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="slide-footer">
+      <span>CAMPUSLANDS · EXPLORAMOS · DESPEGAMOS · CONQUISTAMOS</span>
+      <span>PROPUESTA MIAMI AQUA TOURS FULL SERVICE 2026</span>
+      <span>14</span>
+    </footer>
+  </div>
+
+  <!-- Slide 15: Forma de Pago y Garantía -->
+  <div class="slide">
+    <header class="slide-header">
+      <img src="assets/logo-campuslands.png" alt="Campuslands Full Service" class="logo-brand">
+      <img src="assets/logo-cliente.png" alt="Miami Aqua Tours" class="logo-client">
+    </header>
+    <div class="slide-content">
+      <h2>14 FORMA DE PAGO Y GARANTÍA</h2>
+      <h3>Flujo comercial estructurado para el control mutuo del proyecto.</h3>
+      <div class="cols-2">
+        <div class="payment-steps">
+          <div class="payment-step">
+            <div class="payment-percent">40%</div>
+            <div class="payment-details">
+              <div class="payment-title">Anticipo de inicio</div>
+              <div class="payment-desc">A la firma del contrato y kick-off: <span class="payment-value-small">$64.536.220,78 COP</span></div>
+            </div>
+          </div>
+          <div class="payment-step">
+            <div class="payment-percent">40%</div>
+            <div class="payment-details">
+              <div class="payment-title">Hito intermedio</div>
+              <div class="payment-desc">Al completar la Fase 3 de desarrollo: <span class="payment-value-small">$64.536.220,78 COP</span></div>
+            </div>
+          </div>
+          <div class="payment-step">
+            <div class="payment-percent">20%</div>
+            <div class="payment-details">
+              <div class="payment-title">Entrega y Cierre</div>
+              <div class="payment-desc">Tras el go-live de producción y estabilización: <span class="payment-value-small">$32.268.110,39 COP</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="list-bullets-negative" style="gap: 12px;">
+          <div style="font-size: 10pt; font-weight: bold; text-transform: uppercase; color: var(--accent-violet);">Garantía post-proyecto:</div>
+          <div class="bullet-negative">
+            <span class="icon" style="color: var(--accent-green);">✓</span>
+            <span class="text">2 semanas de acompañamiento exclusivo para soporte inmediato y estabilización del software.</span>
+          </div>
+          <div class="bullet-negative">
+            <span class="icon" style="color: var(--accent-green);">✓</span>
+            <span class="text">Soporte post go-live para resolución de incidencias o bugs críticos durante el periodo de garantía comercial.</span>
+          </div>
+          <div class="bullet-negative">
+            <span class="icon" style="color: var(--accent-green);">✓</span>
+            <span class="text">Auditoría del código y control formal de cambios de alcance documentados y aprobados transparentemente.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="slide-footer">
+      <span>CAMPUSLANDS · EXPLORAMOS · DESPEGAMOS · CONQUISTAMOS</span>
+      <span>PROPUESTA MIAMI AQUA TOURS FULL SERVICE 2026</span>
+      <span>15</span>
+    </footer>
+  </div>
+
+  <!-- Slide 16: Cierre y Próximos Pasos (CTA) -->
+  <div class="slide">
+    <header class="slide-header">
+      <img src="assets/logo-campuslands.png" alt="Campuslands Full Service" class="logo-brand">
+      <img src="assets/logo-cliente.png" alt="Miami Aqua Tours" class="logo-client">
+    </header>
+    <div class="slide-content">
+      <h2>15 CIERRE Y PRÓXIMOS PASOS</h2>
+      <h3>¿Cómo iniciamos el desarrollo del software de Miami Aqua Tours?</h3>
+      <div class="cta-container">
+        <div class="cta-steps">
+          <div class="cta-step">
+            <div class="cta-num">1</div>
+            <div class="cta-text">Aprobación técnica y comercial de la propuesta</div>
+          </div>
+          <div class="cta-step">
+            <div class="cta-num">2</div>
+            <div class="cta-text">Firma del contrato legal y asignación de la tripulación</div>
+          </div>
+          <div class="cta-step">
+            <div class="cta-num">3</div>
+            <div class="cta-text">Reunión de Kick-off y arranque del primer Sprint</div>
+          </div>
+        </div>
+        <div class="cta-pitch">
+          <div class="cta-quote">
+            "Innovar dejó de ser una opción: es la ventaja competitiva que define quién lidera. El futuro operativo de Miami Aqua Tours no se espera, se construye — demos el primer paso juntos."
+          </div>
+          <div class="cta-contact">
+            Para aprobaciones y dudas comerciales, contactar a:<br>
+            <span class="cta-contact-val">Director Comercial — Campuslands Full Service</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="slide-footer">
+      <span>CAMPUSLANDS · EXPLORAMOS · DESPEGAMOS · CONQUISTAMOS</span>
+      <span>PROPUESTA MIAMI AQUA TOURS FULL SERVICE 2026</span>
+      <span>16</span>
+    </footer>
+  </div>
+
+</body>
+</html>

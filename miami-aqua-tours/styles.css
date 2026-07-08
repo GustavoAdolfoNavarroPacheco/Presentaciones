@@ -1,3 +1,16 @@
+/* Fuentes empaquetadas localmente (autocontenido, funciona en Vercel) */
+@font-face { font-family:'Playfair Display'; src:url('assets/fonts/PlayfairDisplay-Regular.ttf')    format('truetype'); font-weight:400; font-style:normal; font-display:swap; }
+@font-face { font-family:'Playfair Display'; src:url('assets/fonts/PlayfairDisplay-Bold.ttf')       format('truetype'); font-weight:700; font-style:normal; font-display:swap; }
+@font-face { font-family:'Playfair Display'; src:url('assets/fonts/PlayfairDisplay-Black.ttf')      format('truetype'); font-weight:900; font-style:normal; font-display:swap; }
+@font-face { font-family:'Playfair Display'; src:url('assets/fonts/PlayfairDisplay-Italic.ttf')     format('truetype'); font-weight:400; font-style:italic; font-display:swap; }
+@font-face { font-family:'Playfair Display'; src:url('assets/fonts/PlayfairDisplay-BoldItalic.ttf') format('truetype'); font-weight:700; font-style:italic; font-display:swap; }
+@font-face { font-family:'Poppins'; src:url('assets/fonts/Poppins-Light.ttf')    format('truetype'); font-weight:300; font-style:normal; font-display:swap; }
+@font-face { font-family:'Poppins'; src:url('assets/fonts/Poppins-Regular.ttf')  format('truetype'); font-weight:400; font-style:normal; font-display:swap; }
+@font-face { font-family:'Poppins'; src:url('assets/fonts/Poppins-Italic.ttf')   format('truetype'); font-weight:400; font-style:italic; font-display:swap; }
+@font-face { font-family:'Poppins'; src:url('assets/fonts/Poppins-Medium.ttf')   format('truetype'); font-weight:500; font-style:normal; font-display:swap; }
+@font-face { font-family:'Poppins'; src:url('assets/fonts/Poppins-SemiBold.ttf') format('truetype'); font-weight:600; font-style:normal; font-display:swap; }
+@font-face { font-family:'Poppins'; src:url('assets/fonts/Poppins-Bold.ttf')     format('truetype'); font-weight:700; font-style:normal; font-display:swap; }
+
 :root {
   /* Colors */
   --bg-dark: #0A0E1A;
@@ -9,8 +22,8 @@
   --accent-green: #4FE07B;
   
   /* Typography */
-  --font-title: 'Cambria', Georgia, serif;
-  --font-body: 'Calibri', 'Inter', sans-serif;
+  --font-title: 'Playfair Display', Georgia, serif;
+  --font-body: 'Poppins', 'Inter', sans-serif;
   
   /* Slide Dimensions (16:9) */
   --slide-width: 11in;

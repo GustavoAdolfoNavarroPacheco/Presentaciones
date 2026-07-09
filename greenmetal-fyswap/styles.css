@@ -152,13 +152,14 @@ body{ display:flex; flex-direction:column; align-items:center; padding:24px; }
 .cards6 .mod-card li{ font-size:8pt; padding-left:13px; line-height:1.32; }
 .cards6 .mod-card li::before{ top:6px; width:5px; height:5px; }
 
-/* ---------- 10c. LAYOUT: Timeline de 6 fases ---------- */
-.timeline{ position:relative; display:grid; grid-template-columns:repeat(6,1fr); gap:.16in; margin-top:.42in; align-content:start; }
-.timeline::before{ content:""; position:absolute; top:-0.02in; left:22px; right:22px; height:2px; background:var(--grad-brand); opacity:.45; }
-.phase{ position:relative; padding-top:.28in; }
-.phase .node{ position:absolute; top:-0.14in; left:0; width:36px; height:36px; border-radius:11px; display:grid; place-items:center; font-family:var(--font-display); font-weight:900; font-size:13pt; color:#06180F; background:var(--grad-brand); box-shadow:0 4px 14px rgba(31,182,166,.35); }
-.phase h4{ font-family:var(--font-label); font-weight:700; font-size:8.5pt; line-height:1.22; color:var(--text-hi); margin-bottom:7px; }
-.phase p{ font-family:var(--font-body); font-weight:300; font-size:7.5pt; line-height:1.34; color:var(--text-lo); }
+/* ---------- 10c. LAYOUT: Timeline de 6 fases (2 filas x 3) ---------- */
+.timeline{ display:flex; flex-direction:column; gap:.56in; margin-top:.5in; }
+.timeline-row{ position:relative; display:grid; grid-template-columns:repeat(3,1fr); gap:.34in; }
+.timeline-row::before{ content:""; position:absolute; top:-0.02in; left:24px; right:24px; height:2px; background:var(--grad-brand); opacity:.45; }
+.phase{ position:relative; padding-top:.36in; }
+.phase .node{ position:absolute; top:-0.16in; left:0; width:42px; height:42px; border-radius:12px; display:grid; place-items:center; font-family:var(--font-display); font-weight:900; font-size:15pt; color:#06180F; background:var(--grad-brand); box-shadow:0 4px 14px rgba(31,182,166,.35); }
+.phase h4{ font-family:var(--font-label); font-weight:700; font-size:10.5pt; line-height:1.24; color:var(--text-hi); margin-bottom:9px; }
+.phase p{ font-family:var(--font-body); font-weight:300; font-size:9pt; line-height:1.42; color:var(--text-lo); }
 
 /* ---------- 10d. LAYOUT: Grid de controles QA/QC ---------- */
 .qc-grid{ display:grid; grid-template-columns:repeat(5,1fr); gap:.2in; margin-top:.3in; }

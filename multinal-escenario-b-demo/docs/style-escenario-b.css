@@ -1,0 +1,188 @@
+/* ============================================================
+   ESCENARIO B — Estilos propios del deck original (multinal-escenario-b)
+   Insertados TAL CUAL (misma paleta/tipografía/layout que el deck fuente),
+   pero namespaced bajo .b-deck para no chocar con las clases genéricas
+   del shell de la demo (.gradient-text, .contact-card, .badge-confidential, etc.)
+   ni con la lógica de navegación de diapositivas del demo (.slide / .active).
+   ============================================================ */
+
+/* ---------- 1. FUENTES LOCALES ---------- */
+@font-face { font-family:'Playfair Display'; src:url('assets/fonts/PlayfairDisplay-Regular.ttf')     format('truetype'); font-weight:400; font-style:normal; font-display:swap; }
+@font-face { font-family:'Playfair Display'; src:url('assets/fonts/PlayfairDisplay-Bold.ttf')        format('truetype'); font-weight:700; font-style:normal; font-display:swap; }
+@font-face { font-family:'Playfair Display'; src:url('assets/fonts/PlayfairDisplay-Black.ttf')       format('truetype'); font-weight:900; font-style:normal; font-display:swap; }
+@font-face { font-family:'Playfair Display'; src:url('assets/fonts/PlayfairDisplay-Italic.ttf')      format('truetype'); font-weight:400; font-style:italic; font-display:swap; }
+@font-face { font-family:'Playfair Display'; src:url('assets/fonts/PlayfairDisplay-BlackItalic.ttf') format('truetype'); font-weight:900; font-style:italic; font-display:swap; }
+@font-face { font-family:'DM Serif Display'; src:url('assets/fonts/DMSerifDisplay-Regular.ttf')      format('truetype'); font-weight:400; font-style:normal; font-display:swap; }
+@font-face { font-family:'Montserrat';       src:url('assets/fonts/Montserrat-Regular.ttf')          format('truetype'); font-weight:400; font-style:normal; font-display:swap; }
+@font-face { font-family:'Montserrat';       src:url('assets/fonts/Montserrat-Medium.ttf')           format('truetype'); font-weight:500; font-style:normal; font-display:swap; }
+@font-face { font-family:'Montserrat';       src:url('assets/fonts/Montserrat-SemiBold.ttf')         format('truetype'); font-weight:600; font-style:normal; font-display:swap; }
+@font-face { font-family:'Montserrat';       src:url('assets/fonts/Montserrat-Bold.ttf')             format('truetype'); font-weight:700; font-style:normal; font-display:swap; }
+@font-face { font-family:'Poppins';          src:url('assets/fonts/Poppins-Light.ttf')               format('truetype'); font-weight:300; font-style:normal; font-display:swap; }
+@font-face { font-family:'Poppins';          src:url('assets/fonts/Poppins-Regular.ttf')             format('truetype'); font-weight:400; font-style:normal; font-display:swap; }
+@font-face { font-family:'Poppins';          src:url('assets/fonts/Poppins-Medium.ttf')              format('truetype'); font-weight:500; font-style:normal; font-display:swap; }
+@font-face { font-family:'Poppins';          src:url('assets/fonts/Poppins-SemiBold.ttf')            format('truetype'); font-weight:600; font-style:normal; font-display:swap; }
+
+/* ---------- 2. TOKENS — scoped a .b-deck (no :root, para no pisar el tema del shell) ---------- */
+.b-deck{
+  --b-bg-0:#F2F3F5; --b-bg-1:#E9EBEF; --b-bg-2:#FFFFFF; --b-bg-deep:#E2E4E9;
+  --b-bg-glow-a:rgba(255,122,0,.09); --b-bg-glow-b:rgba(59,42,140,.09);
+  --b-bg-wash:linear-gradient(135deg, rgba(255,155,61,.07) 0%, rgba(255,122,0,.05) 32%, rgba(122,90,209,.05) 66%, rgba(59,42,140,.07) 100%);
+  --b-text-hi:#14161B; --b-text-mid:#3D4451; --b-text-lo:#6B7280; --b-text-faint:#9CA3AF;
+  --b-cyan:#A6480A; --b-blue:#FF7A00; --b-violet:#5A3FBF; --b-magenta:#3B2A8C;
+  --b-grad-brand:linear-gradient(100deg,#FF9B3D 0%,#FF7A00 38%,#7A5AD1 72%,#3B2A8C 100%);
+  --b-grad-cyan:linear-gradient(120deg,#FF9B3D,#FF7A00);
+  --b-grad-violet:linear-gradient(120deg,#7A5AD1,#3B2A8C);
+  --b-card-border:1px solid rgba(20,25,35,.10);
+  --b-dot-confidential:#0E8FB0; --b-dot-confidential-glow:rgba(14,143,176,.45);
+  --b-font-display:'Playfair Display',Georgia,serif;
+  --b-font-serif-alt:'DM Serif Display',Georgia,serif;
+  --b-font-label:'Montserrat','Segoe UI',sans-serif;
+  --b-font-body:'Poppins','Segoe UI',sans-serif;
+  --b-pad:.46in .66in .4in; --b-radius:14px;
+}
+
+/* ---------- 3. LÁMINA (namespaced: bdeck-slide en vez de .slide para no chocar con la nav del demo) ---------- */
+.b-deck .bdeck-slide{
+  width:100%; height:100%; overflow:hidden; border-radius:var(--b-radius);
+  font-family:var(--b-font-body); color:var(--b-text-hi);
+  background:
+    radial-gradient(120% 90% at 82% 18%, var(--b-bg-glow-a) 0%, transparent 45%),
+    radial-gradient(120% 120% at 12% 92%, var(--b-bg-glow-b) 0%, transparent 50%),
+    var(--b-bg-wash),
+    linear-gradient(150deg, var(--b-bg-0) 0%, var(--b-bg-1) 55%, var(--b-bg-deep) 100%);
+  box-shadow:0 10px 40px rgba(20,25,35,.12);
+}
+.b-deck .bdeck-slide *{ box-sizing:border-box; }
+.b-deck .bdeck-slide.glow-a{ background:
+  radial-gradient(90% 80% at 15% 20%, var(--b-bg-glow-a) 0%, transparent 45%),
+  radial-gradient(110% 110% at 95% 95%, var(--b-bg-glow-b) 0%, transparent 50%),
+  var(--b-bg-wash),
+  linear-gradient(160deg,var(--b-bg-0),var(--b-bg-1) 60%,var(--b-bg-deep)); }
+.b-deck .bdeck-slide.glow-b{ background:
+  radial-gradient(80% 70% at 88% 15%, var(--b-bg-glow-b) 0%, transparent 45%),
+  radial-gradient(120% 120% at 8% 90%, var(--b-bg-glow-a) 0%, transparent 50%),
+  var(--b-bg-wash),
+  linear-gradient(140deg,var(--b-bg-0),var(--b-bg-1) 60%,var(--b-bg-deep)); }
+
+/* ---------- 4. UTILIDADES ---------- */
+.b-deck .b-gradient-text{ background:var(--b-grad-brand); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; color:transparent; }
+.b-deck .b-gt-cyan{ background:var(--b-grad-cyan); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; color:transparent; }
+.b-deck .b-gt-violet{ background:var(--b-grad-violet); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; color:transparent; }
+
+.b-deck .b-eyebrow{ font-family:var(--b-font-label); font-weight:600; font-size:9.5pt; letter-spacing:.34em; text-transform:uppercase; color:var(--b-cyan); }
+
+.b-deck .b-corner{ position:absolute; width:42px; height:42px; border-color:rgba(255,122,0,.5); z-index:4; }
+.b-deck .b-corner.tl{ top:26px; left:26px; border-top:2px solid; border-left:2px solid; border-top-left-radius:4px; }
+.b-deck .b-corner.tr{ top:26px; right:26px; border-top:2px solid; border-right:2px solid; border-top-right-radius:4px; }
+.b-deck .b-corner.bl{ bottom:26px; left:26px; border-bottom:2px solid; border-left:2px solid; border-bottom-left-radius:4px; }
+.b-deck .b-corner.br{ bottom:26px; right:26px; border-bottom:2px solid; border-right:2px solid; border-bottom-right-radius:4px; }
+
+.b-deck .b-deco-rings{ position:absolute; top:50%; right:-7%; transform:translateY(-50%); width:5.2in; height:5.2in; z-index:1; pointer-events:none; }
+.b-deck .b-deco-rings span{ position:absolute; inset:0; border-radius:50%; border:1px solid rgba(20,25,35,.07); }
+.b-deck .b-deco-rings span:nth-child(2){ inset:.7in; border-color:rgba(20,25,35,.055); }
+.b-deck .b-deco-rings span:nth-child(3){ inset:1.4in; border-color:rgba(20,25,35,.04); }
+.b-deck .b-deco-rings span:nth-child(4){ inset:1.95in; border:1px solid rgba(255,122,0,.2); box-shadow:0 0 40px rgba(255,122,0,.12) inset; }
+
+.b-deck .b-badge-confidential{ display:inline-flex; align-items:center; gap:9px; font-family:var(--b-font-label); font-weight:600; font-size:8.5pt; letter-spacing:.26em; text-transform:uppercase; color:var(--b-text-mid); }
+.b-deck .b-badge-confidential::before{ content:""; width:8px; height:8px; border-radius:50%; background:var(--b-dot-confidential); box-shadow:0 0 10px 1px var(--b-dot-confidential-glow); }
+
+/* ---------- 5. PORTADA ---------- */
+.b-deck .b-cover{ display:grid; grid-template-rows:auto 1fr auto; padding:.72in; }
+.b-deck .b-cover__topbar{ display:flex; align-items:center; justify-content:space-between; position:relative; z-index:5; }
+.b-deck .b-cover__brand{ height:26px; width:auto; opacity:.96; }
+.b-deck .b-cover__body{ position:relative; z-index:5; align-self:center; max-width:8.4in; }
+.b-deck .b-cover__eyebrow{ margin-bottom:20px; }
+.b-deck .b-cover__scenario{ display:inline-flex; align-items:center; gap:9px; font-family:var(--b-font-label); font-weight:700; font-size:9.5pt; letter-spacing:.22em; text-transform:uppercase; color:var(--b-text-hi); background:var(--b-grad-brand); padding:7px 16px; border-radius:99px; margin-bottom:18px; }
+.b-deck .b-cover__title{ font-family:var(--b-font-display); font-weight:900; font-size:44pt; line-height:1.04; letter-spacing:-.5px; color:var(--b-text-hi); }
+.b-deck .b-cover__title em{ display:inline; font-style:italic; font-weight:900; }
+.b-deck .b-cover__kicker{ margin-top:18px; font-family:var(--b-font-label); font-weight:500; font-size:9.5pt; letter-spacing:.12em; text-transform:uppercase; color:var(--b-text-lo); }
+.b-deck .b-cover__client{ display:flex; align-items:center; gap:16px; margin-top:26px; }
+.b-deck .b-cover__client-para{ font-family:var(--b-font-label); font-weight:700; font-size:11pt; letter-spacing:.32em; color:var(--b-text-mid); }
+.b-deck .b-cover__client-logo{ height:44px; width:auto; }
+.b-deck .b-cover__subtitle{ margin-top:16px; font-family:var(--b-font-body); font-weight:300; font-size:13pt; color:var(--b-text-mid); }
+.b-deck .b-cover__meta{ position:relative; z-index:5; display:grid; grid-template-columns:1.5fr 1.5fr 1fr 1fr; gap:26px; padding-top:22px; border-top:1px solid rgba(20,25,35,.12); }
+.b-deck .b-meta-item__label{ font-family:var(--b-font-label); font-weight:600; font-size:7.5pt; letter-spacing:.22em; text-transform:uppercase; color:var(--b-cyan); margin-bottom:8px; }
+.b-deck .b-meta-item__value{ font-family:var(--b-font-body); font-weight:500; font-size:10.5pt; line-height:1.35; color:var(--b-text-hi); }
+
+/* ---------- 6. LÁMINAS INTERNAS: estructura ---------- */
+.b-deck .b-internal{ display:grid; grid-template-rows:38px 1fr 20px; padding:var(--b-pad); gap:.16in; }
+.b-deck .b-s-header{ display:flex; align-items:center; justify-content:space-between; position:relative; z-index:5; }
+.b-deck .b-s-header .b-brand{ height:20px; width:auto; opacity:.95; }
+.b-deck .b-s-header .b-client{ height:30px; width:auto; opacity:.98; }
+.b-deck .b-s-footer{ display:flex; align-items:center; justify-content:space-between; position:relative; z-index:5; font-family:var(--b-font-label); font-weight:500; font-size:6.5pt; letter-spacing:.18em; text-transform:uppercase; color:var(--b-text-faint); }
+.b-deck .b-s-footer .b-pg{ color:var(--b-cyan); font-weight:700; }
+.b-deck .b-s-body{ position:relative; z-index:5; display:flex; flex-direction:column; min-height:0; overflow-y:auto; }
+
+.b-deck .b-s-eyebrow{ font-family:var(--b-font-label); font-weight:600; font-size:8.5pt; letter-spacing:.28em; text-transform:uppercase; color:var(--b-cyan); margin-bottom:8px; }
+.b-deck .b-s-title{ font-family:var(--b-font-display); font-weight:700; font-size:22pt; line-height:1.08; color:var(--b-text-hi); }
+.b-deck .b-s-title em{ font-style:italic; font-weight:900; }
+.b-deck .b-s-lead{ margin-top:7px; font-family:var(--b-font-body); font-weight:300; font-size:9.8pt; line-height:1.38; color:var(--b-text-mid); max-width:8.6in; }
+
+/* ---------- 7. LAYOUT: Split (Diagnóstico) ---------- */
+.b-deck .b-split{ flex:1; display:grid; grid-template-columns:.82fr 1.18fr; gap:.5in; align-items:center; margin-top:.24in; }
+.b-deck .b-quote-card{ position:relative; background:var(--b-bg-2); border:var(--b-card-border); border-radius:12px; padding:.34in .34in .34in .46in; overflow:hidden; }
+.b-deck .b-quote-card::before{ content:""; position:absolute; left:0; top:0; bottom:0; width:5px; background:var(--b-grad-brand); }
+.b-deck .b-quote-card p{ font-family:var(--b-font-display); font-style:italic; font-weight:400; font-size:15pt; line-height:1.4; color:var(--b-text-hi); }
+.b-deck .b-quote-card .b-qm{ font-family:var(--b-font-display); font-weight:900; font-size:34pt; line-height:0; color:var(--b-cyan); display:block; height:16px; }
+.b-deck .b-pain-list{ display:flex; flex-direction:column; gap:.19in; list-style:none; }
+.b-deck .b-pain-item{ display:flex; align-items:flex-start; gap:14px; }
+.b-deck .b-pain-item .b-ico{ flex:none; width:26px; height:26px; border-radius:8px; display:grid; place-items:center; background:linear-gradient(135deg,rgba(255,122,0,.16),rgba(122,90,209,.14)); color:var(--b-cyan); font-weight:700; font-size:12pt; margin-top:1px; }
+.b-deck .b-pain-item .b-tx{ font-family:var(--b-font-body); font-weight:400; font-size:10pt; line-height:1.4; color:var(--b-text-mid); }
+
+/* ---------- 8. LAYOUT: Mapa del Ecosistema ---------- */
+.b-deck .b-eco-map{ flex:1; display:flex; flex-direction:column; gap:.22in; margin-top:.18in; justify-content:center; }
+.b-deck .b-eco-row{ display:grid; grid-template-columns:repeat(3,1fr); gap:.2in; }
+.b-deck .b-eco-chip{ background:var(--b-bg-2); border:var(--b-card-border); border-radius:12px; padding:.2in .22in; display:flex; align-items:center; gap:14px; position:relative; overflow:hidden; }
+.b-deck .b-eco-chip::before{ content:""; position:absolute; left:0; top:0; bottom:0; width:4px; background:var(--b-grad-brand); }
+.b-deck .b-eco-chip .b-n{ font-family:var(--b-font-display); font-weight:900; font-size:15pt; flex:none; min-width:38px; }
+.b-deck .b-eco-chip .b-t{ font-family:var(--b-font-label); font-weight:700; font-size:9.5pt; color:var(--b-text-hi); line-height:1.25; }
+.b-deck .b-eco-agents{ background:linear-gradient(120deg,rgba(255,122,0,.09),rgba(122,90,209,.09)); border:var(--b-card-border); border-radius:14px; padding:.22in .26in; }
+.b-deck .b-eco-agents .b-lbl{ font-family:var(--b-font-label); font-weight:700; font-size:8pt; letter-spacing:.2em; text-transform:uppercase; color:var(--b-cyan); }
+.b-deck .b-eco-agents-row{ display:grid; grid-template-columns:repeat(7,1fr); gap:.14in; margin-top:.16in; }
+.b-deck .b-eco-agent-chip{ text-align:center; background:var(--b-bg-2); border:var(--b-card-border); border-radius:10px; padding:.14in .08in; }
+.b-deck .b-eco-agent-chip .b-n{ font-family:var(--b-font-display); font-weight:900; font-size:11pt; margin-bottom:4px; }
+.b-deck .b-eco-agent-chip span{ display:block; font-family:var(--b-font-label); font-weight:600; font-size:6.7pt; line-height:1.25; color:var(--b-text-mid); }
+
+/* ---------- 9. LAYOUT: Grid de funcionalidades (módulos) ---------- */
+.b-deck .b-feat-grid{ flex:1; display:grid; gap:.14in; margin-top:.1in; align-content:center; min-height:0; }
+.b-deck .b-feat-card{ background:var(--b-bg-2); border:var(--b-card-border); border-radius:12px; padding:.15in .17in; display:flex; flex-direction:column; position:relative; overflow:hidden; }
+.b-deck .b-feat-card::before{ content:""; position:absolute; left:0; right:0; top:0; height:3px; background:var(--b-grad-brand); }
+.b-deck .b-feat-card .b-rf{ display:block; font-family:var(--b-font-label); font-weight:700; font-size:6.3pt; letter-spacing:.1em; margin-bottom:5px; }
+.b-deck .b-feat-card h4{ font-family:var(--b-font-label); font-weight:700; font-size:8.8pt; color:var(--b-text-hi); margin-bottom:5px; line-height:1.2; }
+.b-deck .b-feat-card p{ font-family:var(--b-font-body); font-weight:300; font-size:7.5pt; line-height:1.28; color:var(--b-text-lo); }
+
+.b-deck .b-feat-card--lg{ padding:.3in .28in; }
+.b-deck .b-feat-card--lg h4{ font-size:11.5pt; margin-bottom:10px; }
+.b-deck .b-feat-card--lg p{ font-size:9pt; line-height:1.44; }
+.b-deck .b-feat-card--lg .b-rf{ font-size:7.5pt; margin-bottom:10px; }
+
+.b-deck .b-tag-row{ display:flex; flex-wrap:wrap; gap:8px; margin-top:.18in; }
+.b-deck .b-tag-pill{ font-family:var(--b-font-label); font-weight:600; font-size:7.5pt; letter-spacing:.08em; color:var(--b-text-mid); background:rgba(20,25,35,.04); border:1px solid rgba(20,25,35,.12); border-radius:99px; padding:5px 12px; }
+.b-deck .b-tag-pill b{ color:var(--b-cyan); font-weight:700; }
+
+/* ---------- 10. LAYOUT: Inversión ---------- */
+.b-deck .b-invest{ flex:1; display:grid; grid-template-columns:1.05fr .95fr; gap:.6in; align-items:center; margin-top:.2in; }
+.b-deck .b-invest__num .b-cap{ font-family:var(--b-font-label); font-weight:600; font-size:9pt; letter-spacing:.24em; text-transform:uppercase; color:var(--b-cyan); margin-bottom:10px; }
+.b-deck .b-invest__num .b-big{ font-family:var(--b-font-display); font-weight:900; font-size:34pt; line-height:1.05; letter-spacing:-.5px; }
+.b-deck .b-invest__num .b-sub{ margin-top:14px; font-family:var(--b-font-body); font-weight:300; font-size:10.5pt; line-height:1.45; color:var(--b-text-mid); max-width:4.5in; }
+.b-deck .b-pay{ display:flex; flex-direction:column; gap:.16in; }
+.b-deck .b-pay-row{ display:flex; align-items:center; gap:16px; background:var(--b-bg-2); border:var(--b-card-border); border-radius:12px; padding:.2in .26in; }
+.b-deck .b-pay-row .b-pct{ flex:none; font-family:var(--b-font-display); font-weight:900; font-size:16pt; min-width:74px; }
+.b-deck .b-pay-row .b-txt b{ font-family:var(--b-font-label); font-weight:700; font-size:9.5pt; color:var(--b-text-hi); display:block; margin-bottom:2px; letter-spacing:.02em; }
+.b-deck .b-pay-row .b-txt span{ font-family:var(--b-font-body); font-weight:300; font-size:8.5pt; color:var(--b-text-lo); }
+.b-deck .b-pay-note{ font-family:var(--b-font-body); font-weight:300; font-size:8.5pt; line-height:1.4; color:var(--b-text-lo); padding-left:4px; }
+
+/* ---------- 11. LAYOUT: Cierre / CTA ---------- */
+.b-deck .b-cta{ flex:1; display:grid; grid-template-columns:1.15fr .85fr; gap:.55in; align-items:center; margin-top:.2in; }
+.b-deck .b-steps{ display:flex; flex-direction:column; gap:.2in; }
+.b-deck .b-step{ display:flex; align-items:center; gap:16px; }
+.b-deck .b-step .b-dot{ flex:none; width:34px; height:34px; border-radius:50%; display:grid; place-items:center; font-family:var(--b-font-display); font-weight:900; font-size:13pt; color:#1A0F05; background:var(--b-grad-brand); }
+.b-deck .b-step .b-lab b{ font-family:var(--b-font-label); font-weight:700; font-size:11pt; color:var(--b-text-hi); display:block; }
+.b-deck .b-step .b-lab span{ font-family:var(--b-font-body); font-weight:300; font-size:9pt; color:var(--b-text-lo); }
+.b-deck .b-step .b-cn{ width:2px; height:14px; margin-left:16px; background:linear-gradient(var(--b-blue),transparent); }
+.b-deck .b-contact-card{ position:relative; background:var(--b-bg-2); border:var(--b-card-border); border-radius:16px; padding:.4in .38in; overflow:hidden; }
+.b-deck .b-contact-card::before{ content:""; position:absolute; left:0; top:0; bottom:0; width:5px; background:var(--b-grad-brand); }
+.b-deck .b-contact-card .b-role{ font-family:var(--b-font-label); font-weight:600; font-size:8pt; letter-spacing:.2em; text-transform:uppercase; color:var(--b-cyan); margin-bottom:10px; }
+.b-deck .b-contact-card .b-name{ font-family:var(--b-font-display); font-weight:700; font-size:20pt; color:var(--b-text-hi); line-height:1.1; margin-bottom:16px; }
+.b-deck .b-contact-card .b-row{ display:flex; align-items:center; gap:12px; margin-top:9px; font-family:var(--b-font-body); font-weight:400; font-size:10pt; color:var(--b-text-mid); }
+.b-deck .b-contact-card .b-row svg{ width:15px; height:15px; color:var(--b-cyan); flex:none; }

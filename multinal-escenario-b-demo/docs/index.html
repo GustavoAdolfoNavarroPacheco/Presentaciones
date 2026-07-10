@@ -1,0 +1,1437 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multinal S.A.S. - Plataforma Empresarial Demo</title>
+    <meta name="description" content="Propuesta técnica y demo interactiva de la plataforma empresarial 100% propia para Multinal S.A.S. Escenario C.">
+    <link rel="icon" href="assets/favicon.png" type="image/png">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,900&family=Montserrat:wght@500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Style Sheets -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style-escenario-b.css">
+</head>
+<body class="light-theme">
+    <!-- Header Principal -->
+    <header class="app-header">
+        <div class="header-left">
+            <img src="assets/logo-campuslands.png" alt="Campuslands" class="brand-logo brand-logo-campuslands">
+            <div class="logo-divider"></div>
+            <img src="assets/logo-multinal.png" alt="Multinal S.A.S." class="brand-logo brand-logo-multinal">
+        </div>
+
+        <div class="header-center">
+            <div class="view-selector">
+                <span class="view-selector-pill" id="view-selector-pill"></span>
+                <button id="btn-view-slides" class="selector-btn active" onclick="switchView('slides')">
+                    <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="9" y1="3" x2="9" y2="21"/><line x1="15" y1="3" x2="15" y2="21"/></svg>
+                    Presentación
+                </button>
+                <button id="btn-view-simulator" class="selector-btn" onclick="switchView('simulator')">
+                    <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                    Simulador Interactivo
+                </button>
+                <button id="btn-view-movimientos" class="selector-btn" onclick="switchView('movimientos')">
+                    <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1.5 3 1 1 3L8 19v-3l3-2 4.2 5.3c.3.4.8.5 1.3.3l.5-.3c.4-.2.6-.6.5-1.1z"/></svg>
+                    Panel de Movimientos
+                </button>
+            </div>
+        </div>
+
+        <div class="header-right">
+            <span class="badge badge-confidential">CONFIDENCIAL</span>
+            <button id="btn-theme-toggle" class="icon-btn" title="Cambiar Tema" onclick="toggleTheme()">
+                <!-- Sun/Moon Icon -->
+                <svg id="theme-icon" viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                </svg>
+            </button>
+            <button id="btn-sound-toggle" class="icon-btn" title="Activar/Silenciar Efectos" onclick="toggleSound()">
+                <svg id="sound-icon" viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none">
+                    <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                    <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- Contenedor Principal de Contenido -->
+    <main class="app-content">
+        
+        <!-- ================= MODO PRESENTACIÓN ================= -->
+        <section id="slides-viewport" class="viewport-section active">
+            <div class="slides-container b-deck" id="slides-container">
+                <!-- Diapositiva 1: Portada -->
+                <div class="slide bdeck-slide b-cover active" data-slide="1">
+                    <span class="b-corner tl"></span><span class="b-corner tr"></span>
+                    <span class="b-corner bl"></span><span class="b-corner br"></span>
+                    <div class="b-deco-rings"><span></span><span></span><span></span><span></span></div>
+
+                    <div class="b-cover__topbar">
+                        <img src="assets/logo-campuslands.png" alt="Campuslands Full Service" class="b-cover__brand">
+                        <span class="b-badge-confidential">Confidencial</span>
+                    </div>
+
+                    <div class="b-cover__body">
+                        <div class="b-eyebrow b-cover__eyebrow">Campuslands Full Service · Software House</div>
+                        <div class="b-cover__scenario">Escenario B</div>
+                        <h1 class="b-cover__title">Ecosistema Digital<br><em class="b-gradient-text">Corporativo Multinal</em></h1>
+                        <div class="b-cover__kicker">CRM · Portales B2B/B2C · Repositorio Documental · BI · Cadena de Valor · Gobierno de Datos · Agentes de IA</div>
+                        <div class="b-cover__client">
+                            <span class="b-cover__client-para">PARA</span>
+                            <img src="assets/logo-cliente.png" alt="Multinal S.A.S." class="b-cover__client-logo">
+                        </div>
+                        <p class="b-cover__subtitle">Propuesta de Alcance y Estimación Técnica — 14 módulos</p>
+                    </div>
+
+                    <div class="b-cover__meta">
+                        <div class="b-meta-item"><div class="b-meta-item__label">Preparado para</div><div class="b-meta-item__value">Dirección — Multinal S.A.S.</div></div>
+                        <div class="b-meta-item"><div class="b-meta-item__label">Preparado por</div><div class="b-meta-item__value">Campuslands · Full Service</div></div>
+                        <div class="b-meta-item"><div class="b-meta-item__label">Fecha</div><div class="b-meta-item__value">Julio 2026</div></div>
+                        <div class="b-meta-item"><div class="b-meta-item__label">Versión</div><div class="b-meta-item__value">Escenario B · 0.1</div></div>
+                    </div>
+                </div>
+
+                <!-- Diapositiva 2: Diagnóstico -->
+                <div class="slide bdeck-slide b-internal glow-a" data-slide="2">
+                    <header class="b-s-header">
+                        <img src="assets/logo-campuslands.png" alt="Campuslands" class="b-brand">
+                        <img src="assets/logo-cliente.png" alt="Multinal S.A.S." class="b-client">
+                    </header>
+                    <div class="b-s-body">
+                        <div class="b-s-eyebrow">01 · Diagnóstico</div>
+                        <h2 class="b-s-title">La operación corre <em class="b-gradient-text">sobre canales dispersos</em></h2>
+                        <div class="b-split">
+                            <div class="b-quote-card">
+                                <span class="b-qm">"</span>
+                                <p>La información comercial, documental y financiera de Multinal está repartida entre Pedbox, ILIMITADA, Excel y correo electrónico, sin una capa digital que las conecte.</p>
+                            </div>
+                            <ul class="b-pain-list">
+                                <li class="b-pain-item"><span class="b-ico">✕</span><span class="b-tx">Visión del cliente fragmentada entre vendedores, ERP ILIMITADA y soporte postventa, sin perfil único.</span></li>
+                                <li class="b-pain-item"><span class="b-ico">✕</span><span class="b-tx">Clientes y proveedores dependen de llamadas y correo para consultar cartera, despachos y órdenes de compra.</span></li>
+                                <li class="b-pain-item"><span class="b-ico">✕</span><span class="b-tx">Archivos físicos en papel y digitalización manual limitan la trazabilidad de facturas y contratos.</span></li>
+                                <li class="b-pain-item"><span class="b-ico">✕</span><span class="b-tx">Reportes de Comercial, Logística, Cartera y Gerencia se construyen manualmente en Excel.</span></li>
+                                <li class="b-pain-item"><span class="b-ico">✕</span><span class="b-tx">Aprobaciones de compras, descuentos, garantías y PQRS se gestionan por canales informales, sin auditoría.</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <footer class="b-s-footer">
+                        <span>Campuslands · Exploramos · Despegamos · Conquistamos</span>
+                        <span>Propuesta Multinal S.A.S. · Escenario B · Full Service 2026</span>
+                        <span class="b-pg">02</span>
+                    </footer>
+                </div>
+
+                <!-- Diapositiva 3: Mapa del Ecosistema -->
+                <div class="slide bdeck-slide b-internal glow-b" data-slide="3">
+                    <header class="b-s-header">
+                        <img src="assets/logo-campuslands.png" alt="Campuslands" class="b-brand">
+                        <img src="assets/logo-cliente.png" alt="Multinal S.A.S." class="b-client">
+                    </header>
+                    <div class="b-s-body">
+                        <div class="b-s-eyebrow">02 · Mapa del Ecosistema</div>
+                        <h2 class="b-s-title">Catorce módulos, <em class="b-gradient-text">un solo ecosistema digital</em></h2>
+                        <div class="b-eco-map">
+                            <div class="b-eco-row" style="grid-template-columns:repeat(4,1fr);">
+                                <div class="b-eco-chip"><span class="b-n b-gradient-text">01</span><span class="b-t">CRM Corporativo</span></div>
+                                <div class="b-eco-chip"><span class="b-n b-gradient-text">02</span><span class="b-t">Portal de Clientes</span></div>
+                                <div class="b-eco-chip"><span class="b-n b-gradient-text">03</span><span class="b-t">Portal de Proveedores</span></div>
+                                <div class="b-eco-chip"><span class="b-n b-gradient-text">04</span><span class="b-t">Repositorio Documental</span></div>
+                            </div>
+                            <div class="b-eco-row" style="grid-template-columns:repeat(3,1fr);">
+                                <div class="b-eco-chip"><span class="b-n b-gradient-text">05</span><span class="b-t">Plataforma de Business Intelligence</span></div>
+                                <div class="b-eco-chip"><span class="b-n b-gradient-text">06</span><span class="b-t">Cadena de Valor</span></div>
+                                <div class="b-eco-chip"><span class="b-n b-gradient-text">08</span><span class="b-t">Gobierno de Datos</span></div>
+                            </div>
+                            <div class="b-eco-agents">
+                                <span class="b-lbl">07 · Ecosistema de Agentes de Inteligencia Artificial — 7 agentes especializados</span>
+                                <div class="b-eco-agents-row">
+                                    <div class="b-eco-agent-chip"><div class="b-n b-gt-cyan">7A</div><span>Comercial</span></div>
+                                    <div class="b-eco-agent-chip"><div class="b-n b-gt-cyan">7B</div><span>Compras</span></div>
+                                    <div class="b-eco-agent-chip"><div class="b-n b-gt-cyan">7C</div><span>Inventarios</span></div>
+                                    <div class="b-eco-agent-chip"><div class="b-n b-gt-cyan">7D</div><span>Cartera</span></div>
+                                    <div class="b-eco-agent-chip"><div class="b-n b-gt-cyan">7E</div><span>Servicio al Cliente</span></div>
+                                    <div class="b-eco-agent-chip"><div class="b-n b-gt-cyan">7F</div><span>Documental</span></div>
+                                    <div class="b-eco-agent-chip"><div class="b-n b-gt-cyan">7G</div><span>Gerencial</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <footer class="b-s-footer">
+                        <span>Campuslands · Exploramos · Despegamos · Conquistamos</span>
+                        <span>Propuesta Multinal S.A.S. · Escenario B · Full Service 2026</span>
+                        <span class="b-pg">03</span>
+                    </footer>
+                </div>
+
+                <!-- Diapositiva 4: PRY-001 CRM Corporativo -->
+                <div class="slide bdeck-slide b-internal glow-a" data-slide="4">
+                    <header class="b-s-header">
+                        <img src="assets/logo-campuslands.png" alt="Campuslands" class="b-brand">
+                        <img src="assets/logo-cliente.png" alt="Multinal S.A.S." class="b-client">
+                    </header>
+                    <div class="b-s-body">
+                        <div class="b-s-eyebrow">03 · PRY-001 — CRM Corporativo</div>
+                        <h2 class="b-s-title">Una visión <em class="b-gradient-text">única del cliente</em></h2>
+                        <p class="b-s-lead">Consolida la información comercial hoy dispersa entre vendedores, Pedbox, ILIMITADA, Excel y correo electrónico en un perfil maestro centralizado.</p>
+                        <div class="b-feat-grid" style="grid-template-columns:repeat(4,1fr);">
+                            <div class="b-feat-card"><span class="b-rf b-gradient-text">PRY-001 · 01</span><h4>Perfil maestro del cliente centralizado</h4><p>Unifica datos de contacto, historial comercial extraído de ILIMITADA y registros de soporte técnico de postventa.</p></div>
+                            <div class="b-feat-card"><span class="b-rf b-gradient-text">PRY-001 · 02</span><h4>Registro y tipificación de interacciones</h4><p>El Ejecutivo Comercial registra y tipifica cada interacción (reunión, llamada, WhatsApp, correo) asociada a su oportunidad.</p></div>
+                            <div class="b-feat-card"><span class="b-rf b-gradient-text">PRY-001 · 03</span><h4>Alertas de inactividad comercial</h4><p>Alertas automatizadas por periodos de inactividad con clientes recurrentes, para impulsar la recompra.</p></div>
+                            <div class="b-feat-card"><span class="b-rf b-gradient-text">PRY-001 · 04</span><h4>Integración con ERP ILIMITADA y Pedbox</h4><p>Conexión nativa o vía API que consolida historial financiero, de pedidos y capturas de campo dentro del CRM.</p></div>
+                            <div class="b-feat-card"><span class="b-rf b-gradient-text">PRY-001 · 05</span><h4>Validación de cupos de crédito con Cartera</h4><p>Coordinación directa con el área de cartera para validar cupos antes de procesar pedidos transaccionales.</p></div>
+                            <div class="b-feat-card"><span class="b-rf b-gradient-text">PRY-001 · 06</span><h4>Interfaz móvil para consulta en campo</h4><p>Vista responsiva para que el comercial consulte historial de compras y estado de cartera antes de una visita.</p></div>
+                            <div class="b-feat-card"><span class="b-rf b-gradient-text">PRY-001 · 07</span><h4>Control de acceso segmentado y auditoría</h4><p>Restricción de carteras por asignación geográfica o de segmento, con logs de modificación en clientes críticos.</p></div>
+                        </div>
+                    </div>
+                    <footer class="b-s-footer">
+                        <span>Campuslands · Exploramos · Despegamos · Conquistamos</span>
+                        <span>Propuesta Multinal S.A.S. · Escenario B · Full Service 2026</span>
+                        <span class="b-pg">04</span>
+                    </footer>
+                </div>
+
+                <!-- Diapositiva 5: PRY-002 Portal de Clientes -->
+                <div class="slide bdeck-slide b-internal glow-b" data-slide="5">
+                    <header class="b-s-header">
+                        <img src="assets/logo-campuslands.png" alt="Campuslands" class="b-brand">
+                        <img src="assets/logo-cliente.png" alt="Multinal S.A.S." class="b-client">
+                    </header>
+                    <div class="b-s-body">
+                        <div class="b-s-eyebrow">04 · PRY-002 — Portal de Clientes</div>
+                        <h2 class="b-s-title">Autoservicio digital <em class="b-gradient-text">24/7 para el cliente</em></h2>
+                        <p class="b-s-lead">Habilita que el cliente consulte pedidos, cartera, facturas y despachos, y radique PQRS, sin depender de un asesor comercial.</p>
+                        <div class="b-feat-grid" style="grid-template-columns:repeat(3,1fr);">
+                            <div class="b-feat-card"><span class="b-rf b-gradient-text">PRY-002 · 01</span><h4>Dashboard de facturas, cartera y cupo de crédito</h4><p>Valida credenciales únicas y despliega el consolidado de facturas vigentes, vencidas y cupo disponible en tiempo real.</p></div>
+                            <div class="b-feat-card"><span class="b-rf b-gradient-text">PRY-002 · 02</span><h4>Tracking logístico de despachos</h4><p>Conexión con el Sistema de Trazabilidad interno sobre la flota propia de vehículos de despacho de Multinal, para reflejar el estado exacto del pedido.</p></div>
+                            <div class="b-feat-card"><span class="b-rf b-gradient-text">PRY-002 · 03</span><h4>Radicación digital de PQRS y garantías</h4><p>Código único de seguimiento correlativo y notificaciones automatizadas sobre cambios de estado.</p></div>
+                            <div class="b-feat-card"><span class="b-rf b-gradient-text">PRY-002 · 04</span><h4>Disponibilidad 24/7 y cifrado extremo a extremo</h4><p>Disponibilidad continua con cifrado HTTPS y almacenamiento seguro, para consultas fuera del horario administrativo.</p></div>
+                            <div class="b-feat-card"><span class="b-rf b-gradient-text">PRY-002 · 05</span><h4>Sincronización de saldos con fuentes oficiales</h4><p>Documentos tributarios y estados de cuenta sincronizados directamente desde Siigo e ILIMITADA, sin discrepancias.</p></div>
+                        </div>
+                    </div>
+                    <footer class="b-s-footer">
+                        <span>Campuslands · Exploramos · Despegamos · Conquistamos</span>
+                        <span>Propuesta Multinal S.A.S. · Escenario B · Full Service 2026</span>
+                        <span class="b-pg">05</span>
+                    </footer>
+                </div>
+
+                <!-- Diapositiva 6: PRY-003 Portal de Proveedores -->
+                <div class="slide bdeck-slide b-internal glow-a" data-slide="6">
+                    <header class="b-s-header">
+                        <img src="assets/logo-campuslands.png" alt="Campuslands" class="b-brand">
+                        <img src="assets/logo-cliente.png" alt="Multinal S.A.S." class="b-client">
+                    </header>
+                    <div class="b-s-body">
+                        <div class="b-s-eyebrow">05 · PRY-003 — Portal de Proveedores</div>
+                        <h2 class="b-s-title">Abastecimiento <em class="b-gradient-text">digitalizado de punta a punta</em></h2>
+                        <p class="b-s-lead">Digitaliza la interacción B2B, desde la carga de catálogos hasta la confirmación de órdenes de compra, eliminando la gestión manual por correo.</p>
+                        <div class="b-feat-grid" style="grid-template-columns:repeat(3,1fr);">
+                            <div class="b-feat-card"><span class="b-rf b-gradient-text">PRY-003 · 01</span><h4>Carga de listas de precios de proveedores</h4><p>Proveedores autorizados cargan portafolios y listas de precios actualizadas en formatos CSV o Excel predefinidos.</p></div>
+                            <div class="b-feat-card"><span class="b-rf b-gradient-text">PRY-003 · 02</span><h4>Notificación y confirmación digital de OC</h4><p>Notificación en tiempo real de cada orden de compra generada en ILIMITADA, con confirmación digital de aceptación y promesa de entrega.</p></div>
+                            <div class="b-feat-card"><span class="b-rf b-gradient-text">PRY-003 · 03</span><h4>Carga documental técnica de recepción</h4><p>Sección de carga para certificados de calidad, fichas técnicas y facturas proforma requeridas en la inspección física.</p></div>
+                            <div class="b-feat-card"><span class="b-rf b-gradient-text">PRY-003 · 04</span><h4>Validación jerárquica de listas de precios</h4><p>Las referencias cargadas por proveedores no impactan el sistema comercial de forma automática; requieren validación previa.</p></div>
+                            <div class="b-feat-card"><span class="b-rf b-gradient-text">PRY-003 · 05</span><h4>Escalabilidad e integración con Cadena de Valor</h4><p>Soporta la concurrencia de toda la base de proveedores, conectada a compras, inventario y a la Cadena de Valor para aprobaciones.</p></div>
+                        </div>
+                    </div>
+                    <footer class="b-s-footer">
+                        <span>Campuslands · Exploramos · Despegamos · Conquistamos</span>
+                        <span>Propuesta Multinal S.A.S. · Escenario B · Full Service 2026</span>
+                        <span class="b-pg">06</span>
+                    </footer>
+                </div>
+
+                <!-- Diapositiva 7: PRY-004 Repositorio Documental Inteligente -->
+                <div class="slide bdeck-slide b-internal glow-b" data-slide="7">
+                    <header class="b-s-header">
+                        <img src="assets/logo-campuslands.png" alt="Campuslands" class="b-brand">
+                        <img src="assets/logo-cliente.png" alt="Multinal S.A.S." class="b-client">
+                    </header>
+                    <div class="b-s-body">
+                        <div class="b-s-eyebrow">06 · PRY-004 — Repositorio Documental Inteligente</div>
+                        <h2 class="b-s-title">Del papel físico <em class="b-gradient-text">a un archivo indexado</em></h2>
+                        <p class="b-s-lead">Elimina progresivamente el almacenamiento en papel y digitaliza la totalidad del ciclo de soporte transaccional de Multinal.</p>
+                        <div class="b-feat-grid" style="grid-template-columns:repeat(3,1fr);">
+                            <div class="b-feat-card"><span class="b-rf b-gradient-text">PRY-004 · 01</span><h4>Motor OCR de extracción de campos clave</h4><p>Extrae automáticamente N.º de Factura, NIT/Cédula, Fecha de Emisión y Monto Total de cada documento capturado.</p></div>
+                            <div class="b-feat-card"><span class="b-rf b-gradient-text">PRY-004 · 02</span><h4>Clasificación y almacenamiento estructurado</h4><p>Organiza Facturas, Remisiones, Soportes de Pago, Órdenes de Compra, Certificados de Garantías y Contratos Legales.</p></div>
+                            <div class="b-feat-card"><span class="b-rf b-gradient-text">PRY-004 · 03</span><h4>Motor de búsqueda avanzada web</h4><p>Consultas por coincidencia exacta de metadatos o por términos lógicos booleanos dentro de los documentos indexados.</p></div>
+                            <div class="b-feat-card"><span class="b-rf b-gradient-text">PRY-004 · 04</span><h4>Control de acceso por roles y cifrado</h4><p>Control estricto basado en roles (RBAC) y cifrado de archivos en reposo y en tránsito.</p></div>
+                            <div class="b-feat-card"><span class="b-rf b-gradient-text">PRY-004 · 05</span><h4>Auditoría inmutable de manipulación documental</h4><p>Registro inmutable con marca de tiempo de quién cargó, visualizó, descargó o modificó metadatos de cada documento.</p></div>
+                            <div class="b-feat-card"><span class="b-rf b-gradient-text">PRY-004 · 06</span><h4>Contingencia de indexación manual</h4><p>Documentos dañados o con firmas poco legibles se indexan manualmente cuando el escaneo físico lo requiere.</p></div>
+                        </div>
+                    </div>
+                    <footer class="b-s-footer">
+                        <span>Campuslands · Exploramos · Despegamos · Conquistamos</span>
+                        <span>Propuesta Multinal S.A.S. · Escenario B · Full Service 2026</span>
+                        <span class="b-pg">07</span>
+                    </footer>
+                </div>
+
+                <!-- Diapositiva 8: PRY-005 Plataforma de Business Intelligence -->
+                <div class="slide bdeck-slide b-internal glow-a" data-slide="8">
+                    <header class="b-s-header">
+                        <img src="assets/logo-campuslands.png" alt="Campuslands" class="b-brand">
+                        <img src="assets/logo-cliente.png" alt="Multinal S.A.S." class="b-client">
+                    </header>
+                    <div class="b-s-body">
+                        <div class="b-s-eyebrow">07 · PRY-005 — Plataforma de Business Intelligence</div>
+                        <h2 class="b-s-title">Indicadores en tiempo real, <em class="b-gradient-text">cero Excel manual</em></h2>
+                        <p class="b-s-lead">Automatiza la generación de indicadores de gestión para Comercial, Logística, Cartera y Gerencia, eliminando la construcción manual de reportes.</p>
+                        <div class="b-feat-grid" style="grid-template-columns:repeat(3,1fr);">
+                            <div class="b-feat-card"><span class="b-rf b-gradient-text">PRY-005 · 01</span><h4>Dashboard Comercial</h4><p>Cuadro de mando con Ventas Totales, Tasas de Conversión y comportamiento de Clientes, extraído de las fuentes core.</p></div>
+                            <div class="b-feat-card"><span class="b-rf b-gradient-text">PRY-005 · 02</span><h4>Dashboard Logística y Cartera</h4><p>Niveles de Inventario, Rotación de Existencias y eficiencia en Despachos; métricas de Mora y Recuperación de cobros.</p></div>
+                            <div class="b-feat-card"><span class="b-rf b-gradient-text">PRY-005 · 03</span><h4>Dashboard Gerencial</h4><p>Rentabilidad por línea, margen EBITDA y proyecciones de Flujo de Caja calculados y proyectados analíticamente.</p></div>
+                            <div class="b-feat-card"><span class="b-rf b-gradient-text">PRY-005 · 04</span><h4>Rendimiento de renderizado bajo 5 segundos</h4><p>Consultas complejas y tableros gerenciales con pre-agregación de datos cuando sea necesario.</p></div>
+                            <div class="b-feat-card"><span class="b-rf b-gradient-text">PRY-005 · 05</span><h4>Seguridad a nivel de fila (Row-Level Security)</h4><p>Visualización de rentabilidad y márgenes financieros restringida solo a usuarios directivos autorizados.</p></div>
+                            <div class="b-feat-card"><span class="b-rf b-gradient-text">PRY-005 · 06</span><h4>Extracción ETL programada</h4><p>Procesos ETL nocturnos o micro-batches desde ILIMITADA, Siigo, Pedbox y el Sistema de Trazabilidad, con actualización diaria.</p></div>
+                        </div>
+                    </div>
+                    <footer class="b-s-footer">
+                        <span>Campuslands · Exploramos · Despegamos · Conquistamos</span>
+                        <span>Propuesta Multinal S.A.S. · Escenario B · Full Service 2026</span>
+                        <span class="b-pg">08</span>
+                    </footer>
+                </div>
+
+                <!-- Diapositiva 9: PRY-006 Cadena de Valor -->
+                <div class="slide bdeck-slide b-internal glow-b" data-slide="9">
+                    <header class="b-s-header">
+                        <img src="assets/logo-campuslands.png" alt="Campuslands" class="b-brand">
+                        <img src="assets/logo-cliente.png" alt="Multinal S.A.S." class="b-client">
+                    </header>
+                    <div class="b-s-body">
+                        <div class="b-s-eyebrow">08 · PRY-006 — Cadena de Valor</div>
+                        <h2 class="b-s-title">Aprobaciones <em class="b-gradient-text">trazables, no informales</em></h2>
+                        <p class="b-s-lead">Sistematiza los flujos de aprobación de Compras, Descuentos, Garantías y PQRS, erradicando correo, llamadas y firmas manuales.</p>
+                        <div class="b-feat-grid" style="grid-template-columns:repeat(3,1fr);">
+                            <div class="b-feat-card"><span class="b-rf b-gradient-text">PRY-006 · 01</span><h4>Motor orquestador de flujos</h4><p>Automatiza el flujo secuencial de Compras, Autorizaciones de Descuentos, Garantías y Trámites de PQRS.</p></div>
+                            <div class="b-feat-card"><span class="b-rf b-gradient-text">PRY-006 · 02</span><h4>Validación de matriz de delegación de autoridad</h4><p>Enruta aprobaciones de compras y descuentos según el rol y límite presupuestal del aprobador.</p></div>
+                            <div class="b-feat-card"><span class="b-rf b-gradient-text">PRY-006 · 03</span><h4>Congelamiento de transacciones</h4><p>Congela facturas o pedidos especiales en el ERP hasta que el flujo de aprobación se complete satisfactoriamente.</p></div>
+                            <div class="b-feat-card"><span class="b-rf b-gradient-text">PRY-006 · 04</span><h4>Auditoría inalterable de cada paso</h4><p>Registra fecha, hora, IP, usuario y acción específica tomada en cada paso de los flujos ejecutados.</p></div>
+                            <div class="b-feat-card"><span class="b-rf b-gradient-text">PRY-006 · 05</span><h4>Alta disponibilidad operativa</h4><p>Evita que una caída del sistema paralice los flujos transaccionales críticos de compras y despachos.</p></div>
+                            <div class="b-feat-card"><span class="b-rf b-gradient-text">PRY-006 · 06</span><h4>Escalamiento automático por tiempos</h4><p>Políticas de escalamiento automatizado ante demoras si los aprobadores clave no atienden su bandeja a tiempo.</p></div>
+                        </div>
+                    </div>
+                    <footer class="b-s-footer">
+                        <span>Campuslands · Exploramos · Despegamos · Conquistamos</span>
+                        <span>Propuesta Multinal S.A.S. · Escenario B · Full Service 2026</span>
+                        <span class="b-pg">09</span>
+                    </footer>
+                </div>
+
+                <!-- Diapositiva 10: PRY-007A Agente Comercial -->
+                <div class="slide bdeck-slide b-internal glow-a" data-slide="10">
+                    <header class="b-s-header">
+                        <img src="assets/logo-campuslands.png" alt="Campuslands" class="b-brand">
+                        <img src="assets/logo-cliente.png" alt="Multinal S.A.S." class="b-client">
+                    </header>
+                    <div class="b-s-body">
+                        <div class="b-s-eyebrow">09 · PRY-007A — Agente IA Comercial</div>
+                        <h2 class="b-s-title">El copiloto del <em class="b-gradient-text">pipeline comercial</em></h2>
+                        <p class="b-s-lead">Componente cognitivo del Ecosistema de Agentes de IA, enfocado en el seguimiento y priorización de oportunidades comerciales.</p>
+                        <div class="b-feat-grid" style="grid-template-columns:repeat(3,1fr);">
+                            <div class="b-feat-card b-feat-card--lg"><span class="b-rf b-gradient-text">7A · 01</span><h4>Seguimiento automático de oportunidades</h4><p>Seguimiento continuo de las oportunidades comerciales dentro del pipeline de ventas, sin intervención manual.</p></div>
+                            <div class="b-feat-card b-feat-card--lg"><span class="b-rf b-gradient-text">7A · 02</span><h4>Priorización inteligente de oportunidades</h4><p>Prioriza oportunidades según su propensión analítica de cierre, con modelos predictivos sobre comportamiento histórico.</p></div>
+                            <div class="b-feat-card b-feat-card--lg"><span class="b-rf b-gradient-text">7A · 03</span><h4>Alertas ante desviaciones del equipo</h4><p>Dispara alertas comerciales cuando el equipo de ventas se desvía del comportamiento esperado.</p></div>
+                        </div>
+                        <div class="b-tag-row"><span class="b-tag-pill">Se integra con <b>PRY-001 · CRM Corporativo</b></span></div>
+                    </div>
+                    <footer class="b-s-footer">
+                        <span>Campuslands · Exploramos · Despegamos · Conquistamos</span>
+                        <span>Propuesta Multinal S.A.S. · Escenario B · Full Service 2026</span>
+                        <span class="b-pg">10</span>
+                    </footer>
+                </div>
+
+                <!-- Diapositiva 11: PRY-007B Agente Compras -->
+                <div class="slide bdeck-slide b-internal glow-b" data-slide="11">
+                    <header class="b-s-header">
+                        <img src="assets/logo-campuslands.png" alt="Campuslands" class="b-brand">
+                        <img src="assets/logo-cliente.png" alt="Multinal S.A.S." class="b-client">
+                    </header>
+                    <div class="b-s-body">
+                        <div class="b-s-eyebrow">10 · PRY-007B — Agente IA de Compras</div>
+                        <h2 class="b-s-title">Decisiones de compra <em class="b-gradient-text">basadas en datos</em></h2>
+                        <p class="b-s-lead">Componente cognitivo enfocado en la lectura y comparación automatizada de listas de proveedores para el área de abastecimiento.</p>
+                        <div class="b-feat-grid" style="grid-template-columns:repeat(3,1fr);">
+                            <div class="b-feat-card b-feat-card--lg"><span class="b-rf b-gradient-text">7B · 01</span><h4>Lectura automática de listas de proveedores</h4><p>Lectura inteligente de listas de precios de proveedores en diversos formatos de archivo.</p></div>
+                            <div class="b-feat-card b-feat-card--lg"><span class="b-rf b-gradient-text">7B · 02</span><h4>Cuadros comparativos de costos</h4><p>Generación autónoma de cuadros comparativos de costos comerciales entre proveedores.</p></div>
+                            <div class="b-feat-card b-feat-card--lg"><span class="b-rf b-gradient-text">7B · 03</span><h4>Recomendaciones inteligentes de compra</h4><p>Emisión de recomendaciones como sugerencia de decisión para el área de abastecimiento.</p></div>
+                        </div>
+                        <div class="b-tag-row"><span class="b-tag-pill">Se integra con <b>PRY-003 · Portal de Proveedores</b></span></div>
+                    </div>
+                    <footer class="b-s-footer">
+                        <span>Campuslands · Exploramos · Despegamos · Conquistamos</span>
+                        <span>Propuesta Multinal S.A.S. · Escenario B · Full Service 2026</span>
+                        <span class="b-pg">11</span>
+                    </footer>
+                </div>
+
+                <!-- Diapositiva 12: PRY-007C Agente Inventarios -->
+                <div class="slide bdeck-slide b-internal glow-a" data-slide="12">
+                    <header class="b-s-header">
+                        <img src="assets/logo-campuslands.png" alt="Campuslands" class="b-brand">
+                        <img src="assets/logo-cliente.png" alt="Multinal S.A.S." class="b-client">
+                    </header>
+                    <div class="b-s-body">
+                        <div class="b-s-eyebrow">11 · PRY-007C — Agente IA de Inventarios</div>
+                        <h2 class="b-s-title">Reposición de stock, <em class="b-gradient-text">antes del quiebre</em></h2>
+                        <p class="b-s-lead">Componente cognitivo enfocado en la predicción de rotación y la reposición sugerida de existencias para el área de bodega.</p>
+                        <div class="b-feat-grid" style="grid-template-columns:repeat(2,1fr);">
+                            <div class="b-feat-card b-feat-card--lg"><span class="b-rf b-gradient-text">7C · 01</span><h4>Predicción de rotación de existencias</h4><p>Análisis cognitivo que estima las curvas de rotación de referencias de inventario mediante modelos predictivos de demanda.</p></div>
+                            <div class="b-feat-card b-feat-card--lg"><span class="b-rf b-gradient-text">7C · 02</span><h4>Reposición sugerida de stock</h4><p>Genera de forma automatizada sugerencias de reposición de stock para el área de bodega.</p></div>
+                        </div>
+                        <div class="b-tag-row"><span class="b-tag-pill">Se integra con <b>PRY-005 · Plataforma de BI</b></span></div>
+                    </div>
+                    <footer class="b-s-footer">
+                        <span>Campuslands · Exploramos · Despegamos · Conquistamos</span>
+                        <span>Propuesta Multinal S.A.S. · Escenario B · Full Service 2026</span>
+                        <span class="b-pg">12</span>
+                    </footer>
+                </div>
+
+                <!-- Diapositiva 13: PRY-007D Agente Cartera -->
+                <div class="slide bdeck-slide b-internal glow-b" data-slide="13">
+                    <header class="b-s-header">
+                        <img src="assets/logo-campuslands.png" alt="Campuslands" class="b-brand">
+                        <img src="assets/logo-cliente.png" alt="Multinal S.A.S." class="b-client">
+                    </header>
+                    <div class="b-s-body">
+                        <div class="b-s-eyebrow">12 · PRY-007D — Agente IA de Cartera</div>
+                        <h2 class="b-s-title">Cobros priorizados <em class="b-gradient-text">antes del vencimiento</em></h2>
+                        <p class="b-s-lead">Componente cognitivo enfocado en la priorización de cobros y las alertas de vencimiento de facturas.</p>
+                        <div class="b-feat-grid" style="grid-template-columns:repeat(2,1fr);">
+                            <div class="b-feat-card b-feat-card--lg"><span class="b-rf b-gradient-text">7D · 01</span><h4>Priorización de cobros vigentes</h4><p>Priorización automatizada y predictiva de los listados de acciones de cobros urgentes de deudores.</p></div>
+                            <div class="b-feat-card b-feat-card--lg"><span class="b-rf b-gradient-text">7D · 02</span><h4>Alertas de vencimiento de facturas</h4><p>Activación automática de alertas ante riesgos de vencimientos inminentes de cartera.</p></div>
+                        </div>
+                        <div class="b-tag-row"><span class="b-tag-pill">Se integra con <b>PRY-002 · Portal de Clientes</b></span> <span class="b-tag-pill">Se integra con <b>PRY-005 · Plataforma de BI</b></span></div>
+                    </div>
+                    <footer class="b-s-footer">
+                        <span>Campuslands · Exploramos · Despegamos · Conquistamos</span>
+                        <span>Propuesta Multinal S.A.S. · Escenario B · Full Service 2026</span>
+                        <span class="b-pg">13</span>
+                    </footer>
+                </div>
+
+                <!-- Diapositiva 14: PRY-007E Agente Servicio al Cliente -->
+                <div class="slide bdeck-slide b-internal glow-a" data-slide="14">
+                    <header class="b-s-header">
+                        <img src="assets/logo-campuslands.png" alt="Campuslands" class="b-brand">
+                        <img src="assets/logo-cliente.png" alt="Multinal S.A.S." class="b-client">
+                    </header>
+                    <div class="b-s-body">
+                        <div class="b-s-eyebrow">13 · PRY-007E — Agente IA de Servicio al Cliente</div>
+                        <h2 class="b-s-title">Atención conversacional, <em class="b-gradient-text">todos los canales</em></h2>
+                        <p class="b-s-lead">Componente cognitivo enfocado en la atención omnicanal y la clasificación automática de PQRS radicadas.</p>
+                        <div class="b-feat-grid" style="grid-template-columns:repeat(2,1fr);">
+                            <div class="b-feat-card b-feat-card--lg"><span class="b-rf b-gradient-text">7E · 01</span><h4>Atención omnicanal conversacional</h4><p>Atención automatizada omnicanal conversacional para clientes, disponible en los canales del portal.</p></div>
+                            <div class="b-feat-card b-feat-card--lg"><span class="b-rf b-gradient-text">7E · 02</span><h4>Clasificación automática de PQRS</h4><p>Clasifica automáticamente la tipología de PQRS radicadas para agilizar su enrutamiento dentro del Workflow.</p></div>
+                        </div>
+                        <div class="b-tag-row"><span class="b-tag-pill">Se integra con <b>PRY-002 · Portal de Clientes</b></span> <span class="b-tag-pill">Se integra con <b>PRY-006 · Cadena de Valor</b></span></div>
+                    </div>
+                    <footer class="b-s-footer">
+                        <span>Campuslands · Exploramos · Despegamos · Conquistamos</span>
+                        <span>Propuesta Multinal S.A.S. · Escenario B · Full Service 2026</span>
+                        <span class="b-pg">14</span>
+                    </footer>
+                </div>
+
+                <!-- Diapositiva 15: PRY-007F Agente Documental -->
+                <div class="slide bdeck-slide b-internal glow-b" data-slide="15">
+                    <header class="b-s-header">
+                        <img src="assets/logo-campuslands.png" alt="Campuslands" class="b-brand">
+                        <img src="assets/logo-cliente.png" alt="Multinal S.A.S." class="b-client">
+                    </header>
+                    <div class="b-s-body">
+                        <div class="b-s-eyebrow">14 · PRY-007F — Agente IA Documental</div>
+                        <h2 class="b-s-title">Contratos e históricos, <em class="b-gradient-text">a una pregunta de distancia</em></h2>
+                        <p class="b-s-lead">Componente cognitivo enfocado en OCR cognitivo y la consulta conversacional de documentos indexados.</p>
+                        <div class="b-feat-grid" style="grid-template-columns:repeat(3,1fr);">
+                            <div class="b-feat-card b-feat-card--lg"><span class="b-rf b-gradient-text">7F · 01</span><h4>Procesamiento OCR cognitivo</h4><p>Procesa documentos mediante OCR cognitivo para la extracción automatizada de información.</p></div>
+                            <div class="b-feat-card b-feat-card--lg"><span class="b-rf b-gradient-text">7F · 02</span><h4>Clasificación automática de archivos</h4><p>Clasifica automáticamente los archivos digitalizados dentro del Repositorio Documental Inteligente.</p></div>
+                            <div class="b-feat-card b-feat-card--lg"><span class="b-rf b-gradient-text">7F · 03</span><h4>Consulta conversacional sobre históricos</h4><p>Habilita interfaces de consulta web conversacional sobre contratos e históricos indexados.</p></div>
+                        </div>
+                        <div class="b-tag-row"><span class="b-tag-pill">Se integra con <b>PRY-004 · Repositorio Documental</b></span></div>
+                    </div>
+                    <footer class="b-s-footer">
+                        <span>Campuslands · Exploramos · Despegamos · Conquistamos</span>
+                        <span>Propuesta Multinal S.A.S. · Escenario B · Full Service 2026</span>
+                        <span class="b-pg">15</span>
+                    </footer>
+                </div>
+
+                <!-- Diapositiva 16: PRY-007G Agente Gerencial -->
+                <div class="slide bdeck-slide b-internal glow-a" data-slide="16">
+                    <header class="b-s-header">
+                        <img src="assets/logo-campuslands.png" alt="Campuslands" class="b-brand">
+                        <img src="assets/logo-cliente.png" alt="Multinal S.A.S." class="b-client">
+                    </header>
+                    <div class="b-s-body">
+                        <div class="b-s-eyebrow">15 · PRY-007G — Agente IA Gerencial</div>
+                        <h2 class="b-s-title">El estado de la compañía, <em class="b-gradient-text">en lenguaje natural</em></h2>
+                        <p class="b-s-lead">Componente cognitivo enfocado en resúmenes ejecutivos automatizados y alertas estratégicas de KPI para la Gerencia.</p>
+                        <div class="b-feat-grid" style="grid-template-columns:repeat(3,1fr);">
+                            <div class="b-feat-card b-feat-card--lg"><span class="b-rf b-gradient-text">7G · 01</span><h4>Resúmenes ejecutivos automatizados</h4><p>Genera de forma automatizada resúmenes ejecutivos operacionales del estado de la compañía.</p></div>
+                            <div class="b-feat-card b-feat-card--lg"><span class="b-rf b-gradient-text">7G · 02</span><h4>Alertas estratégicas de desviaciones de KPI</h4><p>Dispara alertas tempranas ante desviaciones de KPIs corporativos frente a lo esperado.</p></div>
+                            <div class="b-feat-card b-feat-card--lg"><span class="b-rf b-gradient-text">7G · 03</span><h4>Consulta conversacional de indicadores</h4><p>Interfaces de consulta de indicadores de gestión corporativa mediante lenguaje natural.</p></div>
+                        </div>
+                        <div class="b-tag-row"><span class="b-tag-pill">Se integra con <b>PRY-005 · Plataforma de BI</b></span></div>
+                    </div>
+                    <footer class="b-s-footer">
+                        <span>Campuslands · Exploramos · Despegamos · Conquistamos</span>
+                        <span>Propuesta Multinal S.A.S. · Escenario B · Full Service 2026</span>
+                        <span class="b-pg">16</span>
+                    </footer>
+                </div>
+
+                <!-- Diapositiva 17: PRY-008 Gobierno de Datos -->
+                <div class="slide bdeck-slide b-internal glow-b" data-slide="17">
+                    <header class="b-s-header">
+                        <img src="assets/logo-campuslands.png" alt="Campuslands" class="b-brand">
+                        <img src="assets/logo-cliente.png" alt="Multinal S.A.S." class="b-client">
+                    </header>
+                    <div class="b-s-body">
+                        <div class="b-s-eyebrow">16 · PRY-008 — Gobierno de Datos</div>
+                        <h2 class="b-s-title">Datos limpios y <em class="b-gradient-text">confiables</em>, base del ecosistema</h2>
+                        <p class="b-s-lead">Establece políticas, procesos y herramientas para datos maestros únicos y confiables — condición necesaria para que la BI y los Agentes de IA operen sobre información limpia (anti-GIGO).</p>
+                        <div class="b-feat-grid" style="grid-template-columns:repeat(3,1fr);">
+                            <div class="b-feat-card"><span class="b-rf b-gradient-text">PRY-008 · 01</span><h4>Modelo de gobierno de datos</h4><p>Políticas, roles y comité de gobierno, con RACI de datos y normativa interna definidos.</p></div>
+                            <div class="b-feat-card"><span class="b-rf b-gradient-text">PRY-008 · 02</span><h4>Diccionario corporativo de datos</h4><p>Definiciones únicas de cada dato, conectado con el diccionario de métricas de la Plataforma de BI.</p></div>
+                            <div class="b-feat-card"><span class="b-rf b-gradient-text">PRY-008 · 03</span><h4>MDM — Gestión de Datos Maestros</h4><p>Maestros únicos de Cliente, Proveedor y Producto/Referencia, eliminando duplicidad entre sistemas.</p></div>
+                            <div class="b-feat-card"><span class="b-rf b-gradient-text">PRY-008 · 04</span><h4>Depuración del legado</h4><p>Limpieza y deduplicación inicial en ILIMITADA, Pedbox y el Sistema de Trazabilidad.</p></div>
+                            <div class="b-feat-card"><span class="b-rf b-gradient-text">PRY-008 · 05</span><h4>Estándares de captura y catálogos de referencia</h4><p>Identificadores únicos por código de barras, NIT y SKU, en reemplazo de los catálogos hoy dispersos en Excel anidados por línea de producto. Habilita el mapeo automático de listas del Portal de Proveedores.</p></div>
+                            <div class="b-feat-card"><span class="b-rf b-gradient-text">PRY-008 · 06</span><h4>Linaje de datos y cumplimiento</h4><p>Trazabilidad de origen a consumo de cada dato, Habeas Data y clasificación de información sensible.</p></div>
+                        </div>
+                        <div class="b-tag-row"><span class="b-tag-pill">Se integra con <b>PRY-003 · Portal de Proveedores</b></span> <span class="b-tag-pill">Se integra con <b>PRY-005 · Plataforma de BI</b></span></div>
+                    </div>
+                    <footer class="b-s-footer">
+                        <span>Campuslands · Exploramos · Despegamos · Conquistamos</span>
+                        <span>Propuesta Multinal S.A.S. · Escenario B · Full Service 2026</span>
+                        <span class="b-pg">17</span>
+                    </footer>
+                </div>
+
+                <!-- Diapositiva 18: Inversión y Alcance -->
+                <div class="slide bdeck-slide b-internal glow-b" data-slide="18">
+                    <header class="b-s-header">
+                        <img src="assets/logo-campuslands.png" alt="Campuslands" class="b-brand">
+                        <img src="assets/logo-cliente.png" alt="Multinal S.A.S." class="b-client">
+                    </header>
+                    <div class="b-s-body">
+                        <div class="b-s-eyebrow">17 · Inversión y Alcance</div>
+                        <h2 class="b-s-title">Catorce módulos <em class="b-gradient-text">de alcance confirmado</em></h2>
+                        <div class="b-invest">
+                            <div class="b-invest__num">
+                                <div class="b-cap">Inversión total de la propuesta (COP) — Escenario B</div>
+                                <div class="b-big b-gradient-text">Valor por definir</div>
+                                <div class="b-sub">Alcance funcional de los 14 módulos (PRY-001 a PRY-008, incluyendo los 7 Agentes de IA PRY-007A–G) confirmado en este documento. La inversión y el esfuerzo en días se entregarán en una adenda técnica una vez cerrado el proceso de costeo por especialidad.</div>
+                            </div>
+                            <div class="b-pay">
+                                <div class="b-pay-row"><span class="b-pct b-gradient-text">40%</span><span class="b-txt"><b>Anticipo</b><span>A la firma del contrato y kick-off del proyecto.</span></span></div>
+                                <div class="b-pay-row"><span class="b-pct b-gt-cyan">40%</span><span class="b-txt"><b>Hito intermedio</b><span>Contra entrega de los módulos priorizados del ecosistema.</span></span></div>
+                                <div class="b-pay-row"><span class="b-pct b-gt-violet">20%</span><span class="b-txt"><b>Entrega y cierre</b><span>Despliegue en producción y aceptación final.</span></span></div>
+                                <div class="b-pay-note">Estructura de pago referencial 40/40/20; se confirma junto con el valor total en la adenda de costeo.</div>
+                            </div>
+                        </div>
+                    </div>
+                    <footer class="b-s-footer">
+                        <span>Campuslands · Exploramos · Despegamos · Conquistamos</span>
+                        <span>Propuesta Multinal S.A.S. · Escenario B · Full Service 2026</span>
+                        <span class="b-pg">18</span>
+                    </footer>
+                </div>
+
+                <!-- Diapositiva 19: Próximos pasos -->
+                <div class="slide bdeck-slide b-internal glow-a" data-slide="19">
+                    <header class="b-s-header">
+                        <img src="assets/logo-campuslands.png" alt="Campuslands" class="b-brand">
+                        <img src="assets/logo-cliente.png" alt="Multinal S.A.S." class="b-client">
+                    </header>
+                    <div class="b-s-body">
+                        <div class="b-s-eyebrow">18 · Próximos pasos</div>
+                        <h2 class="b-s-title">¿Cuándo <em class="b-gradient-text">empezamos</em>?</h2>
+                        <div class="b-cta">
+                            <div class="b-steps">
+                                <div class="b-step"><span class="b-dot">1</span><span class="b-lab"><b>Validación del alcance</b><span>Confirmación de los 14 módulos y sus funcionalidades por parte de Multinal.</span></span></div>
+                                <div class="b-cn"></div>
+                                <div class="b-step"><span class="b-dot">2</span><span class="b-lab"><b>Costeo y adenda de inversión</b><span>Entrega de la inversión (COP) y forma de pago por especialidad.</span></span></div>
+                                <div class="b-cn"></div>
+                                <div class="b-step"><span class="b-dot">3</span><span class="b-lab"><b>Firma y kick-off del proyecto</b><span>Formalización del contrato y arranque del desarrollo en sprints ágiles.</span></span></div>
+                            </div>
+                            <div class="b-contact-card">
+                                <div class="b-role">Su contacto directo</div>
+                                <div class="b-name">Gabriela Pedraza Rueda</div>
+                                <div class="b-role" style="margin:0 0 14px 0;color:var(--b-text-lo);letter-spacing:.06em;">Directora Full Service Global</div>
+                                <div class="b-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>gabriela.pedraza@campuslands.com</div>
+                                <div class="b-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.4-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2Z"/></svg>+57 300 302 8555</div>
+                            </div>
+                        </div>
+                    </div>
+                    <footer class="b-s-footer">
+                        <span>Campuslands · Exploramos · Despegamos · Conquistamos</span>
+                        <span>Propuesta Multinal S.A.S. · Escenario B · Full Service 2026</span>
+                        <span class="b-pg">19</span>
+                    </footer>
+                </div>
+            </div>
+
+            <!-- Navegación de Diapositivas (Controles Inferiores) -->
+            <footer class="slides-footer-controls">
+                <button id="btn-prev-slide" class="control-btn" onclick="navigateSlide(-1)">
+                    <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+                </button>
+                
+                <div class="slide-indicator-container">
+                    <span id="slide-number-display">1 / 19</span>
+                    <div class="progress-bar-bg">
+                        <div id="slide-progress" class="progress-bar-fill"></div>
+                    </div>
+                </div>
+
+                <div class="playback-controls">
+                    <button id="btn-autoplay" class="control-btn mini-btn" title="Reproducción Automática" onclick="toggleAutoplay()">
+                        <svg id="autoplay-icon" viewBox="0 0 24 24" width="18" height="18" fill="currentColor" stroke="none"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                    </button>
+                </div>
+                
+                <button id="btn-next-slide" class="control-btn" onclick="navigateSlide(1)">
+                    <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                </button>
+            </footer>
+        </section>
+
+
+        <!-- ================= MODO SIMULADOR ================= -->
+        <section id="simulator-viewport" class="viewport-section">
+            <div class="simulator-layout">
+                
+                <!-- Barra Lateral de Módulos -->
+                <aside class="sim-sidebar">
+                    <h3 class="sidebar-title">MÓDULOS DE DEMO</h3>
+                    <ul class="sim-module-list">
+                        <li class="sim-module-item active" data-module="compras" onclick="selectSimModule('compras')">
+                            <span class="m-icon"><svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg></span>
+                            <div class="m-info">
+                                <span class="m-title">ERP Compras</span>
+                                <span class="m-status">Abastecimiento</span>
+                            </div>
+                        </li>
+                        <li class="sim-module-item" data-module="bodega" onclick="selectSimModule('bodega')">
+                            <span class="m-icon"><svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg></span>
+                            <div class="m-info">
+                                <span class="m-title">WMS Ubicación</span>
+                                <span class="m-status">Mapa Lógico 2D</span>
+                            </div>
+                        </li>
+                        <li class="sim-module-item" data-module="comercial" onclick="selectSimModule('comercial')">
+                            <span class="m-icon"><svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></span>
+                            <div class="m-info">
+                                <span class="m-title">ERP Ventas</span>
+                                <span class="m-status">Fuerza Móvil</span>
+                            </div>
+                        </li>
+                        <li class="sim-module-item" data-module="facturacion" onclick="selectSimModule('facturacion')">
+                            <span class="m-icon"><svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></span>
+                            <div class="m-info">
+                                <span class="m-title">Facturación & Firma</span>
+                                <span class="m-status">DIAN & Cripto</span>
+                            </div>
+                        </li>
+                        <li class="sim-module-item" data-module="logistica" onclick="selectSimModule('logistica')">
+                            <span class="m-icon"><svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></span>
+                            <div class="m-info">
+                                <span class="m-title">IA Logística</span>
+                                <span class="m-status">Rutas de Reparto</span>
+                            </div>
+                        </li>
+                        <li class="sim-module-item" data-module="cartera" onclick="selectSimModule('cartera')">
+                            <span class="m-icon"><svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span>
+                            <div class="m-info">
+                                <span class="m-title">IA Cartera</span>
+                                <span class="m-status">Predicción de Mora</span>
+                            </div>
+                        </li>
+                        <li class="sim-module-divider">PRY-CRM-EXT · PRY-DAT · PRY-ERP</li>
+                        <li class="sim-module-item" data-module="crm" onclick="selectSimModule('crm')">
+                            <span class="m-icon"><svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></span>
+                            <div class="m-info">
+                                <span class="m-title">CRM Ampliado</span>
+                                <span class="m-status">Omnicanal & Fidelización</span>
+                            </div>
+                        </li>
+                        <li class="sim-module-item" data-module="datos" onclick="selectSimModule('datos')">
+                            <span class="m-icon"><svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg></span>
+                            <div class="m-info">
+                                <span class="m-title">Gobierno de Datos</span>
+                                <span class="m-status">Diccionario & Linaje</span>
+                            </div>
+                        </li>
+                        <li class="sim-module-item" data-module="karex" onclick="selectSimModule('karex')">
+                            <span class="m-icon"><svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></span>
+                            <div class="m-info">
+                                <span class="m-title">ERP Inventarios</span>
+                                <span class="m-status">Kárdex en Tiempo Real</span>
+                            </div>
+                        </li>
+                        <li class="sim-module-item" data-module="wmsflow" onclick="selectSimModule('wmsflow')">
+                            <span class="m-icon"><svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg></span>
+                            <div class="m-info">
+                                <span class="m-title">WMS Despachos</span>
+                                <span class="m-status">Recepción → Trazabilidad</span>
+                            </div>
+                        </li>
+                        <li class="sim-module-divider">ECOSISTEMA DE AGENTES IA</li>
+                        <li class="sim-module-item" data-module="iacomercial" onclick="selectSimModule('iacomercial')">
+                            <span class="m-icon"><svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></span>
+                            <div class="m-info">
+                                <span class="m-title">IA Comercial</span>
+                                <span class="m-status">Predicción de Ventas</span>
+                            </div>
+                        </li>
+                        <li class="sim-module-item" data-module="iacompras" onclick="selectSimModule('iacompras')">
+                            <span class="m-icon"><svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+                            <div class="m-info">
+                                <span class="m-title">IA Compras</span>
+                                <span class="m-status">Negociación Asistida</span>
+                            </div>
+                        </li>
+                        <li class="sim-module-item" data-module="iainventarios" onclick="selectSimModule('iainventarios')">
+                            <span class="m-icon"><svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg></span>
+                            <div class="m-info">
+                                <span class="m-title">IA Inventarios</span>
+                                <span class="m-status">Reposición Autónoma</span>
+                            </div>
+                        </li>
+                        <li class="sim-module-item" data-module="iafidelizacion" onclick="selectSimModule('iafidelizacion')">
+                            <span class="m-icon"><svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></span>
+                            <div class="m-info">
+                                <span class="m-title">IA Fidelización</span>
+                                <span class="m-status">Programas Personalizados</span>
+                            </div>
+                        </li>
+                    </ul>
+                </aside>
+
+                <!-- Panel de Simulación Activo -->
+                <div class="sim-main-panel">
+                    
+                    <!-- Simulador 1: ERP Compras -->
+                    <div class="sim-content-pane active" id="sim-compras">
+                        <div class="pane-header">
+                            <span class="sim-pane-eyebrow">PRY-ERP · MÓDULO DE COMPRAS</span>
+                            <h3>Módulo de Compras con Aprobación Jerárquica</h3>
+                            <p>Simula la radicación de solicitudes internas de compras y el flujo de autorización de la junta directiva en base a los montos.</p>
+                        </div>
+                        <div class="pane-body split-2-columns">
+                            <!-- Formulario de Requisición -->
+                            <div class="form-container card">
+                                <h4>Nueva Solicitud de Insumos</h4>
+                                <form id="form-requisition" onsubmit="submitRequisition(event)">
+                                    <div class="input-group">
+                                        <label for="req-insumo">Insumo / Producto</label>
+                                        <input type="text" id="req-insumo" required placeholder="Ej. Químicos de Proceso, Empaques...">
+                                    </div>
+                                    <div class="input-group">
+                                        <label for="req-proveedor">Proveedor Sugerido</label>
+                                        <select id="req-proveedor" required>
+                                            <option value="Químicos del Caribe S.A.">Químicos del Caribe S.A.</option>
+                                            <option value="Envases Plásticos Andina">Envases Plásticos Andina</option>
+                                            <option value="Suministros Industriales Multinal">Suministros Industriales Multinal</option>
+                                        </select>
+                                    </div>
+                                    <div class="input-group">
+                                        <label for="req-valor">Monto Estimado (COP)</label>
+                                        <input type="number" id="req-valor" required min="10000" placeholder="Ej. 12000000">
+                                    </div>
+                                    <div class="input-group">
+                                        <label for="req-area">Área Solicitante</label>
+                                        <select id="req-area" required>
+                                            <option value="Producción">Producción</option>
+                                            <option value="Logística">Logística</option>
+                                            <option value="Administración">Administración</option>
+                                        </select>
+                                    </div>
+                                    <button type="submit" class="action-btn">Radicar Requisición</button>
+                                </form>
+                            </div>
+                            <!-- Visualizador de Aprobaciones -->
+                            <div class="flow-container card">
+                                <h4>Flujo de Autorizaciones Activo</h4>
+                                <div class="flow-steps">
+                                    <div class="flow-step" id="step-radicado">
+                                        <div class="step-indicator">1</div>
+                                        <span>Solicitud Radicada</span>
+                                    </div>
+                                    <div class="flow-line"></div>
+                                    <div class="flow-step" id="step-gerente">
+                                        <div class="step-indicator">2</div>
+                                        <span>Aprobación de Gerencia (&gt; $5M)</span>
+                                    </div>
+                                    <div class="flow-line"></div>
+                                    <div class="flow-step" id="step-junta">
+                                        <div class="step-indicator">3</div>
+                                        <span>Aprobación de Junta Directiva (&gt; $50M)</span>
+                                    </div>
+                                </div>
+                                <div class="sim-alert" id="compras-status-alert">
+                                    Ninguna solicitud activa en este momento. Radique una a la izquierda.
+                                </div>
+                                <div class="table-container">
+                                    <h5>Historial de Órdenes de Compra</h5>
+                                    <table id="table-compras">
+                                        <thead>
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>Insumo</th>
+                                                <th>Área</th>
+                                                <th>Valor (COP)</th>
+                                                <th>Estado</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <!-- Se llena dinámicamente -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Simulador 2: WMS Bodega -->
+                    <div class="sim-content-pane" id="sim-bodega">
+                        <div class="pane-header">
+                            <span class="sim-pane-eyebrow">PRY-WMS · UBICACIONES</span>
+                            <h3>WMS Mapa Lógico de Ubicaciones en Bodega</h3>
+                            <p>Simula el cotejo digital de mercancía entrante por código de barras y la asignación inteligente de estanterías según su rotación predictiva.</p>
+                        </div>
+                        <div class="pane-body split-2-columns">
+                            <!-- Panel de Recepción -->
+                            <div class="card wms-scan-panel">
+                                <h4>Recepción de Mercancía Contenedorizada</h4>
+                                <div class="scanner-container">
+                                    <div class="scanner-laser"></div>
+                                    <div class="barcode-box">
+                                        <span class="barcode-lines">||| | || || ||| | ||</span>
+                                        <span id="scanned-code">REF-PENDIENTE</span>
+                                    </div>
+                                </div>
+                                <div class="input-row-group">
+                                    <button class="action-btn scan-btn" onclick="simulateScan('alta')">Escanear Alta Rotación (P1)</button>
+                                    <button class="action-btn scan-btn" onclick="simulateScan('media')">Escanear Media Rotación (P2)</button>
+                                    <button class="action-btn scan-btn" onclick="simulateScan('baja')">Escanear Baja Rotación (P3)</button>
+                                </div>
+                                <div class="wms-info-box">
+                                    <p><strong>Cotejo OC:</strong> <span id="wms-oc-match" class="badge-status yellow">Esperando escaneo...</span></p>
+                                    <p><strong>Nivel Rotación IA:</strong> <span id="wms-rot-level">N/A</span></p>
+                                    <p><strong>Ubicación Sugerida:</strong> <span id="wms-suggested-loc">Ninguna</span></p>
+                                </div>
+                            </div>
+                            
+                            <!-- Visualizador de Bodega -->
+                            <div class="card wms-warehouse-panel">
+                                <h4>Mapa Lógico 2D de Estanterías</h4>
+                                <div class="warehouse-grid" id="warehouse-grid-container">
+                                    <!-- Celdas de la bodega generadas por JS -->
+                                </div>
+                                <div class="grid-legend">
+                                    <span class="legend-item"><span class="legend-color high"></span>Zona A (Alta Rotación - Cerca a Despacho)</span>
+                                    <span class="legend-item"><span class="legend-color med"></span>Zona B (Media Rotación)</span>
+                                    <span class="legend-item"><span class="legend-color low"></span>Zona C (Baja Rotación - Profundidad)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Simulador 3: ERP Comercial -->
+                    <div class="sim-content-pane" id="sim-comercial">
+                        <div class="pane-header">
+                            <span class="sim-pane-eyebrow">PRY-ERP · MÓDULO COMERCIAL</span>
+                            <h3>ERP Comercial Móvil (Fuerza de Ventas)</h3>
+                            <p>Simulación del aplicativo móvil de los vendedores de Multinal, el cual realiza reserva instantánea de existencias y aplica el motor de descuentos dinámicos.</p>
+                        </div>
+                        <div class="pane-body split-2-columns">
+                            <!-- Simulación de Pantalla Móvil -->
+                            <div class="mobile-wrapper">
+                                <div class="mobile-frame">
+                                    <div class="mobile-notch"></div>
+                                    <div class="mobile-screen">
+                                        <div class="mobile-header">
+                                            <span>Multinal Móvil</span>
+                                            <span class="signal-icons">
+                                                <svg viewBox="0 0 24 24" width="13" height="13" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"><line x1="4" y1="18" x2="4" y2="14"/><line x1="9" y1="18" x2="9" y2="10"/><line x1="14" y1="18" x2="14" y2="6"/><line x1="19" y1="18" x2="19" y2="2"/></svg>
+                                                <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="18" height="10" rx="2"/><line x1="22" y1="11" x2="22" y2="13"/><rect x="4" y="9" width="12" height="6" fill="currentColor" stroke="none"/></svg>
+                                                100%
+                                            </span>
+                                        </div>
+                                        <div class="mobile-content">
+                                            <!-- Paso 1: Selección de Cliente -->
+                                            <div class="mobile-step active" id="m-step-client">
+                                                <h5>1. Seleccionar Cliente</h5>
+                                                <select id="m-select-client" onchange="updateClientDiscountInfo()">
+                                                    <option value="Distribuciones del Valle" data-discount="10">Distribuciones del Valle (Dist. 10%)</option>
+                                                    <option value="Supermercados La Económica" data-discount="15">Supermercados La Económica (Mayorista 15%)</option>
+                                                    <option value="Tiendas Unidas Bogotá" data-discount="5">Tiendas Unidas Bogotá (Minorista 5%)</option>
+                                                </select>
+                                                <div class="client-details-card">
+                                                    <p><strong>Cupo de Crédito:</strong> $15,000,000 COP</p>
+                                                    <p><strong>Cartera Vencida:</strong> $0 COP</p>
+                                                    <p><strong>Descuento Comercial:</strong> <span id="m-client-discount-label">10%</span></p>
+                                                </div>
+                                                <button class="mobile-btn" onclick="goToMobileStep('catalog')">Siguiente: Catálogo</button>
+                                            </div>
+                                            <!-- Paso 2: Catálogo y Reserva -->
+                                            <div class="mobile-step" id="m-step-catalog">
+                                                <h5>2. Catálogo de Referencias</h5>
+                                                <div class="catalog-list">
+                                                    <div class="catalog-item">
+                                                        <div class="item-info">
+                                                            <h6>Químicos Industriales Tipo A</h6>
+                                                            <p>Stock: <span id="stock-prod-a">150</span> galones</p>
+                                                            <span class="price">$85,000 / gl</span>
+                                                        </div>
+                                                        <button class="add-btn" onclick="addToMobileCart('A', 85000)">+</button>
+                                                    </div>
+                                                    <div class="catalog-item">
+                                                        <div class="item-info">
+                                                            <h6>Pinturas de Recubrimiento Multinal</h6>
+                                                            <p>Stock: <span id="stock-prod-b">80</span> baldes</p>
+                                                            <span class="price">$120,000 / bl</span>
+                                                        </div>
+                                                        <button class="add-btn" onclick="addToMobileCart('B', 120000)">+</button>
+                                                    </div>
+                                                    <div class="catalog-item">
+                                                        <div class="item-info">
+                                                            <h6>Empaques Industriales Tipo C</h6>
+                                                            <p>Stock: <span id="stock-prod-c">450</span> uds</p>
+                                                            <span class="price">$4,500 / ud</span>
+                                                        </div>
+                                                        <button class="add-btn" onclick="addToMobileCart('C', 4500)">+</button>
+                                                    </div>
+                                                </div>
+                                                <div class="m-cart-summary">
+                                                    <span>Items en Carrito: <span id="m-cart-count">0</span></span>
+                                                    <button class="mobile-btn-inline" onclick="goToMobileStep('checkout')">Ver Totales</button>
+                                                </div>
+                                            </div>
+                                            <!-- Paso 3: Confirmación y Envío -->
+                                            <div class="mobile-step" id="m-step-checkout">
+                                                <h5>3. Resumen de Pedido</h5>
+                                                <div class="checkout-breakdown">
+                                                    <p>Subtotal: <span id="m-subtotal">$0</span></p>
+                                                    <p>Descuento Especial: <span id="m-discount">$0</span></p>
+                                                    <hr>
+                                                    <h6>Total Neto: <span id="m-total">$0</span></h6>
+                                                </div>
+                                                <div class="stock-alert-msg" id="m-stock-reserve-msg">
+                                                    Las existencias se reservarán en tiempo real al enviar el pedido.
+                                                </div>
+                                                <button class="mobile-btn success" onclick="submitMobileOrder()">Reservar e Iniciar Despacho</button>
+                                                <button class="mobile-btn-link" onclick="goToMobileStep('catalog')">Volver al Catálogo</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Panel de Control y Auditoría en Bodega -->
+                            <div class="card terminal-audit-panel">
+                                <h4>Auditoría de Reservas de Stock (ERP Core)</h4>
+                                <div class="audit-log-box" id="comercial-audit-logs">
+                                    <div class="log-line system">Terminal Comercial lista para recibir pedidos.</div>
+                                </div>
+                                <div class="inventory-status-card">
+                                    <h5>Existencias Consolidadas (WMS Sync)</h5>
+                                    <div class="inv-mini-grid">
+                                        <div class="inv-mini-cell">
+                                            <span>Prod A:</span>
+                                            <strong id="inv-cell-a">150 gls</strong>
+                                        </div>
+                                        <div class="inv-mini-cell">
+                                            <span>Prod B:</span>
+                                            <strong id="inv-cell-b">80 bls</strong>
+                                        </div>
+                                        <div class="inv-mini-cell">
+                                            <span>Prod C:</span>
+                                            <strong id="inv-cell-c">450 uds</strong>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Simulador 4: Facturación y Firma -->
+                    <div class="sim-content-pane" id="sim-facturacion">
+                        <div class="pane-header">
+                            <span class="sim-pane-eyebrow">PRY-ERP · FACTURACIÓN &amp; PRY-DMS-EXT</span>
+                            <h3>Facturación Electrónica Nativa y Firma Digital</h3>
+                            <p>Simula el timbrado oficial ante la DIAN al confirmarse el despacho de un pedido, con sellado digital criptográfico y firma electrónica de remisiones.</p>
+                        </div>
+                        <div class="pane-body split-2-columns">
+                            <!-- Visualizador de Facturas -->
+                            <div class="card bill-list-panel">
+                                <h4>Historial de Despachos por Facturar</h4>
+                                <div class="table-container">
+                                    <table id="table-invoices">
+                                        <thead>
+                                            <tr>
+                                                <th>Factura ID</th>
+                                                <th>Cliente</th>
+                                                <th>Monto Neto</th>
+                                                <th>Estado DIAN</th>
+                                                <th>Firma</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <!-- Llenado por JS -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="action-bar-invoice">
+                                    <button class="action-btn" onclick="generateMockInvoice()">Generar Nuevo Despacho Pendiente</button>
+                                </div>
+                            </div>
+
+                            <!-- Panel de Firma y XML DIAN -->
+                            <div class="card bill-sign-panel" id="signature-panel-container">
+                                <h4>Detalles y Firma de Documento</h4>
+                                <div id="invoice-details-content">
+                                    <p class="neutral-info">Seleccione una factura de la lista de la izquierda para timbrar y firmar.</p>
+                                </div>
+                                <div class="dian-xml-console" id="dian-xml-console">
+                                    <!-- Muestra XML cifrado simulado -->
+                                    XML STATUS: Esperando acción...
+                                </div>
+                                <div class="signature-canvas-area" id="sign-pad-group" style="display:none;">
+                                    <h5>Firma Electrónica Autorizada (Remisión)</h5>
+                                    <canvas id="sig-canvas" width="300" height="100"></canvas>
+                                    <div class="canvas-controls">
+                                        <button class="action-btn-small secondary" onclick="clearSignatureCanvas()">Limpiar</button>
+                                        <button class="action-btn-small success" onclick="saveSignatureAndComplete()">Firmar y Guardar Hash</button>
+                                    </div>
+                                    <p class="crypto-note">El sistema generará un hash SHA-256 e indexará el documento con sellado de tiempo.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Simulador 5: IA Logística -->
+                    <div class="sim-content-pane" id="sim-logistica">
+                        <div class="pane-header">
+                            <span class="sim-pane-eyebrow">PRY-AIE-01 · AGENTE IA LOGÍSTICO</span>
+                            <h3>Agente IA Logístico: Optimización de Rutas</h3>
+                            <p>Optimiza la secuencia de entrega de los camiones de reparto en tiempo real para reducir costes y kilómetros, dibujando la ruta óptima de última milla.</p>
+                        </div>
+                        <div class="pane-body split-2-columns">
+                            <!-- Mapa de Enrutamiento (SVG) -->
+                            <div class="card routing-map-panel">
+                                <h4>Mapa Geográfico de Entregas (Bogotá)</h4>
+                                <div class="map-wrapper">
+                                    <svg viewBox="0 0 400 400" id="route-svg">
+                                        <!-- Grid decorativa de fondo -->
+                                        <defs>
+                                            <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+                                                <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+                                            </pattern>
+                                        </defs>
+                                        <rect width="100%" height="100%" fill="url(#grid)"/>
+                                        
+                                        <!-- Conexiones / Calles de Fondo -->
+                                        <path d="M50 50 L350 50 L350 350 L50 350 Z" stroke="rgba(255,255,255,0.03)" stroke-width="2" fill="none"/>
+                                        <path d="M50 200 L350 200" stroke="rgba(255,255,255,0.03)" stroke-width="2" fill="none"/>
+                                        <path d="M200 50 L200 350" stroke="rgba(255,255,255,0.03)" stroke-width="2" fill="none"/>
+
+                                        <!-- Trazo de la Ruta Optimizada -->
+                                        <path id="route-path" d="" fill="none" stroke="var(--secondary-color)" stroke-width="3" stroke-dasharray="1000" stroke-dashoffset="1000"/>
+                                        
+                                        <!-- Bodega Multinal (Home Node) -->
+                                        <circle cx="200" cy="200" r="10" fill="var(--primary-color)"/>
+                                        <text x="200" y="185" fill="var(--primary-color)" font-size="11" font-weight="bold" text-anchor="middle">BODEGA CENTRAL</text>
+                                        
+                                        <!-- Puntos de entrega -->
+                                        <g id="map-delivery-nodes">
+                                            <!-- Generados por script -->
+                                        </g>
+                                    </svg>
+                                </div>
+                            </div>
+                            
+                            <!-- Panel de Resultados de IA -->
+                            <div class="card routing-data-panel">
+                                <h4>Controles del Agente IA Logístico</h4>
+                                <p>Presione el botón para que el Agente IA de Despachos analice las coordenadas de los pedidos pendientes y trace la ruta de reparto más eficiente.</p>
+                                <button class="action-btn" onclick="optimizeRouting()">Calcular Ruta Óptima (IA-01)</button>
+                                
+                                <div class="routing-stats-box" style="margin-top:20px;">
+                                    <h5>Métricas de la Operación</h5>
+                                    <p>Kilómetros Totales Originales: <span id="km-original">-- km</span></p>
+                                    <p>Kilómetros Optimizados IA: <strong id="km-optimizado" class="highlight-text-orange">-- km</strong></p>
+                                    <p>Ahorro de Combustible: <span id="fuel-saving" class="badge-status green" style="display:none;">--%</span></p>
+                                </div>
+                                <div class="audit-log-box routing-logs" id="routing-audit-logs">
+                                    <div class="log-line info">Esperando orden de optimización...</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Simulador 6: IA Cartera -->
+                    <div class="sim-content-pane" id="sim-cartera">
+                        <div class="pane-header">
+                            <span class="sim-pane-eyebrow">PRY-AIE-05 · AGENTE IA DE CARTERA</span>
+                            <h3>Agente IA Cartera: Predicción de Mora Financiera</h3>
+                            <p>Utiliza variables de comportamiento transaccional para calcular la probabilidad de retraso en los pagos y redacta notificaciones automatizadas personalizadas según el riesgo.</p>
+                        </div>
+                        <div class="pane-body split-2-columns">
+                            <!-- Listado de Clientes en Cartera -->
+                            <div class="card billing-risk-panel">
+                                <h4>Análisis de Cartera Activa</h4>
+                                <div class="table-container">
+                                    <table id="table-cartera-risk">
+                                        <thead>
+                                            <tr>
+                                                <th>Cliente</th>
+                                                <th>Saldo Pendiente</th>
+                                                <th>Días Vencimiento</th>
+                                                <th>Riesgo IA</th>
+                                                <th>Acción</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <!-- Llenado por JS -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <button class="action-btn" onclick="runRiskAnalysis()">Ejecutar Análisis de Riesgo IA (PRY-AIE-05)</button>
+                            </div>
+                            
+                            <!-- Panel de Cobro Sugerido -->
+                            <div class="card billing-action-panel">
+                                <h4>Gestión de Cobro Preventiva</h4>
+                                <div id="risk-analysis-detail">
+                                    <p class="neutral-info">Seleccione un cliente con la acción "Gestionar" para ver la propuesta de la IA.</p>
+                                </div>
+                                <div id="risk-email-editor" style="display:none; margin-top:20px;">
+                                    <h5>Email Redactado por IA (Personalizado)</h5>
+                                    <textarea id="risk-email-body" class="risk-email-textarea" rows="4" oninput="autoResizeTextarea(this)"></textarea>
+                                    <button class="action-btn success" onclick="sendCollectionEmail()">Enviar Notificación Preventiva</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Simulador 7: CRM Ampliado -->
+                    <div class="sim-content-pane" id="sim-crm">
+                        <div class="pane-header">
+                            <span class="sim-pane-eyebrow">PRY-CRM-EXT · CRM AMPLIADO</span>
+                            <h3>CRM Ampliado: Bandeja Omnicanal y Fidelización</h3>
+                            <p>Consolida WhatsApp, correo y chat web en una sola bandeja de conversación, y administra el motor de fidelización que calcula el estatus del cliente según su volumen transaccional.</p>
+                        </div>
+                        <div class="pane-body split-2-columns">
+                            <!-- Bandeja Unificada -->
+                            <div class="card inbox-panel">
+                                <h4>Bandeja Unificada de Mensajería</h4>
+                                <div class="inbox-list" id="inbox-list"></div>
+                            </div>
+                            <!-- Hilo de conversación + Fidelización -->
+                            <div class="card">
+                                <h4>Conversación Activa</h4>
+                                <div class="chat-thread" id="chat-thread">
+                                    <p class="neutral-info">Seleccione una conversación de la bandeja izquierda.</p>
+                                </div>
+                                <form class="chat-reply-row" onsubmit="sendCrmReply(event)">
+                                    <input type="text" id="chat-reply-input" placeholder="Escriba una respuesta...">
+                                    <button type="submit" class="action-btn-small success">Enviar</button>
+                                </form>
+                                <div class="loyalty-box" id="loyalty-box">
+                                    <h5>Motor de Fidelización · CRM-EXT</h5>
+                                    <p class="neutral-info">Seleccione un cliente para ver su estatus de fidelización.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Simulador 8: Gobierno de Datos -->
+                    <div class="sim-content-pane" id="sim-datos">
+                        <div class="pane-header">
+                            <span class="sim-pane-eyebrow">PRY-DAT · GOBIERNO DE DATOS</span>
+                            <h3>Gobierno de Datos: Diccionario Único y Linaje</h3>
+                            <p>Administra la totalidad de la información corporativa mediante taxonomía uniforme y traza el linaje del dato desde el sistema de origen hasta los dashboards gerenciales.</p>
+                        </div>
+                        <div class="pane-body split-2-columns">
+                            <!-- Diccionario de Datos -->
+                            <div class="card">
+                                <h4>Diccionario de Datos Corporativo</h4>
+                                <input type="text" id="dict-search" class="dict-search-input" placeholder="Buscar campo, dominio o sistema..." oninput="filterDataDictionary()">
+                                <div class="table-container">
+                                    <table id="table-data-dictionary">
+                                        <thead>
+                                            <tr><th>Campo</th><th>Dominio</th><th>Tipo</th><th>Sistema Origen</th></tr>
+                                        </thead>
+                                        <tbody></tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <!-- Linaje de Datos -->
+                            <div class="card">
+                                <h4>Linaje de Datos en Tiempo Real</h4>
+                                <p class="header-desc" style="margin-bottom:14px;">Seleccione un campo del diccionario para trazar su recorrido hasta el Business Intelligence corporativo.</p>
+                                <div class="lineage-flow" id="lineage-flow">
+                                    <div class="lineage-node" data-stage="origen"><span>Sistema Origen</span></div>
+                                    <div class="lineage-arrow">→</div>
+                                    <div class="lineage-node" data-stage="dat"><span>PRY-DAT<br>Gobierno de Datos</span></div>
+                                    <div class="lineage-arrow">→</div>
+                                    <div class="lineage-node" data-stage="ia"><span>Ecosistema<br>Agentes IA</span></div>
+                                    <div class="lineage-arrow">→</div>
+                                    <div class="lineage-node" data-stage="bi"><span>Business<br>Intelligence</span></div>
+                                </div>
+                                <div class="audit-log-box" id="lineage-log">
+                                    <div class="log-line info">Esperando selección de campo...</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Simulador 9: ERP Inventarios / Kárdex -->
+                    <div class="sim-content-pane" id="sim-karex">
+                        <div class="pane-header">
+                            <span class="sim-pane-eyebrow">PRY-ERP · MÓDULO DE INVENTARIOS</span>
+                            <h3>ERP Inventarios: Kárdex Corporativo en Tiempo Real</h3>
+                            <p>Control de existencias físicas, ubicaciones lógicas y rotación por referencia, con registro de movimientos de entrada y salida acoplado al WMS propio.</p>
+                        </div>
+                        <div class="pane-body split-2-columns">
+                            <!-- Kárdex -->
+                            <div class="card">
+                                <h4>Kárdex de Referencias</h4>
+                                <div class="table-container">
+                                    <table id="table-karex">
+                                        <thead>
+                                            <tr><th>Referencia</th><th>Existencias</th><th>Ubicación</th><th>Rotación</th></tr>
+                                        </thead>
+                                        <tbody></tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <!-- Registro de Movimiento -->
+                            <div class="card">
+                                <h4>Registrar Movimiento de Kárdex</h4>
+                                <form onsubmit="submitKarexMovement(event)">
+                                    <div class="input-group">
+                                        <label for="karex-ref">Referencia</label>
+                                        <select id="karex-ref" required></select>
+                                    </div>
+                                    <div class="input-group">
+                                        <label for="karex-tipo">Tipo de Movimiento</label>
+                                        <select id="karex-tipo" required>
+                                            <option value="entrada">Entrada (Recepción / Devolución)</option>
+                                            <option value="salida">Salida (Despacho / Consumo)</option>
+                                        </select>
+                                    </div>
+                                    <div class="input-group">
+                                        <label for="karex-cantidad">Cantidad</label>
+                                        <input type="number" id="karex-cantidad" min="1" required placeholder="Ej. 25">
+                                    </div>
+                                    <button type="submit" class="action-btn">Registrar en Kárdex</button>
+                                </form>
+                                <div class="sim-alert" id="karex-alert">Kárdex sincronizado en tiempo real.</div>
+                                <div class="audit-log-box" id="karex-log">
+                                    <div class="log-line system">Kárdex corporativo listo.</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Simulador 10: WMS Despachos completo -->
+                    <div class="sim-content-pane" id="sim-wmsflow">
+                        <div class="pane-header">
+                            <span class="sim-pane-eyebrow">PRY-WMS · WMS CORPORATIVO PROPIO</span>
+                            <h3>WMS: Recepción → Ubicación → Picking → Packing → Despacho</h3>
+                            <p>Trazabilidad completa de punta a punta de una orden dentro del almacén, desde el cotejo digital de recepción hasta la consolidación por transportadora.</p>
+                        </div>
+                        <div class="pane-body">
+                            <div class="wms-kanban" id="wms-kanban"></div>
+                            <div class="wms-flow-actions">
+                                <button class="action-btn" onclick="createWmsOrder()">Ingresar Nueva Orden a Bodega</button>
+                            </div>
+                            <div class="audit-log-box" id="wmsflow-log">
+                                <div class="log-line system">Esperando órdenes en el pipeline logístico...</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Simulador 11: Agente IA Comercial -->
+                    <div class="sim-content-pane" id="sim-iacomercial">
+                        <div class="pane-header">
+                            <span class="sim-pane-eyebrow">PRY-AIE-02 · AGENTE IA COMERCIAL</span>
+                            <h3>Agente IA Comercial: Predicción de Ventas</h3>
+                            <p>Modelos predictivos de Machine Learning que anticipan ventas a corto y mediano plazo por línea de producto para guiar la estrategia comercial.</p>
+                        </div>
+                        <div class="pane-body split-2-columns">
+                            <div class="card">
+                                <h4>Pronóstico de Ventas por Línea</h4>
+                                <p class="header-desc" style="margin-top:-14px; margin-bottom:14px;">Compara el volumen de ventas de los últimos 3 meses contra la proyección de IA para el próximo trimestre.</p>
+                                <button class="action-btn" onclick="generateSalesForecast()">Generar Pronóstico IA (PRY-AIE-02)</button>
+                                <div class="forecast-chart" id="forecast-chart" style="margin-top:18px;"></div>
+                                <div class="forecast-legend">
+                                    <span><span class="dot" style="background:var(--primary-color);"></span>Ventas reales</span>
+                                    <span><span class="dot" style="background:var(--secondary-color);"></span>Proyección IA</span>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <h4>Pipeline Comercial y Alertas</h4>
+                                <div class="table-container">
+                                    <table id="table-pipeline">
+                                        <thead><tr><th>Oportunidad</th><th>Cliente</th><th>Valor Estimado</th><th>Prioridad IA</th></tr></thead>
+                                        <tbody></tbody>
+                                    </table>
+                                </div>
+                                <div class="audit-log-box" id="pipeline-log">
+                                    <div class="log-line info">Esperando ejecución del modelo predictivo...</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Simulador 12: Agente IA Compras -->
+                    <div class="sim-content-pane" id="sim-iacompras">
+                        <div class="pane-header">
+                            <span class="sim-pane-eyebrow">PRY-AIE-03 · AGENTE IA DE COMPRAS</span>
+                            <h3>Agente IA de Compras: Negociación Asistida</h3>
+                            <p>Analiza tendencias de precios mundiales y plazos logísticos del portal B2B para asistir la negociación con proveedores estratégicos.</p>
+                        </div>
+                        <div class="pane-body split-2-columns">
+                            <div class="card">
+                                <h4>Cuadro Comparativo de Proveedores</h4>
+                                <div class="table-container">
+                                    <table id="table-proveedores">
+                                        <thead><tr><th>Proveedor</th><th>Precio Ref.</th><th>Tendencia</th><th>Lead Time</th><th></th></tr></thead>
+                                        <tbody></tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <h4>Asistente de Negociación IA</h4>
+                                <div id="negotiation-detail">
+                                    <p class="neutral-info">Seleccione "Negociar" en un proveedor para recibir la estrategia sugerida por la IA.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Simulador 13: Agente IA Inventarios -->
+                    <div class="sim-content-pane" id="sim-iainventarios">
+                        <div class="pane-header">
+                            <span class="sim-pane-eyebrow">PRY-AIE-04 · AGENTE IA DE INVENTARIOS</span>
+                            <h3>Agente IA de Inventarios: Reposición Autónoma</h3>
+                            <p>Cruza existencias del WMS con los lead times de proveedores para emitir de forma autónoma solicitudes de reabastecimiento ante caídas del stock mínimo.</p>
+                        </div>
+                        <div class="pane-body split-2-columns">
+                            <div class="card">
+                                <h4>Monitor de Stock Mínimo</h4>
+                                <div class="table-container">
+                                    <table id="table-stock-minimo">
+                                        <thead><tr><th>Referencia</th><th>Stock Actual</th><th>Stock Mínimo</th><th>Estado</th></tr></thead>
+                                        <tbody></tbody>
+                                    </table>
+                                </div>
+                                <button class="action-btn" onclick="runAutoReplenishment()">Ejecutar Motor de Reposición (PRY-AIE-04)</button>
+                            </div>
+                            <div class="card">
+                                <h4>Solicitudes Autónomas Emitidas</h4>
+                                <div class="audit-log-box" id="replenish-log">
+                                    <div class="log-line info">Sin actividad. Ejecute el motor de reposición.</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Simulador 14: Agente IA Fidelización -->
+                    <div class="sim-content-pane" id="sim-iafidelizacion">
+                        <div class="pane-header">
+                            <span class="sim-pane-eyebrow">PRY-AIE-06 · AGENTE IA DE FIDELIZACIÓN</span>
+                            <h3>Agente IA de Fidelización: Recompra Diseñada por IA</h3>
+                            <p>Analiza patrones de recompra por cliente y diseña automáticamente programas de fidelización personalizados, activando los beneficios en el CRM propio.</p>
+                        </div>
+                        <div class="pane-body split-2-columns">
+                            <div class="card">
+                                <h4>Clientes Analizados</h4>
+                                <div class="table-container">
+                                    <table id="table-fidelizacion-ia">
+                                        <thead><tr><th>Cliente</th><th>Frecuencia Compra</th><th>Próxima Recompra IA</th><th></th></tr></thead>
+                                        <tbody></tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <h4>Programa Personalizado Sugerido</h4>
+                                <div id="fidelizacion-detail">
+                                    <p class="neutral-info">Seleccione "Diseñar Programa" para un cliente.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ================= PANEL DE MOVIMIENTOS: TORRE DE CONTROL ================= -->
+        <section id="movimientos-viewport" class="viewport-section">
+            <div class="control-tower">
+
+                <div class="ct-header">
+                    <div>
+                        <span class="s-eyebrow-lite">PRY-WMS / PRY-ERP · TRAZABILIDAD EN VIVO</span>
+                        <h2>Torre de Control de <span class="highlight-text-italic">Movimientos</span></h2>
+                        <p class="header-desc">Visibilidad centralizada de todos los despachos en curso: estado, ubicación, transportista y manifiesto — en tiempo real.</p>
+                    </div>
+                    <button class="action-btn ct-refresh-btn" onclick="simulateMovementTick()">↻ Simular Avance en Tiempo Real</button>
+                </div>
+
+                <!-- KPIs -->
+                <div class="mov-kpi-row" id="mov-kpi-row"></div>
+
+                <!-- Filtros -->
+                <div class="mov-toolbar">
+                    <div class="mov-filter-bar" id="mov-filter-bar"></div>
+                    <input type="text" id="mov-search" class="mov-search-input" placeholder="Buscar por cliente, ID de pedido o guía..." oninput="renderMovementsTable()">
+                </div>
+
+                <!-- Tabla maestra de movimientos -->
+                <div class="table-container mov-table-container">
+                    <table id="table-movements">
+                        <thead>
+                            <tr>
+                                <th>Pedido</th>
+                                <th>Cliente</th>
+                                <th>Estado</th>
+                                <th>Ubicación Actual</th>
+                                <th>Ruta</th>
+                                <th>Transportista</th>
+                                <th>Valor Carga</th>
+                                <th>Progreso</th>
+                                <th>ETA</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody id="movements-tbody"></tbody>
+                    </table>
+                </div>
+
+                <!-- Detalle Boarding Pass -->
+                <div class="mov-detail-section" id="mov-detail-section">
+                    <h3 class="mov-detail-title">Selecciona un movimiento para ver su pase de abordar</h3>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- JS Scripts -->
+    <script src="script.js"></script>
+</body>
+</html>

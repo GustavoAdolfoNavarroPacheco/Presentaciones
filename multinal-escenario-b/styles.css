@@ -20,17 +20,18 @@
 @font-face { font-family:'Poppins';          src:url('assets/fonts/Poppins-Medium.ttf')              format('truetype'); font-weight:500; font-style:normal; font-display:swap; }
 @font-face { font-family:'Poppins';          src:url('assets/fonts/Poppins-SemiBold.ttf')            format('truetype'); font-weight:600; font-style:normal; font-display:swap; }
 
-/* ---------- 2. TOKENS — Multinal (naranja icono → índigo wordmark) ---------- */
+/* ---------- 2. TOKENS — Multinal (fondo gris claro frío + wash de marca — estándar desde 2026-07-10) ---------- */
 :root{
-  --bg-0:#0B0704; --bg-1:#150D07; --bg-2:#1E140B; --bg-deep:#170F08;
-  --bg-glow-a:rgba(255,122,0,.13); --bg-glow-b:rgba(74,54,167,.13);
-  --text-hi:#FFFFFF; --text-mid:#E4D6C6; --text-lo:#9C8A78; --text-faint:#5A4C40;
-  --cyan:#FFB24D; --blue:#FF7A00; --violet:#7A5AD1; --magenta:#3B2A8C; --amber:#F5A623; --lime:#FFB24D;
-  --grad-brand:linear-gradient(100deg,#FFC670 0%,#FF7A00 38%,#7A5AD1 72%,#3B2A8C 100%);
-  --grad-cyan:linear-gradient(120deg,#FFC670,#FF7A00);
-  --grad-violet:linear-gradient(120deg,#9575E0,#3B2A8C);
-  --card-border:1px solid rgba(220,150,90,.16);
-  --dot-confidential:#35D0F0; --dot-confidential-glow:rgba(53,208,240,.7);
+  --bg-0:#F2F3F5; --bg-1:#E9EBEF; --bg-2:#FFFFFF; --bg-deep:#E2E4E9;
+  --bg-glow-a:rgba(255,122,0,.09); --bg-glow-b:rgba(59,42,140,.09);
+  --bg-wash:linear-gradient(135deg, rgba(255,155,61,.07) 0%, rgba(255,122,0,.05) 32%, rgba(122,90,209,.05) 66%, rgba(59,42,140,.07) 100%);
+  --text-hi:#14161B; --text-mid:#3D4451; --text-lo:#6B7280; --text-faint:#9CA3AF;
+  --cyan:#A6480A; --blue:#FF7A00; --violet:#5A3FBF; --magenta:#3B2A8C; --amber:#C2570A; --lime:#A6480A;
+  --grad-brand:linear-gradient(100deg,#FF9B3D 0%,#FF7A00 38%,#7A5AD1 72%,#3B2A8C 100%);
+  --grad-cyan:linear-gradient(120deg,#FF9B3D,#FF7A00);
+  --grad-violet:linear-gradient(120deg,#7A5AD1,#3B2A8C);
+  --card-border:1px solid rgba(20,25,35,.10);
+  --dot-confidential:#0E8FB0; --dot-confidential-glow:rgba(14,143,176,.45);
   --font-display:'Playfair Display',Georgia,serif;
   --font-serif-alt:'DM Serif Display',Georgia,serif;
   --font-label:'Montserrat','Segoe UI',sans-serif;
@@ -41,7 +42,7 @@
 /* ---------- 3. RESET ---------- */
 *{ box-sizing:border-box; margin:0; padding:0; }
 @page{ size:11in 6.1875in; margin:0; }
-html,body{ background:#14120e; font-family:var(--font-body); color:var(--text-hi); -webkit-font-smoothing:antialiased; }
+html,body{ background:#1B1D22; font-family:var(--font-body); color:var(--text-hi); -webkit-font-smoothing:antialiased; }
 body{ display:flex; flex-direction:column; align-items:center; padding:24px; }
 
 /* ---------- 4. LÁMINA BASE ---------- */
@@ -50,17 +51,20 @@ body{ display:flex; flex-direction:column; align-items:center; padding:24px; }
   background:
     radial-gradient(120% 90% at 82% 18%, var(--bg-glow-a) 0%, transparent 45%),
     radial-gradient(120% 120% at 12% 92%, var(--bg-glow-b) 0%, transparent 50%),
+    var(--bg-wash),
     linear-gradient(150deg, var(--bg-0) 0%, var(--bg-1) 55%, var(--bg-deep) 100%);
   color:var(--text-hi); margin-bottom:28px; border-radius:var(--radius);
-  box-shadow:0 20px 60px rgba(0,0,0,.55);
+  box-shadow:0 20px 60px rgba(0,0,0,.22);
 }
 .glow-a{ background:
   radial-gradient(90% 80% at 15% 20%, var(--bg-glow-a) 0%, transparent 45%),
   radial-gradient(110% 110% at 95% 95%, var(--bg-glow-b) 0%, transparent 50%),
+  var(--bg-wash),
   linear-gradient(160deg,var(--bg-0),var(--bg-1) 60%,var(--bg-deep)); }
 .glow-b{ background:
   radial-gradient(80% 70% at 88% 15%, var(--bg-glow-b) 0%, transparent 45%),
   radial-gradient(120% 120% at 8% 90%, var(--bg-glow-a) 0%, transparent 50%),
+  var(--bg-wash),
   linear-gradient(140deg,var(--bg-0),var(--bg-1) 60%,var(--bg-deep)); }
 
 /* ---------- 5. UTILIDADES ---------- */
@@ -77,9 +81,9 @@ body{ display:flex; flex-direction:column; align-items:center; padding:24px; }
 .corner.br{ bottom:26px; right:26px; border-bottom:2px solid; border-right:2px solid; border-bottom-right-radius:4px; }
 
 .deco-rings{ position:absolute; top:50%; right:-7%; transform:translateY(-50%); width:5.2in; height:5.2in; z-index:1; pointer-events:none; }
-.deco-rings span{ position:absolute; inset:0; border-radius:50%; border:1px solid rgba(220,170,110,.09); }
-.deco-rings span:nth-child(2){ inset:.7in; border-color:rgba(220,170,110,.07); }
-.deco-rings span:nth-child(3){ inset:1.4in; border-color:rgba(220,170,110,.05); }
+.deco-rings span{ position:absolute; inset:0; border-radius:50%; border:1px solid rgba(20,25,35,.07); }
+.deco-rings span:nth-child(2){ inset:.7in; border-color:rgba(20,25,35,.055); }
+.deco-rings span:nth-child(3){ inset:1.4in; border-color:rgba(20,25,35,.04); }
 .deco-rings span:nth-child(4){ inset:1.95in; border:1px solid rgba(255,122,0,.2); box-shadow:0 0 40px rgba(255,122,0,.12) inset; }
 
 .badge-confidential{ display:inline-flex; align-items:center; gap:9px; font-family:var(--font-label); font-weight:600; font-size:8.5pt; letter-spacing:.26em; text-transform:uppercase; color:var(--text-mid); }
@@ -99,7 +103,7 @@ body{ display:flex; flex-direction:column; align-items:center; padding:24px; }
 .cover__client-para{ font-family:var(--font-label); font-weight:700; font-size:11pt; letter-spacing:.32em; color:var(--text-mid); }
 .cover__client-logo{ height:44px; width:auto; }
 .cover__subtitle{ margin-top:16px; font-family:var(--font-body); font-weight:300; font-size:13pt; color:var(--text-mid); }
-.cover__meta{ position:relative; z-index:5; display:grid; grid-template-columns:1.5fr 1.5fr 1fr 1fr; gap:26px; padding-top:22px; border-top:1px solid rgba(255,255,255,.09); }
+.cover__meta{ position:relative; z-index:5; display:grid; grid-template-columns:1.5fr 1.5fr 1fr 1fr; gap:26px; padding-top:22px; border-top:1px solid rgba(20,25,35,.12); }
 .meta-item__label{ font-family:var(--font-label); font-weight:600; font-size:7.5pt; letter-spacing:.22em; text-transform:uppercase; color:var(--cyan); margin-bottom:8px; }
 .meta-item__value{ font-family:var(--font-body); font-weight:500; font-size:10.5pt; line-height:1.35; color:var(--text-hi); }
 
@@ -125,7 +129,7 @@ body{ display:flex; flex-direction:column; align-items:center; padding:24px; }
 .quote-card .qm{ font-family:var(--font-display); font-weight:900; font-size:34pt; line-height:0; color:var(--cyan); display:block; height:16px; }
 .pain-list{ display:flex; flex-direction:column; gap:.19in; list-style:none; }
 .pain-item{ display:flex; align-items:flex-start; gap:14px; }
-.pain-item .ico{ flex:none; width:26px; height:26px; border-radius:8px; display:grid; place-items:center; background:linear-gradient(135deg,rgba(255,122,0,.22),rgba(122,90,209,.20)); color:#FFB24D; font-weight:700; font-size:12pt; margin-top:1px; }
+.pain-item .ico{ flex:none; width:26px; height:26px; border-radius:8px; display:grid; place-items:center; background:linear-gradient(135deg,rgba(255,122,0,.16),rgba(122,90,209,.14)); color:var(--cyan); font-weight:700; font-size:12pt; margin-top:1px; }
 .pain-item .tx{ font-family:var(--font-body); font-weight:400; font-size:10pt; line-height:1.4; color:var(--text-mid); }
 
 /* ---------- 9. LAYOUT: Mapa del Ecosistema ---------- */
@@ -160,7 +164,7 @@ body{ display:flex; flex-direction:column; align-items:center; padding:24px; }
 .mod-objective{ display:flex; align-items:center; gap:12px; margin-top:2px; }
 .mod-objective .ico-lg{ flex:none; width:46px; height:46px; border-radius:12px; display:grid; place-items:center; background:var(--grad-brand); color:#1A0F05; font-family:var(--font-display); font-weight:900; font-size:16pt; }
 .tag-row{ display:flex; flex-wrap:wrap; gap:8px; margin-top:.18in; }
-.tag-pill{ font-family:var(--font-label); font-weight:600; font-size:7.5pt; letter-spacing:.08em; color:var(--text-mid); background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.1); border-radius:99px; padding:5px 12px; }
+.tag-pill{ font-family:var(--font-label); font-weight:600; font-size:7.5pt; letter-spacing:.08em; color:var(--text-mid); background:rgba(20,25,35,.04); border:1px solid rgba(20,25,35,.12); border-radius:99px; padding:5px 12px; }
 .tag-pill b{ color:var(--cyan); font-weight:700; }
 
 /* ---------- 11. LAYOUT: Flujo (Workflow) ---------- */

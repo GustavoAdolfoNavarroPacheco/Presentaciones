@@ -32,6 +32,7 @@
   --b-grad-brand:linear-gradient(100deg,#FF9B3D 0%,#FF7A00 38%,#7A5AD1 72%,#3B2A8C 100%);
   --b-grad-cyan:linear-gradient(120deg,#FF9B3D,#FF7A00);
   --b-grad-violet:linear-gradient(120deg,#7A5AD1,#3B2A8C);
+  --b-grad-num:linear-gradient(100deg, var(--b-cyan) 0%, var(--b-magenta) 100%);
   --b-card-border:1px solid rgba(20,25,35,.10);
   --b-dot-confidential:#0E8FB0; --b-dot-confidential-glow:rgba(14,143,176,.45);
   --b-font-display:'Playfair Display',Georgia,serif;
@@ -163,16 +164,17 @@
 /* ---------- 10. LAYOUT: Inversión ---------- */
 .b-deck .b-invest{ flex:1; display:grid; grid-template-columns:1.05fr .95fr; gap:.6in; align-items:center; margin-top:.2in; }
 .b-deck .b-invest__num .b-cap{ font-family:var(--b-font-label); font-weight:600; font-size:9pt; letter-spacing:.24em; text-transform:uppercase; color:var(--b-cyan); margin-bottom:10px; }
-.b-deck .b-invest__num .b-big{ font-family:var(--b-font-display); font-weight:900; font-size:34pt; line-height:1.05; letter-spacing:-.5px; }
+.b-deck .b-invest__num .b-big{ font-family:var(--b-font-label); font-weight:800; font-size:40pt; line-height:1.05; letter-spacing:-.01em; font-variant-numeric:tabular-nums; background:var(--b-grad-num); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; color:transparent; }
 .b-deck .b-invest__num .b-sub{ margin-top:14px; font-family:var(--b-font-body); font-weight:300; font-size:10.5pt; line-height:1.45; color:var(--b-text-mid); max-width:4.5in; }
 .b-deck .b-pay{ display:flex; flex-direction:column; gap:.16in; }
 .b-deck .b-pay-row{ display:flex; align-items:center; gap:16px; background:var(--b-bg-2); border:var(--b-card-border); border-radius:12px; padding:.2in .26in; }
 .b-deck .b-pay-row .b-pct{ flex:none; font-family:var(--b-font-display); font-weight:900; font-size:16pt; min-width:74px; }
-.b-deck .b-pay-row .b-term{ flex:none; min-width:74px; display:flex; flex-direction:column; align-items:center; line-height:1; }
-.b-deck .b-pay-row .b-term b{ font-family:var(--b-font-display); font-weight:900; font-size:20pt; }
-.b-deck .b-pay-row .b-term small{ font-family:var(--b-font-label); font-weight:700; font-size:6.5pt; letter-spacing:.14em; color:var(--b-text-lo); margin-top:3px; }
-.b-deck .b-pay-row .b-txt b{ font-family:var(--b-font-label); font-weight:700; font-size:9.5pt; color:var(--b-text-hi); display:block; margin-bottom:2px; letter-spacing:.02em; }
-.b-deck .b-pay-row .b-txt span{ font-family:var(--b-font-body); font-weight:300; font-size:8.5pt; color:var(--b-text-lo); }
+.b-deck .b-pay-row .b-term{ flex:none; min-width:84px; display:flex; flex-direction:column; align-items:center; line-height:1; }
+.b-deck .b-pay-row .b-term b{ font-family:var(--b-font-label); font-weight:800; font-size:27pt; letter-spacing:-.01em; background:var(--b-grad-num); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; color:transparent; }
+.b-deck .b-pay-row .b-term small{ font-family:var(--b-font-label); font-weight:700; font-size:7pt; letter-spacing:.14em; color:var(--b-text-mid); margin-top:3px; }
+.b-deck .b-pay-row .b-txt{ display:flex; flex-direction:column; }
+.b-deck .b-pay-row .b-txt b{ font-family:var(--b-font-label); font-weight:700; font-size:14.5pt; letter-spacing:-.01em; font-variant-numeric:tabular-nums; display:block; margin-bottom:3px; background:var(--b-grad-num); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; color:transparent; }
+.b-deck .b-pay-row .b-txt span{ font-family:var(--b-font-body); font-weight:400; font-size:8.7pt; color:var(--b-text-mid); }
 .b-deck .b-pay-note{ font-family:var(--b-font-body); font-weight:300; font-size:8.5pt; line-height:1.4; color:var(--b-text-lo); padding-left:4px; }
 
 /* ---------- 11. LAYOUT: Cierre / CTA ---------- */

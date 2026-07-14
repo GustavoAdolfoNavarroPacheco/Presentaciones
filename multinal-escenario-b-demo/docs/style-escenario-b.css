@@ -168,6 +168,9 @@
 .b-deck .b-pay{ display:flex; flex-direction:column; gap:.16in; }
 .b-deck .b-pay-row{ display:flex; align-items:center; gap:16px; background:var(--b-bg-2); border:var(--b-card-border); border-radius:12px; padding:.2in .26in; }
 .b-deck .b-pay-row .b-pct{ flex:none; font-family:var(--b-font-display); font-weight:900; font-size:16pt; min-width:74px; }
+.b-deck .b-pay-row .b-term{ flex:none; min-width:74px; display:flex; flex-direction:column; align-items:center; line-height:1; }
+.b-deck .b-pay-row .b-term b{ font-family:var(--b-font-display); font-weight:900; font-size:20pt; }
+.b-deck .b-pay-row .b-term small{ font-family:var(--b-font-label); font-weight:700; font-size:6.5pt; letter-spacing:.14em; color:var(--b-text-lo); margin-top:3px; }
 .b-deck .b-pay-row .b-txt b{ font-family:var(--b-font-label); font-weight:700; font-size:9.5pt; color:var(--b-text-hi); display:block; margin-bottom:2px; letter-spacing:.02em; }
 .b-deck .b-pay-row .b-txt span{ font-family:var(--b-font-body); font-weight:300; font-size:8.5pt; color:var(--b-text-lo); }
 .b-deck .b-pay-note{ font-family:var(--b-font-body); font-weight:300; font-size:8.5pt; line-height:1.4; color:var(--b-text-lo); padding-left:4px; }

@@ -1068,6 +1068,20 @@ button, .selector-btn, .badge, .sidebar-title, .badge-status, th,
     font-weight: 800;
     color: var(--primary-color);
     font-family: var(--font-heading);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    line-height: 1;
+    flex: none;
+}
+
+.ms-term-unit {
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: .1em;
+    color: var(--text-muted);
+    font-family: var(--font-body, inherit);
+    margin-top: 4px;
 }
 
 .ms-details h4 {

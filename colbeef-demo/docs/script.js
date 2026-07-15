@@ -9,6 +9,7 @@ const state = {
     theme: 'light',
     autoplayActive: false,
     autoplayTimer: null,
+    isTyping: false,
 
     activeSimModule: 'clientes',
 
@@ -98,9 +99,9 @@ const state = {
             ]
         },
         {
-            id: 3, nombre: 'Diego Serrano', telefono: '+57 317 517 8403', fecha: '07 jul 2026', unread: 1, guia: 'GUÍA 026-B-11001-000…', ayuda: false,
+            id: 3, nombre: 'Diego Serrano', telefono: '+57 317 517 8403', fecha: '15 jul 2026', unread: 1, guia: 'GUÍA 026-B-11001-000…', ayuda: false,
             historial: [
-                { from: 'in', texto: 'Quedo atento a la confirmación de despacho.', time: '11:40' },
+                { from: 'in', texto: 'Hola', time: '08:49 AM' },
             ]
         },
         {
@@ -142,11 +143,11 @@ const state = {
     usuarios: [
         { nombre: 'Alejandra Gómez', tipo: 'Administrador', email: 'alejandra.gomez@colbeef.com', activo: true },
         { nombre: 'Eduard Cala', tipo: 'Administrador', email: 'eduard.cala@colbeef.com', activo: true },
-        { nombre: 'Elizabeth Pérez', tipo: 'Gestor', email: 'elizabeth.perez@colbeef.com', activo: true },
+        { nombre: 'Diego Serrano', tipo: 'Gestor', email: 'diego.serrano@colbeef.com', activo: true },
         { nombre: 'Carlos Rodríguez', tipo: 'Administrador', email: 'carlos.rodriguez@colbeef.com', activo: true },
         { nombre: 'Diana Reyes', tipo: 'Gestor', email: 'diana.reyes@colbeef.com', activo: true },
         { nombre: 'Fernando Ruiz', tipo: 'Administrador', email: 'fernando.ruiz@colbeef.com', activo: false },
-        { nombre: 'Gustavo Rincón', tipo: 'Gestor', email: 'gustavo.rincon@colbeef.com', activo: true },
+        { nombre: 'Gustavo Navarro', tipo: 'Gestor', email: 'gustavo.navarro@colbeef.com', activo: true },
         { nombre: 'Héctor Cabrera', tipo: 'Super-admin', email: 'hector.cabrera@colbeef.com', activo: true },
         { nombre: 'Iván Guerrero', tipo: 'Administrador', email: 'ivan.guerrero@colbeef.com', activo: true },
         { nombre: 'Jorge Gómez', tipo: 'Gestor', email: 'jorge.gomez@colbeef.com', activo: true },
@@ -397,6 +398,24 @@ function onSalidasCliente(v) { state.salidasCliente = v; renderSalidasCava(); }
 function onDespacho(btn) { runWithLoading(btn, 800, () => flashToast('Despacho generado correctamente (demo).')); }
 
 // ---------- 7. CHATS ----------
+function getAvatarBg(name) {
+    const colors = [
+        'linear-gradient(135deg, #FF6B6B, #FF8E53)',
+        'linear-gradient(135deg, #4E54C8, #8F94FB)',
+        'linear-gradient(135deg, #11998E, #38EF7D)',
+        'linear-gradient(135deg, #FC4A1A, #F7B733)',
+        'linear-gradient(135deg, #7F00FF, #E100FF)',
+        'linear-gradient(135deg, #FF007F, #FF00FF)',
+        'linear-gradient(135deg, #00B4DB, #0083B0)',
+        'linear-gradient(135deg, #F857A6, #FF5858)',
+    ];
+    let sum = 0;
+    for (let i = 0; i < name.length; i++) {
+        sum += name.charCodeAt(i);
+    }
+    return colors[sum % colors.length];
+}
+
 function renderChats() {
     const q = state.chatQuery.trim().toLowerCase();
     let list = state.chats.filter(c => !q || c.nombre.toLowerCase().includes(q) || c.telefono.includes(q));
@@ -409,11 +428,14 @@ function renderChats() {
     const listEl = document.getElementById('cs-chat-list');
     listEl.innerHTML = list.map(c => `
         <div class="cs-chat-item ${state.selectedChatId === c.id ? 'active' : ''}" onclick="selectChat(${c.id})">
-            <div class="cs-chat-avatar">${c.nombre.charAt(0)}</div>
+            <div class="cs-chat-avatar" style="background: ${getAvatarBg(c.nombre)}">${c.nombre.charAt(0)}</div>
             <div class="cs-chat-info">
                 <div class="cs-chat-top"><b>${escapeHtml(c.nombre)}</b><span>${c.fecha}</span></div>
                 <div class="cs-chat-tel">${c.telefono}</div>
-                <span class="cs-chat-badge">IA 💬</span>
+                <div style="display: flex; gap: 6px; align-items: center; flex-wrap: wrap;">
+                    <span class="cs-chat-badge">IA 💬</span>
+                    ${c.ayuda ? `<span class="cs-chat-badge" style="background: var(--primary-glow); color: var(--primary-color);">SOPORTE ⚠️</span>` : ''}
+                </div>
                 <div class="cs-chat-guia">${c.guia}</div>
             </div>
             ${c.unread ? `<span class="cs-chat-unread">${c.unread}</span>` : ''}
@@ -431,18 +453,74 @@ function renderChatDetail() {
     const detail = document.getElementById('cs-chat-detail');
     const c = state.chats.find(x => x.id === state.selectedChatId);
     if (!c) {
-        detail.innerHTML = `<div class="cs-chat-empty"><div class="cs-chat-empty-icon">💬</div><h4>Sin selección</h4><p>Selecciona un chat para ver más detalles</p></div>`;
+        detail.innerHTML = `<div class="cs-chat-empty"><div class="cs-chat-empty-icon">💬</div><h4>Sin selección</h4><p>Selecciona un chat de la lista de la izquierda para ver el historial de mensajes</p></div>`;
         return;
     }
     detail.innerHTML = `
-        <div class="cs-chat-detail-head"><b>${escapeHtml(c.nombre)}</b><span>${c.telefono}</span></div>
-        <div class="cs-chat-thread">
-            ${c.historial.map(h => `<div class="cs-bubble ${h.from}"><p>${escapeHtml(h.texto)}</p><span>${h.time}</span></div>`).join('')}
+        <div class="cs-chat-detail-head">
+            <div class="cs-chat-detail-userinfo">
+                <div class="cs-chat-avatar" style="background: ${getAvatarBg(c.nombre)}">${c.nombre.charAt(0)}</div>
+                <div>
+                    <div class="cs-chat-detail-name">
+                        <b>${escapeHtml(c.nombre)}</b>
+                        <span class="cs-chat-status-pulse"></span>
+                        <span class="cs-chat-status-text">En línea (Agente IA)</span>
+                    </div>
+                    <div class="cs-chat-detail-tel">${c.telefono}</div>
+                </div>
+            </div>
+            <div class="cs-chat-detail-actions">
+                <button class="cs-chat-action-btn" title="Asistencia Humana" onclick="flashToast('Transfiriendo a agente humano…')">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    <span>Pausar IA</span>
+                </button>
+                <button class="cs-chat-action-btn primary" title="Ver Guía" onclick="flashToast('Abriendo guía ${escapeHtml(c.guia.replace('GUÍA ', ''))}…')">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                    <span>Ver Guía</span>
+                </button>
+            </div>
         </div>
+        <div class="cs-chat-thread">
+            ${c.historial.map(h => `
+                <div class="cs-bubble ${h.from}">
+                    <div class="cs-bubble-content">
+                        <p>${escapeHtml(h.texto)}</p>
+                    </div>
+                    <div class="cs-bubble-meta">
+                        <span>${h.time}</span>
+                        ${h.from === 'out' ? `<svg class="cs-double-tick" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M2 12l5.25 5L18 6"/><path d="M16 6l-8 8.5L7.25 14"/></svg>` : ''}
+                    </div>
+                </div>
+            `).join('')}
+            ${state.isTyping && state.selectedChatId === c.id ? `
+                <div class="cs-bubble in cs-bubble-typing">
+                    <div class="typing-indicator">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+            ` : ''}
+        </div>
+        <div class="cs-chat-suggestions" id="cs-chat-suggestions"></div>
         <form class="cs-chat-composer" onsubmit="sendChatMsg(event, ${c.id})">
-            <input type="text" placeholder="Escribe un mensaje…" id="cs-chat-input">
-            <button type="submit">Enviar</button>
-        </form>`;
+            <button type="button" class="cs-composer-attachment" onclick="flashToast('Adjuntar archivo (demo)')">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"/></svg>
+            </button>
+            <input type="text" placeholder="Escribe un mensaje aquí…" id="cs-chat-input" autocomplete="off">
+            <button type="button" class="cs-composer-emoji" onclick="flashToast('Emojis (demo)')">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+            </button>
+            <button type="submit" class="cs-composer-send">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            </button>
+        </form>
+    `;
+    const thread = detail.querySelector('.cs-chat-thread');
+    if (thread) {
+        thread.scrollTop = thread.scrollHeight;
+    }
+    renderChatSuggestions(c);
 }
 function sendChatMsg(e, id) {
     e.preventDefault();
@@ -453,6 +531,129 @@ function sendChatMsg(e, id) {
     c.historial.push({ from: 'out', texto: val, time: new Date().toLocaleTimeString('es-CO', { hour: '2-digit', minute: '2-digit' }) });
     input.value = '';
     renderChatDetail();
+}
+function renderChatSuggestions(c) {
+    const suggestionsEl = document.getElementById('cs-chat-suggestions');
+    if (!suggestionsEl) return;
+
+    if (c.id !== 3) {
+        suggestionsEl.style.display = 'none';
+        return;
+    }
+
+    suggestionsEl.style.display = 'flex';
+    const h = c.historial;
+
+    if (h.length === 1 && h[0].from === 'in' && h[0].texto === 'Hola') {
+        const text = `Hola, Soy tu asistente de Colbeef, Te puedo ayudar con:
+
+1. Cambio de Propietario
+2. Planillaje
+3. Cava/Despacho
+
+¿Con qué te puedo ayudar?
+
+Escribe *MENU* para volver al menú principal de opciones.`;
+        suggestionsEl.innerHTML = `
+            <div class="cs-chat-suggestions-title">💡 Respuesta sugerida para el Asistente</div>
+            <div class="cs-chat-suggestion-card" onclick="sendSuggestedMsg(${c.id}, \`${escapeBackticks(text)}\`, '1')">
+                <div class="cs-chat-suggestion-preview">${escapeHtml(text)}</div>
+                <div class="cs-chat-suggestion-action">
+                    <span>Enviar esta respuesta</span>
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                </div>
+            </div>
+        `;
+    } 
+    else if (h.length === 3 && h[2].from === 'in' && h[2].texto === '1') {
+        const text = `📋 Para comenzar con el cambio de propietario, por favor envíame el número de GUÍA que deseas planillar.
+
+Escribe *MENU* para volver al menú principal de opciones.`;
+        suggestionsEl.innerHTML = `
+            <div class="cs-chat-suggestions-title">💡 Respuesta sugerida para el Asistente</div>
+            <div class="cs-chat-suggestion-card" onclick="sendSuggestedMsg(${c.id}, \`${escapeBackticks(text)}\`, '026-B-11001-0003495979')">
+                <div class="cs-chat-suggestion-preview">${escapeHtml(text)}</div>
+                <div class="cs-chat-suggestion-action">
+                    <span>Enviar esta respuesta</span>
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                </div>
+            </div>
+        `;
+    } 
+    else if (h.length === 5 && h[4].from === 'in' && h[4].texto === '026-B-11001-0003495979') {
+        const text = `La guía 026-B-11001-0003495979 tiene 40 animales en total, y 40 de ellos son de tu propiedad.
+
+Para realizar el cambio de propietario, necesito la siguiente información de cada animal:
+
+*   *Código del animal*
+*   *Peso del animal*
+*   *Tipo de documento del nuevo propietario* (CC, NIT, PASAPORTE)
+*   *Número de documento del nuevo propietario*
+
+Por favor, indícame los datos de los animales para los que deseas cambiar el propietario.
+
+Escribe *MENU* para volver al menú principal de opciones.`;
+        suggestionsEl.innerHTML = `
+            <div class="cs-chat-suggestions-title">💡 Respuesta sugerida para el Asistente</div>
+            <div class="cs-chat-suggestion-card" onclick="sendSuggestedMsg(${c.id}, \`${escapeBackticks(text)}\`, 'Ninguna. Finaliza el chat')">
+                <div class="cs-chat-suggestion-preview">${escapeHtml(text)}</div>
+                <div class="cs-chat-suggestion-action">
+                    <span>Enviar esta respuesta</span>
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                </div>
+            </div>
+        `;
+    } 
+    else {
+        suggestionsEl.innerHTML = `
+            <button class="cs-chat-suggestion-reset" onclick="reiniciarAutoChat(${c.id})">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
+                <span>Reiniciar Simulación de Auto Chat</span>
+            </button>
+        `;
+    }
+}
+function sendSuggestedMsg(chatId, textToSend, autoResponseText) {
+    const c = state.chats.find(x => x.id === chatId);
+    if (!c) return;
+
+    let timeString = '08:49 AM';
+    if (c.historial.length >= 2) timeString = '08:50 AM';
+
+    c.historial.push({
+        from: 'out',
+        texto: textToSend,
+        time: timeString
+    });
+
+    renderChatDetail();
+    state.isTyping = true;
+    renderChatDetail();
+
+    setTimeout(() => {
+        state.isTyping = false;
+        c.historial.push({
+            from: 'in',
+            texto: autoResponseText,
+            time: timeString
+        });
+        renderChats();
+        if (autoResponseText === 'Ninguna. Finaliza el chat') {
+            flashToast('🏁 Flujo de auto-chat completado con éxito.');
+        }
+    }, 1800);
+}
+function reiniciarAutoChat(chatId) {
+    const c = state.chats.find(x => x.id === chatId);
+    if (!c) return;
+    c.historial = [
+        { from: 'in', texto: 'Hola', time: '08:49 AM' }
+    ];
+    renderChats();
+    flashToast('🔄 Simulación de auto-chat reiniciada.');
+}
+function escapeBackticks(str) {
+    return str.replace(/`/g, '\\`');
 }
 function onChatSearch(v) { state.chatQuery = v; renderChats(); }
 function setChatFilter(f) { state.chatFilter = state.chatFilter === f ? 'todos' : f; renderChats(); }

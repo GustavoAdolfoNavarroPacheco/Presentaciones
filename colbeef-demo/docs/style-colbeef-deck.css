@@ -11,7 +11,7 @@
    Presentación: Colbeef S.A.S. — Plan de Trabajo y SLA
    Paleta derivada del logo (rojo del wordmark + verde del isotipo)
    ============================================================ */
-.cb-deck /* ---------- 2. TOKENS — Colbeef (fondo gris claro frío + wash rojo→verde de marca) ---------- */
+/* ---------- 2. TOKENS — Colbeef (fondo gris claro frío + wash rojo→verde de marca) ---------- */
 .cb-deck{ --cb-bg-0:#F2F3F5; --cb-bg-1:#E9EBEF; --cb-bg-2:#FFFFFF; --cb-bg-deep:#E2E4E9;
   --cb-bg-glow-a:rgba(217,58,46,.09); --cb-bg-glow-b:rgba(27,94,51,.09);
   --cb-bg-wash:linear-gradient(135deg, rgba(224,74,58,.07) 0%, rgba(184,52,31,.05) 32%, rgba(46,139,79,.05) 66%, rgba(27,94,51,.07) 100%);
@@ -28,7 +28,7 @@
   --cb-font-body:'Poppins','Segoe UI',sans-serif;
   --cb-slide-w:11in; --cb-slide-h:6.1875in; --cb-pad:0.72in; --cb-radius:14px; }
 .cb-deck /* ---------- 4. LÁMINA BASE ---------- */
-.cbdeck-slide{ position:relative; width:var(--cb-slide-w); height:var(--cb-slide-h); overflow:hidden;
+.cbdeck-slide{ width:100%; height:100%; overflow:hidden;
   background:
     radial-gradient(120% 90% at 82% 18%, var(--cb-bg-glow-a) 0%, transparent 45%),
     radial-gradient(120% 120% at 12% 92%, var(--cb-bg-glow-b) 0%, transparent 50%),
@@ -64,10 +64,10 @@
 .cb-deck .cb-badge-confidential{ display:inline-flex; align-items:center; gap:9px; font-family:var(--cb-font-label); font-weight:600; font-size:8.5pt; letter-spacing:.26em; text-transform:uppercase; color:var(--cb-text-mid); }
 .cb-deck .cb-badge-confidential::before{ content:""; width:8px; height:8px; border-radius:50%; background:var(--cb-dot-confidential); box-shadow:0 0 10px 1px var(--cb-dot-confidential-glow); }
 .cb-deck /* ---------- 6. PORTADA ---------- */
-.cb-cover{ display:flex; flex-direction:column; padding:var(--cb-pad); }
+.cb-cover{ display:grid; grid-template-rows:auto 1fr auto; padding:var(--cb-pad); }
 .cb-deck .cb-cover__topbar{ flex:none; display:flex; align-items:center; justify-content:space-between; position:relative; z-index:5; }
 .cb-deck .cb-cover__brand{ height:26px; width:auto; opacity:.96; }
-.cb-deck .cb-cover__body{ position:relative; z-index:5; max-width:8.4in; width:100%; margin-top:auto; margin-bottom:auto; text-align:left; }
+.cb-deck .cb-cover__body{ position:relative; z-index:5; max-width:8.4in; width:100%; align-self:center; text-align:left; }
 .cb-deck .cb-cover__eyebrow{ margin-bottom:20px; text-align:left; }
 .cb-deck .cb-cover__scenario{ display:inline-flex; align-items:center; gap:9px; font-family:var(--cb-font-label); font-weight:700; font-size:9.5pt; letter-spacing:.22em; text-transform:uppercase; color:var(--cb-text-hi); background:var(--cb-grad-brand); padding:7px 16px; border-radius:99px; margin-bottom:18px; }
 .cb-deck .cb-cover__title{ font-family:var(--cb-font-display); font-weight:900; font-size:40pt; line-height:1.08; letter-spacing:-.5px; color:var(--cb-text-hi); text-align:left; }

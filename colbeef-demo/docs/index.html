@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colbeef S.A.S. - Plataforma Demo</title>
+    <meta name="description" content="Propuesta técnica y demo interactiva de la plataforma operativa para Colbeef S.A.S.">
+    <link rel="icon" href="assets/favicon.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,900&family=Montserrat:wght@500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=2">
+    <link rel="stylesheet" href="style-colbeef-deck.css?v=2">
+</head>
+<body class="light-theme">
+    <header class="app-header">
+        <div class="header-left">
+            <img src="assets/logo-campuslands.png" alt="Campuslands" class="brand-logo brand-logo-campuslands">
+            <div class="logo-divider"></div>
+            <img src="assets/logo-colbeef.png" alt="Colbeef S.A.S." class="brand-logo brand-logo-colbeef">
+        </div>
+
+        <div class="header-center">
+            <div class="view-selector">
+                <span class="view-selector-pill" id="view-selector-pill"></span>
+                <button id="btn-view-slides" class="selector-btn active" onclick="switchView('slides')">
+                    <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="9" y1="3" x2="9" y2="21"/><line x1="15" y1="3" x2="15" y2="21"/></svg>
+                    Presentación
+                </button>
+                <button id="btn-view-simulator" class="selector-btn" onclick="switchView('simulator')">
+                    <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                    Simulador Demo
+                </button>
+            </div>
+        </div>
+
+        <div class="header-right">
+            <span class="badge badge-confidential">CONFIDENCIAL</span>
+            <button id="btn-theme-toggle" class="icon-btn" title="Cambiar Tema" onclick="toggleTheme()">
+                <svg id="theme-icon" viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <main class="app-content">
+
+        <!-- ================= MODO PRESENTACIÓN ================= -->
+        <section id="slides-viewport" class="viewport-section active">
+            <div class="slides-container cb-deck" id="slides-container">
+<!-- ===== 1 · PORTADA ===== -->
+  <section class="active slide cbdeck-slide cb-cover" data-slide="1">
+    <span class="cb-corner cb-tl"></span><span class="cb-corner cb-tr"></span>
+    <span class="cb-corner cb-bl"></span><span class="cb-corner cb-br"></span>
+    <div class="cb-deco-rings"><span></span><span></span><span></span><span></span></div>
+
+    <div class="cb-cover__topbar">
+      <img src="assets/logo-campuslands.png" alt="Campuslands Full Service" class="cb-cover__brand">
+      <span class="cb-badge-confidential">Confidencial</span>
+    </div>
+
+    <div class="cb-cover__body">
+      <div class="cb-eyebrow cb-cover__eyebrow">Campuslands Full Service · Software House</div>
+      <div class="cb-cover__scenario">Plan de Trabajo y SLA</div>
+      <h1 class="cb-cover__title">Ecosistema de Automatización<br>e <em class="cb-gradient-text">IA para Colbeef</em></h1>
+      <div class="cb-cover__kicker">Planillaje Inteligente · Cava Automatizada · Agente Conversacional · Reportes · Facturación</div>
+      <div class="cb-cover__client">
+        <span class="cb-cover__client-para">PARA</span>
+        <img src="assets/logo-colbeef.png" alt="Colbeef S.A.S." class="cb-cover__client-logo">
+      </div>
+      <p class="cb-cover__subtitle">Plan de Trabajo y Acuerdos de Nivel de Servicio (SLA)</p>
+    </div>
+
+    <div class="cb-cover__meta">
+      <div class="cb-meta-item"><div class="cb-meta-item__label">Preparado para</div><div class="cb-meta-item__value">Dirección — Colbeef S.A.S.</div></div>
+      <div class="cb-meta-item"><div class="cb-meta-item__label">Preparado por</div><div class="cb-meta-item__value">Campuslands · Full Service</div></div>
+      <div class="cb-meta-item"><div class="cb-meta-item__label">Fecha</div><div class="cb-meta-item__value">26 de Enero, 2026</div></div>
+      <div class="cb-meta-item"><div class="cb-meta-item__label">Versión</div><div class="cb-meta-item__value">Plan de Trabajo · 1.0</div></div>
+    </div>
+  </section>
+
+  <!-- ===== 2 · OBJETIVO Y ALCANCE ===== -->
+  <section class="slide cbdeck-slide cb-internal cb-glow-a" data-slide="2">
+    <header class="cb-s-header">
+      <img src="assets/logo-campuslands.png" alt="Campuslands" class="cb-brand">
+      <img src="assets/logo-colbeef.png" alt="Colbeef S.A.S." class="cb-client">
+    </header>
+    <div class="cb-s-body">
+      <div class="cb-s-eyebrow">01 · Objetivo del Proyecto</div>
+      <h2 class="cb-s-title">Un ecosistema digital <em class="cb-gradient-text">para la operación de planta</em></h2>
+      <p class="cb-s-lead">Desarrollo, implementación y despliegue de una solución de software a la medida para los procesos operativos de Colbeef, articulada en cinco frentes que se integran con Informatix, el software existente de la compañía.</p>
+      <div class="cb-qc-grid">
+        <div class="cb-qc-item"><h5>Recepción y Planillaje IA</h5><p>Procesamiento automático de recepción, lectura de PDF, OCR de pesaje y planillaje digital inteligente.</p></div>
+        <div class="cb-qc-item"><h5>Cava Automatizada</h5><p>Gestión automatizada de cava con consulta de inventario en tiempo real vía Informatix.</p></div>
+        <div class="cb-qc-item"><h5>Agente Conversacional</h5><p>Entrenamiento y ajuste continuo del aprendizaje, parámetros y comportamiento del agente.</p></div>
+        <div class="cb-qc-item"><h5>Reportes y Analítica</h5><p>Dashboards ejecutivos en tiempo real, eficiencia operativa, trazabilidad y seguimiento de clientes.</p></div>
+        <div class="cb-qc-item"><h5>Facturación Inteligente</h5><p>Integración con el sistema existente para automatizar el proceso de facturación desde el agente.</p></div>
+      </div>
+    </div>
+    <footer class="cb-s-footer">
+      <span>Campuslands · Exploramos · Despegamos · Conquistamos</span>
+      <span>Plan de Trabajo Colbeef S.A.S. · Full Service 2026</span>
+      <span class="cb-pg">02</span>
+    </footer>
+  </section>
+
+  <!-- ===== 3 · FASE DE LEVANTAMIENTO ===== -->
+  <section class="slide cbdeck-slide cb-internal cb-glow-b" data-slide="3">
+    <header class="cb-s-header">
+      <img src="assets/logo-campuslands.png" alt="Campuslands" class="cb-brand">
+      <img src="assets/logo-colbeef.png" alt="Colbeef S.A.S." class="cb-client">
+    </header>
+    <div class="cb-s-body">
+      <div class="cb-s-eyebrow">02 · Fase de Levantamiento</div>
+      <h2 class="cb-s-title">Reconocimiento en planta <em class="cb-gradient-text">antes de construir</em></h2>
+      <div class="cb-split">
+        <div class="cb-quote-card">
+          <span class="cb-qm">"</span>
+          <p>Reconocimiento de procesos en planta, entrevista con operarios y validación de los puntos de captura de datos.</p>
+        </div>
+        <ul class="cb-pain-list">
+          <li class="cb-pain-item"><span class="cb-ico">1</span><span class="cb-tx"><b>27 de enero de 2026 — 10:00 AM:</b> primera visita a planta para el levantamiento inicial de procesos.</span></li>
+          <li class="cb-pain-item"><span class="cb-ico">2</span><span class="cb-tx"><b>Primera semana de febrero:</b> visita posterior, según los resultados de la sesión del 27 de enero.</span></li>
+          <li class="cb-pain-item"><span class="cb-ico">3</span><span class="cb-tx">Entrevistas con operarios y responsables de planta para validar los puntos reales de captura de datos.</span></li>
+          <li class="cb-pain-item"><span class="cb-ico">4</span><span class="cb-tx">Entregable de cierre de esta fase: <b>prototipo navegable</b> aprobado por el equipo Colbeef, base de la Fase 1.</span></li>
+        </ul>
+      </div>
+    </div>
+    <footer class="cb-s-footer">
+      <span>Campuslands · Exploramos · Despegamos · Conquistamos</span>
+      <span>Plan de Trabajo Colbeef S.A.S. · Full Service 2026</span>
+      <span class="cb-pg">03</span>
+    </footer>
+  </section>
+
+  <!-- ===== 4 · ARQUITECTURA Y STACK ===== -->
+  <section class="slide cbdeck-slide cb-internal cb-glow-a" data-slide="4">
+    <header class="cb-s-header">
+      <img src="assets/logo-campuslands.png" alt="Campuslands" class="cb-brand">
+      <img src="assets/logo-colbeef.png" alt="Colbeef S.A.S." class="cb-client">
+    </header>
+    <div class="cb-s-body">
+      <div class="cb-s-eyebrow">03 · Arquitectura</div>
+      <h2 class="cb-s-title">Un stack robusto, <em class="cb-gradient-text">pensado para escalar</em></h2>
+      <p class="cb-s-lead">Tecnologías modernas de código abierto y estándares de la industria, desplegadas sobre infraestructura en la nube y con trazabilidad de avance en tiempo real.</p>
+      <div class="cb-flow">
+        <div class="cb-flow-step"><span class="cb-n cb-gt-cyan">01</span><h4>Frontend</h4><p>Vue.js — interfaz de usuario reactiva y moderna.</p></div>
+        <div class="cb-flow-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+        <div class="cb-flow-step"><span class="cb-n cb-gt-cyan">02</span><h4>Backend</h4><p>Node.js / PHP · Laravel / TypeScript.</p></div>
+        <div class="cb-flow-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+        <div class="cb-flow-step"><span class="cb-n cb-gt-violet">03</span><h4>Base de Datos</h4><p>MariaDB — integridad y rendimiento operativo.</p></div>
+        <div class="cb-flow-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+        <div class="cb-flow-step"><span class="cb-n cb-gt-violet">04</span><h4>Infraestructura</h4><p>AWS — despliegue en nube, disponible y escalable.</p></div>
+      </div>
+      <div class="cb-side-note">
+        <span class="cb-lbl">Gestión</span>
+        <p><b>Taskman</b> centraliza el reporte de horas y avance de tareas; Colbeef recibe usuario y contraseña propios para seguimiento de Sprints y Roadmaps.</p>
+      </div>
+    </div>
+    <footer class="cb-s-footer">
+      <span>Campuslands · Exploramos · Despegamos · Conquistamos</span>
+      <span>Plan de Trabajo Colbeef S.A.S. · Full Service 2026</span>
+      <span class="cb-pg">04</span>
+    </footer>
+  </section>
+
+  <!-- ===== 5 · EQUIPO DEL PROYECTO ===== -->
+  <section class="slide cbdeck-slide cb-internal cb-glow-b" data-slide="5">
+    <header class="cb-s-header">
+      <img src="assets/logo-campuslands.png" alt="Campuslands" class="cb-brand">
+      <img src="assets/logo-colbeef.png" alt="Colbeef S.A.S." class="cb-client">
+    </header>
+    <div class="cb-s-body">
+      <div class="cb-s-eyebrow">04 · Equipo de Desarrollo</div>
+      <h2 class="cb-s-title">Nueve roles senior, <em class="cb-gradient-text">un mismo objetivo</em></h2>
+      <div class="cb-team-grid">
+        <div class="cb-team-card"><span class="cb-tag cb-gt-cyan">PM</span><h4>Product Manager</h4><p>Lidera la visión del producto, toma de requerimientos y priorización del backlog bajo Scrum.</p></div>
+        <div class="cb-team-card"><span class="cb-tag cb-gt-cyan">DB</span><h4>Líder · Arquitecto · Taskman</h4><p>Estructura el proyecto, gestiona la base de datos y garantiza buenas prácticas y escalabilidad.</p></div>
+        <div class="cb-team-card"><span class="cb-tag cb-gt-cyan">UX</span><h4>Diseño UI/UX</h4><p>Prototipo navegable en Xd; conserva la integridad del diseño frente a la implementación real.</p></div>
+        <div class="cb-team-card"><span class="cb-tag cb-gt-violet">FM</span><h4>Frontend Senior</h4><p>Construye la interfaz web fiel al prototipo, preparando el terreno para el Backend.</p></div>
+        <div class="cb-team-card"><span class="cb-tag cb-gt-violet">BS</span><h4>Backend Senior</h4><p>Desarrolla la lógica de negocio y garantiza rendimiento e integridad de los datos.</p></div>
+        <div class="cb-team-card"><span class="cb-tag cb-gt-violet">IA</span><h4>Backend &amp; Agentes IA</h4><p>Diseña el razonamiento del agente, gestión de memoria y ejecución segura de herramientas (tool calling).</p></div>
+        <div class="cb-team-card"><span class="cb-tag cb-gt-cyan">DV</span><h4>DevOps</h4><p>Gestiona servidores y ambientes controlados; despliegues de prueba y en servidores locales de MPI.</p></div>
+        <div class="cb-team-card"><span class="cb-tag cb-gt-cyan">QA</span><h4>QA · Test</h4><p>Revisión exhaustiva de funcionalidad, identificando errores antes de la entrega al usuario final.</p></div>
+        <div class="cb-team-card"><span class="cb-tag cb-gt-violet">IM</span><h4>Implementación · Capacitación</h4><p>Capacita y entrega cada funcionalidad, mostrando el paso a paso de su uso.</p></div>
+      </div>
+    </div>
+    <footer class="cb-s-footer">
+      <span>Campuslands · Exploramos · Despegamos · Conquistamos</span>
+      <span>Plan de Trabajo Colbeef S.A.S. · Full Service 2026</span>
+      <span class="cb-pg">05</span>
+    </footer>
+  </section>
+
+  <!-- ===== 6 · CRONOGRAMA GENERAL ===== -->
+  <section class="slide cbdeck-slide cb-internal cb-glow-a" data-slide="6">
+    <header class="cb-s-header">
+      <img src="assets/logo-campuslands.png" alt="Campuslands" class="cb-brand">
+      <img src="assets/logo-colbeef.png" alt="Colbeef S.A.S." class="cb-client">
+    </header>
+    <div class="cb-s-body">
+      <div class="cb-s-eyebrow">05 · Cronograma</div>
+      <h2 class="cb-s-title">Cinco fases de desarrollo, <em class="cb-gradient-text">27 semanas en total</em></h2>
+      <p class="cb-s-lead">Cronograma macro; las actividades puntuales y módulos específicos se afinan con la toma de requerimientos posterior a la Fase de Levantamiento. La numeración de fases corresponde a la del Plan de Trabajo firmado.</p>
+      <div class="cb-timeline">
+        <div class="cb-timeline-row" style="grid-template-columns:repeat(5,1fr);">
+          <div class="cb-phase"><span class="cb-node">1</span><h4>Recepción, Procesamiento y Planillaje IA</h4><p>Flujo conversacional, OCR de pesaje e integración con Informatix.</p><span class="cb-dur">9 semanas</span></div>
+          <div class="cb-phase"><span class="cb-node">2</span><h4>Gestión de Cava Automatizada</h4><p>Inventario en tiempo real integrado con Informatix.</p><span class="cb-dur">4 semanas</span></div>
+          <div class="cb-phase"><span class="cb-node">4</span><h4>Entrenamiento del Agente Conversacional</h4><p>Ajuste de parámetros, comportamiento y procesamiento de datos.</p><span class="cb-dur">5 semanas</span></div>
+          <div class="cb-phase"><span class="cb-node">5</span><h4>Reportes y Análisis Avanzados</h4><p>Dashboards ejecutivos, eficiencia operativa y trazabilidad.</p><span class="cb-dur">4 semanas</span></div>
+          <div class="cb-phase"><span class="cb-node">6</span><h4>Facturación Inteligente</h4><p>Integración con el sistema existente para facturar desde el agente.</p><span class="cb-dur">5 semanas</span></div>
+        </div>
+      </div>
+    </div>
+    <footer class="cb-s-footer">
+      <span>Campuslands · Exploramos · Despegamos · Conquistamos</span>
+      <span>Plan de Trabajo Colbeef S.A.S. · Full Service 2026</span>
+      <span class="cb-pg">06</span>
+    </footer>
+  </section>
+
+  <!-- ===== 7 · DETALLE FASE 1 ===== -->
+  <section class="slide cbdeck-slide cb-internal cb-glow-b" data-slide="7">
+    <header class="cb-s-header">
+      <img src="assets/logo-campuslands.png" alt="Campuslands" class="cb-brand">
+      <img src="assets/logo-colbeef.png" alt="Colbeef S.A.S." class="cb-client">
+    </header>
+    <div class="cb-s-body">
+      <div class="cb-s-eyebrow">06 · Detalle Fase 1</div>
+      <h2 class="cb-s-title">Recepción, Procesamiento y <em class="cb-gradient-text">Planillaje Automático Inteligente</em></h2>
+      <p class="cb-s-lead">La fase de mayor peso del proyecto — 9 semanas — sienta las bases del ecosistema conversacional y OCR sobre el que se apoyan las fases siguientes.</p>
+      <div class="cb-timeline">
+        <div class="cb-timeline-row" style="grid-template-columns:repeat(4,1fr);">
+          <div class="cb-phase"><span class="cb-node">S1–2</span><h4>Arquitectura y Prototipado</h4><p>Diseño UX/UI y construcción de la información a consultar en Informatix.</p></div>
+          <div class="cb-phase"><span class="cb-node">S3–6</span><h4>Desarrollo del Flujo Principal</h4><p>Flujo conversacional, lectura de archivos PDF e integración OCR de pesaje y planillaje digital.</p></div>
+          <div class="cb-phase"><span class="cb-node">S7</span><h4>Pruebas QA</h4><p>Pruebas de calidad y ajustes según retroalimentación del usuario.</p></div>
+          <div class="cb-phase"><span class="cb-node">S8</span><h4>Despliegue y Capacitación</h4><p>Puesta en producción y capacitación al equipo de Colbeef.</p></div>
+        </div>
+      </div>
+    </div>
+    <footer class="cb-s-footer">
+      <span>Campuslands · Exploramos · Despegamos · Conquistamos</span>
+      <span>Plan de Trabajo Colbeef S.A.S. · Full Service 2026</span>
+      <span class="cb-pg">07</span>
+    </footer>
+  </section>
+
+  <!-- ===== 8 · ROLES Y RESPONSABLES ===== -->
+  <section class="slide cbdeck-slide cb-internal cb-glow-a" data-slide="8">
+    <header class="cb-s-header">
+      <img src="assets/logo-campuslands.png" alt="Campuslands" class="cb-brand">
+      <img src="assets/logo-colbeef.png" alt="Colbeef S.A.S." class="cb-client">
+    </header>
+    <div class="cb-s-body">
+      <div class="cb-s-eyebrow">07 · Roles y Responsables</div>
+      <h2 class="cb-s-title">Matriz de responsabilidad <em class="cb-gradient-text">entre ambas partes</em></h2>
+      <div class="cb-roles-split">
+        <div>
+          <div class="cb-roles-col__label">Campuslands</div>
+          <div class="cb-role-row"><span class="cb-dot">PM</span><span><b>Alejandra Gómez Reatiga</b><span>Project Manager — responsable de la entrega a tiempo y gestión de recursos.</span></span></div>
+          <div class="cb-role-row"><span class="cb-dot">LT</span><span><b>Eduard Leonel Cala</b><span>Líder Técnico — responsable de la calidad del código y la arquitectura.</span></span></div>
+          <div class="cb-role-row"><span class="cb-dot">DC</span><span><b>Elizabeth Pérez</b><span>Directora Comercial — gestión administrativa y comercial del proyecto.</span></span></div>
+        </div>
+        <div>
+          <div class="cb-roles-col__label">Colbeef</div>
+          <div class="cb-role-row"><span class="cb-dot">PO</span><span><b>Product Owner</b><span>Responsable de validar requerimientos y priorizar funcionalidades.</span></span></div>
+          <div class="cb-role-row"><span class="cb-dot">RP</span><span><b>Responsable de Planta</b><span>Facilitador para la toma de datos y las pruebas en sitio.</span></span></div>
+        </div>
+      </div>
+    </div>
+    <footer class="cb-s-footer">
+      <span>Campuslands · Exploramos · Despegamos · Conquistamos</span>
+      <span>Plan de Trabajo Colbeef S.A.S. · Full Service 2026</span>
+      <span class="cb-pg">08</span>
+    </footer>
+  </section>
+
+  <!-- ===== 9 · ENTREGABLES CLAVE ===== -->
+  <section class="slide cbdeck-slide cb-internal cb-glow-b" data-slide="9">
+    <header class="cb-s-header">
+      <img src="assets/logo-campuslands.png" alt="Campuslands" class="cb-brand">
+      <img src="assets/logo-colbeef.png" alt="Colbeef S.A.S." class="cb-client">
+    </header>
+    <div class="cb-s-body">
+      <div class="cb-s-eyebrow">08 · Entregables Clave</div>
+      <h2 class="cb-s-title">Lo que Colbeef <em class="cb-gradient-text">recibe en cada etapa</em></h2>
+      <div class="cb-feat-grid" style="grid-template-columns:repeat(5,1fr);">
+        <div class="cb-feat-card"><span class="cb-rf">01</span><h4>Prototipos Navegables</h4><p>Maqueta UX/UI validada antes de cada etapa de desarrollo.</p></div>
+        <div class="cb-feat-card"><span class="cb-rf">02</span><h4>Sistema Funcional</h4><p>Software operativo al cierre de cada fase de desarrollo.</p></div>
+        <div class="cb-feat-card"><span class="cb-rf">03</span><h4>Capacitaciones</h4><p>Sesiones virtuales y presenciales, acordadas entre ambos equipos.</p></div>
+        <div class="cb-feat-card"><span class="cb-rf">04</span><h4>Videos de Capacitación</h4><p>Material de apoyo para consulta y entrenamiento continuo.</p></div>
+        <div class="cb-feat-card"><span class="cb-rf">05</span><h4>Código Fuente y Manuales</h4><p>Código documentado con manuales técnicos y funcionales, al finalizar.</p></div>
+      </div>
+    </div>
+    <footer class="cb-s-footer">
+      <span>Campuslands · Exploramos · Despegamos · Conquistamos</span>
+      <span>Plan de Trabajo Colbeef S.A.S. · Full Service 2026</span>
+      <span class="cb-pg">09</span>
+    </footer>
+  </section>
+
+  <!-- ===== 10 · SLA ===== -->
+  <section class="slide cbdeck-slide cb-internal cb-glow-a" data-slide="10">
+    <header class="cb-s-header">
+      <img src="assets/logo-campuslands.png" alt="Campuslands" class="cb-brand">
+      <img src="assets/logo-colbeef.png" alt="Colbeef S.A.S." class="cb-client">
+    </header>
+    <div class="cb-s-body">
+      <div class="cb-s-eyebrow">09 · Acuerdos de Nivel de Servicio</div>
+      <h2 class="cb-s-title">Compromisos claros <em class="cb-gradient-text">de disponibilidad y respuesta</em></h2>
+      <div class="cb-stat-grid">
+        <div class="cb-stat-card"><span class="cb-cap">Disponibilidad</span><span class="cb-big cb-c-cyan">98%</span><p class="cb-sub">Del entorno de pruebas, en horario laboral.</p></div>
+        <div class="cb-stat-card"><span class="cb-cap">Bugs Bloqueantes</span><span class="cb-big cb-c-cyan">Máx. 4h</span><p class="cb-sub">Tiempo de respuesta a errores críticos.</p></div>
+        <div class="cb-stat-card"><span class="cb-cap">Consultas Técnicas</span><span class="cb-big cb-c-violet">Máx. 8h</span><p class="cb-sub">Tiempo de respuesta a consultas del equipo Colbeef.</p></div>
+      </div>
+      <div class="cb-side-note">
+        <span class="cb-lbl">Seguimiento</span>
+        <p>Reporte de horas y avance de tareas mediante <b>Taskman</b>, con usuario y contraseña propios para Colbeef sobre Sprints y Roadmaps de gestión.</p>
+      </div>
+    </div>
+    <footer class="cb-s-footer">
+      <span>Campuslands · Exploramos · Despegamos · Conquistamos</span>
+      <span>Plan de Trabajo Colbeef S.A.S. · Full Service 2026</span>
+      <span class="cb-pg">10</span>
+    </footer>
+  </section>
+
+  <!-- ===== 11 · PLAN DE COMUNICACIONES ===== -->
+  <section class="slide cbdeck-slide cb-internal cb-glow-b" data-slide="11">
+    <header class="cb-s-header">
+      <img src="assets/logo-campuslands.png" alt="Campuslands" class="cb-brand">
+      <img src="assets/logo-colbeef.png" alt="Colbeef S.A.S." class="cb-client">
+    </header>
+    <div class="cb-s-body">
+      <div class="cb-s-eyebrow">10 · Plan de Comunicaciones</div>
+      <h2 class="cb-s-title">Canales definidos <em class="cb-gradient-text">para la fluidez del proyecto</em></h2>
+      <div class="cb-feat-grid" style="grid-template-columns:repeat(5,1fr);">
+        <div class="cb-feat-card"><span class="cb-rf">MESA</span><h4>Seguimiento cada 15 días</h4><p>Vía Google Meet o Teams, con reporte de avance conjunto.</p></div>
+        <div class="cb-feat-card"><span class="cb-rf">CHAT</span><h4>WhatsApp Inmediato</h4><p>Grupo "Proyecto IA Colbeef - Campuslands" para alertas y coordinación de visitas.</p></div>
+        <div class="cb-feat-card"><span class="cb-rf">MAIL</span><h4>Correo Electrónico</h4><p>Información financiera y confidencial vía elizabeth.perez@campuslands.com.</p></div>
+        <div class="cb-feat-card"><span class="cb-rf">AVANCE</span><h4>Reporte de Avance</h4><p>Definido en mesas de trabajo entre el PO de Colbeef y el PM de Campuslands.</p></div>
+        <div class="cb-feat-card"><span class="cb-rf">CAMBIOS</span><h4>Gestión de Cambios</h4><p>Toda modificación al alcance se solicita por escrito y se aprueba por ambos directores.</p></div>
+      </div>
+    </div>
+    <footer class="cb-s-footer">
+      <span>Campuslands · Exploramos · Despegamos · Conquistamos</span>
+      <span>Plan de Trabajo Colbeef S.A.S. · Full Service 2026</span>
+      <span class="cb-pg">11</span>
+    </footer>
+  </section>
+            </div>
+
+            <footer class="slides-footer-controls">
+                <button id="btn-prev-slide" class="control-btn" onclick="navigateSlide(-1)">
+                    <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+                </button>
+                <div class="slide-indicator-container">
+                    <span id="slide-number-display">1 / 11</span>
+                    <div class="progress-bar-bg"><div id="slide-progress" class="progress-bar-fill"></div></div>
+                </div>
+                <div class="playback-controls">
+                    <button id="btn-autoplay" class="control-btn mini-btn" title="Reproducción Automática" onclick="toggleAutoplay()">
+                        <svg id="autoplay-icon" viewBox="0 0 24 24" width="18" height="18" fill="currentColor" stroke="none"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                    </button>
+                </div>
+                <button id="btn-next-slide" class="control-btn" onclick="navigateSlide(1)">
+                    <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                </button>
+            </footer>
+        </section>
+
+        <!-- ================= MODO SIMULADOR DEMO ================= -->
+        <section id="simulator-viewport" class="viewport-section">
+            <div class="cs-layout">
+
+                <!-- Sidebar de íconos (mapeado 1:1 a las 10 capturas de referencia) -->
+                <aside class="cs-sidebar">
+                    <div class="cs-icon-item active" data-module="clientes" onclick="selectSimModule('clientes')" title="Clientes">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+                    </div>
+                    <div class="cs-icon-item" data-module="conductores" onclick="selectSimModule('conductores')" title="Conductores">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="7" width="16" height="10" rx="2"/><path d="M17 10h3l3 3v4h-6"/><circle cx="6" cy="19" r="2"/><circle cx="18" cy="19" r="2"/></svg>
+                    </div>
+                    <div class="cs-icon-item" data-module="facturar" onclick="selectSimModule('facturar')" title="Por facturar">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                        <span class="cs-icon-badge">6</span>
+                    </div>
+                    <div class="cs-icon-item" data-module="cartera" onclick="selectSimModule('cartera')" title="Reportes cartera">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M14.8 9a2.8 2.8 0 0 0-2.8-1.5c-1.7 0-3 1-3 2.5s1.3 2 3 2.5 3 1 3 2.5-1.3 2.5-3 2.5A2.8 2.8 0 0 1 9.2 15"/><line x1="12" y1="6" x2="12" y2="18"/></svg>
+                        <span class="cs-icon-badge">3</span>
+                    </div>
+                    <div class="cs-icon-item" data-module="inventario" onclick="selectSimModule('inventario')" title="Inventario Cava">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+                    </div>
+                    <div class="cs-icon-item" data-module="salidas" onclick="selectSimModule('salidas')" title="Salidas Cava">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+                    </div>
+                    <div class="cs-icon-item" data-module="chats" onclick="selectSimModule('chats')" title="Chats">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                        <span class="cs-icon-badge">3</span>
+                    </div>
+                    <div class="cs-icon-item" data-module="destinos" onclick="selectSimModule('destinos')" title="Destinos">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    </div>
+                    <div class="cs-icon-item" data-module="usuarios" onclick="selectSimModule('usuarios')" title="Usuarios">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg>
+                    </div>
+                    <div class="cs-icon-item" data-module="configuracion" onclick="selectSimModule('configuracion')" title="Configuración">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+                    </div>
+                    <div class="cs-sidebar-spacer"></div>
+                    <div class="cs-icon-item cs-logout" title="Cerrar sesión (demo)" onclick="flashToast('Cerrar sesión — solo demostrativo.')">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+                    </div>
+                </aside>
+
+                <div class="cs-main">
+<!-- ===== 1. CLIENTES ===== -->
+                    <div class="cs-pane active" id="cs-clientes">
+                        <header class="cs-topbar">
+                            <h2>Clientes</h2>
+                            <div class="cs-topbar-actions">
+                                <button class="cs-btn-outline" onclick="onSyncClientes(this)">
+                                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
+                                    Sincronizar clientes
+                                </button>
+                                <button class="cs-btn" onclick="onCrearCliente()">+ Crear cliente</button>
+                            </div>
+                        </header>
+                        <div class="cs-body">
+                            <div class="cs-section-head">
+                                <h3>Lista de clientes</h3>
+                                <div class="cs-section-controls">
+                                    <div class="cs-search">
+                                        <input type="text" placeholder="Buscar" oninput="onClientSearch(this.value)">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cs-grid" id="cs-clientes-grid"></div>
+                        </div>
+                    </div>
+
+                    <!-- ===== 2. CONDUCTORES ===== -->
+                    <div class="cs-pane" id="cs-conductores">
+                        <header class="cs-topbar">
+                            <h2>Conductores</h2>
+                            <div class="cs-topbar-actions">
+                                <button class="cs-btn" onclick="onCrearConductor()">+ Crear conductor</button>
+                            </div>
+                        </header>
+                        <div class="cs-body">
+                            <div class="cs-section-head">
+                                <h3>Lista de conductores</h3>
+                                <div class="cs-section-controls">
+                                    <div class="cs-search">
+                                        <input type="text" placeholder="Buscar" oninput="onDriverSearch(this.value)">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cs-grid" id="cs-conductores-grid"></div>
+                            <div class="cs-pagination" id="cs-conductores-pag"></div>
+                        </div>
+                    </div>
+
+                    <!-- ===== 3. POR FACTURAR ===== -->
+                    <div class="cs-pane" id="cs-facturar">
+                        <header class="cs-topbar">
+                            <h2>Por facturar</h2>
+                            <div class="cs-topbar-actions">
+                                <button class="cs-btn-outline" onclick="onExportarFacturar(this)">Exportar datos</button>
+                                <button class="cs-btn" onclick="onCrearPlantilla(this)">Crear plantilla</button>
+                            </div>
+                        </header>
+                        <div class="cs-body">
+                            <div class="cs-info-banner">
+                                <div class="cs-info-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+                                <p>En esta sección se listan los animales que cumplen las condiciones para ser asignados a un plan de faena. Información que se necesita para gestionar su procesamiento, definir los detalles operativos correspondientes y generar la factura asociada.</p>
+                            </div>
+                            <div class="cs-section-head">
+                                <h3>Lista de guías</h3>
+                                <div class="cs-section-controls">
+                                    <div class="cs-search">
+                                        <input type="text" placeholder="Buscar" oninput="onFacturarSearch(this.value)">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cs-grid" id="cs-facturar-grid"></div>
+                        </div>
+                    </div>
+
+                    <!-- ===== 4. REPORTES CARTERA ===== -->
+                    <div class="cs-pane" id="cs-cartera">
+                        <header class="cs-topbar">
+                            <h2>Reportes cartera</h2>
+                        </header>
+                        <div class="cs-body">
+                            <div class="cs-info-banner">
+                                <div class="cs-info-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M14.8 9a2.8 2.8 0 0 0-2.8-1.5c-1.7 0-3 1-3 2.5s1.3 2 3 2.5 3 1 3 2.5-1.3 2.5-3 2.5A2.8 2.8 0 0 1 9.2 15"/></svg></div>
+                                <p>En esta sección se consolida la información diaria registrada por el equipo de cartera sobre los clientes que solicitan crédito.</p>
+                            </div>
+                            <div class="cs-section-head">
+                                <h3>Lista de reportes</h3>
+                                <div class="cs-section-controls">
+                                    <span style="font-size:12.5px;color:var(--text-muted);">Procesado: <b id="cs-cartera-procesado" style="color:var(--text-color);"></b></span>
+                                    <div class="cs-search">
+                                        <input type="text" placeholder="Buscar" oninput="onCarteraSearch(this.value)">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                                    </div>
+                                    <button class="cs-btn-ghost" onclick="flashToast('Documentación (demo).')">Ver documentación</button>
+                                    <button class="cs-btn-ghost" onclick="flashToast('Plantilla descargada (demo).')">Descargar plantilla</button>
+                                    <button class="cs-btn" onclick="onImportarCartera(this)">Importar</button>
+                                </div>
+                            </div>
+                            <div class="cs-table-wrap">
+                                <table class="cs-table">
+                                    <thead><tr><th>NIT</th><th>Nombre</th><th>Cupo</th><th>Valor vencido</th></tr></thead>
+                                    <tbody id="cs-cartera-tbody"></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ===== 5. INVENTARIO CAVA ===== -->
+                    <div class="cs-pane" id="cs-inventario">
+                        <header class="cs-topbar">
+                            <h2>Inventario Cava</h2>
+                        </header>
+                        <div class="cs-body">
+                            <div class="cs-empty-state" id="cs-inv-empty">
+                                <div class="cs-empty-icon">📥</div>
+                                <h4>Importa el archivo del SIR</h4>
+                                <p>En este momento no hay información de Cava.</p>
+                                <div class="cs-empty-actions">
+                                    <div class="cs-date-field">
+                                        <label>Día</label>
+                                        <input type="date" id="cs-inv-dia" onchange="onInventarioDia(this.value)">
+                                    </div>
+                                    <button class="cs-link-btn" onclick="flashToast('Documentación (demo).')">Ver documentación</button>
+                                    <button class="cs-btn-outline" onclick="flashToast('Plantilla descargada (demo).')">Descargar plantilla</button>
+                                    <button class="cs-btn" onclick="onImportarInventario(this)">Importar archivo</button>
+                                </div>
+                            </div>
+                            <div id="cs-inv-table-wrap" style="display:none;">
+                                <div class="cs-section-head">
+                                    <h3>Lista de inventario</h3>
+                                    <div class="cs-section-controls">
+                                        <div class="cs-date-field">
+                                            <label>Día</label>
+                                            <input type="date" value="2026-07-15" onchange="onInventarioDia(this.value)">
+                                        </div>
+                                        <button class="cs-btn-outline" onclick="flashToast('Plantilla descargada (demo).')">Descargar plantilla</button>
+                                    </div>
+                                </div>
+                                <div class="cs-table-wrap">
+                                    <table class="cs-table">
+                                        <thead><tr><th>Código</th><th>Producto</th><th>Cantidad</th><th>Ubicación</th></tr></thead>
+                                        <tbody id="cs-inv-tbody"></tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ===== 6. SALIDAS CAVA ===== -->
+                    <div class="cs-pane" id="cs-salidas">
+                        <header class="cs-topbar">
+                            <h2>Salidas Cava</h2>
+                            <div class="cs-topbar-actions">
+                                <button class="cs-btn" onclick="onDespacho(this)">Despacho</button>
+                            </div>
+                        </header>
+                        <div class="cs-body">
+                            <div class="cs-info-banner">
+                                <div class="cs-info-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg></div>
+                                <p>En esta sección podrás gestionar la información de los animales de cada cliente que se encuentran en Cava, revisa los estados de confirmación y los archivos de soporte generados por el Chatbot.</p>
+                            </div>
+                            <div class="cs-section-head">
+                                <h3>Lista de inventario</h3>
+                                <div class="cs-section-controls">
+                                    <div class="cs-date-field">
+                                        <label>Fecha</label>
+                                        <input type="date" id="cs-sal-fecha" onchange="onSalidasFecha(this.value)">
+                                    </div>
+                                    <div class="cs-date-field">
+                                        <label>Cliente</label>
+                                        <input type="text" placeholder="Escribe 3 letras…" oninput="onSalidasCliente(this.value)" style="padding:8px 12px;border:1px solid var(--border-color);border-radius:8px;background:var(--card-bg);color:var(--text-color);font-size:12.5px;">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cs-table-wrap">
+                                <table class="cs-table">
+                                    <thead>
+                                        <tr>
+                                            <th rowspan="1">Código</th><th>S</th><th>P. pie</th><th>Fecha Sacrificio</th>
+                                            <th>Canal 1 Origen</th><th>Canal 1 Destino</th><th>Canal 1 Tipo</th><th>Canal 1 Peso</th>
+                                            <th>P.CT (Kg)</th><th>Vísceras Origen</th><th>Vísceras Destino</th><th>Deco</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="cs-sal-tbody"></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ===== 7. CHATS ===== -->
+                    <div class="cs-pane" id="cs-chats">
+                        <header class="cs-topbar"><h2>Chats</h2></header>
+                        <div class="cs-chats-layout">
+                            <aside class="cs-chat-sidebar">
+                                <div class="cs-chat-search">
+                                    <div class="cs-search" style="width:100%;">
+                                        <input type="text" placeholder="Buscar" style="width:100%;" oninput="onChatSearch(this.value)">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                                    </div>
+                                </div>
+                                <div class="cs-chat-filters">
+                                    <button class="cs-chat-filter-pill" onclick="setChatFilter('no-leidos')">No leídos (<span id="cs-chat-count-unread">0</span>)</button>
+                                    <button class="cs-chat-filter-pill" onclick="setChatFilter('ayuda')">Ayuda (<span id="cs-chat-count-ayuda">0</span>)</button>
+                                </div>
+                                <div class="cs-chat-list" id="cs-chat-list"></div>
+                            </aside>
+                            <div class="cs-chat-detail" id="cs-chat-detail"></div>
+                        </div>
+                    </div>
+
+                    <!-- ===== 8. DESTINOS ===== -->
+                    <div class="cs-pane" id="cs-destinos">
+                        <header class="cs-topbar">
+                            <h2>Destinos</h2>
+                            <div class="cs-topbar-actions">
+                                <div class="cs-search">
+                                    <input type="text" placeholder="Buscar" oninput="onDestinoSearch(this.value)">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                                </div>
+                                <button class="cs-btn-outline" onclick="onSincronizarDestinos(this)">Sincronizar</button>
+                                <button class="cs-btn" onclick="onCrearDestino()">+ Crear</button>
+                            </div>
+                        </header>
+                        <div class="cs-body">
+                            <div class="cs-tabs">
+                                <button class="cs-destino-tab active" data-tab="planillaje" onclick="setDestinoTab('planillaje')">Planillaje</button>
+                                <button class="cs-destino-tab" data-tab="cava" onclick="setDestinoTab('cava')">Cava</button>
+                            </div>
+                            <div class="cs-section-head"><h3>Lista de destinos</h3></div>
+                            <div class="cs-table-wrap">
+                                <table class="cs-table">
+                                    <thead><tr><th>Destino</th><th>Abrev.</th><th>Dirección</th><th>Teléfono</th><th>Ubicación</th><th>Departamento</th><th>Municipio</th></tr></thead>
+                                    <tbody id="cs-destinos-tbody"></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ===== 9. USUARIOS ===== -->
+                    <div class="cs-pane" id="cs-usuarios">
+                        <header class="cs-topbar">
+                            <h2>Usuarios</h2>
+                            <div class="cs-topbar-actions">
+                                <button class="cs-btn" onclick="onCrearUsuario()">Crear Usuario</button>
+                            </div>
+                        </header>
+                        <div class="cs-body">
+                            <div class="cs-section-head">
+                                <h3>Lista de usuarios</h3>
+                                <div class="cs-section-controls">
+                                    <div class="cs-search">
+                                        <input type="text" placeholder="Buscar" oninput="onUserSearch(this.value)">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                                    </div>
+                                    <select class="cs-select" onchange="onUserTypeFilter(this.value)">
+                                        <option value="">Todos los tipos</option>
+                                        <option value="Administrador">Administrador</option>
+                                        <option value="Gestor">Gestor</option>
+                                        <option value="Super-admin">Super-admin</option>
+                                    </select>
+                                    <button class="cs-btn-ghost" onclick="onPermisos()">⚙ Permisos</button>
+                                </div>
+                            </div>
+                            <div class="cs-grid" id="cs-usuarios-grid"></div>
+                            <div class="cs-pagination" id="cs-usuarios-pag"></div>
+                        </div>
+                    </div>
+
+                    <!-- ===== 10. CONFIGURACIÓN ===== -->
+                    <div class="cs-pane" id="cs-configuracion">
+                        <header class="cs-topbar"><h2>Configuración</h2></header>
+                        <div class="cs-body">
+                            <div class="cs-config-group">
+                                <h3>Gestión de Agentes y Conocimiento</h3>
+                                <div class="cs-config-grid">
+                                    <button class="cs-config-card" onclick="onConfigCard('Configuración Agente IA')">
+                                        <div class="cs-config-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="10" rx="2"/><circle cx="12" cy="5" r="2"/><line x1="12" y1="7" x2="12" y2="11"/><line x1="8" y1="16" x2="8" y2="16"/><line x1="16" y1="16" x2="16" y2="16"/></svg></div>
+                                        <div><h4>Configuración Agente IA</h4><p>Configura los diferentes parámetros de comportamiento del Agente IA.</p></div>
+                                    </button>
+                                    <button class="cs-config-card" onclick="onConfigCard('Conocimiento')">
+                                        <div class="cs-config-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
+                                        <div><h4>Conocimiento</h4><p>Agrega conocimiento del negocio al Chatbot para entrenar sus respuestas con los leads.</p></div>
+                                    </button>
+                                    <button class="cs-config-card" onclick="onConfigCard('Mensaje de Bienvenida')">
+                                        <div class="cs-config-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+                                        <div><h4>Mensaje de Bienvenida</h4><p>Personaliza el mensaje de bienvenida que utiliza el Chatbot al hablar con los clientes.</p></div>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="cs-config-group">
+                                <h3>Procesos</h3>
+                                <div class="cs-config-grid">
+                                    <button class="cs-config-card" onclick="onConfigCard('Etiquetas de procesos')">
+                                        <div class="cs-config-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.59 13.41 11 3.83A2 2 0 0 0 9.59 3.17H4a1 1 0 0 0-1 1v5.59a2 2 0 0 0 .66 1.41l9.59 9.59a2 2 0 0 0 2.82 0l4.52-4.52a2 2 0 0 0 0-2.82z"/><circle cx="7.5" cy="7.5" r="1.5"/></svg></div>
+                                        <div><h4>Etiquetas de procesos</h4><p>Configura las etiquetas que identificarán los procesos de los productos.</p></div>
+                                    </button>
+                                    <button class="cs-config-card" onclick="onConfigCard('Horarios de Cava')">
+                                        <div class="cs-config-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+                                        <div><h4>Horarios de Cava</h4><p>Administra los horarios de inicio y de finalización para aceptar pedidos de productos que salen de Cava.</p></div>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="cs-config-group">
+                                <h3>Cartera</h3>
+                                <div class="cs-config-grid">
+                                    <button class="cs-config-card" onclick="onConfigCard('Información de cartera')">
+                                        <div class="cs-config-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
+                                        <div><h4>Información de cartera</h4><p>Configura los teléfonos y correos que provienen de los chats.</p></div>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

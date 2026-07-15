@@ -270,7 +270,7 @@ function renderClientes() {
         </div>`).join('');
 }
 function onClientSearch(v) { state.clientQuery = v; renderClientes(); }
-function onSyncClientes() { flashToast('Clientes sincronizados correctamente.'); }
+function onSyncClientes(btn) { runWithLoading(btn, 700, () => { flashToast('Clientes sincronizados correctamente.'); flashHighlight(document.getElementById('cs-clientes-grid')); }); }
 function onCrearCliente() { flashToast('Formulario de creación de cliente (demo) — no hay backend conectado.'); }
 
 // ---------- 2. CONDUCTORES ----------
@@ -325,8 +325,8 @@ function renderPorFacturar() {
         </div>`).join('');
 }
 function onFacturarSearch(v) { state.facturarQuery = v; renderPorFacturar(); }
-function onExportarFacturar() { flashToast('Exportando datos de facturación (demo)…'); }
-function onCrearPlantilla() { flashToast('Plantilla de facturación creada (demo).'); }
+function onExportarFacturar(btn) { runWithLoading(btn, 900, () => flashToast('Datos exportados correctamente.')); }
+function onCrearPlantilla(btn) { runWithLoading(btn, 700, () => flashToast('Plantilla de facturación creada (demo).')); }
 
 // ---------- 4. REPORTES CARTERA ----------
 function renderReportesCartera() {
@@ -340,10 +340,13 @@ function renderReportesCartera() {
     `).join('');
 }
 function onCarteraSearch(v) { state.carteraQuery = v; renderReportesCartera(); }
-function onImportarCartera() {
-    state.carteraProcesado = new Date().toLocaleString('es-CO', { day: '2-digit', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit' });
-    flashToast('Reporte de cartera importado y reprocesado.');
-    renderReportesCartera();
+function onImportarCartera(btn) {
+    runWithLoading(btn, 900, () => {
+        state.carteraProcesado = new Date().toLocaleString('es-CO', { day: '2-digit', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit' });
+        flashToast('Reporte de cartera importado y reprocesado.');
+        renderReportesCartera();
+        flashHighlight(document.querySelector('.cs-table-wrap'));
+    });
 }
 
 // ---------- 5. INVENTARIO CAVA ----------
@@ -363,10 +366,13 @@ function renderInventarioCava() {
     `).join('');
 }
 function onInventarioDia(v) { state.inventarioDia = v; }
-function onImportarInventario() {
-    state.inventarioImportado = true;
-    flashToast('Archivo del SIR importado correctamente.');
-    renderInventarioCava();
+function onImportarInventario(btn) {
+    runWithLoading(btn, 900, () => {
+        state.inventarioImportado = true;
+        flashToast('Archivo del SIR importado correctamente.');
+        renderInventarioCava();
+        flashHighlight(document.getElementById('cs-inv-table-wrap'));
+    });
 }
 
 // ---------- 6. SALIDAS CAVA ----------
@@ -388,7 +394,7 @@ function renderSalidasCava() {
 }
 function onSalidasFecha(v) { state.salidasFecha = v; renderSalidasCava(); }
 function onSalidasCliente(v) { state.salidasCliente = v; renderSalidasCava(); }
-function onDespacho() { flashToast('Despacho generado correctamente (demo).'); }
+function onDespacho(btn) { runWithLoading(btn, 800, () => flashToast('Despacho generado correctamente (demo).')); }
 
 // ---------- 7. CHATS ----------
 function renderChats() {
@@ -467,7 +473,7 @@ function renderDestinos() {
 }
 function setDestinoTab(tab) { state.destinoTab = tab; renderDestinos(); }
 function onDestinoSearch(v) { state.destinoQuery = v; renderDestinos(); }
-function onSincronizarDestinos() { flashToast('Destinos sincronizados correctamente.'); }
+function onSincronizarDestinos(btn) { runWithLoading(btn, 700, () => { flashToast('Destinos sincronizados correctamente.'); flashHighlight(document.querySelector('.cs-table-wrap')); }); }
 function onCrearDestino() { flashToast('Formulario de creación de destino (demo) — no hay backend conectado.'); }
 
 // ---------- 9. USUARIOS ----------
@@ -520,6 +526,26 @@ function paginationHtml(current, total, fnName) {
 }
 function escapeHtml(str) {
     return String(str).replace(/[&<>"']/g, m => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[m]));
+}
+// Simula una acción asíncrona (sin backend): muestra spinner en el botón, luego ejecuta el callback.
+function runWithLoading(btn, delayMs, callback) {
+    if (btn) {
+        btn.classList.add('is-loading');
+        btn.disabled = true;
+    }
+    setTimeout(() => {
+        if (btn) {
+            btn.classList.remove('is-loading');
+            btn.disabled = false;
+        }
+        callback();
+    }, delayMs || 650);
+}
+function flashHighlight(el) {
+    if (!el) return;
+    el.classList.remove('cs-flash-highlight');
+    void el.offsetWidth; // reinicia la animación
+    el.classList.add('cs-flash-highlight');
 }
 let toastTimer = null;
 function flashToast(msg) {

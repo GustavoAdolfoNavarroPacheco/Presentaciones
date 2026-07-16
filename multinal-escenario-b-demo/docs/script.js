@@ -6,7 +6,7 @@
 const state = {
     // Configuración general
     currentSlide: 1,
-    totalSlides: 19,
+    totalSlides: 16,
     activeView: 'slides', // 'slides' o 'simulator'
     theme: 'dark', // 'dark' o 'light'
     soundEnabled: true,

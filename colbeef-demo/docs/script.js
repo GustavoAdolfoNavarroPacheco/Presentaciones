@@ -196,18 +196,33 @@ window.addEventListener('load', moveViewSelectorPill);
 window.addEventListener('resize', moveViewSelectorPill);
 
 function toggleTheme() {
-    const body = document.body;
-    const themeIcon = document.getElementById('theme-icon');
-    if (body.classList.contains('dark-theme')) {
-        body.classList.remove('dark-theme');
-        body.classList.add('light-theme');
-        state.theme = 'light';
-        themeIcon.innerHTML = `<circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>`;
+    const applyTheme = () => {
+        const body = document.body;
+        const html = document.documentElement;
+        const themeIcon = document.getElementById('theme-icon');
+        if (body.classList.contains('dark-theme')) {
+            body.classList.remove('dark-theme');
+            body.classList.add('light-theme');
+            html.classList.remove('dark-theme');
+            html.classList.add('light-theme');
+            state.theme = 'light';
+            themeIcon.innerHTML = `<circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>`;
+        } else {
+            body.classList.remove('light-theme');
+            body.classList.add('dark-theme');
+            html.classList.remove('light-theme');
+            html.classList.add('dark-theme');
+            state.theme = 'dark';
+            themeIcon.innerHTML = `<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>`;
+        }
+    };
+
+    // Transición fluida con clip-path diagonal (View Transitions API); si el navegador
+    // no la soporta, se aplica el cambio de tema directamente sin animación.
+    if (document.startViewTransition) {
+        document.startViewTransition(applyTheme);
     } else {
-        body.classList.remove('light-theme');
-        body.classList.add('dark-theme');
-        state.theme = 'dark';
-        themeIcon.innerHTML = `<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>`;
+        applyTheme();
     }
 }
 
@@ -305,15 +320,15 @@ function renderClientes() {
 
     const q = state.clientQuery.trim().toLowerCase();
     const list = state.clientes.filter(c => !q || c.nombre.toLowerCase().includes(q) || c.nit.toLowerCase().includes(q));
-    if (!list.length) { grid.innerHTML = `<div class="cs-empty-inline">No se encontraron clientes para "${escapeHtml(state.clientQuery)}".</div>`; return; }
-    grid.innerHTML = list.map((c, idx) => `
+    if (!list.length) { setGridHTML(grid, 'list', `<div class="cs-empty-inline">No se encontraron clientes para "${escapeHtml(state.clientQuery)}".</div>`); return; }
+    setGridHTML(grid, 'list', list.map((c, idx) => `
         <div class="cs-client-card" onclick="openClientProfile(${idx})" style="cursor:pointer;">
             <h5>${escapeHtml(c.nombre)}</h5>
             <div class="cs-client-row"><svg class="cs-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>${c.nit}</div>
             <div class="cs-client-row"><svg class="cs-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.4-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2Z"/></svg>${c.telefono}</div>
             <div class="cs-client-row"><svg class="cs-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg>${c.tipo}</div>
             <div class="cs-client-row"><svg class="cs-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 10l9-7 9 7v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>${c.finca}</div>
-        </div>`).join('');
+        </div>`).join(''));
 }
 
 function openClientProfile(index) {
@@ -346,7 +361,7 @@ function renderClientProfile() {
     const tab = state.clientProfileTab;
     const fmtCOP = n => '$' + (n || 0).toLocaleString('es-CO');
 
-    el.innerHTML = `
+    const html = `
     <div class="cp-container">
         <!-- Bloque A: Breadcrumb -->
         <div class="cp-breadcrumb">
@@ -514,6 +529,7 @@ function renderClientProfile() {
         `}
     </div>
     `;
+    setGridHTML(el, `profile:${state.selectedClientIndex}`, html);
 }
 
 function filterGuiasTable() {
@@ -538,14 +554,15 @@ function renderConductores() {
     const pageItems = list.slice(start, start + state.driverPageSize);
 
     const grid = document.getElementById('cs-conductores-grid');
-    if (!pageItems.length) { grid.innerHTML = `<div class="cs-empty-inline">No se encontraron conductores.</div>`; }
+    const mode = `page:${state.driverPage}`;
+    if (!pageItems.length) { setGridHTML(grid, mode, `<div class="cs-empty-inline">No se encontraron conductores.</div>`); }
     else {
-        grid.innerHTML = pageItems.map((d, idx) => `
+        setGridHTML(grid, mode, pageItems.map((d, idx) => `
         <div class="cs-driver-card" onclick="openDriverModal(${idx})" style="cursor:pointer;">
             <div class="cs-driver-head">
                 <h5>${escapeHtml(d.nombre)}</h5>
                 <div class="cs-driver-actions">
-                    <button class="cs-toggle ${d.activo ? 'on' : ''}" onclick="event.stopPropagation(); toggleConductor('${escapeHtml(d.nombre)}')" title="Activo/Inactivo"><span></span></button>
+                    <button class="cs-toggle ${d.activo ? 'on' : ''}" onclick="event.stopPropagation(); toggleConductor('${escapeHtml(d.nombre)}', this)" title="Activo/Inactivo"><span></span></button>
                 </div>
             </div>
             <a class="cs-driver-email" href="#">${d.email}</a>
@@ -553,11 +570,15 @@ function renderConductores() {
                 <span>CC ${d.cc}</span><span>${d.telefono}</span>
                 <span>${d.placa}</span><span>Registro: ${d.registro}</span>
             </div>
-        </div>`).join('');
+        </div>`).join(''));
     }
     document.getElementById('cs-conductores-pag').innerHTML = paginationHtml(state.driverPage, totalPages, 'goDriverPage');
 
-    // Render or remove modal overlay
+    syncDriverModal();
+}
+
+// Muestra/oculta el modal de asociar cliente sin tocar (ni re-animar) la grilla de conductores de fondo.
+function syncDriverModal() {
     if (state.driverModalOpen) {
         renderDriverModal();
     } else {
@@ -571,24 +592,24 @@ function openDriverModal(index) {
     state.driverModalOpen = true;
     state.driverModalQuery = '';
     state.driverSelectedClientId = null;
-    renderConductores();
+    syncDriverModal();
 }
 
 function closeDriverModal() {
     state.driverModalOpen = false;
     state.driverModalQuery = '';
     state.driverSelectedClientId = null;
-    renderConductores();
+    syncDriverModal();
 }
 
 function setDriverSelectedClient(clientIndex) {
     state.driverSelectedClientId = state.driverSelectedClientId === clientIndex ? null : clientIndex;
-    renderConductores();
+    syncDriverModal();
 }
 
 function onDriverModalSearch(v) {
     state.driverModalQuery = v;
-    renderConductores();
+    syncDriverModal();
 }
 
 function onAssociateClient() {
@@ -604,82 +625,86 @@ function onAssociateClient() {
     state.driverModalOpen = false;
     state.driverModalQuery = '';
     state.driverSelectedClientId = null;
-    renderConductores();
+    syncDriverModal();
 }
 
 function renderDriverModal() {
-    // Remove any existing modal overlay
-    const existing = document.getElementById('cdm-overlay');
-    if (existing) existing.remove();
+    // Crea el marco del modal solo si no existe todavía; así, seleccionar un cliente o
+    // escribir en el buscador no vuelve a reproducir el fade/slide-up del modal completo.
+    let overlay = document.getElementById('cdm-overlay');
+    const isNew = !overlay;
+    if (isNew) {
+        overlay = document.createElement('div');
+        overlay.id = 'cdm-overlay';
+        overlay.className = 'cdm-overlay';
+        overlay.innerHTML = `
+        <div class="cdm-backdrop" onclick="closeDriverModal()"></div>
+        <div class="cdm-modal">
+            <div class="cdm-header">
+                <h3 class="cdm-title">Asociar cliente</h3>
+                <button class="cdm-close" onclick="closeDriverModal()">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg>
+                </button>
+            </div>
+
+            <div class="cdm-search">
+                <input type="text" placeholder="Buscar" class="cdm-search-input" id="cdm-search-input" value="${escapeHtml(state.driverModalQuery)}" oninput="onDriverModalSearch(this.value)">
+                <button class="cdm-search-btn">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+                </button>
+            </div>
+
+            <div class="cdm-list" id="cdm-list"></div>
+
+            <div class="cdm-footer">
+                <button class="cdm-btn-cancel" onclick="closeDriverModal()">Cancelar</button>
+                <button class="cdm-btn-associate" onclick="onAssociateClient()">Asociar</button>
+            </div>
+        </div>
+        `;
+        document.body.appendChild(overlay);
+
+        // Focus search input after render
+        setTimeout(() => {
+            const input = document.getElementById('cdm-search-input');
+            if (input) input.focus();
+        }, 100);
+    }
 
     const q = state.driverModalQuery.trim().toLowerCase();
     const filtered = state.clientes.filter(c =>
         !q || c.nombre.toLowerCase().includes(q) || c.nit.toLowerCase().includes(q) || c.telefono.includes(q)
     );
-
-    const overlay = document.createElement('div');
-    overlay.id = 'cdm-overlay';
-    overlay.className = 'cdm-overlay';
-    overlay.innerHTML = `
-    <div class="cdm-backdrop" onclick="closeDriverModal()"></div>
-    <div class="cdm-modal">
-        <div class="cdm-header">
-            <h3 class="cdm-title">Asociar cliente</h3>
-            <button class="cdm-close" onclick="closeDriverModal()">
-                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg>
-            </button>
-        </div>
-
-        <div class="cdm-search">
-            <input type="text" placeholder="Buscar" class="cdm-search-input" id="cdm-search-input" value="${escapeHtml(state.driverModalQuery)}" oninput="onDriverModalSearch(this.value)">
-            <button class="cdm-search-btn">
-                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
-            </button>
-        </div>
-
-        <div class="cdm-list">
-            ${filtered.length === 0 ? `<div class="cdm-empty">No se encontraron clientes.</div>` :
-            filtered.map((c, idx) => {
-                const realIdx = state.clientes.indexOf(c);
-                const isActive = state.driverSelectedClientId === realIdx;
-                return `
-                <div class="cdm-item ${isActive ? 'cdm-item--active' : ''}" onclick="setDriverSelectedClient(${realIdx})">
-                    <h4 class="cdm-item-title">${escapeHtml(c.nombre)}</h4>
-                    <p class="cdm-item-sub">${escapeHtml(c.direccion ? c.direccion.split(',')[0] : '')}</p>
-                    <div class="cdm-item-meta">
-                        <div class="cdm-item-meta-group">
-                            <span class="cdm-item-icon">🆔</span>
-                            <span>CC <strong>${escapeHtml(c.nit.replace('NIT ', ''))}</strong></span>
-                        </div>
-                        <div class="cdm-item-meta-group">
-                            <span class="cdm-item-icon">📞</span>
-                            <span>Principal <strong>${c.telefono}</strong></span>
-                        </div>
+    const listHtml = filtered.length === 0 ? `<div class="cdm-empty">No se encontraron clientes.</div>` :
+        filtered.map((c, idx) => {
+            const realIdx = state.clientes.indexOf(c);
+            const isActive = state.driverSelectedClientId === realIdx;
+            return `
+            <div class="cdm-item ${isActive ? 'cdm-item--active' : ''}" onclick="setDriverSelectedClient(${realIdx})">
+                <h4 class="cdm-item-title">${escapeHtml(c.nombre)}</h4>
+                <p class="cdm-item-sub">${escapeHtml(c.direccion ? c.direccion.split(',')[0] : '')}</p>
+                <div class="cdm-item-meta">
+                    <div class="cdm-item-meta-group">
+                        <span class="cdm-item-icon">🆔</span>
+                        <span>CC <strong>${escapeHtml(c.nit.replace('NIT ', ''))}</strong></span>
+                    </div>
+                    <div class="cdm-item-meta-group">
+                        <span class="cdm-item-icon">📞</span>
+                        <span>Principal <strong>${c.telefono}</strong></span>
                     </div>
                 </div>
-                `;
-            }).join('')}
-        </div>
-
-        <div class="cdm-footer">
-            <button class="cdm-btn-cancel" onclick="closeDriverModal()">Cancelar</button>
-            <button class="cdm-btn-associate" onclick="onAssociateClient()">Asociar</button>
-        </div>
-    </div>
-    `;
-    document.body.appendChild(overlay);
-
-    // Focus search input after render
-    setTimeout(() => {
-        const input = document.getElementById('cdm-search-input');
-        if (input) input.focus();
-    }, 100);
+            </div>
+            `;
+        }).join('');
+    // El "modo" es la búsqueda: cambiar de selección con la misma búsqueda no reanima la lista.
+    setGridHTML(overlay.querySelector('#cdm-list'), q, listHtml);
 }
 
-function toggleConductor(nombre) {
+function toggleConductor(nombre, btn) {
     const d = state.conductores.find(x => x.nombre === nombre);
-    if (d) d.activo = !d.activo;
-    renderConductores();
+    if (!d) return;
+    d.activo = !d.activo;
+    if (btn) btn.classList.toggle('on', d.activo);
 }
 function onDriverSearch(v) { state.driverQuery = v; state.driverPage = 1; renderConductores(); }
 function goDriverPage(p) { state.driverPage = p; renderConductores(); }
@@ -702,7 +727,7 @@ function renderPorFacturar() {
     const q = state.facturarQuery.trim().toLowerCase();
     const list = state.porFacturar.filter(g => !q || g.cliente.toLowerCase().includes(q) || g.guia.toLowerCase().includes(q));
 
-    grid.innerHTML = `
+    const html = `
     <div class="fp-container">
         <!-- Bloque A: Cabecera con breadcrumb + botones -->
         <div class="fp-header">
@@ -781,8 +806,13 @@ function renderPorFacturar() {
         </div>
     </div>
     `;
+    setGridHTML(grid, 'list', html);
 
-    // Render detail modal if open
+    syncFacturarDetailModal();
+}
+
+// Muestra/oculta el modal de detalle sin reconstruir (ni re-animar) la grilla de guías de fondo.
+function syncFacturarDetailModal() {
     if (state.facturarDetailOpen) {
         renderFacturarDetailModal();
     } else {
@@ -794,12 +824,12 @@ function renderPorFacturar() {
 function openFacturarDetail(index) {
     state.facturarDetailIndex = index;
     state.facturarDetailOpen = true;
-    renderPorFacturar();
+    syncFacturarDetailModal();
 }
 
 function closeFacturarDetail() {
     state.facturarDetailOpen = false;
-    renderPorFacturar();
+    syncFacturarDetailModal();
 }
 
 function renderFacturarDetailModal() {
@@ -980,7 +1010,7 @@ function renderChats() {
     document.getElementById('cs-chat-count-ayuda').textContent = state.chats.filter(c => c.ayuda).length;
 
     const listEl = document.getElementById('cs-chat-list');
-    listEl.innerHTML = list.map(c => `
+    setGridHTML(listEl, `filter:${state.chatFilter}:${q}`, list.map(c => `
         <div class="cs-chat-item ${state.selectedChatId === c.id ? 'active' : ''}" onclick="selectChat(${c.id})">
             <div class="cs-chat-avatar" style="background: ${getAvatarBg(c.nombre)}">${c.nombre.charAt(0)}</div>
             <div class="cs-chat-info">
@@ -993,7 +1023,7 @@ function renderChats() {
                 <div class="cs-chat-guia">${c.guia}</div>
             </div>
             ${c.unread ? `<span class="cs-chat-unread">${c.unread}</span>` : ''}
-        </div>`).join('') || `<div class="cs-empty-inline">No hay chats para este filtro.</div>`;
+        </div>`).join('') || `<div class="cs-empty-inline">No hay chats para este filtro.</div>`);
 
     renderChatDetail();
 }
@@ -1007,10 +1037,10 @@ function renderChatDetail() {
     const detail = document.getElementById('cs-chat-detail');
     const c = state.chats.find(x => x.id === state.selectedChatId);
     if (!c) {
-        detail.innerHTML = `<div class="cs-chat-empty"><div class="cs-chat-empty-icon">💬</div><h4>Sin selección</h4><p>Selecciona un chat de la lista de la izquierda para ver el historial de mensajes</p></div>`;
+        setGridHTML(detail, 'empty', `<div class="cs-chat-empty"><div class="cs-chat-empty-icon">💬</div><h4>Sin selección</h4><p>Selecciona un chat de la lista de la izquierda para ver el historial de mensajes</p></div>`);
         return;
     }
-    detail.innerHTML = `
+    const html = `
         <div class="cs-chat-detail-head">
             <div class="cs-chat-detail-userinfo">
                 <div class="cs-chat-avatar" style="background: ${getAvatarBg(c.nombre)}">${c.nombre.charAt(0)}</div>
@@ -1077,6 +1107,7 @@ function renderChatDetail() {
         </div>
         `}
     `;
+    setGridHTML(detail, `chat:${c.id}`, html);
     const thread = detail.querySelector('.cs-chat-thread');
     if (thread) {
         thread.scrollTop = thread.scrollHeight;
@@ -1248,9 +1279,10 @@ function renderUsuarios() {
     const pageItems = list.slice(start, start + state.userPageSize);
 
     const grid = document.getElementById('cs-usuarios-grid');
-    if (!pageItems.length) { grid.innerHTML = `<div class="cs-empty-inline">No se encontraron usuarios.</div>`; }
+    const mode = `page:${state.userPage}:${state.userTypeFilter}`;
+    if (!pageItems.length) { setGridHTML(grid, mode, `<div class="cs-empty-inline">No se encontraron usuarios.</div>`); }
     else {
-        grid.innerHTML = pageItems.map(u => `
+        setGridHTML(grid, mode, pageItems.map(u => `
         <div class="cs-user-card">
             <div class="cs-user-ava"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg></div>
             <div class="cs-user-info">
@@ -1258,15 +1290,16 @@ function renderUsuarios() {
                 <span class="cs-user-role">${u.tipo}</span>
                 <span class="cs-user-email">${u.email}</span>
             </div>
-            <button class="cs-toggle ${u.activo ? 'on' : ''}" onclick="toggleUsuario('${escapeHtml(u.email)}')"><span></span></button>
-        </div>`).join('');
+            <button class="cs-toggle ${u.activo ? 'on' : ''}" onclick="toggleUsuario('${escapeHtml(u.email)}', this)"><span></span></button>
+        </div>`).join(''));
     }
     document.getElementById('cs-usuarios-pag').innerHTML = paginationHtml(state.userPage, totalPages, 'goUserPage');
 }
-function toggleUsuario(email) {
+function toggleUsuario(email, btn) {
     const u = state.usuarios.find(x => x.email === email);
-    if (u) u.activo = !u.activo;
-    renderUsuarios();
+    if (!u) return;
+    u.activo = !u.activo;
+    if (btn) btn.classList.toggle('on', u.activo);
 }
 function onUserSearch(v) { state.userQuery = v; state.userPage = 1; renderUsuarios(); }
 function onUserTypeFilter(v) { state.userTypeFilter = v; state.userPage = 1; renderUsuarios(); }
@@ -1288,6 +1321,17 @@ function paginationHtml(current, total, fnName) {
 }
 function escapeHtml(str) {
     return String(str).replace(/[&<>"']/g, m => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[m]));
+}
+// Reemplaza el HTML de un contenedor, pero solo deja jugar la animación de entrada
+// cuando el "modo" (vista/página/perfil) cambió de verdad. Evita que un simple toggle,
+// filtro o cambio de pestaña dentro de la misma vista repita la animación de carga completa.
+function setGridHTML(el, mode, html) {
+    if (!el) return;
+    const key = String(mode);
+    const changed = el.dataset.gridMode !== key;
+    el.classList.toggle('no-anim', !changed);
+    el.dataset.gridMode = key;
+    el.innerHTML = html;
 }
 // Simula una acción asíncrona (sin backend): muestra spinner en el botón, luego ejecuta el callback.
 function runWithLoading(btn, delayMs, callback) {

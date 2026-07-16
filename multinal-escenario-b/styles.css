@@ -187,6 +187,7 @@ body{ display:flex; flex-direction:column; align-items:center; padding:24px; }
 .agent-col .a-lead{ margin-top:4px; font-family:var(--font-body); font-weight:300; font-size:8.4pt; line-height:1.28; color:var(--text-mid); }
 .agent-col .feat-grid{ grid-template-columns:1fr; flex:1; gap:.06in; margin-top:.07in; align-content:stretch; }
 .agent-col .feat-card{ padding:.07in .14in; justify-content:center; }
+.agent-col:first-child .feat-card{ justify-content:flex-start; text-align:left; }
 .agent-col .feat-card h4{ font-size:8.4pt; margin-bottom:2px; line-height:1.14; }
 .agent-col .feat-card p{ font-size:7.2pt; line-height:1.2; }
 .agent-col .feat-card .rf{ font-size:5.8pt; margin-bottom:2px; }

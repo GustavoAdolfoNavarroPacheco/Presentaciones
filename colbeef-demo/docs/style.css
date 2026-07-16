@@ -37,6 +37,39 @@
 
     --transition-smooth: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
     --border-radius: 12px;
+    --expo-out: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ---------- Transición fluida de tema (View Transitions API) ---------- */
+::view-transition-group(root) {
+    animation-duration: 0.7s;
+    animation-timing-function: var(--expo-out);
+}
+
+::view-transition-new(root) {
+    animation-name: reveal-light;
+    animation-fill-mode: both;
+}
+
+::view-transition-old(root),
+html.dark-theme::view-transition-old(root) {
+    animation: none;
+    animation-fill-mode: both;
+    z-index: -1;
+}
+html.dark-theme::view-transition-new(root) {
+    animation-name: reveal-dark;
+    animation-fill-mode: both;
+}
+
+@keyframes reveal-dark {
+    from { clip-path: polygon(50% -71%, -50% 71%, -50% 71%, 50% -71%); }
+    to { clip-path: polygon(50% -71%, -50% 71%, 50% 171%, 171% 50%); }
+}
+
+@keyframes reveal-light {
+    from { clip-path: polygon(171% 50%, 50% 171%, 50% 171%, 171% 50%); }
+    to { clip-path: polygon(171% 50%, 50% 171%, -50% 71%, 50% -71%); }
 }
 
 .dark-theme {
@@ -1090,6 +1123,11 @@ input, select { font-family: var(--font-body); }
     transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.28s ease, border-color 0.28s ease;
 }
 
+/* ---------- No-anim: evita que un refresco en el mismo lugar (toggle, filtro, tab)
+   repita la animación de entrada completa, para que solo se vea "recién cargado"
+   la primera vez que aparece una vista/lista, no en cada interacción sobre ella. ---------- */
+.no-anim, .no-anim * { animation: none !important; }
+
 /* ---------- Botón con estado de carga (feedback "funcional" sin backend) ---------- */
 .cs-btn.is-loading, .cs-btn-outline.is-loading { pointer-events: none; opacity: 0.75; position: relative; color: transparent !important; }
 .cs-btn.is-loading::after, .cs-btn-outline.is-loading::after {
@@ -2045,14 +2083,14 @@ input, select { font-family: var(--font-body); }
    ========================================== */
 
 .cp-container {
-    animation: cpFadeIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+    animation: cpFadeIn 0.28s ease both;
     width: 100%;
     max-width: 100%;
 }
 
 @keyframes cpFadeIn {
-    from { opacity: 0; transform: translateY(16px) scale(0.98); }
-    to { opacity: 1; transform: translateY(0) scale(1); }
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
 @keyframes cpSlideUp {
@@ -2073,7 +2111,6 @@ input, select { font-family: var(--font-body); }
     margin-bottom: 20px;
     font-size: 13px;
     font-family: var(--font-label);
-    animation: cpSlideUp 0.35s 0.05s ease both;
 }
 
 .cp-back-btn {
@@ -2126,7 +2163,6 @@ input, select { font-family: var(--font-body); }
     padding: 28px 30px 22px;
     margin-bottom: 22px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
-    animation: cpSlideUp 0.4s 0.1s ease both;
 }
 
 .cp-card-header {
@@ -2230,7 +2266,6 @@ input, select { font-family: var(--font-body); }
     gap: 18px 24px;
     padding-top: 22px;
     border-top: 1px solid rgba(20, 25, 35, 0.08);
-    animation: cpSlideUp 0.4s 0.18s ease both;
 }
 
 .cp-meta-item {
@@ -2324,7 +2359,6 @@ input, select { font-family: var(--font-body); }
     gap: 24px;
     border-bottom: 1px solid var(--border-color);
     margin-bottom: 20px;
-    animation: cpSlideUp 0.35s 0.22s ease both;
 }
 
 .cp-tab {
@@ -2367,7 +2401,6 @@ input, select { font-family: var(--font-body); }
 
 /* ---------- Bloque D + E: Tabla de guías ---------- */
 .cp-table-section {
-    animation: cpSlideUp 0.4s 0.28s ease both;
 }
 
 .cp-filter-bar {
@@ -2580,7 +2613,6 @@ input, select { font-family: var(--font-body); }
     background: var(--card-bg);
     border: 1px dashed var(--card-border);
     border-radius: 14px;
-    animation: cpSlideUp 0.4s 0.28s ease both;
 }
 
 .cp-empty-icon {

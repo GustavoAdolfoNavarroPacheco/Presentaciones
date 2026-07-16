@@ -15,18 +15,34 @@ const state = {
 
     // --- Clientes ---
     clientQuery: '',
+    showClientProfile: false,
+    selectedClientIndex: 0,
+    clientProfileTab: 'guias',
     clientes: [
-        { nombre: 'Frigorífico del Oriente', nit: 'NIT 900.201.801-4', tipo: 'Jurídica', telefono: '+57 316 822 6094', finca: 'Finca Santa Rita' },
-        { nombre: 'Cárnicos San Francisco', nit: 'NIT 900.112.018-2', tipo: 'Jurídica', telefono: '+57 315 638 5923', finca: 'Sin registro' },
-        { nombre: 'Distribuidora Guarín', nit: 'NIT 900.032.018-9', tipo: 'Jurídica', telefono: '+57 317 412 5678', finca: 'Finca La Concordia' },
-        { nombre: 'Comercializadora Real de Minas', nit: 'NIT 900.052.018-1', tipo: 'Jurídica', telefono: '+57 314 432 4411', finca: 'Sin registro' },
-        { nombre: 'Cárnicos Provenza', nit: 'NIT 900.062.018-6', tipo: 'Natural', telefono: '+57 313 800 1456', finca: 'Finca El Roble' },
-        { nombre: 'Frigorífico Zona Sur', nit: 'NIT 900.082.018-3', tipo: 'Jurídica', telefono: '+57 321 443 2441', finca: 'Sin registro' },
-        { nombre: 'Distribuidora Floridablanca', nit: 'NIT 900.092.018-8', tipo: 'Jurídica', telefono: '+57 317 517 8403', finca: 'Finca Buenavista' },
-        { nombre: 'Cárnicos Piedecuesta', nit: 'NIT 900.102.019-5', tipo: 'Natural', telefono: '+57 315 219 8749', finca: 'Sin registro' },
+        { nombre: 'Frigorífico del Oriente', nit: 'NIT 900.201.801-4', tipo: 'Jurídica', telefono: '+57 316 822 6094', finca: 'Finca Santa Rita', direccion: 'Calle 19 #12-34, Piedecuesta', email: 'contacto@frigoriente.com', ubicacion: 'Piedecuesta, Santander', transporte: 'Sí', ultGuia: '026-B-11001-0003495937', ultCorral: 'R-6', telefono2: '+57 310 458 7261' },
+        { nombre: 'Cárnicos San Francisco', nit: 'NIT 900.112.018-2', tipo: 'Jurídica', telefono: '+57 315 638 5923', finca: 'Sin registro', direccion: 'Cra 8 #23-45, Bucaramanga', email: 'ventas@carnicossf.com', ubicacion: 'Bucaramanga, Santander', transporte: 'No', ultGuia: '—', ultCorral: '—', telefono2: '+57 315 638 5924' },
+        { nombre: 'Distribuidora Guarín', nit: 'NIT 900.032.018-9', tipo: 'Jurídica', telefono: '+57 317 412 5678', finca: 'Finca La Concordia', direccion: 'Vereda El Porvenir, San Gil', email: 'dguarin@distribuidora.com', ubicacion: 'San Gil, Santander', transporte: 'Sí', ultGuia: '026-B-11001-0003495935', ultCorral: 'A-3', telefono2: '+57 317 412 5679' },
+        { nombre: 'Comercializadora Real de Minas', nit: 'NIT 900.052.018-1', tipo: 'Jurídica', telefono: '+57 314 432 4411', finca: 'Sin registro', direccion: 'Calle 52 #18-30, Barrancabermeja', email: 'realminas@comercializadora.com', ubicacion: 'Barrancabermeja, Santander', transporte: 'No', ultGuia: '—', ultCorral: '—', telefono2: '—' },
+        { nombre: 'Cárnicos Provenza', nit: 'NIT 900.062.018-6', tipo: 'Natural', telefono: '+57 313 800 1456', finca: 'Finca El Roble', direccion: 'Vía al Llano, Km 15, Lebrija', email: 'cprovenza@email.com', ubicacion: 'Lebrija, Santander', transporte: 'Sí', ultGuia: '026-B-11001-0003495934', ultCorral: 'C-1', telefono2: '+57 313 800 1457' },
+        { nombre: 'Frigorífico Zona Sur', nit: 'NIT 900.082.018-3', tipo: 'Jurídica', telefono: '+57 321 443 2441', finca: 'Sin registro', direccion: 'Autopista Sur #45-12, Girón', email: 'info@frigozonasur.com', ubicacion: 'Girón, Santander', transporte: 'No', ultGuia: '—', ultCorral: '—', telefono2: '—' },
+        { nombre: 'Distribuidora Floridablanca', nit: 'NIT 900.092.018-8', tipo: 'Jurídica', telefono: '+57 317 517 8403', finca: 'Finca Buenavista', direccion: 'Km 7 Vía Floridablanca, Piedecuesta', email: 'dflorida@distribuidora.com', ubicacion: 'Floridablanca, Santander', transporte: 'Sí', ultGuia: '026-B-11001-0003495933', ultCorral: 'B-2', telefono2: '+57 317 517 8404' },
+        { nombre: 'Cárnicos Piedecuesta', nit: 'NIT 900.102.019-5', tipo: 'Natural', telefono: '+57 315 219 8749', finca: 'Sin registro', direccion: 'Calle 10 #5-67, Piedecuesta', email: 'cpiedecuesta@outlook.com', ubicacion: 'Piedecuesta, Santander', transporte: 'No', ultGuia: '—', ultCorral: '—', telefono2: '—' },
+    ],
+
+    // --- Guías mock (para Perfil Cliente) ---
+    clientGuias: [
+        { numero: '026-B-11001-0003495937', cantidad: 29, valorTotal: 21000000, tiempoCorral: 13.5, fechaPesaje: '14 ene 2026', horaPesaje: '03:20 am', raza: 'Brahman', hembras: 14, machos: 15, pesoMin: 410, pesoMax: 545, pesoProm: 465, pesoTotal: 13485, conductor: 'Fernando Ruiz', placa: 'BCD012' },
+        { numero: '026-B-11001-0003495936', cantidad: 27, valorTotal: 19800000, tiempoCorral: 13.0, fechaPesaje: '13 ene 2026', horaPesaje: '04:00 am', raza: 'Brangus', hembras: 13, machos: 14, pesoMin: 400, pesoMax: 535, pesoProm: 455, pesoTotal: 12285, conductor: 'Diego Ramírez', placa: 'YZA901' },
+        { numero: '026-B-11001-0003495935', cantidad: 35, valorTotal: 24500000, tiempoCorral: 14.2, fechaPesaje: '12 ene 2026', horaPesaje: '02:45 am', raza: 'Nelore', hembras: 18, machos: 17, pesoMin: 390, pesoMax: 520, pesoProm: 445, pesoTotal: 15575, conductor: 'Alberto Suárez', placa: 'CBF144' },
+        { numero: '026-B-11001-0003495934', cantidad: 22, valorTotal: 16500000, tiempoCorral: 12.8, fechaPesaje: '11 ene 2026', horaPesaje: '04:15 am', raza: 'Gyr', hembras: 10, machos: 12, pesoMin: 380, pesoMax: 510, pesoProm: 435, pesoTotal: 9570, conductor: 'Carlos Rodríguez', placa: 'CBF123' },
+        { numero: '026-B-11001-0003495933', cantidad: 31, valorTotal: 23250000, tiempoCorral: 15.0, fechaPesaje: '10 ene 2026', horaPesaje: '03:35 am', raza: 'Brahman', hembras: 16, machos: 15, pesoMin: 405, pesoMax: 550, pesoProm: 472, pesoTotal: 14632, conductor: 'David Vargas', placa: 'CBF129' },
     ],
 
     // --- Conductores ---
+    driverModalOpen: false,
+    driverModalIndex: 0,
+    driverModalQuery: '',
+    driverSelectedClientId: null,
     driverQuery: '',
     driverPage: 1,
     driverPageSize: 4,
@@ -43,6 +59,8 @@ const state = {
 
     // --- Por Facturar ---
     facturarQuery: '',
+    facturarDetailOpen: false,
+    facturarDetailIndex: 0,
     porFacturar: [
         { guia: '#026-B-11001-0003495976', fecha: '07 jul 2026', cliente: 'Diego Serrano', cantidad: 4, telefono: '+57 317 517 8403' },
         { guia: '#026-B-11001-0003495977', fecha: '06 jul 2026', cliente: 'Diego Lizarazo', cantidad: 0, telefono: '+57 315 219 8749' },
@@ -248,6 +266,19 @@ document.addEventListener('keydown', (e) => {
 // --- SIMULADOR DEMO: navegación de secciones ---
 // ==========================================
 function selectSimModule(mod) {
+    // Clean up any open modal overlays
+    const driverOverlay = document.getElementById('cdm-overlay');
+    if (driverOverlay) {
+        driverOverlay.remove();
+        state.driverModalOpen = false;
+        state.driverModalQuery = '';
+        state.driverSelectedClientId = null;
+    }
+    const facturarOverlay = document.getElementById('fdm-overlay');
+    if (facturarOverlay) {
+        facturarOverlay.remove();
+        state.facturarDetailOpen = false;
+    }
     state.activeSimModule = mod;
     document.querySelectorAll('.cs-icon-item').forEach(el => el.classList.toggle('active', el.dataset.module === mod));
     document.querySelectorAll('.cs-pane').forEach(el => el.classList.toggle('active', el.id === `cs-${mod}`));
@@ -257,12 +288,26 @@ const fmtCOP = n => '$' + n.toLocaleString('es-CO');
 
 // ---------- 1. CLIENTES ----------
 function renderClientes() {
+    const sectionHead = document.querySelector('#cs-clientes .cs-section-head');
+    const grid = document.getElementById('cs-clientes-grid');
+
+    if (state.showClientProfile) {
+        if (sectionHead) sectionHead.style.display = 'none';
+        grid.classList.remove('cs-grid');
+        grid.style.display = 'block';
+        renderClientProfile();
+        return;
+    }
+
+    if (sectionHead) sectionHead.style.display = '';
+    grid.style.display = '';
+    if (!grid.classList.contains('cs-grid')) grid.classList.add('cs-grid');
+
     const q = state.clientQuery.trim().toLowerCase();
     const list = state.clientes.filter(c => !q || c.nombre.toLowerCase().includes(q) || c.nit.toLowerCase().includes(q));
-    const el = document.getElementById('cs-clientes-grid');
-    if (!list.length) { el.innerHTML = `<div class="cs-empty-inline">No se encontraron clientes para "${escapeHtml(state.clientQuery)}".</div>`; return; }
-    el.innerHTML = list.map(c => `
-        <div class="cs-client-card">
+    if (!list.length) { grid.innerHTML = `<div class="cs-empty-inline">No se encontraron clientes para "${escapeHtml(state.clientQuery)}".</div>`; return; }
+    grid.innerHTML = list.map((c, idx) => `
+        <div class="cs-client-card" onclick="openClientProfile(${idx})" style="cursor:pointer;">
             <h5>${escapeHtml(c.nombre)}</h5>
             <div class="cs-client-row"><svg class="cs-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>${c.nit}</div>
             <div class="cs-client-row"><svg class="cs-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.4-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2Z"/></svg>${c.telefono}</div>
@@ -270,6 +315,215 @@ function renderClientes() {
             <div class="cs-client-row"><svg class="cs-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 10l9-7 9 7v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>${c.finca}</div>
         </div>`).join('');
 }
+
+function openClientProfile(index) {
+    state.selectedClientIndex = index;
+    state.showClientProfile = true;
+    state.clientProfileTab = 'guias';
+    renderClientes();
+}
+
+function closeClientProfile() {
+    state.showClientProfile = false;
+    const grid = document.getElementById('cs-clientes-grid');
+    grid.style.display = '';
+    if (!grid.classList.contains('cs-grid')) grid.classList.add('cs-grid');
+    const sectionHead = document.querySelector('#cs-clientes .cs-section-head');
+    if (sectionHead) sectionHead.style.display = '';
+    renderClientes();
+}
+
+function setClientProfileTab(tab) {
+    state.clientProfileTab = tab;
+    renderClientes();
+}
+
+function renderClientProfile() {
+    const c = state.clientes[state.selectedClientIndex];
+    if (!c) { closeClientProfile(); return; }
+    const el = document.getElementById('cs-clientes-grid');
+    const guias = state.clientGuias;
+    const tab = state.clientProfileTab;
+    const fmtCOP = n => '$' + (n || 0).toLocaleString('es-CO');
+
+    el.innerHTML = `
+    <div class="cp-container">
+        <!-- Bloque A: Breadcrumb -->
+        <div class="cp-breadcrumb">
+            <button class="cp-back-btn" onclick="closeClientProfile()">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5m7-7-7 7 7 7"/></svg>
+                Volver a clientes
+            </button>
+            <span class="cp-breadcrumb-sep">/</span>
+            <span class="cp-breadcrumb-current">Perfil del cliente</span>
+        </div>
+
+        <!-- Bloque B: Tarjeta del Cliente -->
+        <div class="cp-card">
+            <div class="cp-card-header">
+                <h2 class="cp-card-title">${escapeHtml(c.nombre)}</h2>
+                <div class="cp-card-actions">
+                    <button class="cp-action-btn cp-action-btn-icon" title="Configuración" onclick="flashToast('Configuración de cliente (demo)')">
+                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>
+                    </button>
+                    <button class="cp-action-btn cp-action-btn-text" onclick="flashToast('Sincronizando datos del cliente…')">
+                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 4v6h-6M1 20v-6h6"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
+                        Sincronizar
+                    </button>
+                    <button class="cp-action-btn cp-action-btn-text" onclick="flashToast('Comentarios del cliente (demo)')">
+                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                        Comentarios
+                    </button>
+                    <button class="cp-action-btn cp-action-btn-save" title="Guardar" onclick="flashToast('Datos guardados correctamente.')">
+                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Grid de Metadatos (5 columnas) -->
+            <div class="cp-meta-grid">
+                <div class="cp-meta-item">
+                    <span class="cp-meta-icon">📄</span>
+                    <div><span class="cp-meta-label">NIT</span><span class="cp-meta-value">${escapeHtml(c.nit.replace('NIT ', ''))}</span></div>
+                </div>
+                <div class="cp-meta-item">
+                    <span class="cp-meta-icon">📞</span>
+                    <div><span class="cp-meta-label">Principal</span><span class="cp-meta-value">${c.telefono}</span></div>
+                </div>
+                <div class="cp-meta-item">
+                    <span class="cp-meta-icon">✉️</span>
+                    <div><span class="cp-meta-label">Correo</span><span class="cp-meta-value ${!c.email || c.email === '—' ? 'cp-meta-value--empty' : ''}">${c.email || '—'}</span></div>
+                </div>
+                <div class="cp-meta-item">
+                    <span class="cp-meta-icon">📍</span>
+                    <div><span class="cp-meta-label">Ubicación</span><span class="cp-meta-value">${escapeHtml(c.ubicacion)}</span></div>
+                </div>
+                <div class="cp-meta-item">
+                    <span class="cp-meta-icon">📋</span>
+                    <div><span class="cp-meta-label">Ult. Guía Pesaje</span><span class="cp-meta-value ${c.ultGuia === '—' ? 'cp-meta-value--empty' : ''}">${c.ultGuia}</span></div>
+                </div>
+                <div class="cp-meta-item">
+                    <span class="cp-meta-icon">👤</span>
+                    <div><span class="cp-meta-label">Tipo</span><span class="cp-meta-value">${c.tipo}</span></div>
+                </div>
+                <div class="cp-meta-item">
+                    <span class="cp-meta-icon">📞</span>
+                    <div><span class="cp-meta-label">Secundario</span><span class="cp-meta-value ${c.telefono2 === '—' ? 'cp-meta-value--empty' : ''}">${c.telefono2}</span></div>
+                </div>
+                <div class="cp-meta-item">
+                    <span class="cp-meta-icon">🏡</span>
+                    <div><span class="cp-meta-label">Finca</span><span class="cp-meta-value ${c.finca === 'Sin registro' ? 'cp-meta-value--empty' : ''}">${c.finca === 'Sin registro' ? '—' : escapeHtml(c.finca)}</span></div>
+                </div>
+                <div class="cp-meta-item">
+                    <span class="cp-meta-icon">🚛</span>
+                    <div><span class="cp-meta-label">Transporte</span><span class="cp-meta-value">${c.transporte}</span></div>
+                </div>
+                <div class="cp-meta-item">
+                    <span class="cp-meta-icon">🚧</span>
+                    <div><span class="cp-meta-label">Ult Corral</span><span class="cp-meta-value ${c.ultCorral === '—' ? 'cp-meta-value--empty' : ''}">${c.ultCorral}</span></div>
+                </div>
+            </div>
+
+            <!-- Desplegable inferior -->
+            <div class="cp-preferences-row">
+                <button class="cp-preferences-btn" onclick="flashToast('Preferencias del cliente (demo)')">
+                    Ver preferencias de cliente
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Bloque C: Menú de Pestañas -->
+        <div class="cp-tabs">
+            <button class="cp-tab ${tab === 'guias' ? 'cp-tab--active' : ''}" onclick="setClientProfileTab('guias')">Guías</button>
+            <button class="cp-tab ${tab === 'contactos' ? 'cp-tab--active' : ''}" onclick="setClientProfileTab('contactos')">Contactos</button>
+        </div>
+
+        ${tab === 'guias' ? `
+        <!-- Bloque D: Barra de Filtros + Bloque E: Tabla -->
+        <div class="cp-table-section" id="cp-table-section">
+            <div class="cp-filter-bar">
+                <h3 class="cp-filter-title">Lista de guías</h3>
+                <div class="cp-filter-controls">
+                    <div class="cp-search-box">
+                        <input type="text" placeholder="Buscar" class="cp-search-input" id="cp-guia-search" oninput="filterGuiasTable()">
+                        <button class="cp-search-btn">
+                            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+                        </button>
+                    </div>
+                    <div class="cp-date-range">
+                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                        <span>Desde</span>
+                        <span class="cp-date-sep">|</span>
+                        <span>Hasta</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cp-table-wrap">
+                <table class="cp-table" id="cp-guias-table">
+                    <thead>
+                        <tr>
+                            <th>Número Guía</th>
+                            <th class="cp-th-num">Cant. Animales</th>
+                            <th class="cp-th-num">Valor Total</th>
+                            <th class="cp-th-num">Tiempo en corral (h)</th>
+                            <th class="cp-th-num">Fecha Pesaje</th>
+                            <th class="cp-th-num">Hora Pesaje</th>
+                            <th>Especie/Raza</th>
+                            <th class="cp-th-num">Cant. Hembras</th>
+                            <th class="cp-th-num">Cant. Machos</th>
+                            <th class="cp-th-num">Peso mín.</th>
+                            <th class="cp-th-num">Peso max.</th>
+                            <th class="cp-th-num">Peso prom.</th>
+                            <th class="cp-th-num">Peso total <span class="cp-sort-icon">⇅</span></th>
+                            <th>Conductor <span class="cp-sort-icon">⇅</span></th>
+                            <th>Placa Veh. <span class="cp-sort-icon">⇅</span></th>
+                        </tr>
+                    </thead>
+                    <tbody id="cp-guias-tbody">
+                        ${guias.map(g => `
+                        <tr class="cp-table-row">
+                            <td class="cp-cell-guia">${g.numero}</td>
+                            <td class="cp-cell-num">${g.cantidad}</td>
+                            <td class="cp-cell-num">${fmtCOP(g.valorTotal)}</td>
+                            <td class="cp-cell-num">${g.tiempoCorral}</td>
+                            <td class="cp-cell-num cp-cell-date">${g.fechaPesaje}</td>
+                            <td class="cp-cell-num cp-cell-date">${g.horaPesaje}</td>
+                            <td>${g.raza}</td>
+                            <td class="cp-cell-num">${g.hembras}</td>
+                            <td class="cp-cell-num">${g.machos}</td>
+                            <td class="cp-cell-num">${g.pesoMin}</td>
+                            <td class="cp-cell-num">${g.pesoMax}</td>
+                            <td class="cp-cell-num">${g.pesoProm}</td>
+                            <td class="cp-cell-num cp-cell-bold">${g.pesoTotal}</td>
+                            <td>${g.conductor}</td>
+                            <td class="cp-cell-placa">${g.placa}</td>
+                        </tr>
+                        `).join('')}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        ` : `
+        <div class="cp-empty-tab">
+            <div class="cp-empty-icon">👥</div>
+            <h4>Contactos del cliente</h4>
+            <p>Los contactos asociados a este cliente aparecerán aquí. Módulo en desarrollo.</p>
+        </div>
+        `}
+    </div>
+    `;
+}
+
+function filterGuiasTable() {
+    const q = document.getElementById('cp-guia-search')?.value?.trim().toLowerCase() || '';
+    document.querySelectorAll('#cp-guias-tbody .cp-table-row').forEach(row => {
+        const match = row.textContent.toLowerCase().includes(q);
+        row.style.display = match ? '' : 'none';
+    });
+}
+
 function onClientSearch(v) { state.clientQuery = v; renderClientes(); }
 function onSyncClientes(btn) { runWithLoading(btn, 700, () => { flashToast('Clientes sincronizados correctamente.'); flashHighlight(document.getElementById('cs-clientes-grid')); }); }
 function onCrearCliente() { flashToast('Formulario de creación de cliente (demo) — no hay backend conectado.'); }
@@ -286,12 +540,12 @@ function renderConductores() {
     const grid = document.getElementById('cs-conductores-grid');
     if (!pageItems.length) { grid.innerHTML = `<div class="cs-empty-inline">No se encontraron conductores.</div>`; }
     else {
-        grid.innerHTML = pageItems.map((d) => `
-        <div class="cs-driver-card">
+        grid.innerHTML = pageItems.map((d, idx) => `
+        <div class="cs-driver-card" onclick="openDriverModal(${idx})" style="cursor:pointer;">
             <div class="cs-driver-head">
                 <h5>${escapeHtml(d.nombre)}</h5>
                 <div class="cs-driver-actions">
-                    <button class="cs-toggle ${d.activo ? 'on' : ''}" onclick="toggleConductor('${escapeHtml(d.nombre)}')" title="Activo/Inactivo"><span></span></button>
+                    <button class="cs-toggle ${d.activo ? 'on' : ''}" onclick="event.stopPropagation(); toggleConductor('${escapeHtml(d.nombre)}')" title="Activo/Inactivo"><span></span></button>
                 </div>
             </div>
             <a class="cs-driver-email" href="#">${d.email}</a>
@@ -302,7 +556,126 @@ function renderConductores() {
         </div>`).join('');
     }
     document.getElementById('cs-conductores-pag').innerHTML = paginationHtml(state.driverPage, totalPages, 'goDriverPage');
+
+    // Render or remove modal overlay
+    if (state.driverModalOpen) {
+        renderDriverModal();
+    } else {
+        const existing = document.getElementById('cdm-overlay');
+        if (existing) existing.remove();
+    }
 }
+
+function openDriverModal(index) {
+    state.driverModalIndex = index;
+    state.driverModalOpen = true;
+    state.driverModalQuery = '';
+    state.driverSelectedClientId = null;
+    renderConductores();
+}
+
+function closeDriverModal() {
+    state.driverModalOpen = false;
+    state.driverModalQuery = '';
+    state.driverSelectedClientId = null;
+    renderConductores();
+}
+
+function setDriverSelectedClient(clientIndex) {
+    state.driverSelectedClientId = state.driverSelectedClientId === clientIndex ? null : clientIndex;
+    renderConductores();
+}
+
+function onDriverModalSearch(v) {
+    state.driverModalQuery = v;
+    renderConductores();
+}
+
+function onAssociateClient() {
+    if (state.driverSelectedClientId === null) {
+        flashToast('⚠️ Selecciona un cliente para asociar.');
+        return;
+    }
+    const driver = state.conductores[state.driverModalIndex];
+    const client = state.clientes[state.driverSelectedClientId];
+    if (driver && client) {
+        flashToast("✅ Cliente '" + client.nombre + "' asociado a " + driver.nombre + ".");
+    }
+    state.driverModalOpen = false;
+    state.driverModalQuery = '';
+    state.driverSelectedClientId = null;
+    renderConductores();
+}
+
+function renderDriverModal() {
+    // Remove any existing modal overlay
+    const existing = document.getElementById('cdm-overlay');
+    if (existing) existing.remove();
+
+    const q = state.driverModalQuery.trim().toLowerCase();
+    const filtered = state.clientes.filter(c =>
+        !q || c.nombre.toLowerCase().includes(q) || c.nit.toLowerCase().includes(q) || c.telefono.includes(q)
+    );
+
+    const overlay = document.createElement('div');
+    overlay.id = 'cdm-overlay';
+    overlay.className = 'cdm-overlay';
+    overlay.innerHTML = `
+    <div class="cdm-backdrop" onclick="closeDriverModal()"></div>
+    <div class="cdm-modal">
+        <div class="cdm-header">
+            <h3 class="cdm-title">Asociar cliente</h3>
+            <button class="cdm-close" onclick="closeDriverModal()">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg>
+            </button>
+        </div>
+
+        <div class="cdm-search">
+            <input type="text" placeholder="Buscar" class="cdm-search-input" id="cdm-search-input" value="${escapeHtml(state.driverModalQuery)}" oninput="onDriverModalSearch(this.value)">
+            <button class="cdm-search-btn">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+            </button>
+        </div>
+
+        <div class="cdm-list">
+            ${filtered.length === 0 ? `<div class="cdm-empty">No se encontraron clientes.</div>` :
+            filtered.map((c, idx) => {
+                const realIdx = state.clientes.indexOf(c);
+                const isActive = state.driverSelectedClientId === realIdx;
+                return `
+                <div class="cdm-item ${isActive ? 'cdm-item--active' : ''}" onclick="setDriverSelectedClient(${realIdx})">
+                    <h4 class="cdm-item-title">${escapeHtml(c.nombre)}</h4>
+                    <p class="cdm-item-sub">${escapeHtml(c.direccion ? c.direccion.split(',')[0] : '')}</p>
+                    <div class="cdm-item-meta">
+                        <div class="cdm-item-meta-group">
+                            <span class="cdm-item-icon">🆔</span>
+                            <span>CC <strong>${escapeHtml(c.nit.replace('NIT ', ''))}</strong></span>
+                        </div>
+                        <div class="cdm-item-meta-group">
+                            <span class="cdm-item-icon">📞</span>
+                            <span>Principal <strong>${c.telefono}</strong></span>
+                        </div>
+                    </div>
+                </div>
+                `;
+            }).join('')}
+        </div>
+
+        <div class="cdm-footer">
+            <button class="cdm-btn-cancel" onclick="closeDriverModal()">Cancelar</button>
+            <button class="cdm-btn-associate" onclick="onAssociateClient()">Asociar</button>
+        </div>
+    </div>
+    `;
+    document.body.appendChild(overlay);
+
+    // Focus search input after render
+    setTimeout(() => {
+        const input = document.getElementById('cdm-search-input');
+        if (input) input.focus();
+    }, 100);
+}
+
 function toggleConductor(nombre) {
     const d = state.conductores.find(x => x.nombre === nombre);
     if (d) d.activo = !d.activo;
@@ -312,19 +685,200 @@ function onDriverSearch(v) { state.driverQuery = v; state.driverPage = 1; render
 function goDriverPage(p) { state.driverPage = p; renderConductores(); }
 function onCrearConductor() { flashToast('Formulario de creación de conductor (demo) — no hay backend conectado.'); }
 
-// ---------- 3. POR FACTURAR ----------
+// ---------- 3. POR FACTURAR (Rediseñado) ----------
 function renderPorFacturar() {
+    const topbar = document.querySelector('#cs-facturar .cs-topbar');
+    const sectionHead = document.querySelector('#cs-facturar .cs-section-head');
+    const infoBanner = document.querySelector('#cs-facturar .cs-info-banner');
+    const grid = document.getElementById('cs-facturar-grid');
+
+    // Hide unnecessary existing elements
+    if (topbar) topbar.style.display = 'none';
+    if (sectionHead) sectionHead.style.display = 'none';
+    if (infoBanner) infoBanner.style.display = 'none';
+    grid.classList.remove('cs-grid');
+    grid.style.display = 'block';
+
     const q = state.facturarQuery.trim().toLowerCase();
     const list = state.porFacturar.filter(g => !q || g.cliente.toLowerCase().includes(q) || g.guia.toLowerCase().includes(q));
-    const el = document.getElementById('cs-facturar-grid');
-    if (!list.length) { el.innerHTML = `<div class="cs-empty-inline">No se encontraron guías.</div>`; return; }
-    el.innerHTML = list.map(g => `
-        <div class="cs-guia-card">
-            <div class="cs-guia-head"><b>${g.guia}</b><span>${g.fecha}</span></div>
-            <div class="cs-guia-row"><span>${escapeHtml(g.cliente)}</span><span class="cs-guia-qty">Cant. ${g.cantidad}</span></div>
-            <div class="cs-guia-tel">Teléfono: <b>${g.telefono}</b></div>
-        </div>`).join('');
+
+    grid.innerHTML = `
+    <div class="fp-container">
+        <!-- Bloque A: Cabecera con breadcrumb + botones -->
+        <div class="fp-header">
+            <div class="fp-breadcrumb">
+                <span class="fp-breadcrumb-item">Menú</span>
+                <span class="fp-breadcrumb-sep">/</span>
+                <h1 class="fp-breadcrumb-current">Por facturar</h1>
+            </div>
+            <div class="fp-header-actions">
+                <button class="fp-btn-outline" onclick="onExportarFacturar(this)">
+                    <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                    Exportar datos
+                </button>
+                <button class="fp-btn-primary" onclick="onCrearPlantilla(this)">
+                    <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                    Crear plantilla
+                </button>
+            </div>
+        </div>
+
+        <!-- Bloque B: Banner Informativo con SVG -->
+        <div class="fp-banner">
+            <div class="fp-banner-icon">
+                <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="25" y="20" width="50" height="60" rx="5" fill="currentColor" style="opacity:0.15;" stroke="currentColor"/>
+                    <line x1="35" y1="35" x2="65" y2="35" opacity="0.6"/>
+                    <line x1="35" y1="50" x2="65" y2="50" opacity="0.6"/>
+                    <line x1="35" y1="65" x2="55" y2="65" opacity="0.6"/>
+                    <circle cx="75" cy="25" r="12" fill="currentColor" stroke="var(--bg-color, #F0F5F1)" stroke-width="3"/>
+                    <text x="75" y="29" text-anchor="middle" fill="#fff" font-size="14" font-weight="bold">✓</text>
+                </svg>
+            </div>
+            <p class="fp-banner-text">
+                En esta sección se listan los animales que cumplen las condiciones para ser asignados a un plan de faena. Información que se necesita para gestionar su procesamiento, definir los detalles operativos correspondientes y generar la factura asociada, asegurando un control ordenado y trazable del proceso productivo y administrativo.
+            </p>
+        </div>
+
+        <!-- Bloque C: Barra de filtros -->
+        <div class="fp-filter-bar">
+            <h3 class="fp-filter-title">Lista de guías</h3>
+            <div class="fp-search-box">
+                <input type="text" placeholder="Buscar" class="fp-search-input" value="${escapeHtml(state.facturarQuery)}" oninput="onFacturarSearch(this.value)">
+                <button class="fp-search-btn">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Bloque D: Grid de tarjetas responsivo -->
+        ${list.length === 0 ? `<div class="fp-empty">No se encontraron guías para "${escapeHtml(state.facturarQuery)}".</div>` : `
+        <div class="fp-grid">
+            ${list.map((g, idx) => `
+            <div class="fp-card" onclick="openFacturarDetail(${idx})" style="cursor:pointer;">
+                <div class="fp-card-top">
+                    <span class="fp-card-id">${escapeHtml(g.guia)}</span>
+                    <span class="fp-card-date">${g.fecha}</span>
+                </div>
+                <div class="fp-card-middle">
+                    <span class="fp-card-client">${escapeHtml(g.cliente)}</span>
+                    <span class="fp-card-qty ${g.cantidad > 0 ? 'fp-card-qty--has' : 'fp-card-qty--empty'}">
+                        🐄 Cant. ${g.cantidad}
+                    </span>
+                </div>
+                <div class="fp-card-bottom">
+                    <span>Teléfono:</span>
+                    <span class="fp-card-phone">${g.telefono}</span>
+                </div>
+            </div>
+            `).join('')}
+        </div>
+        `}
+
+        <!-- Bloque E: Botón Ver más -->
+        <div class="fp-footer">
+            <button class="fp-btn-more" onclick="flashToast('Cargando más guías…')">Ver más</button>
+        </div>
+    </div>
+    `;
+
+    // Render detail modal if open
+    if (state.facturarDetailOpen) {
+        renderFacturarDetailModal();
+    } else {
+        const existing = document.getElementById('fdm-overlay');
+        if (existing) existing.remove();
+    }
 }
+
+function openFacturarDetail(index) {
+    state.facturarDetailIndex = index;
+    state.facturarDetailOpen = true;
+    renderPorFacturar();
+}
+
+function closeFacturarDetail() {
+    state.facturarDetailOpen = false;
+    renderPorFacturar();
+}
+
+function renderFacturarDetailModal() {
+    const existing = document.getElementById('fdm-overlay');
+    if (existing) existing.remove();
+
+    const g = state.porFacturar[state.facturarDetailIndex];
+    if (!g) { closeFacturarDetail(); return; }
+
+    // Find matching client for more details
+    const client = state.clientes.find(c => c.telefono.includes(g.telefono.replace(/\s/g, '')) || c.nombre === g.cliente);
+
+    const overlay = document.createElement('div');
+    overlay.id = 'fdm-overlay';
+    overlay.className = 'fdm-overlay';
+    overlay.innerHTML = `
+    <div class="fdm-backdrop" onclick="closeFacturarDetail()"></div>
+    <div class="fdm-modal">
+        <div class="fdm-header">
+            <div class="fdm-header-left">
+                <span class="fdm-badge">GUÍA</span>
+                <h3 class="fdm-title">${escapeHtml(g.guia)}</h3>
+            </div>
+            <button class="fdm-close" onclick="closeFacturarDetail()">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg>
+            </button>
+        </div>
+
+        <div class="fdm-body">
+            <div class="fdm-info-grid">
+                <div class="fdm-info-item">
+                    <span class="fdm-info-label">Cliente</span>
+                    <span class="fdm-info-value">${escapeHtml(g.cliente)}</span>
+                </div>
+                <div class="fdm-info-item">
+                    <span class="fdm-info-label">Fecha</span>
+                    <span class="fdm-info-value">${g.fecha}</span>
+                </div>
+                <div class="fdm-info-item">
+                    <span class="fdm-info-label">Cantidad</span>
+                    <span class="fdm-info-value fdm-info-value--hl">🐄 ${g.cantidad} animales</span>
+                </div>
+                <div class="fdm-info-item">
+                    <span class="fdm-info-label">Teléfono</span>
+                    <span class="fdm-info-value">${g.telefono}</span>
+                </div>
+                ${client ? `
+                <div class="fdm-info-item">
+                    <span class="fdm-info-label">Tipo cliente</span>
+                    <span class="fdm-info-value">${client.tipo}</span>
+                </div>
+                <div class="fdm-info-item">
+                    <span class="fdm-info-label">Ubicación</span>
+                    <span class="fdm-info-value">${escapeHtml(client.ubicacion)}</span>
+                </div>
+                ` : ''}
+            </div>
+
+            <div class="fdm-status">
+                <div class="fdm-status-icon">⏳</div>
+                <div class="fdm-status-text">
+                    <strong>Pendiente de facturación</strong>
+                    <span>Esta guía está en espera de procesamiento para generar la factura asociada.</span>
+                </div>
+            </div>
+
+            <div class="fdm-actions">
+                <button class="fdm-btn-secondary" onclick="closeFacturarDetail()">Cerrar</button>
+                <button class="fdm-btn-primary" onclick="closeFacturarDetail(); flashToast('Factura generada para la guía ${escapeHtml(g.guia)}.');">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                    Marcar como facturado
+                </button>
+            </div>
+        </div>
+    </div>
+    `;
+    document.body.appendChild(overlay);
+}
+
 function onFacturarSearch(v) { state.facturarQuery = v; renderPorFacturar(); }
 function onExportarFacturar(btn) { runWithLoading(btn, 900, () => flashToast('Datos exportados correctamente.')); }
 function onCrearPlantilla(btn) { runWithLoading(btn, 700, () => flashToast('Plantilla de facturación creada (demo).')); }
@@ -503,6 +1057,7 @@ function renderChatDetail() {
             ` : ''}
         </div>
         <div class="cs-chat-suggestions" id="cs-chat-suggestions"></div>
+        ${c.nombre !== 'Diego Serrano' ? `
         <form class="cs-chat-composer" onsubmit="sendChatMsg(event, ${c.id})">
             <button type="button" class="cs-composer-attachment" onclick="flashToast('Adjuntar archivo (demo)')">
                 <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"/></svg>
@@ -515,6 +1070,12 @@ function renderChatDetail() {
                 <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
             </button>
         </form>
+        ` : `
+        <div class="cs-chat-composer-disabled">
+            <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            <span>Usa las respuestas sugeridas de arriba para continuar la simulación de chat.</span>
+        </div>
+        `}
     `;
     const thread = detail.querySelector('.cs-chat-thread');
     if (thread) {
@@ -595,7 +1156,7 @@ Por favor, indícame los datos de los animales para los que deseas cambiar el pr
 Escribe *MENU* para volver al menú principal de opciones.`;
         suggestionsEl.innerHTML = `
             <div class="cs-chat-suggestions-title">💡 Respuesta sugerida para el Asistente</div>
-            <div class="cs-chat-suggestion-card" onclick="sendSuggestedMsg(${c.id}, \`${escapeBackticks(text)}\`, 'Ninguna. Finaliza el chat')">
+            <div class="cs-chat-suggestion-card" onclick="sendSuggestedMsg(${c.id}, \`${escapeBackticks(text)}\`, 'Listo, muchas gracias por la ayuda. Quedo al tanto.')">
                 <div class="cs-chat-suggestion-preview">${escapeHtml(text)}</div>
                 <div class="cs-chat-suggestion-action">
                     <span>Enviar esta respuesta</span>
@@ -638,7 +1199,7 @@ function sendSuggestedMsg(chatId, textToSend, autoResponseText) {
             time: timeString
         });
         renderChats();
-        if (autoResponseText === 'Ninguna. Finaliza el chat') {
+        if (autoResponseText === 'Listo, muchas gracias por la ayuda. Quedo al tanto.') {
             flashToast('🏁 Flujo de auto-chat completado con éxito.');
         }
     }, 1800);

@@ -35,6 +35,11 @@
   .pill{height:10px;border-radius:99px;background:var(--grad);flex:1;}
   .dot{width:9px;height:9px;border-radius:50%;background:var(--dot);box-shadow:0 0 9px 1px var(--dotGlow);}
   .name{font-family:'Montserrat';font-weight:600;font-size:9px;letter-spacing:.06em;color:var(--txtLo);}
+  .tile-light{color:#14161B;}
+  .tile-light .ttl{color:#14161B;}
+  .tile-light .name{color:#3D4451;}
+  .tile-light{background:radial-gradient(90% 80% at 15% 18%, var(--glowA) 0%, transparent 45%), radial-gradient(110% 110% at 95% 96%, var(--glowB) 0%, transparent 52%), var(--wash, transparent), linear-gradient(150deg, var(--bg0) 0%, var(--bg1) 55%, var(--deep) 100%) !important;}
+
 
   /* ===== CAMPUSLANDS (default tech) ===== */
   .t-camp{--bg0:#05070F;--bg1:#0A0E1A;--bg2:#0D1424;--deep:#0B1120;
@@ -67,10 +72,11 @@
     --grad:linear-gradient(100deg,#FFC670,#FF7A00 38%,#7A5AD1 72%,#3B2A8C);
     --cardBorder:rgba(220,150,90,.16);--txtMid:#E4D6C6;--txtLo:#9C8A78;--dot:#35D0F0;--dotGlow:rgba(53,208,240,.7);}
   /* ===== COLBEEF (rojo del wordmark → verde del isotipo) ===== */
-  .t-cbf{--bg0:#0C0503;--bg1:#170905;--bg2:#1F0F09;--deep:#180A05;
-    --glowA:rgba(217,58,46,.14);--glowB:rgba(27,94,51,.13);
+  .t-cbf{--bg0:#F2F3F5;--bg1:#E9EBEF;--bg2:#FFFFFF;--deep:#E2E4E9;
+    --glowA:rgba(217,58,46,.09);--glowB:rgba(27,94,51,.09);
+    --wash:linear-gradient(135deg, rgba(224,74,58,.07) 0%, rgba(184,52,31,.05) 32%, rgba(46,139,79,.05) 66%, rgba(27,94,51,.07) 100%);
     --grad:linear-gradient(100deg,#E2543F,#D93A2E 34%,#4CAA6A 68%,#1B5E33);
-    --cardBorder:rgba(200,120,100,.18);--txtMid:#E6CFC8;--txtLo:#A6857D;--dot:#1B7A4A;--dotGlow:rgba(27,122,74,.7);}
+    --cardBorder:rgba(20,25,35,.10);--txtMid:#3D4451;--txtLo:#6B7280;--dot:#1B7A4A;--dotGlow:rgba(27,122,74,.45);}
   /* ===== Ejemplo cálido (ámbar/coral) — punto confidencial FRÍO ===== */
   .t-warm{--bg0:#0C0703;--bg1:#160D06;--bg2:#20140A;--deep:#1A0F07;
     --glowA:rgba(245,148,60,.14);--glowB:rgba(224,72,106,.12);
@@ -122,8 +128,8 @@
     <div class="row"><span class="dot"></span><span class="name">MULTINAL</span><span class="pill"></span></div>
   </div>
 
-  <div class="tile t-cbf">
-    <div><div class="eb">Colbeef · rojo-verde</div><div class="ttl">Fondo <em>terracota-negro</em></div>
+  <div class="tile tile-light t-cbf">
+    <div><div class="eb">Colbeef · rojo-verde</div><div class="ttl">Fondo <em>gris claro frío</em></div>
       <div class="card"><p>Rojo del wordmark → verde del isotipo · punto confidencial en verde (marca cálida).</p></div></div>
     <div class="row"><span class="dot"></span><span class="name">COLBEEF</span><span class="pill"></span></div>
   </div>

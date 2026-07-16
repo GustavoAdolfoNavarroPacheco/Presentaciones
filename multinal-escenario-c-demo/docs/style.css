@@ -1135,52 +1135,69 @@ button, .selector-btn, .badge, .sidebar-title, .badge-status, th,
 .next-steps-layout {
     display: grid;
     grid-template-columns: 1.2fr 1fr;
-    gap: 40px;
+    gap: 45px;
     align-items: center;
 }
 
 .steps-list {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 28px;
 }
 
 .step-row {
     display: flex;
-    align-items: flex-start;
-    gap: 20px;
+    align-items: center;
+    gap: 22px;
+    transition: transform 0.3s ease;
+}
+
+.step-row:hover {
+    transform: translateX(8px);
 }
 
 .step-num-bubble {
-    background: var(--primary-color);
+    background: var(--grad-brand);
     color: #ffffff;
-    width: 32px;
-    height: 32px;
+    width: 44px;
+    height: 44px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-weight: bold;
+    font-weight: 800;
+    font-size: 18px;
     flex-shrink: 0;
+    box-shadow: 0 4px 12px rgba(255, 122, 0, 0.25);
 }
 
 .step-desc h4 {
-    font-size: 15px;
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 4px;
+    color: var(--text-color);
 }
 
 .step-desc p {
-    font-size: 12px;
+    font-size: 14.5px;
     color: var(--text-muted);
+    line-height: 1.45;
 }
 
 .contact-card {
     background: var(--card-bg);
     border: 1px solid var(--card-border);
-    padding: 30px 30px 30px 38px;
+    padding: 38px 38px 38px 46px;
     border-radius: var(--border-radius);
     position: relative;
     overflow: hidden;
     box-shadow: 0 10px 26px rgba(20,25,35,.06);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 40px rgba(20, 25, 35, 0.12);
 }
 
 .contact-card::before {
@@ -1192,23 +1209,25 @@ button, .selector-btn, .badge, .sidebar-title, .badge-status, th,
 }
 
 .contact-label {
-    font-size: 9px;
-    letter-spacing: 0.1em;
+    font-size: 10.5px;
+    letter-spacing: 0.12em;
     color: var(--primary-color);
     font-weight: 700;
 }
 
 .contact-name {
-    font-size: 22px;
-    margin: 8px 0;
+    font-size: 26px;
+    margin: 10px 0;
+    font-weight: 800;
+    color: var(--text-color);
 }
 
 .contact-role {
-    font-size: 11px;
+    font-size: 13px;
     color: var(--text-muted);
     font-weight: 600;
     display: block;
-    margin-bottom: 20px;
+    margin-bottom: 24px;
 }
 
 .contact-links {
@@ -1220,10 +1239,11 @@ button, .selector-btn, .badge, .sidebar-title, .badge-status, th,
 .c-link {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
     color: var(--text-color);
     text-decoration: none;
-    font-size: 13px;
+    font-size: 14.5px;
+    font-weight: 500;
     transition: var(--transition-smooth);
 }
 

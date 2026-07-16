@@ -32,7 +32,6 @@
   --b-grad-brand:linear-gradient(100deg,#FF9B3D 0%,#FF7A00 38%,#7A5AD1 72%,#3B2A8C 100%);
   --b-grad-cyan:linear-gradient(120deg,#FF9B3D,#FF7A00);
   --b-grad-violet:linear-gradient(120deg,#7A5AD1,#3B2A8C);
-  --b-grad-num:linear-gradient(100deg, var(--b-cyan) 0%, var(--b-magenta) 100%);
   --b-card-border:1px solid rgba(20,25,35,.10);
   --b-dot-confidential:#0E8FB0; --b-dot-confidential-glow:rgba(14,143,176,.45);
   --b-font-display:'Playfair Display',Georgia,serif;
@@ -114,10 +113,10 @@
 .b-deck .b-s-footer .b-pg{ color:var(--b-cyan); font-weight:700; }
 .b-deck .b-s-body{ position:relative; z-index:5; display:flex; flex-direction:column; min-height:0; overflow-y:auto; }
 
-.b-deck .b-s-eyebrow{ font-family:var(--b-font-label); font-weight:600; font-size:8.5pt; letter-spacing:.28em; text-transform:uppercase; color:var(--b-cyan); margin-bottom:8px; }
-.b-deck .b-s-title{ font-family:var(--b-font-display); font-weight:700; font-size:22pt; line-height:1.08; color:var(--b-text-hi); }
+.b-deck .b-s-eyebrow{ font-family:var(--b-font-label); font-weight:600; font-size:9pt; letter-spacing:.28em; text-transform:uppercase; color:var(--b-cyan); margin-bottom:8px; }
+.b-deck .b-s-title{ font-family:var(--b-font-display); font-weight:700; font-size:24pt; line-height:1.1; color:var(--b-text-hi); }
 .b-deck .b-s-title em{ font-style:italic; font-weight:900; }
-.b-deck .b-s-lead{ margin-top:7px; font-family:var(--b-font-body); font-weight:300; font-size:9.8pt; line-height:1.38; color:var(--b-text-mid); max-width:8.6in; }
+.b-deck .b-s-lead{ margin-top:7px; font-family:var(--b-font-body); font-weight:300; font-size:10.6pt; line-height:1.42; color:var(--b-text-mid); max-width:8.6in; }
 
 /* ---------- 7. LAYOUT: Split (Diagnóstico) ---------- */
 .b-deck .b-split{ flex:1; display:grid; grid-template-columns:.82fr 1.18fr; gap:.5in; align-items:center; margin-top:.24in; }
@@ -128,66 +127,104 @@
 .b-deck .b-pain-list{ display:flex; flex-direction:column; gap:.19in; list-style:none; }
 .b-deck .b-pain-item{ display:flex; align-items:flex-start; gap:14px; }
 .b-deck .b-pain-item .b-ico{ flex:none; width:26px; height:26px; border-radius:8px; display:grid; place-items:center; background:linear-gradient(135deg,rgba(255,122,0,.16),rgba(122,90,209,.14)); color:var(--b-cyan); font-weight:700; font-size:12pt; margin-top:1px; }
-.b-deck .b-pain-item .b-tx{ font-family:var(--b-font-body); font-weight:400; font-size:10pt; line-height:1.4; color:var(--b-text-mid); }
+.b-deck .b-pain-item .b-tx{ font-family:var(--b-font-body); font-weight:400; font-size:10.6pt; line-height:1.42; color:var(--b-text-mid); }
 
 /* ---------- 8. LAYOUT: Mapa del Ecosistema ---------- */
-.b-deck .b-eco-map{ flex:1; display:flex; flex-direction:column; gap:.22in; margin-top:.18in; justify-content:center; }
-.b-deck .b-eco-row{ display:grid; grid-template-columns:repeat(3,1fr); gap:.2in; }
-.b-deck .b-eco-chip{ background:var(--b-bg-2); border:var(--b-card-border); border-radius:12px; padding:.2in .22in; display:flex; align-items:center; gap:14px; position:relative; overflow:hidden; }
+.b-deck .b-eco-map{ flex:1; display:flex; flex-direction:column; gap:.14in; margin-top:.1in; justify-content:center; min-height:0; }
+.b-deck .b-eco-row{ display:grid; grid-template-columns:repeat(3,1fr); gap:.15in; }
+.b-deck .b-eco-chip{ background:var(--b-bg-2); border:var(--b-card-border); border-radius:12px; padding:.13in .18in; display:flex; align-items:center; gap:12px; position:relative; overflow:hidden; }
 .b-deck .b-eco-chip::before{ content:""; position:absolute; left:0; top:0; bottom:0; width:4px; background:var(--b-grad-brand); }
-.b-deck .b-eco-chip .b-n{ font-family:var(--b-font-display); font-weight:900; font-size:15pt; flex:none; min-width:38px; }
-.b-deck .b-eco-chip .b-t{ font-family:var(--b-font-label); font-weight:700; font-size:9.5pt; color:var(--b-text-hi); line-height:1.25; }
-.b-deck .b-eco-agents{ background:linear-gradient(120deg,rgba(255,122,0,.09),rgba(122,90,209,.09)); border:var(--b-card-border); border-radius:14px; padding:.22in .26in; }
+.b-deck .b-eco-chip .b-n{ font-family:var(--b-font-display); font-weight:900; font-size:14pt; flex:none; min-width:34px; }
+.b-deck .b-eco-chip .b-tcol{ display:flex; flex-direction:column; gap:2px; }
+.b-deck .b-eco-chip .b-t{ font-family:var(--b-font-label); font-weight:700; font-size:9.8pt; color:var(--b-text-hi); line-height:1.2; }
+.b-deck .b-eco-chip .b-price{ font-family:var(--b-font-body); font-weight:600; font-size:7.6pt; color:var(--b-cyan); letter-spacing:.02em; }
+.b-deck .b-eco-agents{ background:linear-gradient(120deg,rgba(255,122,0,.09),rgba(122,90,209,.09)); border:var(--b-card-border); border-radius:14px; padding:.16in .22in; }
 .b-deck .b-eco-agents .b-lbl{ font-family:var(--b-font-label); font-weight:700; font-size:8pt; letter-spacing:.2em; text-transform:uppercase; color:var(--b-cyan); }
-.b-deck .b-eco-agents-row{ display:grid; grid-template-columns:repeat(7,1fr); gap:.14in; margin-top:.16in; }
-.b-deck .b-eco-agent-chip{ text-align:center; background:var(--b-bg-2); border:var(--b-card-border); border-radius:10px; padding:.14in .08in; }
-.b-deck .b-eco-agent-chip .b-n{ font-family:var(--b-font-display); font-weight:900; font-size:11pt; margin-bottom:4px; }
-.b-deck .b-eco-agent-chip span{ display:block; font-family:var(--b-font-label); font-weight:600; font-size:6.7pt; line-height:1.25; color:var(--b-text-mid); }
+.b-deck .b-eco-agents-row{ display:grid; grid-template-columns:repeat(6,1fr); gap:.12in; margin-top:.12in; }
+.b-deck .b-eco-agent-chip{ text-align:center; background:var(--b-bg-2); border:var(--b-card-border); border-radius:10px; padding:.1in .06in; }
+.b-deck .b-eco-agent-chip .b-n{ font-family:var(--b-font-display); font-weight:900; font-size:10.5pt; margin-bottom:3px; }
+.b-deck .b-eco-agent-chip span{ display:block; font-family:var(--b-font-label); font-weight:600; font-size:7pt; line-height:1.2; color:var(--b-text-mid); }
+.b-deck .b-eco-agent-chip .b-price{ margin-top:2px; font-family:var(--b-font-body); font-weight:600; font-size:6.3pt; color:var(--b-cyan); text-transform:none; letter-spacing:0; }
 
-/* ---------- 9. LAYOUT: Grid de funcionalidades (módulos) ---------- */
+/* ---------- 9. LAYOUT: Grid de funcionalidades (proyectos) ---------- */
 .b-deck .b-feat-grid{ flex:1; display:grid; gap:.14in; margin-top:.1in; align-content:center; min-height:0; }
 .b-deck .b-feat-card{ background:var(--b-bg-2); border:var(--b-card-border); border-radius:12px; padding:.15in .17in; display:flex; flex-direction:column; position:relative; overflow:hidden; }
 .b-deck .b-feat-card::before{ content:""; position:absolute; left:0; right:0; top:0; height:3px; background:var(--b-grad-brand); }
-.b-deck .b-feat-card .b-rf{ display:block; font-family:var(--b-font-label); font-weight:700; font-size:6.3pt; letter-spacing:.1em; margin-bottom:5px; }
-.b-deck .b-feat-card h4{ font-family:var(--b-font-label); font-weight:700; font-size:8.8pt; color:var(--b-text-hi); margin-bottom:5px; line-height:1.2; }
-.b-deck .b-feat-card p{ font-family:var(--b-font-body); font-weight:300; font-size:7.5pt; line-height:1.28; color:var(--b-text-lo); }
+.b-deck .b-feat-card .b-rf{ display:block; font-family:var(--b-font-label); font-weight:700; font-size:6.8pt; letter-spacing:.1em; margin-bottom:5px; }
+.b-deck .b-feat-card h4{ font-family:var(--b-font-label); font-weight:700; font-size:9.6pt; color:var(--b-text-hi); margin-bottom:6px; line-height:1.22; }
+.b-deck .b-feat-card p{ font-family:var(--b-font-body); font-weight:300; font-size:8.2pt; line-height:1.34; color:var(--b-text-lo); }
 
 .b-deck .b-feat-card--lg{ padding:.3in .28in; }
-.b-deck .b-feat-card--lg h4{ font-size:11.5pt; margin-bottom:10px; }
-.b-deck .b-feat-card--lg p{ font-size:9pt; line-height:1.44; }
-.b-deck .b-feat-card--lg .b-rf{ font-size:7.5pt; margin-bottom:10px; }
+.b-deck .b-feat-card--lg h4{ font-size:13pt; margin-bottom:10px; }
+.b-deck .b-feat-card--lg p{ font-size:10pt; line-height:1.46; }
+.b-deck .b-feat-card--lg .b-rf{ font-size:8pt; margin-bottom:10px; }
+
+.b-deck .b-feat-grid--dense .b-feat-card{ padding:.12in .15in; }
+.b-deck .b-feat-grid--dense .b-feat-card h4{ font-size:9pt; margin-bottom:4px; line-height:1.18; }
+.b-deck .b-feat-grid--dense .b-feat-card p{ font-size:7.6pt; line-height:1.28; }
+.b-deck .b-feat-grid--dense .b-feat-card .b-rf{ font-size:6.4pt; margin-bottom:4px; }
 
 .b-deck .b-tag-row{ display:flex; flex-wrap:wrap; gap:8px; margin-top:.18in; }
 .b-deck .b-tag-pill{ font-family:var(--b-font-label); font-weight:600; font-size:7.5pt; letter-spacing:.08em; color:var(--b-text-mid); background:rgba(20,25,35,.04); border:1px solid rgba(20,25,35,.12); border-radius:99px; padding:5px 12px; }
 .b-deck .b-tag-pill b{ color:var(--b-cyan); font-weight:700; }
 
-/* ---------- 10. LAYOUT: Inversión ---------- */
-.b-deck .b-invest{ flex:1; display:grid; grid-template-columns:1.05fr .95fr; gap:.6in; align-items:center; margin-top:.2in; }
+/* ---------- 9b. LAYOUT: Dúo de Agentes IA (2 agentes por lámina) ---------- */
+.b-deck .b-agent-duo{ flex:1; display:grid; grid-template-columns:1fr 1fr; gap:0; margin-top:.14in; min-height:0; }
+.b-deck .b-agent-col{ display:flex; flex-direction:column; min-height:0; padding:0 .34in; }
+.b-deck .b-agent-col:first-child{ padding-left:0; border-right:1px solid rgba(20,25,35,.14); }
+.b-deck .b-agent-col:last-child{ padding-right:0; }
+.b-deck .b-agent-col .b-a-eyebrow{ font-family:var(--b-font-label); font-weight:700; font-size:8.5pt; letter-spacing:.16em; text-transform:uppercase; color:var(--b-cyan); margin-bottom:3px; }
+.b-deck .b-agent-col .b-a-title{ font-family:var(--b-font-display); font-weight:800; font-size:14pt; line-height:1.1; color:var(--b-text-hi); }
+.b-deck .b-agent-col .b-a-title em{ font-style:italic; font-weight:900; }
+.b-deck .b-agent-col .b-a-lead{ margin-top:4px; font-family:var(--b-font-body); font-weight:300; font-size:8.4pt; line-height:1.28; color:var(--b-text-mid); }
+.b-deck .b-agent-col .b-feat-grid{ grid-template-columns:1fr; flex:1; gap:.06in; margin-top:.07in; align-content:stretch; }
+.b-deck .b-agent-col .b-feat-card{ padding:.07in .14in; justify-content:center; }
+.b-deck .b-agent-col:first-child .b-feat-card{ justify-content:flex-start; text-align:left; }
+.b-deck .b-agent-col .b-feat-card h4{ font-size:8.4pt; margin-bottom:2px; line-height:1.14; }
+.b-deck .b-agent-col .b-feat-card p{ font-size:7.2pt; line-height:1.2; }
+.b-deck .b-agent-col .b-feat-card .b-rf{ font-size:5.8pt; margin-bottom:2px; }
+.b-deck .b-agent-col .b-tag-row{ margin-top:.06in; }
+.b-deck .b-agent-col .b-tag-pill{ font-size:7pt; padding:4px 10px; }
+
+/* ---------- 9c. LAYOUT: Escenarios de Inversión (3 tarjetas) ---------- */
+.b-deck .b-scenario-grid{ flex:1; display:grid; grid-template-columns:repeat(3,1fr); gap:.24in; margin-top:.16in; align-content:center; min-height:0; }
+.b-deck .b-scenario-card{ position:relative; background:var(--b-bg-2); border:var(--b-card-border); border-radius:14px; padding:.24in .22in; display:flex; flex-direction:column; overflow:hidden; }
+.b-deck .b-scenario-card::before{ content:""; position:absolute; left:0; right:0; top:0; height:4px; background:var(--b-grad-brand); }
+.b-deck .b-sc-badge{ align-self:flex-start; font-family:var(--b-font-label); font-weight:800; font-size:9.5pt; letter-spacing:.03em; color:#fff; background:var(--b-grad-cyan); padding:4px 13px; border-radius:99px; margin-bottom:12px; }
+.b-deck .b-sc-title{ font-family:var(--b-font-display); font-weight:800; font-size:14.5pt; line-height:1.2; color:var(--b-text-hi); margin-bottom:9px; }
+.b-deck .b-sc-title .b-num{ display:block; font-family:var(--b-font-label); font-weight:700; font-size:8.5pt; letter-spacing:.16em; text-transform:uppercase; color:var(--b-cyan); margin-bottom:4px; }
+.b-deck .b-sc-desc{ font-family:var(--b-font-body); font-weight:300; font-size:9.2pt; line-height:1.4; color:var(--b-text-mid); flex:1; }
+.b-deck .b-sc-price-cap{ margin-top:12px; font-family:var(--b-font-label); font-weight:600; font-size:7.5pt; letter-spacing:.16em; text-transform:uppercase; color:var(--b-cyan); }
+.b-deck .b-sc-price{ font-family:var(--b-font-label); font-weight:800; font-size:17.5pt; color:var(--b-text-hi); letter-spacing:-.01em; margin-top:3px; }
+.b-deck .b-sc-terms{ margin-top:8px; font-family:var(--b-font-body); font-weight:400; font-size:8pt; line-height:1.4; color:var(--b-text-lo); }
+
+/* ---------- 10. LAYOUT: Inversión (total + opciones de pago mensual) ---------- */
+.b-deck .b-invest{ flex:1; display:grid; grid-template-columns:1fr 1.08fr; gap:.55in; align-items:center; margin-top:.08in; }
+.b-deck .b-invest__num .b-opt-label{ font-family:var(--b-font-label); font-weight:700; font-size:11pt; letter-spacing:.03em; color:var(--b-text-hi); margin-bottom:10px; }
 .b-deck .b-invest__num .b-cap{ font-family:var(--b-font-label); font-weight:600; font-size:9pt; letter-spacing:.24em; text-transform:uppercase; color:var(--b-cyan); margin-bottom:10px; }
-.b-deck .b-invest__num .b-big{ font-family:var(--b-font-label); font-weight:800; font-size:40pt; line-height:1.05; letter-spacing:-.01em; font-variant-numeric:tabular-nums; background:var(--b-grad-num); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; color:transparent; }
-.b-deck .b-invest__num .b-sub{ margin-top:14px; font-family:var(--b-font-body); font-weight:300; font-size:10.5pt; line-height:1.45; color:var(--b-text-mid); max-width:4.5in; }
-.b-deck .b-pay{ display:flex; flex-direction:column; gap:.16in; }
-.b-deck .b-pay-row{ display:flex; align-items:center; gap:16px; background:var(--b-bg-2); border:var(--b-card-border); border-radius:12px; padding:.2in .26in; }
-.b-deck .b-pay-row .b-pct{ flex:none; font-family:var(--b-font-display); font-weight:900; font-size:16pt; min-width:74px; }
-.b-deck .b-pay-row .b-term{ flex:none; min-width:84px; display:flex; flex-direction:column; align-items:center; line-height:1; }
-.b-deck .b-pay-row .b-term b{ font-family:var(--b-font-label); font-weight:800; font-size:27pt; letter-spacing:-.01em; background:var(--b-grad-num); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; color:transparent; }
-.b-deck .b-pay-row .b-term small{ font-family:var(--b-font-label); font-weight:700; font-size:7pt; letter-spacing:.14em; color:var(--b-text-mid); margin-top:3px; }
-.b-deck .b-pay-row .b-txt{ display:flex; flex-direction:column; }
-.b-deck .b-pay-row .b-txt b{ font-family:var(--b-font-label); font-weight:700; font-size:14.5pt; letter-spacing:-.01em; font-variant-numeric:tabular-nums; display:block; margin-bottom:3px; background:var(--b-grad-num); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; color:transparent; }
-.b-deck .b-pay-row .b-txt span{ font-family:var(--b-font-body); font-weight:400; font-size:8.7pt; color:var(--b-text-mid); }
-.b-deck .b-pay-note{ font-family:var(--b-font-body); font-weight:300; font-size:8.5pt; line-height:1.4; color:var(--b-text-lo); padding-left:4px; }
+.b-deck .b-invest__num .b-big{ font-family:var(--b-font-display); font-weight:900; font-size:32pt; line-height:1.05; letter-spacing:-.5px; }
+.b-deck .b-invest__num .b-sub{ margin-top:14px; font-family:var(--b-font-body); font-weight:300; font-size:10pt; line-height:1.45; color:var(--b-text-mid); max-width:4.5in; }
+.b-deck .b-pay-plan{ display:flex; flex-direction:column; gap:.15in; }
+.b-deck .b-plan-card{ display:flex; align-items:center; gap:18px; background:var(--b-bg-2); border:var(--b-card-border); border-radius:14px; padding:.22in .26in; }
+.b-deck .b-plan-card .b-months{ flex:none; text-align:center; min-width:58px; }
+.b-deck .b-plan-card .b-months .b-num{ display:block; font-family:var(--b-font-label); font-weight:800; font-size:23pt; line-height:1; color:var(--b-cyan); }
+.b-deck .b-plan-card .b-months .b-lbl{ display:block; font-family:var(--b-font-label); font-weight:700; font-size:6.6pt; letter-spacing:.14em; text-transform:uppercase; color:var(--b-text-lo); margin-top:3px; }
+.b-deck .b-plan-card .b-info{ border-left:1px solid rgba(20,25,35,.12); padding-left:18px; }
+.b-deck .b-plan-card .b-info b{ display:block; font-family:var(--b-font-label); font-weight:800; font-size:15pt; color:var(--b-text-hi); margin-bottom:3px; letter-spacing:-.01em; }
+.b-deck .b-plan-card .b-info span{ font-family:var(--b-font-body); font-weight:300; font-size:8.4pt; color:var(--b-text-lo); }
+.b-deck .b-plan-note{ margin-top:.02in; font-family:var(--b-font-body); font-weight:300; font-size:8pt; line-height:1.4; color:var(--b-text-lo); padding-left:4px; }
 
 /* ---------- 11. LAYOUT: Cierre / CTA ---------- */
 .b-deck .b-cta{ flex:1; display:grid; grid-template-columns:1.15fr .85fr; gap:.55in; align-items:center; margin-top:.2in; }
-.b-deck .b-steps{ display:flex; flex-direction:column; gap:.2in; }
-.b-deck .b-step{ display:flex; align-items:center; gap:16px; }
-.b-deck .b-step .b-dot{ flex:none; width:34px; height:34px; border-radius:50%; display:grid; place-items:center; font-family:var(--b-font-display); font-weight:900; font-size:13pt; color:#1A0F05; background:var(--b-grad-brand); }
-.b-deck .b-step .b-lab b{ font-family:var(--b-font-label); font-weight:700; font-size:11pt; color:var(--b-text-hi); display:block; }
-.b-deck .b-step .b-lab span{ font-family:var(--b-font-body); font-weight:300; font-size:9pt; color:var(--b-text-lo); }
-.b-deck .b-step .b-cn{ width:2px; height:14px; margin-left:16px; background:linear-gradient(var(--b-blue),transparent); }
+.b-deck .b-steps{ display:flex; flex-direction:column; gap:.24in; }
+.b-deck .b-step{ display:flex; align-items:center; gap:18px; }
+.b-deck .b-step .b-dot{ flex:none; width:40px; height:40px; border-radius:50%; display:grid; place-items:center; font-family:var(--b-font-display); font-weight:900; font-size:15pt; color:#1A0F05; background:var(--b-grad-brand); }
+.b-deck .b-step .b-lab b{ font-family:var(--b-font-label); font-weight:700; font-size:13pt; color:var(--b-text-hi); display:block; margin-bottom:2px; }
+.b-deck .b-step .b-lab span{ font-family:var(--b-font-body); font-weight:300; font-size:10.4pt; line-height:1.35; color:var(--b-text-lo); }
+.b-deck .b-step .b-cn{ width:2px; height:16px; margin-left:19px; background:linear-gradient(var(--b-blue),transparent); }
 .b-deck .b-contact-card{ position:relative; background:var(--b-bg-2); border:var(--b-card-border); border-radius:16px; padding:.4in .38in; overflow:hidden; }
 .b-deck .b-contact-card::before{ content:""; position:absolute; left:0; top:0; bottom:0; width:5px; background:var(--b-grad-brand); }
-.b-deck .b-contact-card .b-role{ font-family:var(--b-font-label); font-weight:600; font-size:8pt; letter-spacing:.2em; text-transform:uppercase; color:var(--b-cyan); margin-bottom:10px; }
-.b-deck .b-contact-card .b-name{ font-family:var(--b-font-display); font-weight:700; font-size:20pt; color:var(--b-text-hi); line-height:1.1; margin-bottom:16px; }
-.b-deck .b-contact-card .b-row{ display:flex; align-items:center; gap:12px; margin-top:9px; font-family:var(--b-font-body); font-weight:400; font-size:10pt; color:var(--b-text-mid); }
-.b-deck .b-contact-card .b-row svg{ width:15px; height:15px; color:var(--b-cyan); flex:none; }
+.b-deck .b-contact-card .b-role{ font-family:var(--b-font-label); font-weight:600; font-size:8.5pt; letter-spacing:.2em; text-transform:uppercase; color:var(--b-cyan); margin-bottom:11px; }
+.b-deck .b-contact-card .b-name{ font-family:var(--b-font-display); font-weight:700; font-size:22pt; color:var(--b-text-hi); line-height:1.1; margin-bottom:17px; }
+.b-deck .b-contact-card .b-row{ display:flex; align-items:center; gap:12px; margin-top:11px; font-family:var(--b-font-body); font-weight:400; font-size:11pt; color:var(--b-text-mid); }
+.b-deck .b-contact-card .b-row svg{ width:16px; height:16px; color:var(--b-cyan); flex:none; }

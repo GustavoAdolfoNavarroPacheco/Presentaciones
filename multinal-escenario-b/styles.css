@@ -116,10 +116,10 @@ body{ display:flex; flex-direction:column; align-items:center; padding:24px; }
 .s-footer .pg{ color:var(--cyan); font-weight:700; }
 .s-body{ position:relative; z-index:5; display:flex; flex-direction:column; min-height:0; }
 
-.s-eyebrow{ font-family:var(--font-label); font-weight:600; font-size:8.5pt; letter-spacing:.28em; text-transform:uppercase; color:var(--cyan); margin-bottom:8px; }
-.s-title{ font-family:var(--font-display); font-weight:700; font-size:22pt; line-height:1.08; color:var(--text-hi); }
+.s-eyebrow{ font-family:var(--font-label); font-weight:600; font-size:9pt; letter-spacing:.28em; text-transform:uppercase; color:var(--cyan); margin-bottom:8px; }
+.s-title{ font-family:var(--font-display); font-weight:700; font-size:24pt; line-height:1.1; color:var(--text-hi); }
 .s-title em{ font-style:italic; font-weight:900; }
-.s-lead{ margin-top:7px; font-family:var(--font-body); font-weight:300; font-size:9.8pt; line-height:1.38; color:var(--text-mid); max-width:8.6in; }
+.s-lead{ margin-top:7px; font-family:var(--font-body); font-weight:300; font-size:10.6pt; line-height:1.42; color:var(--text-mid); max-width:8.6in; }
 
 /* ---------- 8. LAYOUT: Split (Diagnóstico) ---------- */
 .split{ flex:1; display:grid; grid-template-columns:.82fr 1.18fr; gap:.5in; align-items:center; margin-top:.24in; }
@@ -130,35 +130,44 @@ body{ display:flex; flex-direction:column; align-items:center; padding:24px; }
 .pain-list{ display:flex; flex-direction:column; gap:.19in; list-style:none; }
 .pain-item{ display:flex; align-items:flex-start; gap:14px; }
 .pain-item .ico{ flex:none; width:26px; height:26px; border-radius:8px; display:grid; place-items:center; background:linear-gradient(135deg,rgba(255,122,0,.16),rgba(122,90,209,.14)); color:var(--cyan); font-weight:700; font-size:12pt; margin-top:1px; }
-.pain-item .tx{ font-family:var(--font-body); font-weight:400; font-size:10pt; line-height:1.4; color:var(--text-mid); }
+.pain-item .tx{ font-family:var(--font-body); font-weight:400; font-size:10.6pt; line-height:1.42; color:var(--text-mid); }
 
 /* ---------- 9. LAYOUT: Mapa del Ecosistema ---------- */
-.eco-map{ flex:1; display:flex; flex-direction:column; gap:.22in; margin-top:.18in; justify-content:center; }
-.eco-row{ display:grid; grid-template-columns:repeat(3,1fr); gap:.2in; }
-.eco-chip{ background:var(--bg-2); border:var(--card-border); border-radius:12px; padding:.2in .22in; display:flex; align-items:center; gap:14px; position:relative; overflow:hidden; }
+.eco-map{ flex:1; display:flex; flex-direction:column; gap:.14in; margin-top:.1in; justify-content:center; min-height:0; }
+.eco-row{ display:grid; grid-template-columns:repeat(3,1fr); gap:.15in; }
+.eco-chip{ background:var(--bg-2); border:var(--card-border); border-radius:12px; padding:.13in .18in; display:flex; align-items:center; gap:12px; position:relative; overflow:hidden; }
 .eco-chip::before{ content:""; position:absolute; left:0; top:0; bottom:0; width:4px; background:var(--grad-brand); }
-.eco-chip .n{ font-family:var(--font-display); font-weight:900; font-size:15pt; flex:none; min-width:38px; }
-.eco-chip .t{ font-family:var(--font-label); font-weight:700; font-size:9.5pt; color:var(--text-hi); line-height:1.25; }
-.eco-agents{ background:linear-gradient(120deg,rgba(255,122,0,.09),rgba(122,90,209,.09)); border:var(--card-border); border-radius:14px; padding:.22in .26in; }
+.eco-chip .n{ font-family:var(--font-display); font-weight:900; font-size:14pt; flex:none; min-width:34px; }
+.eco-chip .tcol{ display:flex; flex-direction:column; gap:2px; }
+.eco-chip .t{ font-family:var(--font-label); font-weight:700; font-size:9.8pt; color:var(--text-hi); line-height:1.2; }
+.eco-chip .price{ font-family:var(--font-body); font-weight:600; font-size:7.6pt; color:var(--cyan); letter-spacing:.02em; }
+.eco-agents{ background:linear-gradient(120deg,rgba(255,122,0,.09),rgba(122,90,209,.09)); border:var(--card-border); border-radius:14px; padding:.16in .22in; }
 .eco-agents .lbl{ font-family:var(--font-label); font-weight:700; font-size:8pt; letter-spacing:.2em; text-transform:uppercase; color:var(--cyan); }
-.eco-agents-row{ display:grid; grid-template-columns:repeat(7,1fr); gap:.14in; margin-top:.16in; }
-.eco-agent-chip{ text-align:center; background:var(--bg-2); border:var(--card-border); border-radius:10px; padding:.14in .08in; }
-.eco-agent-chip .n{ font-family:var(--font-display); font-weight:900; font-size:11pt; margin-bottom:4px; }
-.eco-agent-chip span{ display:block; font-family:var(--font-label); font-weight:600; font-size:6.7pt; line-height:1.25; color:var(--text-mid); }
+.eco-agents-row{ display:grid; grid-template-columns:repeat(6,1fr); gap:.12in; margin-top:.12in; }
+.eco-agent-chip{ text-align:center; background:var(--bg-2); border:var(--card-border); border-radius:10px; padding:.1in .06in; }
+.eco-agent-chip .n{ font-family:var(--font-display); font-weight:900; font-size:10.5pt; margin-bottom:3px; }
+.eco-agent-chip span{ display:block; font-family:var(--font-label); font-weight:600; font-size:7pt; line-height:1.2; color:var(--text-mid); }
+.eco-agent-chip .price{ margin-top:2px; font-family:var(--font-body); font-weight:600; font-size:6.3pt; color:var(--cyan); text-transform:none; letter-spacing:0; }
 
 /* ---------- 10. LAYOUT: Grid de funcionalidades (módulos) ---------- */
 .feat-grid{ flex:1; display:grid; gap:.14in; margin-top:.1in; align-content:center; min-height:0; }
 .feat-card{ background:var(--bg-2); border:var(--card-border); border-radius:12px; padding:.15in .17in; display:flex; flex-direction:column; position:relative; overflow:hidden; }
 .feat-card::before{ content:""; position:absolute; left:0; right:0; top:0; height:3px; background:var(--grad-brand); }
-.feat-card .rf{ display:block; font-family:var(--font-label); font-weight:700; font-size:6.3pt; letter-spacing:.1em; margin-bottom:5px; }
-.feat-card h4{ font-family:var(--font-label); font-weight:700; font-size:8.8pt; color:var(--text-hi); margin-bottom:5px; line-height:1.2; }
-.feat-card p{ font-family:var(--font-body); font-weight:300; font-size:7.5pt; line-height:1.28; color:var(--text-lo); }
+.feat-card .rf{ display:block; font-family:var(--font-label); font-weight:700; font-size:6.8pt; letter-spacing:.1em; margin-bottom:5px; }
+.feat-card h4{ font-family:var(--font-label); font-weight:700; font-size:9.6pt; color:var(--text-hi); margin-bottom:6px; line-height:1.22; }
+.feat-card p{ font-family:var(--font-body); font-weight:300; font-size:8.2pt; line-height:1.34; color:var(--text-lo); }
 
 /* Variante grande (para módulos con pocas funcionalidades — Agentes IA) */
 .feat-card--lg{ padding:.3in .28in; }
-.feat-card--lg h4{ font-size:11.5pt; margin-bottom:10px; }
-.feat-card--lg p{ font-size:9pt; line-height:1.44; }
-.feat-card--lg .rf{ font-size:7.5pt; margin-bottom:10px; }
+.feat-card--lg h4{ font-size:13pt; margin-bottom:10px; }
+.feat-card--lg p{ font-size:10pt; line-height:1.46; }
+.feat-card--lg .rf{ font-size:8pt; margin-bottom:10px; }
+
+/* Variante densa (grids de 6 tarjetas con un texto notablemente más largo — Gobierno de Datos) */
+.feat-grid--dense .feat-card{ padding:.12in .15in; }
+.feat-grid--dense .feat-card h4{ font-size:9pt; margin-bottom:4px; line-height:1.18; }
+.feat-grid--dense .feat-card p{ font-size:7.6pt; line-height:1.28; }
+.feat-grid--dense .feat-card .rf{ font-size:6.4pt; margin-bottom:4px; }
 
 /* Encabezado de objetivo de módulo (lead + tags de integración) */
 .mod-objective{ display:flex; align-items:center; gap:12px; margin-top:2px; }
@@ -166,6 +175,23 @@ body{ display:flex; flex-direction:column; align-items:center; padding:24px; }
 .tag-row{ display:flex; flex-wrap:wrap; gap:8px; margin-top:.18in; }
 .tag-pill{ font-family:var(--font-label); font-weight:600; font-size:7.5pt; letter-spacing:.08em; color:var(--text-mid); background:rgba(20,25,35,.04); border:1px solid rgba(20,25,35,.12); border-radius:99px; padding:5px 12px; }
 .tag-pill b{ color:var(--cyan); font-weight:700; }
+
+/* ---------- 10b. LAYOUT: Dúo de Agentes IA (2 agentes por lámina) ---------- */
+.agent-duo{ flex:1; display:grid; grid-template-columns:1fr 1fr; gap:0; margin-top:.14in; min-height:0; }
+.agent-col{ display:flex; flex-direction:column; min-height:0; padding:0 .34in; }
+.agent-col:first-child{ padding-left:0; border-right:1px solid rgba(20,25,35,.14); }
+.agent-col:last-child{ padding-right:0; }
+.agent-col .a-eyebrow{ font-family:var(--font-label); font-weight:700; font-size:8.5pt; letter-spacing:.16em; text-transform:uppercase; color:var(--cyan); margin-bottom:3px; }
+.agent-col .a-title{ font-family:var(--font-display); font-weight:800; font-size:14pt; line-height:1.1; color:var(--text-hi); }
+.agent-col .a-title em{ font-style:italic; font-weight:900; }
+.agent-col .a-lead{ margin-top:4px; font-family:var(--font-body); font-weight:300; font-size:8.4pt; line-height:1.28; color:var(--text-mid); }
+.agent-col .feat-grid{ grid-template-columns:1fr; flex:1; gap:.06in; margin-top:.07in; align-content:stretch; }
+.agent-col .feat-card{ padding:.07in .14in; justify-content:center; }
+.agent-col .feat-card h4{ font-size:8.4pt; margin-bottom:2px; line-height:1.14; }
+.agent-col .feat-card p{ font-size:7.2pt; line-height:1.2; }
+.agent-col .feat-card .rf{ font-size:5.8pt; margin-bottom:2px; }
+.agent-col .tag-row{ margin-top:.06in; }
+.agent-col .tag-pill{ font-size:7pt; padding:4px 10px; }
 
 /* ---------- 11. LAYOUT: Flujo (Workflow) ---------- */
 .flow{ display:flex; align-items:stretch; gap:0; margin-top:.26in; }
@@ -179,32 +205,48 @@ body{ display:flex; flex-direction:column; align-items:center; padding:24px; }
 .side-note .lbl{ flex:none; font-family:var(--font-label); font-weight:700; font-size:8pt; letter-spacing:.16em; text-transform:uppercase; color:var(--cyan); }
 .side-note p{ font-family:var(--font-body); font-weight:300; font-size:9pt; line-height:1.4; color:var(--text-mid); }
 
-/* ---------- 12. LAYOUT: Inversión (misma estructura del sistema, sin cifra) ---------- */
-.invest{ flex:1; display:grid; grid-template-columns:1.05fr .95fr; gap:.6in; align-items:center; margin-top:.2in; }
+/* ---------- 11b. LAYOUT: Escenarios de Inversión (3 tarjetas) ---------- */
+.scenario-grid{ flex:1; display:grid; grid-template-columns:repeat(3,1fr); gap:.24in; margin-top:.16in; align-content:center; min-height:0; }
+.scenario-card{ position:relative; background:var(--bg-2); border:var(--card-border); border-radius:14px; padding:.24in .22in; display:flex; flex-direction:column; overflow:hidden; }
+.scenario-card::before{ content:""; position:absolute; left:0; right:0; top:0; height:4px; background:var(--grad-brand); }
+.sc-badge{ align-self:flex-start; font-family:var(--font-label); font-weight:800; font-size:9.5pt; letter-spacing:.03em; color:#fff; background:var(--grad-cyan); padding:4px 13px; border-radius:99px; margin-bottom:12px; }
+.sc-title{ font-family:var(--font-display); font-weight:800; font-size:14.5pt; line-height:1.2; color:var(--text-hi); margin-bottom:9px; }
+.sc-title .num{ display:block; font-family:var(--font-label); font-weight:700; font-size:8.5pt; letter-spacing:.16em; text-transform:uppercase; color:var(--cyan); margin-bottom:4px; }
+.sc-desc{ font-family:var(--font-body); font-weight:300; font-size:9.2pt; line-height:1.4; color:var(--text-mid); flex:1; }
+.sc-price-cap{ margin-top:12px; font-family:var(--font-label); font-weight:600; font-size:7.5pt; letter-spacing:.16em; text-transform:uppercase; color:var(--cyan); }
+.sc-price{ font-family:var(--font-label); font-weight:800; font-size:17.5pt; color:var(--text-hi); letter-spacing:-.01em; margin-top:3px; }
+.sc-terms{ margin-top:8px; font-family:var(--font-body); font-weight:400; font-size:8pt; line-height:1.4; color:var(--text-lo); }
+
+/* ---------- 12. LAYOUT: Inversión (total + opciones de pago mensual) ---------- */
+.invest{ flex:1; display:grid; grid-template-columns:1fr 1.08fr; gap:.55in; align-items:center; margin-top:.08in; }
+.invest__num .opt-label{ font-family:var(--font-label); font-weight:700; font-size:11pt; letter-spacing:.03em; color:var(--text-hi); margin-bottom:10px; }
 .invest__num .cap{ font-family:var(--font-label); font-weight:600; font-size:9pt; letter-spacing:.24em; text-transform:uppercase; color:var(--cyan); margin-bottom:10px; }
-.invest__num .big{ font-family:var(--font-display); font-weight:900; font-size:34pt; line-height:1.05; letter-spacing:-.5px; }
-.invest__num .sub{ margin-top:14px; font-family:var(--font-body); font-weight:300; font-size:10.5pt; line-height:1.45; color:var(--text-mid); max-width:4.5in; }
-.pay{ display:flex; flex-direction:column; gap:.16in; }
-.pay-row{ display:flex; align-items:center; gap:16px; background:var(--bg-2); border:var(--card-border); border-radius:12px; padding:.2in .26in; }
-.pay-row .pct{ flex:none; font-family:var(--font-display); font-weight:900; font-size:16pt; min-width:74px; }
-.pay-row .txt b{ font-family:var(--font-label); font-weight:700; font-size:9.5pt; color:var(--text-hi); display:block; margin-bottom:2px; letter-spacing:.02em; }
-.pay-row .txt span{ font-family:var(--font-body); font-weight:300; font-size:8.5pt; color:var(--text-lo); }
-.pay-note{ font-family:var(--font-body); font-weight:300; font-size:8.5pt; line-height:1.4; color:var(--text-lo); padding-left:4px; }
+.invest__num .big{ font-family:var(--font-display); font-weight:900; font-size:32pt; line-height:1.05; letter-spacing:-.5px; }
+.invest__num .sub{ margin-top:14px; font-family:var(--font-body); font-weight:300; font-size:10pt; line-height:1.45; color:var(--text-mid); max-width:4.5in; }
+.pay-plan{ display:flex; flex-direction:column; gap:.15in; }
+.plan-card{ display:flex; align-items:center; gap:18px; background:var(--bg-2); border:var(--card-border); border-radius:14px; padding:.22in .26in; }
+.plan-card .months{ flex:none; text-align:center; min-width:58px; }
+.plan-card .months .num{ display:block; font-family:var(--font-label); font-weight:800; font-size:23pt; line-height:1; color:var(--cyan); }
+.plan-card .months .lbl{ display:block; font-family:var(--font-label); font-weight:700; font-size:6.6pt; letter-spacing:.14em; text-transform:uppercase; color:var(--text-lo); margin-top:3px; }
+.plan-card .info{ border-left:1px solid rgba(20,25,35,.12); padding-left:18px; }
+.plan-card .info b{ display:block; font-family:var(--font-label); font-weight:800; font-size:15pt; color:var(--text-hi); margin-bottom:3px; letter-spacing:-.01em; }
+.plan-card .info span{ font-family:var(--font-body); font-weight:300; font-size:8.4pt; color:var(--text-lo); }
+.plan-note{ margin-top:.02in; font-family:var(--font-body); font-weight:300; font-size:8pt; line-height:1.4; color:var(--text-lo); padding-left:4px; }
 
 /* ---------- 13. LAYOUT: Cierre / CTA ---------- */
 .cta{ flex:1; display:grid; grid-template-columns:1.15fr .85fr; gap:.55in; align-items:center; margin-top:.2in; }
-.steps{ display:flex; flex-direction:column; gap:.2in; }
-.step{ display:flex; align-items:center; gap:16px; }
-.step .dot{ flex:none; width:34px; height:34px; border-radius:50%; display:grid; place-items:center; font-family:var(--font-display); font-weight:900; font-size:13pt; color:#1A0F05; background:var(--grad-brand); }
-.step .lab b{ font-family:var(--font-label); font-weight:700; font-size:11pt; color:var(--text-hi); display:block; }
-.step .lab span{ font-family:var(--font-body); font-weight:300; font-size:9pt; color:var(--text-lo); }
-.step .cn{ width:2px; height:14px; margin-left:16px; background:linear-gradient(var(--blue),transparent); }
+.steps{ display:flex; flex-direction:column; gap:.24in; }
+.step{ display:flex; align-items:center; gap:18px; }
+.step .dot{ flex:none; width:40px; height:40px; border-radius:50%; display:grid; place-items:center; font-family:var(--font-display); font-weight:900; font-size:15pt; color:#1A0F05; background:var(--grad-brand); }
+.step .lab b{ font-family:var(--font-label); font-weight:700; font-size:13pt; color:var(--text-hi); display:block; margin-bottom:2px; }
+.step .lab span{ font-family:var(--font-body); font-weight:300; font-size:10.4pt; line-height:1.35; color:var(--text-lo); }
+.step .cn{ width:2px; height:16px; margin-left:19px; background:linear-gradient(var(--blue),transparent); }
 .contact-card{ position:relative; background:var(--bg-2); border:var(--card-border); border-radius:16px; padding:.4in .38in; overflow:hidden; }
 .contact-card::before{ content:""; position:absolute; left:0; top:0; bottom:0; width:5px; background:var(--grad-brand); }
-.contact-card .role{ font-family:var(--font-label); font-weight:600; font-size:8pt; letter-spacing:.2em; text-transform:uppercase; color:var(--cyan); margin-bottom:10px; }
-.contact-card .name{ font-family:var(--font-display); font-weight:700; font-size:20pt; color:var(--text-hi); line-height:1.1; margin-bottom:16px; }
-.contact-card .row{ display:flex; align-items:center; gap:12px; margin-top:9px; font-family:var(--font-body); font-weight:400; font-size:10pt; color:var(--text-mid); }
-.contact-card .row svg{ width:15px; height:15px; color:var(--cyan); flex:none; }
+.contact-card .role{ font-family:var(--font-label); font-weight:600; font-size:8.5pt; letter-spacing:.2em; text-transform:uppercase; color:var(--cyan); margin-bottom:11px; }
+.contact-card .name{ font-family:var(--font-display); font-weight:700; font-size:22pt; color:var(--text-hi); line-height:1.1; margin-bottom:17px; }
+.contact-card .row{ display:flex; align-items:center; gap:12px; margin-top:11px; font-family:var(--font-body); font-weight:400; font-size:11pt; color:var(--text-mid); }
+.contact-card .row svg{ width:16px; height:16px; color:var(--cyan); flex:none; }
 
 /* ---------- 14. IMPRESIÓN ---------- */
 @media print{

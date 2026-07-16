@@ -176,23 +176,30 @@ body{ display:flex; flex-direction:column; align-items:center; padding:24px; }
 .tag-pill{ font-family:var(--font-label); font-weight:600; font-size:7.5pt; letter-spacing:.08em; color:var(--text-mid); background:rgba(20,25,35,.04); border:1px solid rgba(20,25,35,.12); border-radius:99px; padding:5px 12px; }
 .tag-pill b{ color:var(--cyan); font-weight:700; }
 
-/* ---------- 10b. LAYOUT: Dúo de Agentes IA (2 agentes por lámina) ---------- */
-.agent-duo{ flex:1; display:grid; grid-template-columns:1fr 1fr; gap:0; margin-top:.14in; min-height:0; }
-.agent-col{ display:flex; flex-direction:column; min-height:0; padding:0 .34in; }
+/* ---------- 10b. LAYOUT: Dúo de Agentes IA (2 agentes por lámina, sin título superior) ---------- */
+.agent-duo{ flex:1; display:grid; grid-template-columns:1fr 1fr; gap:0; margin-top:.2in; min-height:0; }
+.agent-col{ display:flex; flex-direction:column; min-height:0; padding:0 .38in; }
 .agent-col:first-child{ padding-left:0; border-right:1px solid rgba(20,25,35,.14); }
 .agent-col:last-child{ padding-right:0; }
-.agent-col .a-eyebrow{ font-family:var(--font-label); font-weight:700; font-size:8.5pt; letter-spacing:.16em; text-transform:uppercase; color:var(--cyan); margin-bottom:3px; }
-.agent-col .a-title{ font-family:var(--font-display); font-weight:800; font-size:14pt; line-height:1.1; color:var(--text-hi); }
+.agent-col .a-eyebrow{ font-family:var(--font-label); font-weight:700; font-size:9pt; letter-spacing:.16em; text-transform:uppercase; color:var(--cyan); margin-bottom:4px; }
+.agent-col .a-title{ font-family:var(--font-display); font-weight:800; font-size:15.5pt; line-height:1.12; color:var(--text-hi); }
 .agent-col .a-title em{ font-style:italic; font-weight:900; }
-.agent-col .a-lead{ margin-top:4px; font-family:var(--font-body); font-weight:300; font-size:8.4pt; line-height:1.28; color:var(--text-mid); }
-.agent-col .feat-grid{ grid-template-columns:1fr; flex:1; gap:.06in; margin-top:.07in; align-content:stretch; }
-.agent-col .feat-card{ padding:.08in .15in; justify-content:center; }
+.agent-col .a-lead{ margin-top:5px; font-family:var(--font-body); font-weight:300; font-size:9pt; line-height:1.32; color:var(--text-mid); }
+.agent-col .feat-grid{ grid-template-columns:1fr; flex:1; gap:.07in; margin-top:.1in; align-content:stretch; }
+.agent-col .feat-card{ padding:.09in .16in; justify-content:center; }
 .agent-col:first-child .feat-card{ justify-content:flex-start; text-align:left; }
-.agent-col .feat-card h4{ font-size:9.2pt; margin-bottom:3px; line-height:1.16; }
-.agent-col .feat-card p{ font-size:7.8pt; line-height:1.24; }
-.agent-col .feat-card .rf{ font-size:6.3pt; margin-bottom:3px; }
-.agent-col .tag-row{ margin-top:.06in; }
-.agent-col .tag-pill{ font-size:7pt; padding:4px 10px; }
+.agent-col .feat-card h4{ font-size:9.6pt; margin-bottom:3px; line-height:1.18; }
+.agent-col .feat-card p{ font-size:8.2pt; line-height:1.28; }
+.agent-col .feat-card .rf{ font-size:6.6pt; margin-bottom:3px; }
+.agent-col .tag-row{ margin-top:.08in; }
+.agent-col .tag-pill{ font-size:7.3pt; padding:5px 11px; }
+
+/* Variante para columnas con solo 2 tarjetas: más grande, aprovecha el espacio libre */
+.agent-col .feat-grid--pair{ gap:.1in; }
+.agent-col .feat-grid--pair .feat-card{ padding:.15in .22in; }
+.agent-col .feat-grid--pair .feat-card h4{ font-size:11.4pt; margin-bottom:5px; line-height:1.2; }
+.agent-col .feat-grid--pair .feat-card p{ font-size:9.6pt; line-height:1.34; }
+.agent-col .feat-grid--pair .feat-card .rf{ font-size:7.4pt; margin-bottom:5px; }
 
 /* ---------- 11. LAYOUT: Flujo (Workflow) ---------- */
 .flow{ display:flex; align-items:stretch; gap:0; margin-top:.26in; }

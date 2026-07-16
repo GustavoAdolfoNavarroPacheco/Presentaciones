@@ -1006,12 +1006,15 @@ button, .selector-btn, .badge, .sidebar-title, .badge-status, th,
 .badge-control { background: rgba(245, 158, 11, 0.15); color: #f59e0b; border: 1px solid rgba(245, 158, 11, 0.3); }
 
 .sub-card h3 {
-    font-size: 16px;
-    margin-bottom: 10px;
+    font-size: 19px;
+    margin-bottom: 12px;
+    line-height: 1.35;
+    font-weight: 700;
 }
 
 .sub-card p {
-    font-size: 12px;
+    font-size: 13.5px;
+    line-height: 1.55;
     color: var(--text-muted);
 }
 

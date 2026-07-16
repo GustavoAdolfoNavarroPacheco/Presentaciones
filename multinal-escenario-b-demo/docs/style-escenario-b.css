@@ -148,21 +148,21 @@
 
 /* ---------- 9. LAYOUT: Grid de funcionalidades (proyectos) ---------- */
 .b-deck .b-feat-grid{ flex:1; display:grid; gap:.14in; margin-top:.1in; align-content:center; min-height:0; }
-.b-deck .b-feat-card{ background:var(--b-bg-2); border:var(--b-card-border); border-radius:12px; padding:.15in .17in; display:flex; flex-direction:column; position:relative; overflow:hidden; }
+.b-deck .b-feat-card{ background:var(--b-bg-2); border:var(--b-card-border); border-radius:12px; padding:.16in .19in; display:flex; flex-direction:column; position:relative; overflow:hidden; }
 .b-deck .b-feat-card::before{ content:""; position:absolute; left:0; right:0; top:0; height:3px; background:var(--b-grad-brand); }
-.b-deck .b-feat-card .b-rf{ display:block; font-family:var(--b-font-label); font-weight:700; font-size:6.8pt; letter-spacing:.1em; margin-bottom:5px; }
-.b-deck .b-feat-card h4{ font-family:var(--b-font-label); font-weight:700; font-size:9.6pt; color:var(--b-text-hi); margin-bottom:6px; line-height:1.22; }
-.b-deck .b-feat-card p{ font-family:var(--b-font-body); font-weight:300; font-size:8.2pt; line-height:1.34; color:var(--b-text-lo); }
+.b-deck .b-feat-card .b-rf{ display:block; font-family:var(--b-font-label); font-weight:700; font-size:7.4pt; letter-spacing:.1em; margin-bottom:6px; }
+.b-deck .b-feat-card h4{ font-family:var(--b-font-label); font-weight:700; font-size:10.6pt; color:var(--b-text-hi); margin-bottom:7px; line-height:1.24; }
+.b-deck .b-feat-card p{ font-family:var(--b-font-body); font-weight:300; font-size:9pt; line-height:1.38; color:var(--b-text-lo); }
 
 .b-deck .b-feat-card--lg{ padding:.3in .28in; }
 .b-deck .b-feat-card--lg h4{ font-size:13pt; margin-bottom:10px; }
 .b-deck .b-feat-card--lg p{ font-size:10pt; line-height:1.46; }
 .b-deck .b-feat-card--lg .b-rf{ font-size:8pt; margin-bottom:10px; }
 
-.b-deck .b-feat-grid--dense .b-feat-card{ padding:.12in .15in; }
-.b-deck .b-feat-grid--dense .b-feat-card h4{ font-size:9pt; margin-bottom:4px; line-height:1.18; }
-.b-deck .b-feat-grid--dense .b-feat-card p{ font-size:7.6pt; line-height:1.28; }
-.b-deck .b-feat-grid--dense .b-feat-card .b-rf{ font-size:6.4pt; margin-bottom:4px; }
+.b-deck .b-feat-grid--dense .b-feat-card{ padding:.13in .16in; }
+.b-deck .b-feat-grid--dense .b-feat-card h4{ font-size:9.8pt; margin-bottom:5px; line-height:1.2; }
+.b-deck .b-feat-grid--dense .b-feat-card p{ font-size:8.3pt; line-height:1.3; }
+.b-deck .b-feat-grid--dense .b-feat-card .b-rf{ font-size:6.9pt; margin-bottom:5px; }
 
 .b-deck .b-tag-row{ display:flex; flex-wrap:wrap; gap:8px; margin-top:.18in; }
 .b-deck .b-tag-pill{ font-family:var(--b-font-label); font-weight:600; font-size:7.5pt; letter-spacing:.08em; color:var(--b-text-mid); background:rgba(20,25,35,.04); border:1px solid rgba(20,25,35,.12); border-radius:99px; padding:5px 12px; }
@@ -178,11 +178,11 @@
 .b-deck .b-agent-col .b-a-title em{ font-style:italic; font-weight:900; }
 .b-deck .b-agent-col .b-a-lead{ margin-top:4px; font-family:var(--b-font-body); font-weight:300; font-size:8.4pt; line-height:1.28; color:var(--b-text-mid); }
 .b-deck .b-agent-col .b-feat-grid{ grid-template-columns:1fr; flex:1; gap:.06in; margin-top:.07in; align-content:stretch; }
-.b-deck .b-agent-col .b-feat-card{ padding:.07in .14in; justify-content:center; }
+.b-deck .b-agent-col .b-feat-card{ padding:.08in .15in; justify-content:center; }
 .b-deck .b-agent-col:first-child .b-feat-card{ justify-content:flex-start; text-align:left; }
-.b-deck .b-agent-col .b-feat-card h4{ font-size:8.4pt; margin-bottom:2px; line-height:1.14; }
-.b-deck .b-agent-col .b-feat-card p{ font-size:7.2pt; line-height:1.2; }
-.b-deck .b-agent-col .b-feat-card .b-rf{ font-size:5.8pt; margin-bottom:2px; }
+.b-deck .b-agent-col .b-feat-card h4{ font-size:9.2pt; margin-bottom:3px; line-height:1.16; }
+.b-deck .b-agent-col .b-feat-card p{ font-size:7.8pt; line-height:1.24; }
+.b-deck .b-agent-col .b-feat-card .b-rf{ font-size:6.3pt; margin-bottom:3px; }
 .b-deck .b-agent-col .b-tag-row{ margin-top:.06in; }
 .b-deck .b-agent-col .b-tag-pill{ font-size:7pt; padding:4px 10px; }
 
@@ -199,20 +199,20 @@
 .b-deck .b-sc-terms{ margin-top:8px; font-family:var(--b-font-body); font-weight:400; font-size:8pt; line-height:1.4; color:var(--b-text-lo); }
 
 /* ---------- 10. LAYOUT: Inversión (total + opciones de pago mensual) ---------- */
-.b-deck .b-invest{ flex:1; display:grid; grid-template-columns:1fr 1.08fr; gap:.55in; align-items:center; margin-top:.08in; }
-.b-deck .b-invest__num .b-opt-label{ font-family:var(--b-font-label); font-weight:700; font-size:11pt; letter-spacing:.03em; color:var(--b-text-hi); margin-bottom:10px; }
-.b-deck .b-invest__num .b-cap{ font-family:var(--b-font-label); font-weight:600; font-size:9pt; letter-spacing:.24em; text-transform:uppercase; color:var(--b-cyan); margin-bottom:10px; }
-.b-deck .b-invest__num .b-big{ font-family:var(--b-font-display); font-weight:900; font-size:32pt; line-height:1.05; letter-spacing:-.5px; }
-.b-deck .b-invest__num .b-sub{ margin-top:14px; font-family:var(--b-font-body); font-weight:300; font-size:10pt; line-height:1.45; color:var(--b-text-mid); max-width:4.5in; }
-.b-deck .b-pay-plan{ display:flex; flex-direction:column; gap:.15in; }
-.b-deck .b-plan-card{ display:flex; align-items:center; gap:18px; background:var(--b-bg-2); border:var(--b-card-border); border-radius:14px; padding:.22in .26in; }
-.b-deck .b-plan-card .b-months{ flex:none; text-align:center; min-width:58px; }
-.b-deck .b-plan-card .b-months .b-num{ display:block; font-family:var(--b-font-label); font-weight:800; font-size:23pt; line-height:1; color:var(--b-cyan); }
-.b-deck .b-plan-card .b-months .b-lbl{ display:block; font-family:var(--b-font-label); font-weight:700; font-size:6.6pt; letter-spacing:.14em; text-transform:uppercase; color:var(--b-text-lo); margin-top:3px; }
+.b-deck .b-invest{ flex:1; display:grid; grid-template-columns:1fr 1.08fr; gap:.55in; align-items:center; margin-top:.03in; }
+.b-deck .b-invest__num .b-opt-label{ font-family:var(--b-font-label); font-weight:700; font-size:11pt; letter-spacing:.03em; color:var(--b-text-hi); margin-bottom:8px; }
+.b-deck .b-invest__num .b-cap{ font-family:var(--b-font-label); font-weight:600; font-size:9pt; letter-spacing:.24em; text-transform:uppercase; color:var(--b-cyan); margin-bottom:8px; }
+.b-deck .b-invest__num .b-big{ font-family:var(--b-font-display); font-weight:900; font-size:30pt; line-height:1.05; letter-spacing:-.5px; }
+.b-deck .b-invest__num .b-sub{ margin-top:12px; font-family:var(--b-font-body); font-weight:300; font-size:9.6pt; line-height:1.4; color:var(--b-text-mid); max-width:4.5in; }
+.b-deck .b-pay-plan{ display:flex; flex-direction:column; gap:.09in; }
+.b-deck .b-plan-card{ display:flex; align-items:center; gap:18px; background:var(--b-bg-2); border:var(--b-card-border); border-radius:14px; padding:.13in .24in; }
+.b-deck .b-plan-card .b-months{ flex:none; text-align:center; min-width:56px; }
+.b-deck .b-plan-card .b-months .b-num{ display:block; font-family:var(--b-font-label); font-weight:800; font-size:20pt; line-height:1; color:var(--b-cyan); }
+.b-deck .b-plan-card .b-months .b-lbl{ display:block; font-family:var(--b-font-label); font-weight:700; font-size:6.4pt; letter-spacing:.14em; text-transform:uppercase; color:var(--b-text-lo); margin-top:3px; }
 .b-deck .b-plan-card .b-info{ border-left:1px solid rgba(20,25,35,.12); padding-left:18px; }
-.b-deck .b-plan-card .b-info b{ display:block; font-family:var(--b-font-label); font-weight:800; font-size:15pt; color:var(--b-text-hi); margin-bottom:3px; letter-spacing:-.01em; }
-.b-deck .b-plan-card .b-info span{ font-family:var(--b-font-body); font-weight:300; font-size:8.4pt; color:var(--b-text-lo); }
-.b-deck .b-plan-note{ margin-top:.02in; font-family:var(--b-font-body); font-weight:300; font-size:8pt; line-height:1.4; color:var(--b-text-lo); padding-left:4px; }
+.b-deck .b-plan-card .b-info b{ display:block; font-family:var(--b-font-label); font-weight:800; font-size:13.5pt; color:var(--b-text-hi); margin-bottom:2px; letter-spacing:-.01em; }
+.b-deck .b-plan-card .b-info span{ font-family:var(--b-font-body); font-weight:300; font-size:8pt; color:var(--b-text-lo); }
+.b-deck .b-plan-note{ margin-top:.02in; font-family:var(--b-font-body); font-weight:300; font-size:7.6pt; line-height:1.3; color:var(--b-text-lo); padding-left:4px; }
 
 /* ---------- 11. LAYOUT: Cierre / CTA ---------- */
 .b-deck .b-cta{ flex:1; display:grid; grid-template-columns:1.15fr .85fr; gap:.55in; align-items:center; margin-top:.2in; }

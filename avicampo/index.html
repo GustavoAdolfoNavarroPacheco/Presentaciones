@@ -79,11 +79,11 @@
       <h2 class="s-title">Un panel que <em class="title-accent--green">muestra lo que hoy no se ve</em></h2>
       <p class="s-lead">Nuevas tarjetas de KPIs, mejoras a los gráficos existentes y una nueva métrica de productos consultados, manteniendo los filtros actuales de rango de fechas y sucursal.</p>
       <div class="feat-grid feat-grid--dense" style="grid-template-columns:repeat(3,1fr);">
-        <div class="feat-card"><span class="rf gradient-text">MOD-01 · 01</span><h4>Nuevos KPIs del Dashboard</h4><p>Conversaciones iniciadas, clientes únicos, conversión a venta (%), ticket promedio, tiempo promedio de conversación y tasa de abandono (%). Se corrige la lógica de clientes únicos para no contar pedidos repetidos.</p></div>
-        <div class="feat-card"><span class="rf gradient-text">MOD-01 · 02</span><h4>Tendencia de Ventas por Mes</h4><p>Se incorpora la cantidad de pedidos junto a los ingresos en el mismo gráfico, usando eje secundario.</p></div>
-        <div class="feat-card"><span class="rf gradient-text">MOD-01 · 03</span><h4>Ventas por Categoría</h4><p>El porcentaje de cada segmento se muestra visible directamente sobre la torta, sin necesidad de pasar el cursor.</p></div>
-        <div class="feat-card"><span class="rf gradient-text">MOD-01 · 04</span><h4>Top 5 Productos (demanda e ingreso)</h4><p>Se agrega el porcentaje de participación a las listas ya existentes.</p></div>
-        <div class="feat-card"><span class="rf gradient-text">MOD-01 · 05</span><h4>Productos más Consultados</h4><p>Nueva métrica que registra en backend las consultas por producto dentro de las conversaciones, incluyendo clientes que finalmente no compraron.</p></div>
+        <div class="feat-card"><span class="rf">MOD-01 · 01</span><h4>Nuevos KPIs del Dashboard</h4><p>Conversaciones iniciadas, clientes únicos, conversión a venta (%), ticket promedio, tiempo promedio de conversación y tasa de abandono (%). Se corrige la lógica de clientes únicos para no contar pedidos repetidos.</p></div>
+        <div class="feat-card"><span class="rf">MOD-01 · 02</span><h4>Tendencia de Ventas por Mes</h4><p>Se incorpora la cantidad de pedidos junto a los ingresos en el mismo gráfico, usando eje secundario.</p></div>
+        <div class="feat-card"><span class="rf">MOD-01 · 03</span><h4>Ventas por Categoría</h4><p>El porcentaje de cada segmento se muestra visible directamente sobre la torta, sin necesidad de pasar el cursor.</p></div>
+        <div class="feat-card"><span class="rf">MOD-01 · 04</span><h4>Top 5 Productos (demanda e ingreso)</h4><p>Se agrega el porcentaje de participación a las listas ya existentes.</p></div>
+        <div class="feat-card"><span class="rf">MOD-01 · 05</span><h4>Productos más Consultados</h4><p>Nueva métrica que registra en backend las consultas por producto dentro de las conversaciones, incluyendo clientes que finalmente no compraron.</p></div>
       </div>
     </div>
     <footer class="s-footer">
@@ -129,9 +129,9 @@
       <h2 class="s-title">El historial del cliente, <em class="title-accent--green">sin salir del chat</em></h2>
       <p class="s-lead">Panel de detalle del cliente dentro del chat y ajustes al módulo de Clientes: campos opcionales, reorganización de columnas y exportación completa.</p>
       <div class="feat-grid" style="grid-template-columns:repeat(3,1fr);">
-        <div class="feat-card"><span class="rf gradient-text">MOD-03 · 01</span><h4>Modal de historial del cliente en el chat</h4><p>Pedidos acumulados (con enlace a fechas y valores de cada orden), valor total comprado, top 3 productos habituales, días desde la última conversación, opción seleccionada, última etapa alcanzada y estado final.</p></div>
-        <div class="feat-card"><span class="rf gradient-text">MOD-03 · 02</span><h4>Ajustes al módulo Clientes</h4><p>Campos no obligatorios al guardar; se prioriza Dirección, Barrio y Ciudad (correo oculto o al final); nuevas columnas de fecha y días sin interacción.</p></div>
-        <div class="feat-card"><span class="rf gradient-text">MOD-03 · 03</span><h4>Exportación completa de clientes</h4><p>Exportación completa de la base de clientes incluyendo todos los campos nuevos.</p></div>
+        <div class="feat-card feat-card--lg"><span class="rf">MOD-03 · 01</span><h4>Modal de historial del cliente en el chat</h4><p>Pedidos acumulados (con enlace a fechas y valores de cada orden), valor total comprado, top 3 productos habituales, días desde la última conversación, opción seleccionada, última etapa alcanzada y estado final.</p></div>
+        <div class="feat-card feat-card--lg"><span class="rf">MOD-03 · 02</span><h4>Ajustes al módulo Clientes</h4><p>Campos no obligatorios al guardar; se prioriza Dirección, Barrio y Ciudad (correo oculto o al final); nuevas columnas de fecha y días sin interacción.</p></div>
+        <div class="feat-card feat-card--lg"><span class="rf">MOD-03 · 03</span><h4>Exportación completa de clientes</h4><p>Exportación completa de la base de clientes incluyendo todos los campos nuevos.</p></div>
       </div>
     </div>
     <footer class="s-footer">
@@ -152,10 +152,10 @@
       <h2 class="s-title">Reactivación por WhatsApp, <em class="title-accent">sin perseguir a quien ya compró</em></h2>
       <p class="s-lead">Sistema de campañas programadas por WhatsApp con segmentación de audiencia y cancelación automática por interacción o compra del cliente.</p>
       <div class="feat-grid" style="grid-template-columns:repeat(2,1fr);">
-        <div class="feat-card"><span class="rf gradient-text">MOD-04 · 01</span><h4>Filtros de segmentación</h4><p>Segmentación de audiencia por días inactivos y última etapa de abandono.</p></div>
-        <div class="feat-card"><span class="rf gradient-text">MOD-04 · 02</span><h4>Programación de envíos masivos</h4><p>Scheduler de programación con selección de plantilla de WhatsApp existente.</p></div>
-        <div class="feat-card"><span class="rf gradient-text">MOD-04 · 03</span><h4>Cancelación automática de envíos</h4><p>Condición crítica: si el cliente interactúa o compra antes del envío programado, el sistema lo retira de la lista, verificando inmediatamente antes de cada envío.</p></div>
-        <div class="feat-card"><span class="rf gradient-text">MOD-04 · 04</span><h4>Integración con plantillas WhatsApp</h4><p>Programación de campañas integrada con las plantillas existentes, sujeta a aprobación previa de Meta (tiempos externos, no incluidos en la estimación).</p></div>
+        <div class="feat-card"><span class="rf">MOD-04 · 01</span><h4>Filtros de segmentación</h4><p>Segmentación de audiencia por días inactivos y última etapa de abandono.</p></div>
+        <div class="feat-card"><span class="rf">MOD-04 · 02</span><h4>Programación de envíos masivos</h4><p>Scheduler de programación con selección de plantilla de WhatsApp existente.</p></div>
+        <div class="feat-card"><span class="rf">MOD-04 · 03</span><h4>Cancelación automática de envíos</h4><p>Condición crítica: si el cliente interactúa o compra antes del envío programado, el sistema lo retira de la lista, verificando inmediatamente antes de cada envío.</p></div>
+        <div class="feat-card"><span class="rf">MOD-04 · 04</span><h4>Integración con plantillas WhatsApp</h4><p>Programación de campañas integrada con las plantillas existentes, sujeta a aprobación previa de Meta (tiempos externos, no incluidos en la estimación).</p></div>
       </div>
       <div class="tag-row"><span class="tag-pill">Depende de <b>aprobación de Meta</b> sobre plantillas de WhatsApp</span></div>
     </div>
@@ -177,7 +177,7 @@
       <h2 class="s-title">Un equipo senior, <em class="title-accent--green">dedicado a tu proyecto</em></h2>
       <p class="s-lead">Estructura del proyecto, UX y esquema de trabajo, e implementación y entrega, ejecutados por especialistas de cada frente bajo metodología ágil.</p>
       <div class="team-grid">
-        <div class="team-card"><span class="role-badge">DB</span><h4>Líder / Arquitecto / Scrum</h4><p>Dirección técnica, arquitectura y ceremonias ágiles del proyecto.</p></div>
+        <div class="team-card"><span class="role-badge">DB</span><h4>Líder / Arquitecto</h4><p>Dirección técnica, arquitectura y ceremonias ágiles del proyecto.</p></div>
         <div class="team-card"><span class="role-badge">UX</span><h4>Diseño UI/UX</h4><p>Esquema de interacción y experiencia de cada módulo nuevo.</p></div>
         <div class="team-card"><span class="role-badge">FE</span><h4>FrontEnd</h4><p>Construcción de dashboards, embudo visual y paneles de cliente.</p></div>
         <div class="team-card"><span class="role-badge">BE</span><h4>BackEnd Senior / Semi-Senior</h4><p>Lógica de tracking, campañas automatizadas e integraciones.</p></div>
@@ -203,23 +203,25 @@
     <div class="s-body">
       <div class="s-eyebrow">07 · Inversión</div>
       <h2 class="s-title">Cuatro módulos, <em class="title-accent">una sola inversión</em></h2>
-      <div class="invest-modules">
-        <div class="mod-cost-list">
-          <div class="mod-cost-row"><span class="mc-label">Estructura, UX e implementación del proyecto</span><span class="mc-value">$4.216.356</span></div>
-          <div class="mod-cost-row"><span class="mc-label">Módulo 1 — Ajustes de Dashboard</span><span class="mc-value">$5.259.643</span></div>
-          <div class="mod-cost-row"><span class="mc-label">Módulo 2 — Seguimiento / Informes</span><span class="mc-value">$8.834.245</span></div>
-          <div class="mod-cost-row"><span class="mc-label">Módulo 3 — Chats y Clientes</span><span class="mc-value">$4.431.805</span></div>
-          <div class="mod-cost-row"><span class="mc-label">Módulo 4 — Campañas Automatizadas</span><span class="mc-value">$7.789.502</span></div>
-        </div>
-        <div class="invest__num">
-          <div class="cap">Inversión total de la propuesta (COP)</div>
-          <div class="big gradient-text">$30.531.552</div>
-          <div class="sub">Alcance funcional de los 4 módulos de mejora al Agente de IA de Avicampo, confirmado en este documento.</div>
-          <div class="pay-plan">
-            <div class="plan-card"><div class="pct"><span class="num">40%</span><span class="lbl">Anticipo</span></div><div class="info"><b>$12.212.621</b><span>Al inicio del proyecto.</span></div></div>
-            <div class="plan-card"><div class="pct"><span class="num">40%</span><span class="lbl">Avance</span></div><div class="info"><b>$12.212.621</b><span>Hito de avance a mitad de entrega.</span></div></div>
-            <div class="plan-card"><div class="pct"><span class="num">20%</span><span class="lbl">Cierre</span></div><div class="info"><b>$6.106.310</b><span>Contra entrega y aceptación final.</span></div></div>
+      <div class="invest-wrap">
+        <div class="invest-modules">
+          <div class="mod-cost-list">
+            <div class="mod-cost-row"><span class="mc-label">Estructura, UX e implementación del proyecto</span><span class="mc-value">$6.023.366</span></div>
+            <div class="mod-cost-row"><span class="mc-label">Módulo 1 — Ajustes de Dashboard</span><span class="mc-value">$7.513.776</span></div>
+            <div class="mod-cost-row"><span class="mc-label">Módulo 2 — Seguimiento / Informes</span><span class="mc-value">$12.620.351</span></div>
+            <div class="mod-cost-row"><span class="mc-label">Módulo 3 — Chats y Clientes</span><span class="mc-value">$6.331.150</span></div>
+            <div class="mod-cost-row"><span class="mc-label">Módulo 4 — Campañas Automatizadas</span><span class="mc-value">$11.127.860</span></div>
           </div>
+          <div class="invest__num">
+            <div class="cap">Inversión total de la propuesta (COP)</div>
+            <div class="big gradient-text">$43.616.503</div>
+            <div class="sub">Alcance funcional de los 4 módulos de mejora al Agente de IA de Avicampo, confirmado en este documento.</div>
+          </div>
+        </div>
+        <div class="pay-plan">
+          <div class="plan-card"><div class="pct"><span class="num">40%</span><span class="lbl">Anticipo</span></div><div class="info"><b>$17.446.601</b><span>Al inicio del proyecto.</span></div></div>
+          <div class="plan-card"><div class="pct"><span class="num">40%</span><span class="lbl">Avance</span></div><div class="info"><b>$17.446.601</b><span>Hito de avance a mitad de entrega.</span></div></div>
+          <div class="plan-card"><div class="pct"><span class="num">20%</span><span class="lbl">Cierre</span></div><div class="info"><b>$8.723.301</b><span>Contra entrega y aceptación final.</span></div></div>
         </div>
       </div>
     </div>

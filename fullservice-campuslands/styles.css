@@ -1,0 +1,111 @@
+/* ============================================================
+   FULLSERVICE CAMPUSLANDS — Presentación Corporativa
+   Sistema de diseño "oscuro premium" (clon del estilo fuente original)
+   ============================================================ */
+
+/* ---------- 1. FUENTES LOCALES ---------- */
+@font-face { font-family:'Poppins'; src:url('assets/fonts/Poppins-Regular.ttf')   format('truetype'); font-weight:400; font-style:normal; font-display:swap; }
+@font-face { font-family:'Poppins'; src:url('assets/fonts/Poppins-Medium.ttf')    format('truetype'); font-weight:500; font-style:normal; font-display:swap; }
+@font-face { font-family:'Poppins'; src:url('assets/fonts/Poppins-SemiBold.ttf')  format('truetype'); font-weight:600; font-style:normal; font-display:swap; }
+@font-face { font-family:'Poppins'; src:url('assets/fonts/Poppins-Bold.ttf')      format('truetype'); font-weight:700; font-style:normal; font-display:swap; }
+@font-face { font-family:'Poppins'; src:url('assets/fonts/Poppins-ExtraBold.ttf') format('truetype'); font-weight:800; font-style:normal; font-display:swap; }
+@font-face { font-family:'Playfair Display'; src:url('assets/fonts/PlayfairDisplay-Italic.ttf')      format('truetype'); font-weight:400; font-style:italic; font-display:swap; }
+@font-face { font-family:'Playfair Display'; src:url('assets/fonts/PlayfairDisplay-BoldItalic.ttf')  format('truetype'); font-weight:700; font-style:italic; font-display:swap; }
+@font-face { font-family:'Playfair Display'; src:url('assets/fonts/PlayfairDisplay-BlackItalic.ttf') format('truetype'); font-weight:900; font-style:italic; font-display:swap; }
+
+/* ---------- 2. TOKENS ---------- */
+:root{
+  --bg-0:#03040d; --bg-1:#060a1c; --bg-deep:#0a1128;
+  --card-bg:rgba(18,26,54,.55); --card-border:1px solid rgba(120,150,220,.16);
+  --icon-bg:linear-gradient(145deg,#132048,#0c1730);
+  --accent:#5B8DFF; --accent-soft:rgba(91,141,255,.14);
+  --grad-brand:linear-gradient(100deg,#6EA8FF 0%,#5B8DFF 45%,#8B7CF6 100%);
+  --text-hi:#F4F6FC; --text-mid:#9AA6C7; --text-lo:#6E7897; --text-faint:#4C5476;
+  --font-display:'Playfair Display',Georgia,serif;
+  --font-label:'Poppins','Segoe UI',sans-serif;
+  --font-body:'Poppins','Segoe UI',sans-serif;
+  --slide-w:11in; --slide-h:6.1875in; --radius:16px;
+}
+
+/* ---------- 3. RESET ---------- */
+*{ box-sizing:border-box; margin:0; padding:0; }
+@page{ size:11in 6.1875in; margin:0; }
+html,body{ background:#1B1D22; font-family:var(--font-body); color:var(--text-hi); -webkit-font-smoothing:antialiased; }
+body{ display:flex; flex-direction:column; align-items:center; padding:24px; }
+a{ text-decoration:none; color:inherit; }
+
+/* ---------- 4. LÁMINA BASE ---------- */
+.slide{
+  position:relative; width:var(--slide-w); height:var(--slide-h); overflow:hidden;
+  background:
+    radial-gradient(60% 55% at 88% 8%, rgba(91,141,255,.16) 0%, transparent 60%),
+    radial-gradient(50% 60% at 6% 96%, rgba(139,124,246,.10) 0%, transparent 60%),
+    linear-gradient(160deg, var(--bg-1) 0%, var(--bg-0) 55%, var(--bg-deep) 100%);
+  color:var(--text-hi); margin-bottom:28px; border-radius:var(--radius);
+  box-shadow:0 20px 60px rgba(0,0,0,.4);
+}
+.dot{ position:absolute; width:4px; height:4px; border-radius:50%; background:rgba(120,150,220,.35); z-index:1; }
+
+/* ---------- 5. UTILIDADES ---------- */
+.gradient-text{ background:var(--grad-brand); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; color:transparent; }
+.pill{ display:inline-flex; align-items:center; font-family:var(--font-label); font-weight:600; font-size:9pt; letter-spacing:.28em; text-transform:uppercase; color:var(--accent); border:1px solid rgba(120,150,220,.35); border-radius:99px; padding:9px 22px; }
+
+/* ---------- 6. LÁMINA 1 — HERO / SERVICIOS ---------- */
+.hero{ display:grid; grid-template-columns:1fr 1.02fr; padding:.5in .7in; align-items:stretch; }
+.hero__left{ position:relative; z-index:5; display:flex; flex-direction:column; justify-content:center; padding-right:.5in; }
+.hero__pill{ margin-bottom:.28in; width:fit-content; }
+.hero__title{ font-family:var(--font-label); font-weight:800; font-size:40pt; line-height:1.02; color:var(--text-hi); letter-spacing:-.5px; }
+.hero__title em{ display:block; font-family:var(--font-display); font-style:italic; font-weight:400; font-size:1em; color:var(--text-hi); margin-top:2px; }
+.hero__subtitle{ margin-top:.26in; font-family:var(--font-body); font-weight:300; font-size:11.5pt; line-height:1.5; color:var(--text-mid); max-width:5in; }
+.hero__tagline{ position:absolute; left:.7in; bottom:.4in; font-family:var(--font-body); font-weight:300; font-style:italic; font-size:9pt; color:var(--text-faint); z-index:5; }
+
+.hero__right{ position:relative; z-index:5; display:flex; flex-direction:column; justify-content:center; gap:.14in; }
+.svc-card{ position:relative; display:flex; align-items:flex-start; gap:15px; background:var(--card-bg); border:var(--card-border); border-radius:13px; padding:.15in .22in; backdrop-filter:blur(6px); }
+.svc-card.is-link{ cursor:pointer; }
+.svc-card.is-link:hover{ border-color:rgba(120,150,220,.4); }
+.svc-card__link-badge{ position:absolute; top:10px; right:12px; width:18px; height:18px; border-radius:6px; background:rgba(91,141,255,.16); display:grid; place-items:center; color:var(--accent); }
+.svc-card__link-badge svg{ width:10px; height:10px; }
+.svc-card__icon{ flex:none; width:40px; height:40px; border-radius:11px; background:var(--icon-bg); border:1px solid rgba(120,150,220,.18); display:grid; place-items:center; }
+.svc-card__icon svg{ width:19px; height:19px; color:var(--accent); }
+.svc-card__body h3{ font-family:var(--font-label); font-weight:700; font-size:12pt; color:var(--text-hi); margin-bottom:4px; }
+.svc-card__body p{ font-family:var(--font-body); font-weight:300; font-size:9pt; line-height:1.4; color:var(--text-mid); }
+.svc-card--lg{ padding:.2in .24in; }
+.svc-card--lg .svc-card__icon{ width:44px; height:44px; }
+.svc-card--lg .svc-card__body h3{ font-size:13pt; margin-bottom:5px; }
+.svc-card--lg .svc-card__body p{ font-size:9.4pt; line-height:1.44; }
+
+/* ---------- 7. LÁMINAS 2/3 — TÍTULO + GRID ---------- */
+.gridslide{ padding:.42in .7in; display:flex; flex-direction:column; }
+.gridslide__head{ position:relative; z-index:5; text-align:center; margin-bottom:.24in; }
+.gridslide__title{ font-family:var(--font-label); font-weight:800; font-size:25pt; color:var(--text-hi); letter-spacing:-.3px; }
+.gridslide__subtitle{ margin-top:.1in; font-family:var(--font-body); font-weight:400; font-size:11pt; color:var(--accent); }
+.gridslide__foot{ position:relative; z-index:5; margin-top:.16in; font-family:var(--font-label); font-weight:600; font-size:8.5pt; color:var(--accent); }
+
+.card-grid{ position:relative; z-index:5; flex:1; display:grid; gap:.16in; min-height:0; }
+.card-grid--3{ grid-template-columns:repeat(3,1fr); grid-template-rows:repeat(2,1fr); }
+.card-grid--2{ grid-template-columns:repeat(2,1fr); grid-template-rows:repeat(2,1fr); }
+
+.pf-card{ position:relative; background:var(--card-bg); border:var(--card-border); border-radius:14px; padding:.18in .22in; display:flex; flex-direction:column; }
+.pf-card__icon{ flex:none; width:38px; height:38px; border-radius:10px; background:var(--icon-bg); border:1px solid rgba(120,150,220,.18); display:grid; place-items:center; margin-bottom:.09in; }
+.pf-card__icon svg{ width:18px; height:18px; color:var(--accent); }
+.pf-card h3{ font-family:var(--font-label); font-weight:700; font-size:11.5pt; color:var(--text-hi); margin-bottom:4px; }
+.pf-card p{ font-family:var(--font-body); font-weight:300; font-size:8.6pt; line-height:1.36; color:var(--text-mid); }
+
+.ag-card{ position:relative; background:var(--card-bg); border:var(--card-border); border-radius:16px; padding:.2in .24in; display:flex; flex-direction:column; justify-content:center; }
+.ag-card.is-link{ cursor:pointer; }
+.ag-card.is-link:hover{ border-color:rgba(120,150,220,.4); }
+.ag-card__link-badge{ position:absolute; top:14px; right:16px; width:22px; height:22px; border-radius:7px; background:rgba(91,141,255,.16); display:grid; place-items:center; color:var(--accent); }
+.ag-card__link-badge svg{ width:12px; height:12px; }
+.ag-card__top{ display:flex; align-items:center; gap:14px; margin-bottom:.1in; }
+.ag-card__icon{ flex:none; width:42px; height:42px; border-radius:11px; background:var(--icon-bg); border:1px solid rgba(120,150,220,.18); display:grid; place-items:center; }
+.ag-card__icon svg{ width:20px; height:20px; color:var(--accent); }
+.ag-card h3{ font-family:var(--font-display); font-style:italic; font-weight:700; font-size:16pt; color:var(--text-hi); }
+.ag-card__role{ font-family:var(--font-label); font-weight:600; font-size:7.3pt; letter-spacing:.13em; text-transform:uppercase; color:var(--accent); margin-top:2px; }
+.ag-card p{ font-family:var(--font-body); font-weight:300; font-size:9.3pt; line-height:1.42; color:var(--text-mid); }
+
+/* ---------- 8. IMPRESIÓN ---------- */
+@media print{
+  html,body{ width:11in; height:auto; background:none; padding:0; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  .slide{ width:11in; height:6.1875in; margin:0; border-radius:0; box-shadow:none; overflow:hidden; break-inside:avoid; }
+  .slide + .slide{ page-break-before:always; break-before:page; }
+}

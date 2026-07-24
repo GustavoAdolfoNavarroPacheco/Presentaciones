@@ -51,7 +51,7 @@ a{ text-decoration:none; color:inherit; }
 .pill{ display:inline-flex; align-items:center; font-family:var(--font-label); font-weight:600; font-size:9pt; letter-spacing:.28em; text-transform:uppercase; color:var(--accent); border:1px solid rgba(120,150,220,.35); border-radius:99px; padding:9px 22px; }
 
 /* ---------- 6. LÁMINA 1 — HERO / SERVICIOS ---------- */
-.hero{ display:grid; grid-template-columns:1fr 1.02fr; padding:.5in .7in; align-items:stretch; }
+.hero{ display:grid; grid-template-columns:1fr 1.02fr; padding:.44in .7in; align-items:stretch; }
 .hero__left{ position:relative; z-index:5; display:flex; flex-direction:column; justify-content:center; padding-right:.5in; }
 .hero__pill{ margin-bottom:.28in; width:fit-content; }
 .hero__title{ font-family:var(--font-label); font-weight:800; font-size:40pt; line-height:1.02; color:var(--text-hi); letter-spacing:-.5px; }
@@ -59,20 +59,23 @@ a{ text-decoration:none; color:inherit; }
 .hero__subtitle{ margin-top:.26in; font-family:var(--font-body); font-weight:300; font-size:11.5pt; line-height:1.5; color:var(--text-mid); max-width:5in; }
 .hero__tagline{ position:absolute; left:.7in; bottom:.4in; font-family:var(--font-body); font-weight:300; font-style:italic; font-size:9pt; color:var(--text-faint); z-index:5; }
 
-.hero__right{ position:relative; z-index:5; display:flex; flex-direction:column; justify-content:center; gap:.14in; }
-.svc-card{ position:relative; display:flex; align-items:flex-start; gap:15px; background:var(--card-bg); border:var(--card-border); border-radius:13px; padding:.15in .22in; backdrop-filter:blur(6px); }
+.hero__right{ position:relative; z-index:5; display:flex; flex-direction:column; justify-content:center; gap:.1in; }
+.svc-card{ position:relative; display:flex; align-items:flex-start; gap:15px; background:var(--card-bg); border:var(--card-border); border-radius:13px; padding:.13in .22in; backdrop-filter:blur(6px); }
 .svc-card.is-link{ cursor:pointer; }
 .svc-card.is-link:hover{ border-color:rgba(120,150,220,.4); }
 .svc-card__link-badge{ position:absolute; top:10px; right:12px; width:18px; height:18px; border-radius:6px; background:rgba(91,141,255,.16); display:grid; place-items:center; color:var(--accent); }
 .svc-card__link-badge svg{ width:10px; height:10px; }
 .svc-card__icon{ flex:none; width:40px; height:40px; border-radius:11px; background:var(--icon-bg); border:1px solid rgba(120,150,220,.18); display:grid; place-items:center; }
 .svc-card__icon svg{ width:19px; height:19px; color:var(--accent); }
-.svc-card__body h3{ font-family:var(--font-label); font-weight:700; font-size:12pt; color:var(--text-hi); margin-bottom:4px; }
-.svc-card__body p{ font-family:var(--font-body); font-weight:300; font-size:9pt; line-height:1.4; color:var(--text-mid); }
-.svc-card--lg{ padding:.2in .24in; }
+.svc-card__body h3{ font-family:var(--font-label); font-weight:700; font-size:12pt; color:var(--text-hi); margin-bottom:3px; }
+.svc-card__body p{ font-family:var(--font-body); font-weight:300; font-size:9pt; line-height:1.36; color:var(--text-mid); }
+.svc-card--lg{ padding:.17in .24in; }
 .svc-card--lg .svc-card__icon{ width:44px; height:44px; }
-.svc-card--lg .svc-card__body h3{ font-size:13pt; margin-bottom:5px; }
-.svc-card--lg .svc-card__body p{ font-size:9.4pt; line-height:1.44; }
+.svc-card--lg .svc-card__body h3{ font-size:13pt; margin-bottom:4px; }
+.svc-card--lg .svc-card__body p{ font-size:9.4pt; line-height:1.4; }
+.svc-card__links{ display:flex; gap:7px; margin-top:5px; }
+.svc-link{ display:inline-flex; align-items:center; gap:4px; font-family:var(--font-label); font-weight:600; font-size:7.3pt; letter-spacing:.03em; color:var(--accent); background:rgba(91,141,255,.1); border:1px solid rgba(120,150,220,.32); border-radius:99px; padding:3px 9px; }
+.svc-link svg{ width:7px; height:7px; }
 
 /* ---------- 7. LÁMINAS 2/3 — TÍTULO + GRID ---------- */
 .gridslide{ padding:.42in .7in; display:flex; flex-direction:column; }

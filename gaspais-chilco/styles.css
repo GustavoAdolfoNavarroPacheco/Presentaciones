@@ -1,0 +1,221 @@
+/* ============================================================
+   CAMPUSLANDS FULL SERVICE — SISTEMA DE DISEÑO v2 (Premium)
+   Presentación: Gas País Chilco S.A.S. — Plataforma HSE-SST
+   Paleta derivada del logo (amarillo → verde → azul, blend real del isotipo)
+   ============================================================ */
+
+/* ---------- 1. FUENTES LOCALES ---------- */
+@font-face { font-family:'Playfair Display'; src:url('assets/fonts/PlayfairDisplay-Bold.ttf')        format('truetype'); font-weight:700; font-style:normal; font-display:swap; }
+@font-face { font-family:'Playfair Display'; src:url('assets/fonts/PlayfairDisplay-Black.ttf')       format('truetype'); font-weight:900; font-style:normal; font-display:swap; }
+@font-face { font-family:'Playfair Display'; src:url('assets/fonts/PlayfairDisplay-Italic.ttf')      format('truetype'); font-weight:400; font-style:italic; font-display:swap; }
+@font-face { font-family:'Playfair Display'; src:url('assets/fonts/PlayfairDisplay-BlackItalic.ttf') format('truetype'); font-weight:900; font-style:italic; font-display:swap; }
+@font-face { font-family:'Montserrat';       src:url('assets/fonts/Montserrat-Medium.ttf')           format('truetype'); font-weight:500; font-style:normal; font-display:swap; }
+@font-face { font-family:'Montserrat';       src:url('assets/fonts/Montserrat-SemiBold.ttf')         format('truetype'); font-weight:600; font-style:normal; font-display:swap; }
+@font-face { font-family:'Montserrat';       src:url('assets/fonts/Montserrat-Bold.ttf')             format('truetype'); font-weight:700; font-style:normal; font-display:swap; }
+@font-face { font-family:'Poppins';          src:url('assets/fonts/Poppins-Light.ttf')               format('truetype'); font-weight:300; font-style:normal; font-display:swap; }
+@font-face { font-family:'Poppins';          src:url('assets/fonts/Poppins-Regular.ttf')             format('truetype'); font-weight:400; font-style:normal; font-display:swap; }
+@font-face { font-family:'Poppins';          src:url('assets/fonts/Poppins-SemiBold.ttf')            format('truetype'); font-weight:600; font-style:normal; font-display:swap; }
+
+/* ---------- 2. TOKENS — Gas País (fondo gris claro frío + wash amarillo→verde→azul) ---------- */
+:root{
+  --bg-0:#F2F3F5; --bg-1:#E9EBEF; --bg-2:#FFFFFF; --bg-deep:#E2E4E9;
+  --bg-glow-a:rgba(255,212,0,.09); --bg-glow-b:rgba(1,97,184,.09);
+  --bg-wash:linear-gradient(135deg, rgba(255,212,0,.06) 0%, rgba(79,166,71,.05) 34%, rgba(11,90,39,.05) 68%, rgba(1,97,184,.07) 100%);
+  --text-hi:#14161B; --text-mid:#3D4451; --text-lo:#6B7280; --text-faint:#9CA3AF;
+  --cyan:#A87A00; --blue:#2F8F3E; --violet:#0E7A3E; --magenta:#0A5CA8; --amber:#A87A00; --lime:#2F8F3E;
+  --grad-brand:linear-gradient(100deg,#FFD400 0%,#4FA647 34%,#0E7A3E 68%,#0161B8 100%);
+  --grad-cyan:linear-gradient(120deg,#FFD400,#4FA647);
+  --grad-violet:linear-gradient(120deg,#0E7A3E,#0161B8);
+  --card-border:1px solid rgba(20,25,35,.10);
+  --dot-confidential:#C98A00; --dot-confidential-glow:rgba(201,138,0,.45);
+  --font-display:'Playfair Display',Georgia,serif;
+  --font-label:'Montserrat','Segoe UI',sans-serif;
+  --font-body:'Poppins','Segoe UI',sans-serif;
+  --slide-w:11in; --slide-h:6.1875in; --pad:0.72in; --radius:14px;
+}
+
+/* ---------- 3. RESET ---------- */
+*{ box-sizing:border-box; margin:0; padding:0; }
+@page{ size:11in 6.1875in; margin:0; }
+html,body{ background:#1B1D22; font-family:var(--font-body); color:var(--text-hi); -webkit-font-smoothing:antialiased; }
+body{ display:flex; flex-direction:column; align-items:center; padding:24px; }
+
+/* ---------- 4. LÁMINA BASE ---------- */
+.slide{
+  position:relative; width:var(--slide-w); height:var(--slide-h); overflow:hidden;
+  background:
+    radial-gradient(120% 90% at 82% 18%, var(--bg-glow-a) 0%, transparent 45%),
+    radial-gradient(120% 120% at 12% 92%, var(--bg-glow-b) 0%, transparent 50%),
+    var(--bg-wash),
+    linear-gradient(150deg, var(--bg-0) 0%, var(--bg-1) 55%, var(--bg-deep) 100%);
+  color:var(--text-hi); margin-bottom:28px; border-radius:var(--radius);
+  box-shadow:0 20px 60px rgba(0,0,0,.22);
+}
+.glow-a{ background:
+  radial-gradient(90% 80% at 15% 20%, var(--bg-glow-a) 0%, transparent 45%),
+  radial-gradient(110% 110% at 95% 95%, var(--bg-glow-b) 0%, transparent 50%),
+  var(--bg-wash),
+  linear-gradient(160deg,var(--bg-0),var(--bg-1) 60%,var(--bg-deep)); }
+.glow-b{ background:
+  radial-gradient(80% 70% at 88% 15%, var(--bg-glow-b) 0%, transparent 45%),
+  radial-gradient(120% 120% at 8% 90%, var(--bg-glow-a) 0%, transparent 50%),
+  var(--bg-wash),
+  linear-gradient(140deg,var(--bg-0),var(--bg-1) 60%,var(--bg-deep)); }
+
+/* ---------- 5. UTILIDADES ---------- */
+.gradient-text{ background:var(--grad-brand); background-size:112% 100%; background-position:0 0; -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; color:transparent; }
+.gt-cyan{ background:var(--grad-cyan); background-size:112% 100%; background-position:0 0; -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; color:transparent; }
+.gt-violet{ background:var(--grad-violet); background-size:112% 100%; background-position:0 0; -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; color:transparent; }
+.title-accent{ color:var(--magenta); }
+.title-accent--green{ color:var(--violet); }
+
+.eyebrow{ font-family:var(--font-label); font-weight:600; font-size:9.5pt; letter-spacing:.34em; text-transform:uppercase; color:var(--cyan); }
+
+.corner{ position:absolute; width:42px; height:42px; border-color:rgba(11,90,39,.4); z-index:4; }
+.corner.tl{ top:26px; left:26px; border-top:2px solid; border-left:2px solid; border-top-left-radius:4px; }
+.corner.tr{ top:26px; right:26px; border-top:2px solid; border-right:2px solid; border-top-right-radius:4px; }
+.corner.bl{ bottom:26px; left:26px; border-bottom:2px solid; border-left:2px solid; border-bottom-left-radius:4px; }
+.corner.br{ bottom:26px; right:26px; border-bottom:2px solid; border-right:2px solid; border-bottom-right-radius:4px; }
+
+.deco-rings{ position:absolute; top:50%; right:-7%; transform:translateY(-50%); width:5.2in; height:5.2in; z-index:1; pointer-events:none; }
+.deco-rings span{ position:absolute; inset:0; border-radius:50%; border:1px solid rgba(20,25,35,.07); }
+.deco-rings span:nth-child(2){ inset:.7in; border-color:rgba(20,25,35,.055); }
+.deco-rings span:nth-child(3){ inset:1.4in; border-color:rgba(20,25,35,.04); }
+.deco-rings span:nth-child(4){ inset:1.95in; border:1px solid rgba(1,97,184,.18); box-shadow:0 0 40px rgba(1,97,184,.1) inset; }
+
+.badge-confidential{ display:inline-flex; align-items:center; gap:9px; font-family:var(--font-label); font-weight:600; font-size:8.5pt; letter-spacing:.26em; text-transform:uppercase; color:var(--text-mid); }
+.badge-confidential::before{ content:""; width:8px; height:8px; border-radius:50%; background:var(--dot-confidential); box-shadow:0 0 10px 1px var(--dot-confidential-glow); }
+
+/* ---------- 6. PORTADA ---------- */
+.cover{ display:grid; grid-template-rows:auto 1fr auto; padding:var(--pad); }
+.cover__topbar{ display:flex; align-items:center; justify-content:space-between; position:relative; z-index:5; }
+.cover__brand{ height:26px; width:auto; opacity:.96; }
+.cover__body{ position:relative; z-index:5; align-self:center; max-width:8.4in; }
+.cover__eyebrow{ margin-bottom:20px; }
+.cover__scenario{ display:inline-flex; align-items:center; gap:9px; font-family:var(--font-label); font-weight:700; font-size:9.5pt; letter-spacing:.22em; text-transform:uppercase; color:#fff; background:var(--grad-brand); padding:7px 16px; border-radius:99px; margin-bottom:18px; }
+.cover__title{ font-family:var(--font-display); font-weight:900; font-size:42pt; line-height:1.06; letter-spacing:-.5px; color:var(--text-hi); }
+.cover__title em{ display:inline; font-style:italic; font-weight:900; }
+.cover__kicker{ margin-top:18px; font-family:var(--font-label); font-weight:500; font-size:9.5pt; letter-spacing:.12em; text-transform:uppercase; color:var(--text-lo); }
+.cover__client{ display:flex; align-items:center; gap:16px; margin-top:26px; }
+.cover__client-para{ font-family:var(--font-label); font-weight:700; font-size:11pt; letter-spacing:.32em; color:var(--text-mid); }
+.cover__client-logo{ height:48px; width:auto; }
+.cover__subtitle{ margin-top:16px; font-family:var(--font-body); font-weight:300; font-size:13pt; color:var(--text-mid); }
+.cover__meta{ position:relative; z-index:5; display:grid; grid-template-columns:1.5fr 1.5fr 1fr 1fr; gap:26px; padding-top:22px; border-top:1px solid rgba(20,25,35,.12); }
+.meta-item__label{ font-family:var(--font-label); font-weight:600; font-size:7.5pt; letter-spacing:.22em; text-transform:uppercase; color:var(--cyan); margin-bottom:8px; }
+.meta-item__value{ font-family:var(--font-body); font-weight:500; font-size:10.5pt; line-height:1.35; color:var(--text-hi); }
+
+/* ---------- 7. LÁMINAS INTERNAS: estructura ---------- */
+.internal{ display:grid; grid-template-rows:38px 1fr 20px; padding:.46in .66in .4in; gap:.16in; }
+.s-header{ display:flex; align-items:center; justify-content:space-between; position:relative; z-index:5; }
+.s-header .brand{ height:20px; width:auto; opacity:.95; }
+.s-header .client{ height:32px; width:auto; opacity:.98; }
+.s-footer{ display:flex; align-items:center; justify-content:space-between; position:relative; z-index:5; font-family:var(--font-label); font-weight:500; font-size:6.5pt; letter-spacing:.18em; text-transform:uppercase; color:var(--text-faint); }
+.s-footer .pg{ color:var(--cyan); font-weight:700; }
+.s-body{ position:relative; z-index:5; display:flex; flex-direction:column; min-height:0; }
+
+.s-eyebrow{ font-family:var(--font-label); font-weight:600; font-size:9pt; letter-spacing:.28em; text-transform:uppercase; color:var(--cyan); margin-bottom:8px; }
+.s-title{ font-family:var(--font-display); font-weight:700; font-size:23pt; line-height:1.1; color:var(--text-hi); }
+.s-title em{ font-style:italic; font-weight:900; }
+.s-lead{ margin-top:7px; font-family:var(--font-body); font-weight:300; font-size:10.4pt; line-height:1.42; color:var(--text-mid); max-width:8.6in; }
+
+/* ---------- 8. LAYOUT: Métricas (Línea base) ---------- */
+.stats{ flex:1; display:grid; grid-template-columns:repeat(4,1fr); gap:.28in; margin-top:.3in; align-content:center; }
+.stat{ background:var(--bg-2); border:var(--card-border); border-radius:14px; padding:.36in .28in; position:relative; overflow:hidden; }
+.stat::before{ content:""; position:absolute; left:0; right:0; top:0; height:3px; background:var(--grad-brand); }
+.stat .num{ font-family:var(--font-display); font-weight:900; font-size:29pt; line-height:1; letter-spacing:-1px; }
+.stat .lbl{ margin-top:14px; font-family:var(--font-label); font-weight:700; font-size:9.5pt; color:var(--text-hi); line-height:1.25; }
+.stat .dsc{ margin-top:8px; font-family:var(--font-body); font-weight:300; font-size:8.5pt; line-height:1.4; color:var(--text-lo); }
+
+/* ---------- 9. LAYOUT: Split (El reto) ---------- */
+.split{ flex:1; display:grid; grid-template-columns:.82fr 1.18fr; gap:.5in; align-items:center; margin-top:.24in; }
+.quote-card{ position:relative; background:var(--bg-2); border:var(--card-border); border-radius:12px; padding:.34in .34in .34in .46in; overflow:hidden; }
+.quote-card::before{ content:""; position:absolute; left:0; top:0; bottom:0; width:5px; background:var(--grad-brand); }
+.quote-card p{ font-family:var(--font-display); font-style:italic; font-weight:400; font-size:14.5pt; line-height:1.4; color:var(--text-hi); }
+.quote-card .qm{ font-family:var(--font-display); font-weight:900; font-size:34pt; line-height:0; color:var(--cyan); display:block; height:16px; }
+.pain-list{ display:flex; flex-direction:column; gap:.19in; list-style:none; }
+.pain-item{ display:flex; align-items:flex-start; gap:14px; }
+.pain-item .ico{ flex:none; width:26px; height:26px; border-radius:8px; display:grid; place-items:center; background:linear-gradient(135deg,rgba(255,212,0,.18),rgba(1,97,184,.14)); color:var(--cyan); font-weight:700; font-size:12pt; margin-top:1px; }
+.pain-item .tx{ font-family:var(--font-body); font-weight:400; font-size:10.4pt; line-height:1.42; color:var(--text-mid); }
+
+/* ---------- 10. LAYOUT: Arquitectura (Diagrama de capas) ---------- */
+.arch{ flex:1; display:flex; flex-direction:column; gap:.04in; margin-top:.06in; justify-content:center; }
+.layer{ background:var(--bg-2); border:var(--card-border); border-radius:12px; padding:.09in .24in; position:relative; overflow:hidden; display:grid; grid-template-columns:2.15in 1fr; align-items:center; gap:.22in; }
+.layer::before{ content:""; position:absolute; left:0; top:0; bottom:0; width:5px; }
+.layer.l1::before{ background:var(--grad-cyan); }
+.layer.l2::before{ background:var(--grad-brand); }
+.layer.l3::before{ background:var(--grad-violet); }
+.layer.l4::before{ background:linear-gradient(120deg,#0E7A3E,#0A5CA8); }
+.layer .l-head{ display:flex; flex-direction:column; gap:2px; min-width:0; }
+.layer .l-tag{ font-family:var(--font-label); font-weight:700; font-size:6.6pt; letter-spacing:.1em; text-transform:uppercase; color:var(--cyan); white-space:nowrap; }
+.layer .l-name{ font-family:var(--font-display); font-weight:700; font-size:11pt; color:var(--text-hi); line-height:1.05; white-space:nowrap; }
+.layer .l-items{ display:flex; flex-wrap:wrap; gap:6px; min-width:0; }
+.chip{ font-family:var(--font-body); font-weight:400; font-size:7.3pt; color:var(--text-mid); background:rgba(20,25,35,.04); border:1px solid rgba(20,25,35,.12); border-radius:99px; padding:4px 9px; white-space:nowrap; }
+.arch-conn{ display:grid; place-items:center; height:16px; color:var(--blue); }
+.arch-conn svg{ width:12px; height:12px; display:block; }
+
+/* ---------- 11. LAYOUT: Grid de módulos ---------- */
+.feat-grid{ flex:1; display:grid; gap:.16in; margin-top:.14in; align-content:center; min-height:0; }
+.feat-card{ background:var(--bg-2); border:var(--card-border); border-radius:12px; padding:.18in .2in; display:flex; flex-direction:column; position:relative; overflow:hidden; }
+.feat-card::before{ content:""; position:absolute; left:0; right:0; top:0; height:3px; background:var(--grad-brand); }
+.feat-card .rf{ display:block; font-family:var(--font-label); font-weight:700; font-size:7.6pt; letter-spacing:.1em; margin-bottom:7px; color:var(--cyan); }
+.feat-card h4{ font-family:var(--font-label); font-weight:700; font-size:10.8pt; color:var(--text-hi); margin-bottom:7px; line-height:1.24; }
+.feat-card p{ font-family:var(--font-body); font-weight:300; font-size:9pt; line-height:1.4; color:var(--text-lo); }
+.feat-card ul{ list-style:none; display:flex; flex-direction:column; gap:4px; }
+.feat-card li{ font-family:var(--font-body); font-weight:300; font-size:8.6pt; line-height:1.36; color:var(--text-lo); padding-left:13px; position:relative; }
+.feat-card li::before{ content:"—"; position:absolute; left:0; color:var(--cyan); }
+
+/* Variante grande — módulos con pocas tarjetas, para llenar el aire vertical disponible */
+.feat-card--lg{ padding:.42in .36in; }
+.feat-card--lg .rf{ font-size:8.6pt; margin-bottom:13px; }
+.feat-card--lg h4{ font-size:14pt; margin-bottom:11px; line-height:1.22; }
+.feat-card--lg p{ font-size:10.2pt; line-height:1.48; }
+
+/* ---------- 12. LAYOUT: Equipo (roles) ---------- */
+.team-grid{ flex:1; display:grid; grid-template-columns:repeat(4,1fr); grid-auto-rows:1fr; gap:.16in; margin-top:.18in; align-content:center; min-height:0; }
+.team-card{ background:var(--bg-2); border:var(--card-border); border-radius:14px; padding:.2in .18in; display:flex; flex-direction:column; align-items:flex-start; justify-content:center; gap:6px; position:relative; overflow:hidden; }
+.team-card::before{ content:""; position:absolute; left:0; top:0; bottom:0; width:4px; background:var(--grad-brand); }
+.team-card .role-badge{ width:34px; height:34px; border-radius:9px; display:grid; place-items:center; background:var(--grad-brand); color:#fff; font-family:var(--font-display); font-weight:900; font-size:11pt; }
+.team-card h4{ font-family:var(--font-label); font-weight:700; font-size:9.6pt; color:var(--text-hi); line-height:1.18; }
+.team-card p{ font-family:var(--font-body); font-weight:300; font-size:8.4pt; line-height:1.34; color:var(--text-lo); }
+
+/* ---------- 13. LAYOUT: Timeline de fases ---------- */
+.timeline{ flex:1; display:flex; flex-direction:column; justify-content:center; gap:.1in; margin-top:.14in; min-height:0; }
+.timeline-row{ position:relative; display:grid; grid-template-columns:repeat(4,1fr); gap:.28in; }
+.timeline-row::before{ content:""; position:absolute; top:-0.02in; left:26px; right:26px; height:2px; background:var(--grad-brand); opacity:.45; }
+.phase{ position:relative; padding-top:.42in; }
+.phase .node{ position:absolute; top:-0.19in; left:0; width:52px; height:46px; border-radius:12px; display:grid; place-items:center; font-family:var(--font-display); font-weight:900; font-size:12pt; white-space:nowrap; color:#fff; background:var(--grad-brand); box-shadow:0 4px 14px rgba(11,90,39,.28); }
+.phase h4{ font-family:var(--font-label); font-weight:700; font-size:10.2pt; line-height:1.26; color:var(--text-hi); margin-bottom:8px; }
+.phase p{ font-family:var(--font-body); font-weight:300; font-size:8.6pt; line-height:1.44; color:var(--text-lo); }
+.phase .dur{ display:inline-block; margin-top:9px; font-family:var(--font-label); font-weight:600; font-size:7pt; letter-spacing:.1em; text-transform:uppercase; color:var(--cyan); background:rgba(1,97,184,.08); border-radius:99px; padding:4px 10px; }
+.timeline-note{ margin-top:.22in; background:linear-gradient(120deg,rgba(255,212,0,.08),rgba(1,97,184,.08)); border:var(--card-border); border-radius:12px; padding:.16in .26in; display:flex; align-items:center; gap:16px; }
+.timeline-note .lbl{ flex:none; font-family:var(--font-label); font-weight:700; font-size:8pt; letter-spacing:.16em; text-transform:uppercase; color:var(--cyan); }
+.timeline-note p{ font-family:var(--font-body); font-weight:300; font-size:9pt; line-height:1.4; color:var(--text-mid); }
+
+/* ---------- 14. LAYOUT: Inversión (hero centrado, sin desglose por módulo) ---------- */
+.invest-solo{ flex:1; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; gap:2px; margin-top:.1in; }
+.invest-solo .cap{ font-family:var(--font-label); font-weight:600; font-size:9.5pt; letter-spacing:.3em; text-transform:uppercase; color:var(--cyan); margin-bottom:10px; }
+.invest-solo .big{ display:inline-block; width:fit-content; font-family:var(--font-display); font-weight:900; font-size:56pt; line-height:1; letter-spacing:-1px; }
+.invest-solo .sub{ margin-top:22px; font-family:var(--font-body); font-weight:300; font-size:11.5pt; line-height:1.55; color:var(--text-mid); max-width:6.6in; }
+.invest-solo .pay-note{ margin-top:16px; font-family:var(--font-body); font-weight:300; font-size:9pt; line-height:1.4; color:var(--text-lo); max-width:5.6in; }
+
+/* ---------- 15. LAYOUT: Cierre / CTA ---------- */
+.cta{ flex:1; display:grid; grid-template-columns:1.15fr .85fr; gap:.55in; align-items:center; margin-top:.2in; }
+.steps{ display:flex; flex-direction:column; gap:.22in; }
+.step{ display:flex; align-items:center; gap:18px; }
+.step .dot{ flex:none; width:38px; height:38px; border-radius:50%; display:grid; place-items:center; font-family:var(--font-display); font-weight:900; font-size:14pt; color:#fff; background:var(--grad-brand); }
+.step .lab b{ font-family:var(--font-label); font-weight:700; font-size:12.5pt; color:var(--text-hi); display:block; margin-bottom:2px; }
+.step .lab span{ font-family:var(--font-body); font-weight:300; font-size:10pt; line-height:1.35; color:var(--text-lo); }
+.step .cn{ width:2px; height:15px; margin-left:18px; background:linear-gradient(var(--blue),transparent); }
+.contact-card{ position:relative; background:var(--bg-2); border:var(--card-border); border-radius:16px; padding:.4in .38in; overflow:hidden; }
+.contact-card::before{ content:""; position:absolute; left:0; top:0; bottom:0; width:5px; background:var(--grad-brand); }
+.contact-card .role{ font-family:var(--font-label); font-weight:600; font-size:8.5pt; letter-spacing:.2em; text-transform:uppercase; color:var(--cyan); margin-bottom:11px; }
+.contact-card .name{ font-family:var(--font-display); font-weight:700; font-size:21pt; color:var(--text-hi); line-height:1.1; margin-bottom:17px; }
+.contact-card .row{ display:flex; align-items:center; gap:12px; margin-top:11px; font-family:var(--font-body); font-weight:400; font-size:10.6pt; color:var(--text-mid); }
+.contact-card .row svg{ width:16px; height:16px; color:var(--cyan); flex:none; }
+
+/* ---------- 16. IMPRESIÓN ---------- */
+@media print{
+  html,body{ width:11in; height:auto; background:none; padding:0; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  .slide{ width:11in; height:6.1875in; margin:0; border-radius:0; box-shadow:none; overflow:hidden; break-inside:avoid; }
+  .slide + .slide{ page-break-before:always; break-before:page; }
+}

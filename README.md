@@ -48,8 +48,8 @@ Para ver los cambios mientras editas o desarrollas una nueva lámina, simplement
 - **(Recomendado):** Utiliza una herramienta de servidor local (como *Live Server* en VSCode) para que el navegador se actualice automáticamente con cada cambio guardado.
 
 ### Despliegue y Exportación Final
-Las presentaciones están creadas para entregarse bajo dos modalidades principales:
+Toda presentación se entrega bajo **dos modalidades obligatorias, ninguna opcional ni reemplaza a la otra**:
 
-1. **Despliegue Web en la Nube:** Las presentaciones se suben a **Vercel** como un sitio estático para revisiones en línea rápidas.
+1. **Despliegue Web en Vercel:** Las presentaciones se suben a **Vercel** como sitio estático. El link se comparte en el chat al terminar de crear o modificar cualquier presentación (ver regla obligatoria de `CLAUDE.md`).
    - *URL de ejemplo:* `https://fullservice-presentaciones.vercel.app/<slug-cliente>/index.html`
-2. **Exportación a PDF (Entrega Final al Cliente):** Este es el formato de entrega preferido. Una vez aprobado el HTML, se utiliza la opción de exportar a PDF (a menudo mediante Chrome headless) para asegurar que el archivo final quede idéntico al renderizado web, y sea portable y fácil de enviar e imprimir.
+2. **Exportación a PDF (Entrega Final al Cliente):** Una vez aprobado el HTML, se exporta a PDF (Chrome headless) para asegurar que el archivo final quede idéntico al renderizado web, y sea portable y fácil de enviar e imprimir. Es el archivo que efectivamente recibe el cliente.

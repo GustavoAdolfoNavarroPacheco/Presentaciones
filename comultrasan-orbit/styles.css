@@ -84,18 +84,18 @@ body{ display:flex; flex-direction:column; align-items:center; padding:24px; }
 .cover{ display:flex; flex-direction:column; padding:var(--pad); }
 .cover__topbar{ flex:none; display:flex; align-items:center; justify-content:space-between; position:relative; z-index:5; }
 .cover__brand{ height:36px; width:auto; opacity:.96; }
-.cover__body{ position:relative; z-index:5; max-width:8.6in; width:100%; margin-top:auto; margin-bottom:auto; text-align:left; }
-.cover__eyebrow{ margin-bottom:20px; text-align:left; }
-.cover__scenario{ display:inline-flex; align-items:center; gap:9px; font-family:var(--font-label); font-weight:700; font-size:9.5pt; letter-spacing:.22em; text-transform:uppercase; color:#F5FBF7; background:var(--grad-brand); padding:7px 16px; border-radius:99px; margin-bottom:18px; }
-.cover__title{ font-family:var(--font-display); font-weight:900; font-size:36pt; line-height:1.1; letter-spacing:-.5px; color:var(--text-hi); text-align:left; }
+.cover__body{ position:relative; z-index:5; max-width:8.6in; width:100%; margin-top:.04in; text-align:left; }
+.cover__eyebrow{ margin-bottom:12px; text-align:left; }
+.cover__scenario{ display:inline-flex; align-items:center; gap:9px; font-family:var(--font-label); font-weight:700; font-size:9.5pt; letter-spacing:.22em; text-transform:uppercase; color:#F5FBF7; background:var(--grad-brand); padding:6px 16px; border-radius:99px; margin-bottom:10px; }
+.cover__title{ font-family:var(--font-display); font-weight:900; font-size:28pt; line-height:1.08; letter-spacing:-.5px; color:var(--text-hi); text-align:left; }
 .cover__title em{ display:inline; font-style:italic; font-weight:900; }
-.cover__kicker{ margin-top:16px; font-family:var(--font-body); font-weight:300; font-size:11.5pt; line-height:1.4; color:var(--text-mid); max-width:7.6in; text-align:left; }
-.cover__client{ display:flex; align-items:center; justify-content:flex-start; gap:16px; margin-top:24px; }
+.cover__kicker{ margin-top:10px; font-family:var(--font-body); font-weight:300; font-size:10.5pt; line-height:1.32; color:var(--text-mid); max-width:7.6in; text-align:left; }
+.cover__client{ display:flex; align-items:center; justify-content:flex-start; gap:16px; margin-top:14px; }
 .cover__client-para{ font-family:var(--font-label); font-weight:700; font-size:11pt; letter-spacing:.32em; color:var(--text-mid); }
 .cover__client-logo{ height:58px; width:auto; }
-.cover__meta{ flex:none; position:relative; z-index:5; display:grid; grid-template-columns:1.3fr 1.3fr 1.2fr 1.2fr; gap:26px; padding-top:22px; border-top:1px solid rgba(20,25,35,.12); }
-.meta-item__label{ font-family:var(--font-label); font-weight:600; font-size:7.5pt; letter-spacing:.22em; text-transform:uppercase; color:var(--cyan); margin-bottom:8px; }
-.meta-item__value{ font-family:var(--font-body); font-weight:500; font-size:10pt; line-height:1.35; color:var(--text-hi); }
+.cover__meta{ flex:none; position:relative; z-index:5; display:grid; grid-template-columns:1.3fr 1.3fr 1.2fr 1.2fr; gap:26px; margin-top:.06in; padding-top:16px; border-top:1px solid rgba(20,25,35,.12); }
+.meta-item__label{ font-family:var(--font-label); font-weight:600; font-size:7.5pt; letter-spacing:.22em; text-transform:uppercase; color:var(--cyan); margin-bottom:5px; }
+.meta-item__value{ font-family:var(--font-body); font-weight:500; font-size:9pt; line-height:1.28; color:var(--text-hi); }
 
 /* ---------- 8. LÁMINAS INTERNAS: estructura ---------- */
 .internal{ display:grid; grid-template-rows:44px 1fr 20px; padding:.4in .66in .4in; gap:.14in; }
@@ -204,13 +204,12 @@ body{ display:flex; flex-direction:column; align-items:center; padding:24px; }
 .chat-mock .msg.orbit .bubble{ background:linear-gradient(135deg,rgba(11,102,103,.08),rgba(76,170,62,.08)); border:1px solid rgba(11,102,103,.16); color:var(--text-hi); border-top-left-radius:3px; }
 .chat-mock .msg.asociado .bubble{ background:var(--bg-1); color:var(--text-mid); border-top-right-radius:3px; }
 
-/* ---------- 16. LAYOUT: Tabla técnica (Arquitectura e Integraciones) ---------- */
-.tech-table{ flex:1; display:flex; flex-direction:column; margin-top:.14in; border:var(--card-border); border-radius:12px; background:var(--bg-2); overflow:hidden; min-height:0; justify-content:center; }
-.tech-row{ display:grid; grid-template-columns:1.95in 1fr; gap:.24in; padding:.11in .22in; border-bottom:1px solid rgba(20,25,35,.07); align-items:center; }
-.tech-row:last-child{ border-bottom:none; }
-.tech-row:nth-child(even){ background:rgba(20,25,35,.02); }
-.tech-row .lbl{ font-family:var(--font-label); font-weight:700; font-size:9.2pt; color:var(--cyan); line-height:1.3; }
-.tech-row .tx{ font-family:var(--font-body); font-weight:400; font-size:9pt; line-height:1.4; color:var(--text-mid); }
+/* ---------- 16. LAYOUT: Grid de módulos técnicos (Arquitectura e Integraciones) ---------- */
+.tech-grid{ flex:1; display:grid; grid-template-columns:repeat(2,1fr); gap:.16in; margin-top:.18in; align-content:center; min-height:0; }
+.tech-item{ background:var(--bg-2); border:var(--card-border); border-radius:12px; padding:.16in .22in; position:relative; overflow:hidden; display:flex; flex-direction:column; justify-content:center; gap:4px; }
+.tech-item::before{ content:""; position:absolute; left:0; top:0; bottom:0; width:4px; background:var(--grad-brand); }
+.tech-item h5{ font-family:var(--font-label); font-weight:700; font-size:9.2pt; color:var(--cyan); line-height:1.28; }
+.tech-item p{ font-family:var(--font-body); font-weight:400; font-size:8.1pt; line-height:1.36; color:var(--text-mid); }
 
 /* ---------- 17. LAYOUT: Timeline de fases (Roadmap) ---------- */
 .timeline{ flex:1; display:flex; flex-direction:column; justify-content:center; gap:.36in; margin-top:.14in; min-height:0; }
@@ -221,18 +220,32 @@ body{ display:flex; flex-direction:column; align-items:center; padding:24px; }
 .phase h4{ font-family:var(--font-label); font-weight:700; font-size:9.8pt; line-height:1.28; color:var(--text-hi); margin-bottom:8px; }
 .phase p{ font-family:var(--font-body); font-weight:300; font-size:8.4pt; line-height:1.44; color:var(--text-lo); }
 
-/* ---------- 18. LAYOUT: Esquema Comercial y SLA ---------- */
-.commercial{ flex:1; display:flex; flex-direction:column; gap:.26in; margin-top:.22in; justify-content:center; min-height:0; }
-.modalities{ display:grid; grid-template-columns:repeat(2,1fr); gap:.24in; }
-.modality-card{ background:var(--bg-2); border:var(--card-border); border-radius:12px; padding:.3in .3in; position:relative; overflow:hidden; }
-.modality-card::before{ content:""; position:absolute; left:0; top:0; bottom:0; width:4px; background:var(--grad-brand); }
-.modality-card .tag{ display:block; font-family:var(--font-label); font-weight:700; font-size:8pt; letter-spacing:.14em; text-transform:uppercase; color:var(--cyan); margin-bottom:10px; }
-.modality-card p{ font-family:var(--font-body); font-weight:400; font-size:10pt; line-height:1.5; color:var(--text-mid); }
-.side-note p{ font-weight:400; color:var(--text-hi); }
-.sla-row{ display:flex; gap:.28in; }
-.sla-item{ flex:1; display:flex; align-items:flex-start; gap:12px; }
-.sla-item .ico{ flex:none; width:26px; height:26px; border-radius:8px; margin-top:1px; background:linear-gradient(135deg,rgba(11,102,103,.16),rgba(76,170,62,.14)); color:var(--cyan); display:grid; place-items:center; font-family:var(--font-label); font-weight:700; font-size:10pt; line-height:1; }
-.sla-item p{ font-family:var(--font-body); font-weight:400; font-size:9.4pt; line-height:1.44; color:var(--text-mid); }
+/* ---------- 18. LAYOUT: Esquema Comercial y SLA (precio hero + stat-row + bloques + panel lateral) ---------- */
+.price-hero{ display:flex; flex-direction:column; gap:3px; margin-top:.14in; }
+.price-hero__lbl{ font-family:var(--font-label); font-weight:700; font-size:8.4pt; letter-spacing:.18em; text-transform:uppercase; color:var(--cyan); }
+.price-hero__num{ font-family:var(--font-display); font-weight:900; font-style:italic; font-size:27pt; letter-spacing:-.4px; color:var(--text-hi); line-height:1.05; }
+.price-hero__num .cop{ font-size:13pt; font-weight:700; font-style:normal; color:var(--text-lo); margin-left:2px; }
+
+.commercial-v2{ flex:1; display:grid; grid-template-columns:1.85fr 1fr; gap:.4in; margin-top:.2in; min-height:0; }
+.commercial-left{ display:flex; flex-direction:column; justify-content:center; gap:.2in; }
+.stat-row-3{ display:grid; grid-template-columns:repeat(3,1fr); gap:.2in; }
+.stat-box{ background:var(--bg-2); border:var(--card-border); border-radius:14px; padding:.26in .2in; text-align:center; position:relative; overflow:hidden; }
+.stat-box::before{ content:""; position:absolute; left:0; top:0; width:100%; height:3px; background:var(--grad-brand); }
+.stat-box .num{ display:block; font-family:var(--font-display); font-weight:900; font-style:italic; font-size:26pt; color:var(--cyan); line-height:1; margin-bottom:9px; }
+.stat-box .lbl{ display:block; font-family:var(--font-label); font-weight:700; font-size:8.2pt; letter-spacing:.03em; color:var(--text-hi); line-height:1.3; }
+
+.modality-blocks{ display:grid; grid-template-columns:repeat(2,1fr); gap:.22in; }
+.modality-block{ background:var(--bg-2); border:var(--card-border); border-radius:12px; padding:.14in .24in; position:relative; overflow:hidden; display:flex; align-items:center; }
+.modality-block::before{ content:""; position:absolute; left:0; top:0; bottom:0; width:4px; background:var(--grad-brand); }
+.modality-block h5{ font-family:var(--font-label); font-weight:700; font-size:9.8pt; color:var(--cyan); }
+
+.sla-panel{ position:relative; background:var(--bg-2); border:var(--card-border); border-radius:14px; padding:.3in .3in .3in .4in; display:flex; flex-direction:column; justify-content:center; gap:.2in; overflow:hidden; }
+.sla-panel::before{ content:""; position:absolute; left:0; top:0; bottom:0; width:5px; background:var(--grad-brand); }
+.sla-panel h4{ font-family:var(--font-display); font-weight:700; font-size:14pt; color:var(--text-hi); }
+.sla-panel .sla-list{ display:flex; flex-direction:column; gap:.15in; }
+.sla-panel .sla-check{ display:flex; align-items:flex-start; gap:11px; }
+.sla-panel .sla-check .ck{ flex:none; width:16px; height:16px; margin-top:2px; color:var(--violet); }
+.sla-panel .sla-check p{ font-family:var(--font-body); font-weight:400; font-size:9pt; line-height:1.42; color:var(--text-mid); }
 
 /* ---------- 19. LAYOUT: Cierre / CTA ---------- */
 .cta{ flex:1; display:grid; grid-template-columns:1.15fr .85fr; gap:.55in; align-items:center; margin-top:.2in; min-height:0; }

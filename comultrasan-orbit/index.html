@@ -301,15 +301,15 @@
     <div class="s-body">
       <div class="s-eyebrow">08 · Stack e Infraestructura</div>
       <h2 class="s-title">Arquitectura técnica <svg class="gt" viewBox="0 0 7075 1083" style="height:1em;"><text x="0" y="1083" fill="url(#gradBrand)" style="font:italic 900 1000px 'Playfair Display',serif;">e integraciones</text></svg></h2>
-      <div class="tech-table">
-        <div class="tech-row"><span class="lbl">Motor de IA Generativa</span><span class="tx">LLM de propósito general (familia GPT / Azure OpenAI) entrenado con prompts, políticas y contenido propio de Comultrasan.</span></div>
-        <div class="tech-row"><span class="lbl">Orquestador Multiagente</span><span class="tx">Orbit (Campuslands): clasificación de intención, enrutamiento interno y gestión de tono de respuesta por área.</span></div>
-        <div class="tech-row"><span class="lbl">Canal Principal — WhatsApp</span><span class="tx">Integración vía WhatsApp Business (Meta Cloud API), sobre la línea que Comultrasan designe.</span></div>
-        <div class="tech-row"><span class="lbl">Canales Adicionales</span><span class="tx">Enlace con el botón "Canales Digitales" del portal web y el asistente actual de Facebook, sin chat paralelo.</span></div>
-        <div class="tech-row"><span class="lbl">CRM / Trazabilidad Comercial</span><span class="tx">Integración vía API con HubSpot — ya utilizado por Comultrasan — para trazabilidad de leads al equipo comercial.</span></div>
-        <div class="tech-row"><span class="lbl">Core Financiero</span><span class="tx">En esta fase, Orbit informa y guía; no ejecuta transacciones ni consulta saldos o movimientos individuales.</span></div>
-        <div class="tech-row"><span class="lbl">Identidad y Datos Sensibles</span><span class="tx">El asistente no solicita ni expone datos transaccionales; toda consulta con autenticación se deriva a canales oficiales.</span></div>
-        <div class="tech-row"><span class="lbl">Escalamiento Humano</span><span class="tx">Toda consulta fuera del entrenamiento se deriva a una línea definida por Comultrasan, con reporte de vacíos de conocimiento.</span></div>
+      <div class="tech-grid">
+        <div class="tech-item"><h5>Motor de IA Generativa</h5><p>LLM de propósito general (familia GPT / Azure OpenAI) entrenado con prompts, políticas y contenido propio de Comultrasan.</p></div>
+        <div class="tech-item"><h5>Orquestador Multiagente</h5><p>Orbit (Campuslands): clasificación de intención, enrutamiento interno y gestión de tono de respuesta por área.</p></div>
+        <div class="tech-item"><h5>Canal Principal — WhatsApp</h5><p>Integración vía WhatsApp Business (Meta Cloud API), sobre la línea que Comultrasan designe.</p></div>
+        <div class="tech-item"><h5>Canales Adicionales</h5><p>Enlace con el botón "Canales Digitales" del portal web y el asistente actual de Facebook, sin chat paralelo.</p></div>
+        <div class="tech-item"><h5>CRM / Trazabilidad Comercial</h5><p>Integración vía API con HubSpot — ya utilizado por Comultrasan — para trazabilidad de leads al equipo comercial.</p></div>
+        <div class="tech-item"><h5>Core Financiero</h5><p>En esta fase, Orbit informa y guía; no ejecuta transacciones ni consulta saldos o movimientos individuales.</p></div>
+        <div class="tech-item"><h5>Identidad y Datos Sensibles</h5><p>El asistente no solicita ni expone datos transaccionales; toda consulta con autenticación se deriva a canales oficiales.</p></div>
+        <div class="tech-item"><h5>Escalamiento Humano</h5><p>Toda consulta fuera del entrenamiento se deriva a una línea definida por Comultrasan, con reporte de vacíos de conocimiento.</p></div>
       </div>
     </div>
     <footer class="s-footer">
@@ -380,16 +380,28 @@
     <div class="s-body">
       <div class="s-eyebrow">11 · Nivel Comercial</div>
       <h2 class="s-title">Esquema comercial <svg class="gt" viewBox="0 0 2635 1083" style="height:1em;"><text x="0" y="1083" fill="url(#gradBrand)" style="font:italic 900 1000px 'Playfair Display',serif;">y SLA</text></svg></h2>
-      <div class="commercial">
-        <div class="modalities">
-          <div class="modality-card"><span class="tag">Modalidad A · Proyecto por Fases</span><p>Alcance cerrado tras la toma de requerimientos, con pagos asociados a los hitos de entrega del cronograma.</p></div>
-          <div class="modality-card"><span class="tag">Modalidad B · Acompañamiento Continuo</span><p>Posterior al despliegue: soporte, ajustes de contenido entrenado y optimización basada en analítica.</p></div>
+      <p class="s-lead">Pagos por hitos, sin sorpresas.</p>
+      <div class="price-hero"><span class="price-hero__lbl">Inversión Total</span><span class="price-hero__num">$85.630.624,33 <span class="cop">COP</span></span></div>
+      <div class="commercial-v2">
+        <div class="commercial-left">
+          <div class="stat-row-3">
+            <div class="stat-box"><span class="num">40%</span><span class="lbl">Anticipo de Inicio</span></div>
+            <div class="stat-box"><span class="num">40%</span><span class="lbl">A Mitad del Proyecto</span></div>
+            <div class="stat-box"><span class="num">20%</span><span class="lbl">A la Entrega (Go-Live)</span></div>
+          </div>
+          <div class="modality-blocks">
+            <div class="modality-block"><h5>01. Proyecto por Fases</h5></div>
+            <div class="modality-block"><h5>02. Acompañamiento Continuo</h5></div>
+          </div>
         </div>
-        <div class="side-note"><span class="lbl">Inversión</span><p>Rango de inversión a definir tras la toma de requerimientos técnica — varía según las líneas de negocio activadas, el volumen de contenido a entrenar y el alcance de integraciones (WhatsApp Business, HubSpot).</p></div>
-        <div class="sla-row">
-          <div class="sla-item"><span class="ico">1</span><p>Seguimiento activo de consultas no resueltas, reportadas para cerrar vacíos de entrenamiento.</p></div>
-          <div class="sla-item"><span class="ico">2</span><p>Ciclos de ajuste conjuntos cada 8–15 días, durante el desarrollo y tras el lanzamiento.</p></div>
-          <div class="sla-item"><span class="ico">3</span><p>Cumplimiento de los parámetros de Meta para mensajería comercial en WhatsApp Business.</p></div>
+        <div class="sla-panel">
+          <h4>Garantía y soporte</h4>
+          <div class="sla-list">
+            <div class="sla-check"><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg><p>2 semanas de pruebas y estabilización antes del cierre.</p></div>
+            <div class="sla-check"><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg><p>Soporte post go-live.</p></div>
+            <div class="sla-check"><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg><p>Control de cambios documentado.</p></div>
+            <div class="sla-check"><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg><p>Transparencia total durante el proyecto.</p></div>
+          </div>
         </div>
       </div>
     </div>

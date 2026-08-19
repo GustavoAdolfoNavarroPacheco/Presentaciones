@@ -89,17 +89,19 @@ svg.gt{ display:inline; vertical-align:baseline; overflow:visible; }
 .slides-container{ flex:1; position:relative; display:flex; align-items:center; justify-content:center; padding:22px 40px; min-width:0; }
 
 /* La lámina se dibuja siempre a su tamaño nativo (11in × 6.1875in = 1056×594px a 96dpi,
-   igual que el PDF impreso) y se reescala como un todo con transform:scale() según el
-   espacio disponible — así el contenido en pt/in nunca se desborda ni se recorta al
-   achicar la ventana; solo cambia el factor de escala (ver --slide-scale en script.js). */
+   igual que el PDF impreso) y se reescala como un todo con zoom según el espacio
+   disponible — a diferencia de transform:scale(), zoom reflowa el layout real (como si
+   el usuario cambiara el zoom del navegador), así el contenido en pt/in nunca se
+   desborda ni se recorta al achicar la ventana; solo cambia el factor de escala (ver
+   --slide-scale en script.js). Se evita transform:scale() a propósito: combinado con el
+   texto SVG en gradiente produce recortes de renderizado en Chrome headless. */
 .slide{
-  position:absolute; width:1056px; height:594px;
-  display:none; opacity:0; transform:scale(var(--slide-scale,1)) translateY(16px);
-  transform-origin:center center;
+  position:absolute; width:1056px; height:594px; zoom:var(--slide-scale,1);
+  display:none; opacity:0; transform:translateY(16px);
   transition:opacity .45s ease, transform .45s ease;
   border-radius:var(--radius); overflow:hidden; box-shadow:0 20px 60px rgba(15,25,40,.16);
 }
-.slide.active{ display:block; opacity:1; transform:scale(var(--slide-scale,1)) translateY(0); }
+.slide.active{ display:block; opacity:1; transform:translateY(0); }
 
 .slide-inner{
   width:100%; height:100%; overflow:hidden; position:relative;
@@ -165,7 +167,6 @@ svg.gt{ display:inline; vertical-align:baseline; overflow:visible; }
 .cover__eyebrow{ margin-bottom:20px; }
 .cover__scenario{ display:inline-flex; align-items:center; gap:9px; font-family:var(--font-label); font-weight:700; font-size:9.5pt; letter-spacing:.22em; text-transform:uppercase; color:#fff; background:var(--grad-brand); padding:7px 16px; border-radius:99px; margin-bottom:18px; }
 .cover__title{ font-family:var(--font-display); font-weight:900; font-size:40pt; line-height:1.08; letter-spacing:-.5px; color:var(--text-hi); }
-.cover__title svg.gt{ height:.92em; }
 .cover__kicker{ margin-top:18px; font-family:var(--font-label); font-weight:500; font-size:9.5pt; letter-spacing:.1em; text-transform:uppercase; color:var(--text-lo); }
 .cover__client{ display:flex; align-items:center; gap:16px; margin-top:26px; }
 .cover__client-para{ font-family:var(--font-label); font-weight:700; font-size:11pt; letter-spacing:.32em; color:var(--text-mid); }
@@ -186,7 +187,6 @@ svg.gt{ display:inline; vertical-align:baseline; overflow:visible; }
 
 .s-eyebrow{ font-family:var(--font-label); font-weight:600; font-size:8.8pt; letter-spacing:.28em; text-transform:uppercase; color:var(--cyan); margin-bottom:7px; }
 .s-title{ font-family:var(--font-display); font-weight:700; font-size:21pt; line-height:1.14; color:var(--text-hi); }
-.s-title svg.gt{ height:.9em; }
 .s-lead{ margin-top:6px; font-family:var(--font-body); font-weight:300; font-size:10pt; line-height:1.4; color:var(--text-mid); max-width:8.6in; }
 
 /* ---------- 11. LAYOUT: Split (Diagnóstico) ---------- */
@@ -233,7 +233,6 @@ svg.gt{ display:inline; vertical-align:baseline; overflow:visible; }
 .agent-col:last-child{ padding-right:0; }
 .agent-col .a-eyebrow{ font-family:var(--font-label); font-weight:700; font-size:8.8pt; letter-spacing:.16em; text-transform:uppercase; color:var(--cyan); margin-bottom:4px; }
 .agent-col .a-title{ font-family:var(--font-display); font-weight:800; font-size:15pt; line-height:1.14; color:var(--text-hi); }
-.agent-col .a-title svg.gt{ height:.88em; }
 .agent-col .a-lead{ margin-top:5px; font-family:var(--font-body); font-weight:300; font-size:8.8pt; line-height:1.34; color:var(--text-mid); }
 .agent-col .feat-grid{ grid-template-columns:1fr; flex:1; gap:.08in; margin-top:.1in; align-content:stretch; }
 .agent-col .feat-card{ padding:.11in .16in; justify-content:center; }
@@ -259,22 +258,6 @@ svg.gt{ display:inline; vertical-align:baseline; overflow:visible; }
 .eco-agent-chip span.t{ display:block; font-family:var(--font-label); font-weight:600; font-size:7.4pt; line-height:1.2; color:var(--text-mid); }
 .eco-agent-chip .price{ margin-top:3px; display:block; font-family:var(--font-body); font-weight:600; font-size:6.6pt; color:var(--cyan); }
 
-/* ---------- 15. LAYOUT: Inversión ---------- */
-.invest{ flex:1; display:grid; grid-template-columns:1fr 1.08fr; gap:.5in; align-items:center; margin-top:.06in; min-height:0; }
-.invest__num .cap{ font-family:var(--font-label); font-weight:600; font-size:9pt; letter-spacing:.24em; text-transform:uppercase; color:var(--cyan); margin-bottom:10px; }
-.invest__num .big{ font-family:var(--font-display); font-weight:900; font-size:30pt; line-height:1.05; letter-spacing:-.5px; }
-.invest__num .big svg.gt{ height:.9em; }
-.invest__num .sub{ margin-top:14px; font-family:var(--font-body); font-weight:300; font-size:9.6pt; line-height:1.45; color:var(--text-mid); max-width:4.5in; }
-.pay-plan{ display:flex; flex-direction:column; gap:.14in; }
-.plan-card{ display:flex; align-items:center; gap:16px; background:var(--bg-2); border:var(--card-border); border-radius:14px; padding:.2in .24in; }
-.plan-card .months{ flex:none; text-align:center; min-width:64px; }
-.plan-card .months .num{ display:block; font-family:var(--font-label); font-weight:800; font-size:19pt; line-height:1; color:var(--blue); }
-.plan-card .months .lbl{ display:block; font-family:var(--font-label); font-weight:700; font-size:6.6pt; letter-spacing:.1em; text-transform:uppercase; color:var(--text-lo); margin-top:3px; }
-.plan-card .info{ border-left:1px solid rgba(20,25,35,.12); padding-left:16px; }
-.plan-card .info b{ display:block; font-family:var(--font-label); font-weight:800; font-size:14pt; color:var(--text-hi); margin-bottom:3px; letter-spacing:-.01em; }
-.plan-card .info span{ font-family:var(--font-body); font-weight:300; font-size:8.2pt; color:var(--text-lo); }
-.plan-note{ margin-top:.02in; font-family:var(--font-body); font-weight:300; font-size:7.8pt; line-height:1.4; color:var(--text-lo); padding-left:4px; }
-
 /* ---------- 16. LAYOUT: Cierre / CTA ---------- */
 .cta{ flex:1; display:grid; grid-template-columns:1.15fr .85fr; gap:.5in; align-items:center; margin-top:.14in; min-height:0; }
 .steps{ display:flex; flex-direction:column; gap:.2in; }
@@ -298,7 +281,7 @@ svg.gt{ display:inline; vertical-align:baseline; overflow:visible; }
   .app-content, .slides-viewport{ display:block; height:auto; }
   .slides-container{ display:block; padding:0; }
   .slide{
-    display:none; position:relative; width:11in; height:6.1875in;
+    display:none; position:relative; width:11in; height:6.1875in; zoom:1;
     opacity:1; transform:none; margin:0 auto; border-radius:0; box-shadow:none;
     page-break-after:always; break-after:page; overflow:hidden;
   }

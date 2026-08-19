@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Página no encontrada — Campuslands Full Service</title>
+  <link rel="icon" type="image/png" href="/assets/favicon.png">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Playfair+Display:ital,wght@0,700;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-base: #06080E;
+      --cyan: #35D0F0;
+      --blue: #4A7DFF;
+      --violet: #8B5CF6;
+      --magenta: #C05CF6;
+      --grad-campus: linear-gradient(100deg, #35D0F0, #4A7DFF 42%, #8B5CF6 76%, #C05CF6);
+      --text-hi: #FFFFFF;
+      --text-mid: #CBD5E1;
+      --text-muted: #8291A5;
+      --font-display: 'Playfair Display', Georgia, serif;
+      --font-sans: 'Plus Jakarta Sans', sans-serif;
+      --font-mono: 'Montserrat', sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--bg-base);
+      color: var(--text-hi);
+      font-family: var(--font-sans);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 24px;
+      position: relative;
+      background-image: 
+        radial-gradient(circle at 50% 30%, rgba(53, 208, 240, 0.12), transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(139, 92, 246, 0.08), transparent 40%);
+    }
+
+    .top-accent-line {
+      height: 3px;
+      width: 100%;
+      background: var(--grad-campus);
+      position: fixed;
+      top: 0;
+      left: 0;
+    }
+
+    .card-404 {
+      background: rgba(15, 22, 36, 0.75);
+      border: 1px solid rgba(110, 140, 200, 0.2);
+      border-radius: 24px;
+      padding: 48px 36px;
+      max-width: 540px;
+      width: 100%;
+      backdrop-filter: blur(16px);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    }
+
+    .code-404 {
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: 76px;
+      line-height: 1;
+      background: var(--grad-campus);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 12px;
+    }
+
+    .title-404 {
+      font-family: var(--font-display);
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .desc-404 {
+      font-size: 14px;
+      color: var(--text-mid);
+      margin-bottom: 28px;
+      line-height: 1.6;
+    }
+
+    .btn-home {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      border-radius: 12px;
+      background: var(--grad-campus);
+      color: #FFFFFF;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 14px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      box-shadow: 0 4px 16px rgba(53, 208, 240, 0.3);
+    }
+
+    .btn-home:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(53, 208, 240, 0.45);
+    }
+  </style>
+</head>
+<body>
+  <div class="top-accent-line"></div>
+  <div class="card-404">
+    <div class="code-404">404</div>
+    <h1 class="title-404">Presentación no encontrada</h1>
+    <p class="desc-404">
+      La URL solicitada no existe o ha sido reubicada. Puedes explorar todas las propuestas activas en el portal principal.
+    </p>
+    <a href="/" class="btn-home">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+      Ir al Portal Principal
+    </a>
+  </div>
+</body>
+</html>

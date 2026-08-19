@@ -1,0 +1,74 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "rewrites": [
+    {
+      "source": "/colbeef-demo",
+      "destination": "/colbeef-demo/docs/index.html"
+    },
+    {
+      "source": "/colbeef-demo/(.*)",
+      "destination": "/colbeef-demo/docs/$1"
+    },
+    {
+      "source": "/colbeef-demo-f",
+      "destination": "/colbeef-demo-f/docs/index.html"
+    },
+    {
+      "source": "/colbeef-demo-f/(.*)",
+      "destination": "/colbeef-demo-f/docs/$1"
+    },
+    {
+      "source": "/multinal-escenario-b-demo",
+      "destination": "/multinal-escenario-b-demo/docs/index.html"
+    },
+    {
+      "source": "/multinal-escenario-b-demo/(.*)",
+      "destination": "/multinal-escenario-b-demo/docs/$1"
+    },
+    {
+      "source": "/multinal-escenario-c-demo",
+      "destination": "/multinal-escenario-c-demo/docs/index.html"
+    },
+    {
+      "source": "/multinal-escenario-c-demo/(.*)",
+      "destination": "/multinal-escenario-c-demo/docs/$1"
+    },
+    {
+      "source": "/multinal-escenario-demo",
+      "destination": "/multinal-escenario-demo/docs/index.html"
+    },
+    {
+      "source": "/multinal-escenario-demo/(.*)",
+      "destination": "/multinal-escenario-demo/docs/$1"
+    },
+    {
+      "source": "/temas",
+      "destination": "/_temas-demo/index.html"
+    },
+    {
+      "source": "/temas-demo",
+      "destination": "/_temas-demo/index.html"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "SAMEORIGIN"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        }
+      ]
+    }
+  ]
+}

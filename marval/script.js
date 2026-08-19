@@ -5,7 +5,7 @@
 const state = {
     scenario: 'a',
     currentSlide: 1,
-    totalSlides: 10,
+    totalSlides: 9,
     autoplayActive: false,
     autoplayTimer: null,
 };
@@ -17,20 +17,12 @@ const SCENARIO_DATA = {
         version: 'Escenario A · 0.1',
         ecoAgenteIA: '$5.838.275,08',
         ecoCimientos: '$61.679.976,67',
-        investTotal: '$103.049.261,2',
-        invest40a: '$41.219.704,50',
-        invest40b: '$41.219.704,50',
-        invest20: '$20.609.852,25',
     },
     b: {
         badge: 'Escenario B',
         version: 'Escenario B · 0.1',
         ecoAgenteIA: '$8.757.412,62',
         ecoCimientos: '$74.636.185,28',
-        investTotal: '$118.924.607,4',
-        invest40a: '$47.569.842,96',
-        invest40b: '$47.569.842,96',
-        invest20: '$23.784.921,48',
     },
 };
 
@@ -40,10 +32,19 @@ function applyScenarioContent(esc) {
     document.getElementById('cover-version').textContent = d.version;
     document.getElementById('eco-agente-ia').textContent = d.ecoAgenteIA;
     document.getElementById('eco-cimientos').textContent = d.ecoCimientos;
-    document.getElementById('invest-total-text').textContent = d.investTotal;
-    document.getElementById('invest-40a').textContent = d.invest40a;
-    document.getElementById('invest-40b').textContent = d.invest40b;
-    document.getElementById('invest-20').textContent = d.invest20;
+}
+
+// ---- Escalado de la lámina al espacio disponible (evita tener que hacer zoom-out) ----
+const SLIDE_NATIVE_W = 1056; // 11in a 96dpi, igual que el PDF impreso
+const SLIDE_NATIVE_H = 594;  // 6.1875in a 96dpi
+
+function resizeSlideStage() {
+    const container = document.getElementById('slides-container');
+    if (!container) return;
+    const availW = container.clientWidth - 16;
+    const availH = container.clientHeight - 16;
+    const scale = Math.min(availW / SLIDE_NATIVE_W, availH / SLIDE_NATIVE_H, 1.35);
+    document.documentElement.style.setProperty('--slide-scale', scale.toFixed(4));
 }
 
 function switchScenario(target) {
@@ -112,9 +113,13 @@ document.addEventListener('keydown', (e) => {
     if (e.key === 'ArrowLeft') navigateSlide(-1);
 });
 
-window.addEventListener('resize', moveScenarioPill);
+window.addEventListener('resize', () => {
+    moveScenarioPill();
+    resizeSlideStage();
+});
 
 window.addEventListener('DOMContentLoaded', () => {
+    resizeSlideStage();
     // Soporte para precargar el escenario B al exportar el segundo PDF: index.html?escenario=b
     const params = new URLSearchParams(window.location.search);
     const initial = params.get('escenario') === 'b' ? 'b' : 'a';

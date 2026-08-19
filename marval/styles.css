@@ -88,13 +88,18 @@ svg.gt{ display:inline; vertical-align:baseline; overflow:visible; }
 .slides-viewport{ flex:1; display:flex; }
 .slides-container{ flex:1; position:relative; display:flex; align-items:center; justify-content:center; padding:22px 40px; min-width:0; }
 
+/* La lámina se dibuja siempre a su tamaño nativo (11in × 6.1875in = 1056×594px a 96dpi,
+   igual que el PDF impreso) y se reescala como un todo con transform:scale() según el
+   espacio disponible — así el contenido en pt/in nunca se desborda ni se recorta al
+   achicar la ventana; solo cambia el factor de escala (ver --slide-scale en script.js). */
 .slide{
-  position:absolute; width:min(90%, 1200px); aspect-ratio:11/6.1875; max-height:82%;
-  display:none; opacity:0; transform:translateY(16px);
+  position:absolute; width:1056px; height:594px;
+  display:none; opacity:0; transform:scale(var(--slide-scale,1)) translateY(16px);
+  transform-origin:center center;
   transition:opacity .45s ease, transform .45s ease;
   border-radius:var(--radius); overflow:hidden; box-shadow:0 20px 60px rgba(15,25,40,.16);
 }
-.slide.active{ display:block; opacity:1; transform:translateY(0); }
+.slide.active{ display:block; opacity:1; transform:scale(var(--slide-scale,1)) translateY(0); }
 
 .slide-inner{
   width:100%; height:100%; overflow:hidden; position:relative;
@@ -293,8 +298,8 @@ svg.gt{ display:inline; vertical-align:baseline; overflow:visible; }
   .app-content, .slides-viewport{ display:block; height:auto; }
   .slides-container{ display:block; padding:0; }
   .slide{
-    display:none; position:relative; width:11in; height:6.1875in; max-height:none;
-    aspect-ratio:auto; opacity:1; transform:none; margin:0 auto; border-radius:0; box-shadow:none;
+    display:none; position:relative; width:11in; height:6.1875in;
+    opacity:1; transform:none; margin:0 auto; border-radius:0; box-shadow:none;
     page-break-after:always; break-after:page; overflow:hidden;
   }
   .slide[data-scenario="both"]{ display:block; }

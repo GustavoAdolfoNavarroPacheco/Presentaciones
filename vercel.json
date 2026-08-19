@@ -1,12 +1,9 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
+  "trailingSlash": true,
   "rewrites": [
     {
       "source": "/colbeef-demo",
-      "destination": "/colbeef-demo/docs/index.html"
-    },
-    {
-      "source": "/colbeef-demo/",
       "destination": "/colbeef-demo/docs/index.html"
     },
     {
@@ -18,19 +15,11 @@
       "destination": "/colbeef-demo-f/docs/index.html"
     },
     {
-      "source": "/colbeef-demo-f/",
-      "destination": "/colbeef-demo-f/docs/index.html"
-    },
-    {
       "source": "/colbeef-demo-f/(.*)",
       "destination": "/colbeef-demo-f/docs/$1"
     },
     {
       "source": "/multinal-escenario-b-demo",
-      "destination": "/multinal-escenario-b-demo/docs/index.html"
-    },
-    {
-      "source": "/multinal-escenario-b-demo/",
       "destination": "/multinal-escenario-b-demo/docs/index.html"
     },
     {
@@ -42,19 +31,11 @@
       "destination": "/multinal-escenario-c-demo/docs/index.html"
     },
     {
-      "source": "/multinal-escenario-c-demo/",
-      "destination": "/multinal-escenario-c-demo/docs/index.html"
-    },
-    {
       "source": "/multinal-escenario-c-demo/(.*)",
       "destination": "/multinal-escenario-c-demo/docs/$1"
     },
     {
       "source": "/multinal-escenario-demo",
-      "destination": "/multinal-escenario-demo/docs/index.html"
-    },
-    {
-      "source": "/multinal-escenario-demo/",
       "destination": "/multinal-escenario-demo/docs/index.html"
     },
     {
@@ -66,132 +47,12 @@
       "destination": "/_temas-demo/index.html"
     },
     {
-      "source": "/temas/",
-      "destination": "/_temas-demo/index.html"
+      "source": "/temas/(.*)",
+      "destination": "/_temas-demo/$1"
     },
     {
       "source": "/temas-demo",
       "destination": "/_temas-demo/index.html"
-    },
-    {
-      "source": "/fullservice-campuslands",
-      "destination": "/fullservice-campuslands/index.html"
-    },
-    {
-      "source": "/fullservice-campuslands/",
-      "destination": "/fullservice-campuslands/index.html"
-    },
-    {
-      "source": "/marval",
-      "destination": "/marval/index.html"
-    },
-    {
-      "source": "/marval/",
-      "destination": "/marval/index.html"
-    },
-    {
-      "source": "/comultrasan-orbit",
-      "destination": "/comultrasan-orbit/index.html"
-    },
-    {
-      "source": "/comultrasan-orbit/",
-      "destination": "/comultrasan-orbit/index.html"
-    },
-    {
-      "source": "/compumax-asistente-ia",
-      "destination": "/compumax-asistente-ia/index.html"
-    },
-    {
-      "source": "/compumax-asistente-ia/",
-      "destination": "/compumax-asistente-ia/index.html"
-    },
-    {
-      "source": "/compumax-mejoras-multitipo",
-      "destination": "/compumax-mejoras-multitipo/index.html"
-    },
-    {
-      "source": "/compumax-mejoras-multitipo/",
-      "destination": "/compumax-mejoras-multitipo/index.html"
-    },
-    {
-      "source": "/gaspais-chilco",
-      "destination": "/gaspais-chilco/index.html"
-    },
-    {
-      "source": "/gaspais-chilco/",
-      "destination": "/gaspais-chilco/index.html"
-    },
-    {
-      "source": "/multinal-escenario-b",
-      "destination": "/multinal-escenario-b/index.html"
-    },
-    {
-      "source": "/multinal-escenario-b/",
-      "destination": "/multinal-escenario-b/index.html"
-    },
-    {
-      "source": "/multinal-escenario-c",
-      "destination": "/multinal-escenario-c/index.html"
-    },
-    {
-      "source": "/multinal-escenario-c/",
-      "destination": "/multinal-escenario-c/index.html"
-    },
-    {
-      "source": "/colbeef-plan-trabajo",
-      "destination": "/colbeef-plan-trabajo/index.html"
-    },
-    {
-      "source": "/colbeef-plan-trabajo/",
-      "destination": "/colbeef-plan-trabajo/index.html"
-    },
-    {
-      "source": "/avicampo",
-      "destination": "/avicampo/index.html"
-    },
-    {
-      "source": "/avicampo/",
-      "destination": "/avicampo/index.html"
-    },
-    {
-      "source": "/mchaileh-crm-ia",
-      "destination": "/mchaileh-crm-ia/index.html"
-    },
-    {
-      "source": "/mchaileh-crm-ia/",
-      "destination": "/mchaileh-crm-ia/index.html"
-    },
-    {
-      "source": "/greenmetal-fyswap",
-      "destination": "/greenmetal-fyswap/index.html"
-    },
-    {
-      "source": "/greenmetal-fyswap/",
-      "destination": "/greenmetal-fyswap/index.html"
-    },
-    {
-      "source": "/ve-a-la-segura",
-      "destination": "/ve-a-la-segura/index.html"
-    },
-    {
-      "source": "/ve-a-la-segura/",
-      "destination": "/ve-a-la-segura/index.html"
-    },
-    {
-      "source": "/miami-aqua-tours-ampliado",
-      "destination": "/miami-aqua-tours-ampliado/index.html"
-    },
-    {
-      "source": "/miami-aqua-tours-ampliado/",
-      "destination": "/miami-aqua-tours-ampliado/index.html"
-    },
-    {
-      "source": "/miami-aqua-tours",
-      "destination": "/miami-aqua-tours/index.html"
-    },
-    {
-      "source": "/miami-aqua-tours/",
-      "destination": "/miami-aqua-tours/index.html"
     }
   ]
 }

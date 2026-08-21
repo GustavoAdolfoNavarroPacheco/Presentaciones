@@ -249,14 +249,12 @@ svg.gt{ display:inline; vertical-align:baseline; overflow:visible; }
 .eco-chip .n{ font-family:var(--font-display); font-weight:900; font-size:14pt; flex:none; min-width:32px; color:var(--blue); }
 .eco-chip .tcol{ display:flex; flex-direction:column; gap:2px; min-width:0; }
 .eco-chip .t{ font-family:var(--font-label); font-weight:700; font-size:9.6pt; color:var(--text-hi); line-height:1.22; }
-.eco-chip .price{ font-family:var(--font-body); font-weight:600; font-size:7.6pt; color:var(--cyan); letter-spacing:.02em; }
 .eco-agents{ background:linear-gradient(120deg,rgba(72,136,200,.09),rgba(6,42,79,.09)); border:var(--card-border); border-radius:14px; padding:.16in .22in; }
 .eco-agents .lbl{ font-family:var(--font-label); font-weight:700; font-size:7.8pt; letter-spacing:.2em; text-transform:uppercase; color:var(--cyan); }
 .eco-agents-row{ display:grid; grid-template-columns:repeat(5,1fr); gap:.14in; margin-top:.12in; }
 .eco-agent-chip{ text-align:center; background:var(--bg-2); border:var(--card-border); border-radius:10px; padding:.12in .08in; }
 .eco-agent-chip .n{ font-family:var(--font-display); font-weight:900; font-size:11pt; margin-bottom:3px; color:var(--blue); }
 .eco-agent-chip span.t{ display:block; font-family:var(--font-label); font-weight:600; font-size:7.4pt; line-height:1.2; color:var(--text-mid); }
-.eco-agent-chip .price{ margin-top:3px; display:block; font-family:var(--font-body); font-weight:600; font-size:6.6pt; color:var(--cyan); }
 
 /* ---------- 16. LAYOUT: Cierre / CTA ---------- */
 .cta{ flex:1; display:grid; grid-template-columns:1.15fr .85fr; gap:.5in; align-items:center; margin-top:.14in; min-height:0; }

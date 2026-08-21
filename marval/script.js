@@ -10,19 +10,15 @@ const state = {
     autoplayTimer: null,
 };
 
-// Cifras que difieren entre escenarios (calculadas desde las cotizaciones fuente)
+// Textos que difieren entre escenarios
 const SCENARIO_DATA = {
     a: {
         badge: 'Escenario A',
         version: 'Escenario A · 0.1',
-        ecoAgenteIA: '$5.838.275,08',
-        ecoCimientos: '$61.679.976,67',
     },
     b: {
         badge: 'Escenario B',
         version: 'Escenario B · 0.1',
-        ecoAgenteIA: '$8.757.412,62',
-        ecoCimientos: '$74.636.185,28',
     },
 };
 
@@ -30,8 +26,6 @@ function applyScenarioContent(esc) {
     const d = SCENARIO_DATA[esc];
     document.getElementById('cover-scenario-badge').textContent = d.badge;
     document.getElementById('cover-version').textContent = d.version;
-    document.getElementById('eco-agente-ia').textContent = d.ecoAgenteIA;
-    document.getElementById('eco-cimientos').textContent = d.ecoCimientos;
 }
 
 // ---- Escalado de la lámina al espacio disponible (evita tener que hacer zoom-out) ----

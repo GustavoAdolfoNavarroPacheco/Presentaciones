@@ -2,6 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Fundación Cardiovascular de Colombia</title>
   <link rel="icon" type="image/png" href="assets/favicon.png">
   <link rel="stylesheet" href="styles.css">
@@ -19,254 +20,314 @@
     </defs>
   </svg>
 
-  <!-- ===== 1 · PORTADA ===== -->
-  <section class="slide cover">
-    <span class="corner tl"></span><span class="corner tr"></span>
-    <span class="corner bl"></span><span class="corner br"></span>
-    <div class="deco-rings"><span></span><span></span><span></span><span></span></div>
-
-    <div class="cover__topbar">
-      <img src="assets/logo-campuslands.png" alt="Campuslands Full Service" class="cover__brand">
+  <!-- ============ BARRA SUPERIOR ============ -->
+  <header class="app-header">
+    <div class="header-left">
+      <img src="assets/logo-campuslands.png" alt="Campuslands Full Service">
+      <div class="logo-divider"></div>
+      <img src="assets/logo-cliente.png" alt="Fundación Cardiovascular de Colombia" class="logo-client">
+    </div>
+    <div class="header-center"><!-- Un solo escenario: sin switch --></div>
+    <div class="header-right">
       <span class="badge-confidential">Confidencial</span>
     </div>
+  </header>
 
-    <div class="cover__body">
-      <div class="eyebrow cover__eyebrow">Campuslands Full Service · Software House</div>
-      <span class="cover__scenario">Perfiles Mixtos · Propuesta de Servicios</span>
-      <h1 class="cover__title">Desarrollo de Software<br><svg class="gt" viewBox="0 0 6507 1083" style="height:1em;"><text x="0" y="1083" fill="url(#gradBrand)" style="font:italic 900 1000px 'Playfair Display',serif;">Especializado</text></svg></h1>
-      <p class="cover__kicker">Talento Full-Stack con dominio en Ciberseguridad e Inteligencia Artificial, bajo un modelo flexible de bolsa de horas.</p>
-      <div class="cover__client">
-        <span class="cover__client-para">PARA</span>
-        <img src="assets/logo-cliente.png" alt="Fundación Cardiovascular de Colombia" class="cover__client-logo">
-      </div>
-    </div>
+  <!-- ============ CONTENIDO ============ -->
+  <main class="app-content">
+    <section class="slides-viewport">
+      <div class="slides-container" id="slides-container">
 
-    <div class="cover__meta">
-      <div class="meta-item"><div class="meta-item__label">Preparado para</div><div class="meta-item__value">Fundación Cardiovascular de Colombia</div></div>
-      <div class="meta-item"><div class="meta-item__label">Preparado por</div><div class="meta-item__value">Campuslands S.A.S. BIC · Full Service</div></div>
-      <div class="meta-item"><div class="meta-item__label">Fecha</div><div class="meta-item__value">Agosto 2026</div></div>
-      <div class="meta-item"><div class="meta-item__label">Versión</div><div class="meta-item__value">v1.0</div></div>
-    </div>
-  </section>
+        <!-- ===== 1 · PORTADA ===== -->
+        <div class="slide active" data-slide="1">
+          <div class="slide-inner cover">
+            <span class="corner tl"></span><span class="corner tr"></span>
+            <span class="corner bl"></span><span class="corner br"></span>
+            <div class="deco-rings"><span></span><span></span><span></span><span></span></div>
 
-  <!-- ===== 2 · RESUMEN EJECUTIVO ===== -->
-  <section class="slide internal glow-a">
-    <header class="s-header">
-      <img src="assets/logo-campuslands.png" alt="Campuslands" class="brand">
-      <img src="assets/logo-cliente.png" alt="Fundación Cardiovascular de Colombia" class="client">
-    </header>
-    <div class="s-body">
-      <div class="s-eyebrow">01 · Resumen Ejecutivo</div>
-      <h2 class="s-title">Un mismo equipo, <svg class="gt" viewBox="0 0 12110 1083" style="height:1em;"><text x="0" y="1083" fill="url(#gradBrand)" style="font:italic 900 1000px 'Playfair Display',serif;">seguridad e IA integradas</text></svg></h2>
-      <div class="exec-summary">
-        <p class="exec-summary__lead">Campuslands presenta una propuesta para proveer <b>talento de desarrollo de software bajo un modelo flexible por horas</b>, con perfiles mixtos y experiencia comprobada en <b>Ciberseguridad</b> e <b>Inteligencia Artificial</b> — orientados a optimizar, automatizar y asegurar la infraestructura tecnológica de los proyectos del sector cardiovascular.</p>
-        <div class="qc-grid" style="grid-template-columns:repeat(3,1fr);">
-          <div class="qc-item"><h5>Modelo Flexible</h5><p>Bolsa de horas que escala el equipo según la necesidad real de cada proyecto.</p></div>
-          <div class="qc-item"><h5>Ciberseguridad</h5><p>Protección de datos sensibles de pacientes, historia clínica y métricas cardiovasculares.</p></div>
-          <div class="qc-item"><h5>Inteligencia Artificial</h5><p>Modelos predictivos y automatización de procesos aplicados a datos médicos.</p></div>
-        </div>
-      </div>
-    </div>
-    <footer class="s-footer">
-      <span>Campuslands · Exploramos · Despegamos · Conquistamos</span>
-      <span>Propuesta FCV · Full Service 2026</span>
-      <span class="pg">02</span>
-    </footer>
-  </section>
+            <div class="cover__topbar">
+              <img src="assets/logo-campuslands.png" alt="Campuslands Full Service" class="cover__brand">
+              <span class="cover-badge-confidential">Confidencial</span>
+            </div>
 
-  <!-- ===== 3 · PERFIL DEL DESARROLLADOR: ENFOQUE DUAL ===== -->
-  <section class="slide internal glow-b">
-    <header class="s-header">
-      <img src="assets/logo-campuslands.png" alt="Campuslands" class="brand">
-      <img src="assets/logo-cliente.png" alt="Fundación Cardiovascular de Colombia" class="client">
-    </header>
-    <div class="s-body">
-      <div class="s-eyebrow">02 · Perfil del Desarrollador</div>
-      <h2 class="s-title">Un <svg class="gt" viewBox="0 0 6203 1083" style="height:1em;"><text x="0" y="1083" fill="url(#gradBrand)" style="font:italic 900 1000px 'Playfair Display',serif;">enfoque dual</text></svg>, un mismo desarrollador</h2>
-      <p class="s-lead">Capacidad técnica para desempeñarse tanto en el desarrollo de software como en la integración de capas de seguridad e IA — sin depender de dos equipos distintos.</p>
-      <div class="dual">
-        <div class="dual-col">
-          <span class="d-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 4 3 12l5 8"/><path d="M16 4l5 8-5 8"/></svg></span>
-          <h3>Full-Stack</h3>
-          <p>Desarrollo de software de punta a punta: backend, frontend y despliegue, con dominio de múltiples lenguajes y frameworks modernos.</p>
-          <div class="tag-row"><span class="tag-pill">Backend</span><span class="tag-pill">Frontend</span><span class="tag-pill">Despliegue continuo</span></div>
-        </div>
-        <div class="dual-col">
-          <span class="d-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 5v6c0 5.2 3.4 9.5 8 11 4.6-1.5 8-5.8 8-11V5z"/></svg></span>
-          <h3>Seguridad + IA</h3>
-          <p>Integración de capas de seguridad e inteligencia artificial dentro del mismo ciclo de desarrollo, sin handoffs entre equipos separados.</p>
-          <div class="tag-row"><span class="tag-pill">Ciberseguridad</span><span class="tag-pill">Modelos de IA</span><span class="tag-pill">Automatización</span></div>
-        </div>
-      </div>
-    </div>
-    <footer class="s-footer">
-      <span>Campuslands · Exploramos · Despegamos · Conquistamos</span>
-      <span>Propuesta FCV · Full Service 2026</span>
-      <span class="pg">03</span>
-    </footer>
-  </section>
+            <div class="cover__body">
+              <div class="eyebrow cover__eyebrow">Campuslands Full Service · Software House</div>
+              <span class="cover__scenario">Perfiles Mixtos · Propuesta de Servicios</span>
+              <h1 class="cover__title">Desarrollo de Software<br><svg class="gt" viewBox="0 0 6507 1083" style="height:1em;"><text x="0" y="1083" fill="url(#gradBrand)" style="font:italic 900 1000px 'Playfair Display',serif;">Especializado</text></svg></h1>
+              <p class="cover__kicker">Talento Full-Stack con dominio en Ciberseguridad e Inteligencia Artificial, bajo un modelo flexible de bolsa de horas.</p>
+              <div class="cover__client">
+                <span class="cover__client-para">PARA</span>
+                <img src="assets/logo-cliente.png" alt="Fundación Cardiovascular de Colombia" class="cover__client-logo">
+              </div>
+            </div>
 
-  <!-- ===== 4 · COMPETENCIAS TÉCNICAS ===== -->
-  <section class="slide internal glow-a">
-    <header class="s-header">
-      <img src="assets/logo-campuslands.png" alt="Campuslands" class="brand">
-      <img src="assets/logo-cliente.png" alt="Fundación Cardiovascular de Colombia" class="client">
-    </header>
-    <div class="s-body">
-      <div class="s-eyebrow">03 · Competencias Técnicas</div>
-      <h2 class="s-title">Cuatro competencias, <svg class="gt" viewBox="0 0 9120 1083" style="height:1em;"><text x="0" y="1083" fill="url(#gradBrand)" style="font:italic 900 1000px 'Playfair Display',serif;">un mismo estándar</text></svg></h2>
-      <p class="s-lead">Base técnica común a todos los perfiles asignados a la bolsa de horas.</p>
-      <div class="feat-grid" style="grid-template-columns:repeat(2,1fr); grid-template-rows:repeat(2,1fr);">
-        <div class="feat-card"><span class="rf">01</span><h4>Automatización de Procesos y Despliegues</h4><p>Integración y despliegue continuo, con automatización de tareas operativas repetitivas.</p></div>
-        <div class="feat-card"><span class="rf">02</span><h4>Testing y Aseguramiento de Calidad</h4><p>Pruebas de software estructuradas antes de cada entrega, no como paso opcional.</p></div>
-        <div class="feat-card"><span class="rf">03</span><h4>Multi-Lenguaje y Frameworks Modernos</h4><p>Dominio de múltiples lenguajes de programación y frameworks, backend y frontend.</p></div>
-        <div class="feat-card"><span class="rf">04</span><h4>Arquitecturas Escalables y Seguras</h4><p>Diseño capaz de crecer junto con el proyecto sin comprometer la seguridad.</p></div>
-      </div>
-    </div>
-    <footer class="s-footer">
-      <span>Campuslands · Exploramos · Despegamos · Conquistamos</span>
-      <span>Propuesta FCV · Full Service 2026</span>
-      <span class="pg">04</span>
-    </footer>
-  </section>
-
-  <!-- ===== 5 · EXPERIENCIA CLAVE PARA EL SECTOR CARDIOVASCULAR ===== -->
-  <section class="slide internal glow-b">
-    <header class="s-header">
-      <img src="assets/logo-campuslands.png" alt="Campuslands" class="brand">
-      <img src="assets/logo-cliente.png" alt="Fundación Cardiovascular de Colombia" class="client">
-    </header>
-    <div class="s-body">
-      <div class="s-eyebrow">04 · Experiencia Clave</div>
-      <h2 class="s-title">Experiencia aplicada al <svg class="gt" viewBox="0 0 10300 1083" style="height:1em;"><text x="0" y="1083" fill="url(#gradBrand)" style="font:italic 900 1000px 'Playfair Display',serif;">sector cardiovascular</text></svg></h2>
-      <div class="cap-grid">
-        <div class="cap-card">
-          <div class="c-head">
-            <span class="c-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 5v6c0 5.2 3.4 9.5 8 11 4.6-1.5 8-5.8 8-11V5z"/></svg></span>
-            <h3>Ciberseguridad</h3>
-          </div>
-          <ul class="cap-list">
-            <li class="cap-item"><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg><span class="tx">Protección de datos sensibles de pacientes: historia clínica y métricas cardiovasculares.</span></li>
-            <li class="cap-item"><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg><span class="tx">Implementación de protocolos seguros a lo largo de todo el ciclo de desarrollo.</span></li>
-            <li class="cap-item"><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg><span class="tx">Cumplimiento de normativas de privacidad aplicables al dato clínico.</span></li>
-          </ul>
-        </div>
-        <div class="cap-card">
-          <div class="c-head">
-            <span class="c-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 14.2 9.8 22 12 14.2 14.2 12 22 9.8 14.2 2 12 9.8 9.8Z"/></svg></span>
-            <h3>Inteligencia Artificial</h3>
-          </div>
-          <ul class="cap-list">
-            <li class="cap-item"><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg><span class="tx">Implementación de modelos predictivos sobre datos clínicos y operativos.</span></li>
-            <li class="cap-item"><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg><span class="tx">Automatización de procesos internos mediante inteligencia artificial.</span></li>
-            <li class="cap-item"><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg><span class="tx">Análisis de datos médicos para apoyar decisiones clínicas y operativas.</span></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <footer class="s-footer">
-      <span>Campuslands · Exploramos · Despegamos · Conquistamos</span>
-      <span>Propuesta FCV · Full Service 2026</span>
-      <span class="pg">05</span>
-    </footer>
-  </section>
-
-  <!-- ===== 6 · MODALIDAD DE CONTRATACIÓN — BOLSA DE HORAS ===== -->
-  <section class="slide internal glow-a">
-    <header class="s-header">
-      <img src="assets/logo-campuslands.png" alt="Campuslands" class="brand">
-      <img src="assets/logo-cliente.png" alt="Fundación Cardiovascular de Colombia" class="client">
-    </header>
-    <div class="s-body">
-      <div class="s-eyebrow">05 · Modalidad de Contratación</div>
-      <h2 class="s-title">Una <svg class="gt" viewBox="0 0 6838 1083" style="height:1em;"><text x="0" y="1083" fill="url(#gradBrand)" style="font:italic 900 1000px 'Playfair Display',serif;">bolsa de horas</text></svg>, escalable por diseño</h2>
-      <p class="s-lead">Modelo de desarrollo por horas que se ajusta a la necesidad real del proyecto, optimizando el presupuesto sin sacrificar agilidad.</p>
-      <div class="flow">
-        <div class="flow-step"><span class="n">1</span><h4>Necesidad del Proyecto</h4><p>Se define el alcance puntual dentro del proyecto cardiovascular en curso.</p></div>
-        <div class="flow-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
-        <div class="flow-step"><span class="n">2</span><h4>Asignación de Bolsa de Horas</h4><p>Se escala el equipo — y el perfil: Full-Stack, Seguridad o IA — según ese alcance.</p></div>
-        <div class="flow-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
-        <div class="flow-step"><span class="n">3</span><h4>Entrega y Seguimiento</h4><p>Código documentado, reportes de avance por horas y sesiones de seguimiento periódicas.</p></div>
-      </div>
-      <div class="side-note"><span class="lbl">Tarifas</span><p>La tarifa por hora y el tope mensual de la bolsa se definen junto con Fundación Cardiovascular de Colombia, según el perfil requerido y el alcance específico de cada proyecto.</p></div>
-    </div>
-    <footer class="s-footer">
-      <span>Campuslands · Exploramos · Despegamos · Conquistamos</span>
-      <span>Propuesta FCV · Full Service 2026</span>
-      <span class="pg">06</span>
-    </footer>
-  </section>
-
-  <!-- ===== 7 · QUIÉNES SOMOS — CAMPUSLANDS ===== -->
-  <section class="slide internal glow-b">
-    <header class="s-header">
-      <img src="assets/logo-campuslands.png" alt="Campuslands" class="brand">
-      <img src="assets/logo-cliente.png" alt="Fundación Cardiovascular de Colombia" class="client">
-    </header>
-    <div class="s-body">
-      <div class="s-eyebrow">06 · Quiénes Somos</div>
-      <h2 class="s-title">Un <svg class="gt" viewBox="0 0 7452 1083" style="height:1em;"><text x="0" y="1083" fill="url(#gradBrand)" style="font:italic 900 1000px 'Playfair Display',serif;">Software House</text></svg> de talento senior</h2>
-      <div class="about">
-        <div>
-          <p class="about-lead"><b>Campuslands S.A.S. BIC</b> opera desde la Zona Franca Santander como una Fábrica de Software Enterprise, especializada en Inteligencia Artificial generativa y predictiva, automatización inteligente y talento certificado de nivel senior. Soluciones robustas a la medida — nunca plantillas prefabricadas.</p>
-          <div class="about-stats">
-            <div class="about-stat"><span class="dot"></span><span>Zona Franca Santander</span></div>
-            <div class="about-stat"><span class="dot"></span><span>Talento senior certificado</span></div>
-            <div class="about-stat"><span class="dot"></span><span>Soluciones a la medida, ROI real</span></div>
+            <div class="cover__meta">
+              <div class="meta-item"><div class="meta-item__label">Preparado para</div><div class="meta-item__value">Fundación Cardiovascular de Colombia</div></div>
+              <div class="meta-item"><div class="meta-item__label">Preparado por</div><div class="meta-item__value">Campuslands S.A.S. BIC · Full Service</div></div>
+              <div class="meta-item"><div class="meta-item__label">Fecha</div><div class="meta-item__value">Agosto 2026</div></div>
+              <div class="meta-item"><div class="meta-item__label">Versión</div><div class="meta-item__value">v1.0</div></div>
+            </div>
           </div>
         </div>
-        <div class="sectors-panel">
-          <div class="lbl">Sectores Atendidos</div>
-          <div class="tag-row">
-            <span class="tag-pill">Avícola</span>
-            <span class="tag-pill">Construcción</span>
-            <span class="tag-pill">Cárnico</span>
-            <span class="tag-pill">Textil</span>
-            <span class="tag-pill">Financiero</span>
-            <span class="tag-pill is-new">Salud &amp; Cardiovascular</span>
+
+        <!-- ===== 2 · RESUMEN EJECUTIVO ===== -->
+        <div class="slide" data-slide="2">
+          <div class="slide-inner internal glow-a">
+            <header class="s-header">
+              <img src="assets/logo-campuslands.png" alt="Campuslands" class="brand">
+              <img src="assets/logo-cliente.png" alt="Fundación Cardiovascular de Colombia" class="client">
+            </header>
+            <div class="s-body">
+              <div class="s-eyebrow">01 · Resumen Ejecutivo</div>
+              <h2 class="s-title">Un mismo equipo, <svg class="gt" viewBox="0 0 12110 1083" style="height:1em;"><text x="0" y="1083" fill="url(#gradBrand)" style="font:italic 900 1000px 'Playfair Display',serif;">seguridad e IA integradas</text></svg></h2>
+              <div class="exec-summary">
+                <p class="exec-summary__lead">Campuslands presenta una propuesta para proveer <b>talento de desarrollo de software bajo un modelo flexible por horas</b>, con perfiles mixtos y experiencia comprobada en <b>Ciberseguridad</b> e <b>Inteligencia Artificial</b> — orientados a optimizar, automatizar y asegurar la infraestructura tecnológica de los proyectos del sector cardiovascular.</p>
+                <div class="qc-grid" style="grid-template-columns:repeat(3,1fr);">
+                  <div class="qc-item"><h5>Modelo Flexible</h5><p>Bolsa de horas que escala el equipo según la necesidad real de cada proyecto.</p></div>
+                  <div class="qc-item"><h5>Ciberseguridad</h5><p>Protección de datos sensibles de pacientes, historia clínica y métricas cardiovasculares.</p></div>
+                  <div class="qc-item"><h5>Inteligencia Artificial</h5><p>Modelos predictivos y automatización de procesos aplicados a datos médicos.</p></div>
+                </div>
+              </div>
+            </div>
+            <footer class="s-footer">
+              <span>Campuslands · Exploramos · Despegamos · Conquistamos</span>
+              <span>Propuesta FCV · Full Service 2026</span>
+              <span class="pg">02</span>
+            </footer>
           </div>
         </div>
+
+        <!-- ===== 3 · PERFIL DEL DESARROLLADOR: ENFOQUE DUAL ===== -->
+        <div class="slide" data-slide="3">
+          <div class="slide-inner internal glow-b">
+            <header class="s-header">
+              <img src="assets/logo-campuslands.png" alt="Campuslands" class="brand">
+              <img src="assets/logo-cliente.png" alt="Fundación Cardiovascular de Colombia" class="client">
+            </header>
+            <div class="s-body">
+              <div class="s-eyebrow">02 · Perfil del Desarrollador</div>
+              <h2 class="s-title">Un <svg class="gt" viewBox="0 0 6203 1083" style="height:1em;"><text x="0" y="1083" fill="url(#gradBrand)" style="font:italic 900 1000px 'Playfair Display',serif;">enfoque dual</text></svg>, un mismo desarrollador</h2>
+              <p class="s-lead">Capacidad técnica para desempeñarse tanto en el desarrollo de software como en la integración de capas de seguridad e IA — sin depender de dos equipos distintos.</p>
+              <div class="dual">
+                <div class="dual-col">
+                  <span class="d-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 4 3 12l5 8"/><path d="M16 4l5 8-5 8"/></svg></span>
+                  <h3>Full-Stack</h3>
+                  <p>Desarrollo de software de punta a punta: backend, frontend y despliegue, con dominio de múltiples lenguajes y frameworks modernos.</p>
+                  <div class="tag-row"><span class="tag-pill">Backend</span><span class="tag-pill">Frontend</span><span class="tag-pill">Despliegue continuo</span></div>
+                </div>
+                <div class="dual-col">
+                  <span class="d-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 5v6c0 5.2 3.4 9.5 8 11 4.6-1.5 8-5.8 8-11V5z"/></svg></span>
+                  <h3>Seguridad + IA</h3>
+                  <p>Integración de capas de seguridad e inteligencia artificial dentro del mismo ciclo de desarrollo, sin handoffs entre equipos separados.</p>
+                  <div class="tag-row"><span class="tag-pill">Ciberseguridad</span><span class="tag-pill">Modelos de IA</span><span class="tag-pill">Automatización</span></div>
+                </div>
+              </div>
+            </div>
+            <footer class="s-footer">
+              <span>Campuslands · Exploramos · Despegamos · Conquistamos</span>
+              <span>Propuesta FCV · Full Service 2026</span>
+              <span class="pg">03</span>
+            </footer>
+          </div>
+        </div>
+
+        <!-- ===== 4 · COMPETENCIAS TÉCNICAS ===== -->
+        <div class="slide" data-slide="4">
+          <div class="slide-inner internal glow-a">
+            <header class="s-header">
+              <img src="assets/logo-campuslands.png" alt="Campuslands" class="brand">
+              <img src="assets/logo-cliente.png" alt="Fundación Cardiovascular de Colombia" class="client">
+            </header>
+            <div class="s-body">
+              <div class="s-eyebrow">03 · Competencias Técnicas</div>
+              <h2 class="s-title">Cuatro competencias, <svg class="gt" viewBox="0 0 9120 1083" style="height:1em;"><text x="0" y="1083" fill="url(#gradBrand)" style="font:italic 900 1000px 'Playfair Display',serif;">un mismo estándar</text></svg></h2>
+              <p class="s-lead">Base técnica común a todos los perfiles asignados a la bolsa de horas.</p>
+              <div class="feat-grid" style="grid-template-columns:repeat(2,1fr); grid-template-rows:repeat(2,1fr);">
+                <div class="feat-card"><span class="rf">01</span><h4>Automatización de Procesos y Despliegues</h4><p>Integración y despliegue continuo, con automatización de tareas operativas repetitivas.</p></div>
+                <div class="feat-card"><span class="rf">02</span><h4>Testing y Aseguramiento de Calidad</h4><p>Pruebas de software estructuradas antes de cada entrega, no como paso opcional.</p></div>
+                <div class="feat-card"><span class="rf">03</span><h4>Multi-Lenguaje y Frameworks Modernos</h4><p>Dominio de múltiples lenguajes de programación y frameworks, backend y frontend.</p></div>
+                <div class="feat-card"><span class="rf">04</span><h4>Arquitecturas Escalables y Seguras</h4><p>Diseño capaz de crecer junto con el proyecto sin comprometer la seguridad.</p></div>
+              </div>
+            </div>
+            <footer class="s-footer">
+              <span>Campuslands · Exploramos · Despegamos · Conquistamos</span>
+              <span>Propuesta FCV · Full Service 2026</span>
+              <span class="pg">04</span>
+            </footer>
+          </div>
+        </div>
+
+        <!-- ===== 5 · EXPERIENCIA CLAVE PARA EL SECTOR CARDIOVASCULAR ===== -->
+        <div class="slide" data-slide="5">
+          <div class="slide-inner internal glow-b">
+            <header class="s-header">
+              <img src="assets/logo-campuslands.png" alt="Campuslands" class="brand">
+              <img src="assets/logo-cliente.png" alt="Fundación Cardiovascular de Colombia" class="client">
+            </header>
+            <div class="s-body">
+              <div class="s-eyebrow">04 · Experiencia Clave</div>
+              <h2 class="s-title">Experiencia aplicada al <svg class="gt" viewBox="0 0 10300 1083" style="height:1em;"><text x="0" y="1083" fill="url(#gradBrand)" style="font:italic 900 1000px 'Playfair Display',serif;">sector cardiovascular</text></svg></h2>
+              <div class="cap-grid">
+                <div class="cap-card">
+                  <div class="c-head">
+                    <span class="c-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 5v6c0 5.2 3.4 9.5 8 11 4.6-1.5 8-5.8 8-11V5z"/></svg></span>
+                    <h3>Ciberseguridad</h3>
+                  </div>
+                  <ul class="cap-list">
+                    <li class="cap-item"><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg><span class="tx">Protección de datos sensibles de pacientes: historia clínica y métricas cardiovasculares.</span></li>
+                    <li class="cap-item"><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg><span class="tx">Implementación de protocolos seguros a lo largo de todo el ciclo de desarrollo.</span></li>
+                    <li class="cap-item"><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg><span class="tx">Cumplimiento de normativas de privacidad aplicables al dato clínico.</span></li>
+                  </ul>
+                </div>
+                <div class="cap-card">
+                  <div class="c-head">
+                    <span class="c-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 14.2 9.8 22 12 14.2 14.2 12 22 9.8 14.2 2 12 9.8 9.8Z"/></svg></span>
+                    <h3>Inteligencia Artificial</h3>
+                  </div>
+                  <ul class="cap-list">
+                    <li class="cap-item"><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg><span class="tx">Implementación de modelos predictivos sobre datos clínicos y operativos.</span></li>
+                    <li class="cap-item"><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg><span class="tx">Automatización de procesos internos mediante inteligencia artificial.</span></li>
+                    <li class="cap-item"><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg><span class="tx">Análisis de datos médicos para apoyar decisiones clínicas y operativas.</span></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <footer class="s-footer">
+              <span>Campuslands · Exploramos · Despegamos · Conquistamos</span>
+              <span>Propuesta FCV · Full Service 2026</span>
+              <span class="pg">05</span>
+            </footer>
+          </div>
+        </div>
+
+        <!-- ===== 6 · MODALIDAD DE CONTRATACIÓN — BOLSA DE HORAS ===== -->
+        <div class="slide" data-slide="6">
+          <div class="slide-inner internal glow-a">
+            <header class="s-header">
+              <img src="assets/logo-campuslands.png" alt="Campuslands" class="brand">
+              <img src="assets/logo-cliente.png" alt="Fundación Cardiovascular de Colombia" class="client">
+            </header>
+            <div class="s-body">
+              <div class="s-eyebrow">05 · Modalidad de Contratación</div>
+              <h2 class="s-title">Una <svg class="gt" viewBox="0 0 6838 1083" style="height:1em;"><text x="0" y="1083" fill="url(#gradBrand)" style="font:italic 900 1000px 'Playfair Display',serif;">bolsa de horas</text></svg>, escalable por diseño</h2>
+              <p class="s-lead">Modelo de desarrollo por horas que se ajusta a la necesidad real del proyecto, optimizando el presupuesto sin sacrificar agilidad.</p>
+              <div class="flow">
+                <div class="flow-step"><span class="n">1</span><h4>Necesidad del Proyecto</h4><p>Se define el alcance puntual dentro del proyecto cardiovascular en curso.</p></div>
+                <div class="flow-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+                <div class="flow-step"><span class="n">2</span><h4>Asignación de Bolsa de Horas</h4><p>Se escala el equipo — y el perfil: Full-Stack, Seguridad o IA — según ese alcance.</p></div>
+                <div class="flow-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+                <div class="flow-step"><span class="n">3</span><h4>Entrega y Seguimiento</h4><p>Código documentado, reportes de avance por horas y sesiones de seguimiento periódicas.</p></div>
+              </div>
+              <div class="side-note"><span class="lbl">Tarifas</span><p>La tarifa por hora y el tope mensual de la bolsa se definen junto con Fundación Cardiovascular de Colombia, según el perfil requerido y el alcance específico de cada proyecto.</p></div>
+            </div>
+            <footer class="s-footer">
+              <span>Campuslands · Exploramos · Despegamos · Conquistamos</span>
+              <span>Propuesta FCV · Full Service 2026</span>
+              <span class="pg">06</span>
+            </footer>
+          </div>
+        </div>
+
+        <!-- ===== 7 · QUIÉNES SOMOS — CAMPUSLANDS ===== -->
+        <div class="slide" data-slide="7">
+          <div class="slide-inner internal glow-b">
+            <header class="s-header">
+              <img src="assets/logo-campuslands.png" alt="Campuslands" class="brand">
+              <img src="assets/logo-cliente.png" alt="Fundación Cardiovascular de Colombia" class="client">
+            </header>
+            <div class="s-body">
+              <div class="s-eyebrow">06 · Quiénes Somos</div>
+              <h2 class="s-title">Un <svg class="gt" viewBox="0 0 7452 1083" style="height:1em;"><text x="0" y="1083" fill="url(#gradBrand)" style="font:italic 900 1000px 'Playfair Display',serif;">Software House</text></svg> de talento senior</h2>
+              <div class="about">
+                <div>
+                  <p class="about-lead"><b>Campuslands S.A.S. BIC</b> opera desde la Zona Franca Santander como una Fábrica de Software Enterprise, especializada en Inteligencia Artificial generativa y predictiva, automatización inteligente y talento certificado de nivel senior. Soluciones robustas a la medida — nunca plantillas prefabricadas.</p>
+                  <div class="about-stats">
+                    <div class="about-stat"><span class="dot"></span><span>Zona Franca Santander</span></div>
+                    <div class="about-stat"><span class="dot"></span><span>Talento senior certificado</span></div>
+                    <div class="about-stat"><span class="dot"></span><span>Soluciones a la medida, ROI real</span></div>
+                  </div>
+                </div>
+                <div class="sectors-panel">
+                  <div class="lbl">Sectores Atendidos</div>
+                  <div class="tag-row">
+                    <span class="tag-pill">Avícola</span>
+                    <span class="tag-pill">Construcción</span>
+                    <span class="tag-pill">Cárnico</span>
+                    <span class="tag-pill">Textil</span>
+                    <span class="tag-pill">Financiero</span>
+                    <span class="tag-pill is-new">Salud &amp; Cardiovascular</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <footer class="s-footer">
+              <span>Campuslands · Exploramos · Despegamos · Conquistamos</span>
+              <span>Propuesta FCV · Full Service 2026</span>
+              <span class="pg">07</span>
+            </footer>
+          </div>
+        </div>
+
+        <!-- ===== 8 · CIERRE / PRÓXIMOS PASOS ===== -->
+        <div class="slide" data-slide="8">
+          <div class="slide-inner internal glow-a">
+            <header class="s-header">
+              <img src="assets/logo-campuslands.png" alt="Campuslands" class="brand">
+              <img src="assets/logo-cliente.png" alt="Fundación Cardiovascular de Colombia" class="client">
+            </header>
+            <div class="s-body">
+              <div class="s-eyebrow">07 · Cierre</div>
+              <h2 class="s-title">¿Cuándo <svg class="gt" viewBox="0 0 5480 1083" style="height:1em;"><text x="0" y="1083" fill="url(#gradBrand)" style="font:italic 900 1000px 'Playfair Display',serif;">empezamos</text></svg>?</h2>
+              <div class="cta">
+                <div class="steps">
+                  <div class="step"><span class="dot">1</span><span class="lab"><b>Validar alcance y perfil</b><span>Necesidad inicial del proyecto y perfil requerido: Full-Stack, Seguridad o IA.</span></span></div>
+                  <div class="cn"></div>
+                  <div class="step"><span class="dot">2</span><span class="lab"><b>Definir la bolsa de horas</b><span>Tarifa, tope mensual y esquema de seguimiento acordados con FCV.</span></span></div>
+                  <div class="cn"></div>
+                  <div class="step"><span class="dot">3</span><span class="lab"><b>Kick-off y asignación</b><span>Arranque del equipo y primera sesión de seguimiento.</span></span></div>
+                </div>
+                <div class="contact-card">
+                  <div class="role">Contacto Campuslands</div>
+                  <div class="name">Gabriela Pedraza Rueda</div>
+                  <div class="title">Directora Full Service Global</div>
+                  <div class="row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18v12H3z"/><path d="m3 7 9 6 9-6"/></svg>gabriela.pedraza@campuslands.com</div>
+                  <div class="row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92Z"/></svg>+57 300 302 8555</div>
+                </div>
+              </div>
+            </div>
+            <footer class="s-footer">
+              <span>Campuslands · Exploramos · Despegamos · Conquistamos</span>
+              <span>Propuesta FCV · Full Service 2026</span>
+              <span class="pg">08</span>
+            </footer>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ BARRA INFERIOR ============ -->
+  <footer class="slides-footer-controls">
+    <button id="btn-prev-slide" class="control-btn" onclick="navigateSlide(-1)" aria-label="Lámina anterior">
+      <svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="2" fill="none"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+    </button>
+
+    <div class="slide-indicator">
+      <span id="slide-number-display">1 / 8</span>
+      <div class="progress-bar-bg"><div id="slide-progress" class="progress-bar-fill"></div></div>
+      <div class="playback-controls">
+        <button id="btn-autoplay" class="control-btn mini" title="Reproducción automática" onclick="toggleAutoplay()">
+          <svg id="autoplay-icon" viewBox="0 0 24 24" width="16" height="16" fill="currentColor" stroke="none"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        </button>
       </div>
     </div>
-    <footer class="s-footer">
-      <span>Campuslands · Exploramos · Despegamos · Conquistamos</span>
-      <span>Propuesta FCV · Full Service 2026</span>
-      <span class="pg">07</span>
-    </footer>
-  </section>
 
-  <!-- ===== 8 · CIERRE / PRÓXIMOS PASOS ===== -->
-  <section class="slide internal glow-a">
-    <header class="s-header">
-      <img src="assets/logo-campuslands.png" alt="Campuslands" class="brand">
-      <img src="assets/logo-cliente.png" alt="Fundación Cardiovascular de Colombia" class="client">
-    </header>
-    <div class="s-body">
-      <div class="s-eyebrow">07 · Cierre</div>
-      <h2 class="s-title">¿Cuándo <svg class="gt" viewBox="0 0 5480 1083" style="height:1em;"><text x="0" y="1083" fill="url(#gradBrand)" style="font:italic 900 1000px 'Playfair Display',serif;">empezamos</text></svg>?</h2>
-      <div class="cta">
-        <div class="steps">
-          <div class="step"><span class="dot">1</span><span class="lab"><b>Validar alcance y perfil</b><span>Necesidad inicial del proyecto y perfil requerido: Full-Stack, Seguridad o IA.</span></span></div>
-          <div class="cn"></div>
-          <div class="step"><span class="dot">2</span><span class="lab"><b>Definir la bolsa de horas</b><span>Tarifa, tope mensual y esquema de seguimiento acordados con FCV.</span></span></div>
-          <div class="cn"></div>
-          <div class="step"><span class="dot">3</span><span class="lab"><b>Kick-off y asignación</b><span>Arranque del equipo y primera sesión de seguimiento.</span></span></div>
-        </div>
-        <div class="contact-card">
-          <div class="role">Contacto Campuslands</div>
-          <div class="name">Gabriela Pedraza Rueda</div>
-          <div class="title">Directora Full Service Global</div>
-          <div class="row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18v12H3z"/><path d="m3 7 9 6 9-6"/></svg>gabriela.pedraza@campuslands.com</div>
-          <div class="row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92Z"/></svg>+57 300 302 8555</div>
-        </div>
-      </div>
-    </div>
-    <footer class="s-footer">
-      <span>Campuslands · Exploramos · Despegamos · Conquistamos</span>
-      <span>Propuesta FCV · Full Service 2026</span>
-      <span class="pg">08</span>
-    </footer>
-  </section>
+    <button id="btn-next-slide" class="control-btn" onclick="navigateSlide(1)" aria-label="Lámina siguiente">
+      <svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="2" fill="none"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    </button>
+  </footer>
 
+  <script src="script.js"></script>
 </body>
 </html>

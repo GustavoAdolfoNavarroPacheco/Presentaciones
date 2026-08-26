@@ -35,35 +35,117 @@
   --font-label:'Montserrat','Segoe UI',sans-serif;
   --font-body:'Poppins','Segoe UI',sans-serif;
   --slide-w:11in; --slide-h:6.1875in; --pad:0.72in; --radius:14px;
+  --header-h:68px; --footer-h:68px;
 }
 
 /* ---------- 3. RESET ---------- */
 *{ box-sizing:border-box; margin:0; padding:0; }
 @page{ size:11in 6.1875in; margin:0; }
-html,body{ background:#1B1D22; font-family:var(--font-body); color:var(--text-hi); -webkit-font-smoothing:antialiased; }
-body{ display:flex; flex-direction:column; align-items:center; padding:24px; }
+html{ height:100%; }
+body{
+  height:100vh; overflow:hidden; background:var(--bg-0); color:var(--text-hi);
+  font-family:var(--font-body); -webkit-font-smoothing:antialiased;
+  display:flex; flex-direction:column;
+  background-image:
+    radial-gradient(120% 90% at 82% 0%, var(--bg-glow-a) 0%, transparent 45%),
+    radial-gradient(120% 90% at 8% 100%, var(--bg-glow-b) 0%, transparent 50%),
+    var(--bg-wash);
+  background-attachment:fixed;
+}
+button{ font-family:var(--font-label); cursor:pointer; }
 
-/* ---------- 4. LÁMINA BASE ---------- */
+/* ---------- 4. SHELL — Barra superior ---------- */
+.app-header{
+  flex:none; height:var(--header-h); padding:0 34px;
+  display:flex; align-items:center; justify-content:space-between;
+  background:rgba(255,255,255,.86); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(20,25,35,.10); position:relative; z-index:50;
+}
+.header-left{ display:flex; align-items:center; gap:16px; }
+.header-left img{ height:24px; width:auto; display:block; object-fit:contain; }
+.header-left img.logo-client{ height:30px; }
+.logo-divider{ width:1px; height:26px; background:rgba(20,25,35,.14); }
+.header-center{ display:flex; align-items:center; }
+.header-right{ display:flex; align-items:center; }
+
+/* Switch de escenarios — solo se usa/renderiza cuando el deck tiene 2+ escenarios */
+.scenario-selector{ position:relative; display:flex; background:rgba(20,25,35,.045); border:1px solid rgba(20,25,35,.10); border-radius:30px; padding:4px; }
+.scenario-pill{ position:absolute; top:4px; left:4px; height:calc(100% - 8px); width:0; background:var(--grad-brand); border-radius:20px; box-shadow:0 4px 14px rgba(20,25,35,.18); transition:left .4s cubic-bezier(.65,0,.35,1), width .4s cubic-bezier(.65,0,.35,1); z-index:0; pointer-events:none; }
+.scenario-btn{ position:relative; z-index:1; background:none; border:none; color:var(--text-lo); font-weight:600; font-size:12.5px; letter-spacing:.02em; padding:8px 22px; border-radius:20px; transition:color .3s ease; }
+.scenario-btn:hover{ color:var(--text-hi); }
+.scenario-btn.active{ color:#fff; }
+
+/* Badge "Confidencial" de la barra superior — color derivado del token de marca del cliente,
+   sin necesidad de un rgba() hardcodeado por deck (ver wiki/sistema-diseno.md §6). */
+.badge-confidential{
+  display:inline-flex; align-items:center; gap:8px; font-family:var(--font-label); font-weight:700;
+  font-size:10px; letter-spacing:.18em; text-transform:uppercase; color:var(--dot-confidential);
+  background:color-mix(in srgb, var(--dot-confidential) 10%, transparent);
+  border:1px solid color-mix(in srgb, var(--dot-confidential) 28%, transparent);
+  border-radius:99px; padding:7px 16px;
+}
+.badge-confidential::before{ content:""; width:7px; height:7px; border-radius:50%; background:var(--dot-confidential); box-shadow:0 0 8px 1px var(--dot-confidential-glow); }
+
+/* Badge "Confidencial" flotante de la portada (distinto del de la barra superior) */
+.cover-badge-confidential{ display:inline-flex; align-items:center; gap:9px; font-family:var(--font-label); font-weight:600; font-size:8.5pt; letter-spacing:.26em; text-transform:uppercase; color:var(--text-mid); }
+.cover-badge-confidential::before{ content:""; width:8px; height:8px; border-radius:50%; background:var(--dot-confidential); box-shadow:0 0 10px 1px var(--dot-confidential-glow); }
+
+/* ---------- 5. SHELL — Viewport de láminas ---------- */
+.app-content{ flex:1; min-height:0; display:flex; }
+.slides-viewport{ flex:1; display:flex; }
+.slides-container{ flex:1; position:relative; display:flex; align-items:center; justify-content:center; padding:22px 40px; min-width:0; }
+
+/* La lámina se dibuja siempre a su tamaño nativo (11in × 6.1875in = 1056×594px a 96dpi,
+   igual que el PDF impreso) y se reescala como un todo con zoom según el espacio
+   disponible — a diferencia de transform:scale(), zoom reflowa el layout real, así el
+   contenido en pt/in nunca se desborda ni se recorta al achicar la ventana. Se evita
+   transform:scale() a propósito: combinado con el texto SVG en gradiente produce
+   recortes de renderizado en Chrome headless. Ver wiki/sistema-diseno.md §6. */
 .slide{
-  position:relative; width:var(--slide-w); height:var(--slide-h); overflow:hidden;
+  position:absolute; width:1056px; height:594px; zoom:var(--slide-scale,1);
+  display:none; opacity:0; transform:translateY(16px);
+  transition:opacity .45s ease, transform .45s ease;
+  border-radius:var(--radius); overflow:hidden; box-shadow:0 20px 60px rgba(0,0,0,.22);
+}
+.slide.active{ display:block; opacity:1; transform:translateY(0); }
+
+.slide-inner{
+  width:100%; height:100%; overflow:hidden; position:relative;
+  color:var(--text-hi);
   background:
     radial-gradient(120% 90% at 82% 18%, var(--bg-glow-a) 0%, transparent 45%),
     radial-gradient(120% 120% at 12% 92%, var(--bg-glow-b) 0%, transparent 50%),
     var(--bg-wash),
     linear-gradient(150deg, var(--bg-0) 0%, var(--bg-1) 55%, var(--bg-deep) 100%);
-  color:var(--text-hi); margin-bottom:28px; border-radius:var(--radius);
-  box-shadow:0 20px 60px rgba(0,0,0,.22);
 }
-.glow-a{ background:
+.slide-inner.glow-a{ background:
   radial-gradient(90% 80% at 15% 20%, var(--bg-glow-a) 0%, transparent 45%),
   radial-gradient(110% 110% at 95% 95%, var(--bg-glow-b) 0%, transparent 50%),
   var(--bg-wash),
   linear-gradient(160deg,var(--bg-0),var(--bg-1) 60%,var(--bg-deep)); }
-.glow-b{ background:
-  radial-gradient(80% 70% at 88% 15%, var(--bg-glow-b) 0%, transparent 45%),
+.slide-inner.glow-b{ background:
+  radial-gradient(80% 70% at 88% 15%, var(--bg-glow-b) 0%, transparent 50%),
   radial-gradient(120% 120% at 8% 90%, var(--bg-glow-a) 0%, transparent 50%),
   var(--bg-wash),
   linear-gradient(140deg,var(--bg-0),var(--bg-1) 60%,var(--bg-deep)); }
+
+/* ---------- 6. SHELL — Barra inferior ---------- */
+.slides-footer-controls{
+  flex:none; height:var(--footer-h); padding:0 34px;
+  display:flex; align-items:center; justify-content:space-between;
+  background:rgba(255,255,255,.86); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px);
+  border-top:1px solid rgba(20,25,35,.10); position:relative; z-index:50;
+}
+.control-btn{ background:none; border:1px solid rgba(20,25,35,.14); color:var(--text-hi); width:42px; height:42px; border-radius:50%; display:flex; align-items:center; justify-content:center; transition:all .25s ease; }
+.control-btn:hover{ background:var(--blue); border-color:var(--blue); color:#fff; box-shadow:0 4px 12px rgba(20,25,35,.18); }
+.control-btn.mini{ width:34px; height:34px; }
+.control-btn.active{ background:var(--grad-brand); border-color:transparent; color:#fff; }
+
+.slide-indicator{ display:flex; align-items:center; gap:18px; flex:1; max-width:520px; margin:0 26px; }
+#slide-number-display{ font-family:var(--font-label); font-weight:600; font-size:12.5px; color:var(--text-mid); min-width:44px; text-align:right; }
+.progress-bar-bg{ flex:1; height:6px; background:rgba(20,25,35,.07); border-radius:3px; overflow:hidden; }
+.progress-bar-fill{ height:100%; width:10%; background:var(--grad-brand); transition:width .3s ease; }
+.playback-controls{ display:flex; align-items:center; }
 
 /* ---------- 5. UTILIDADES ---------- */
 .gt{ display:inline-block; overflow:visible; vertical-align:baseline; }
@@ -83,9 +165,6 @@ body{ display:flex; flex-direction:column; align-items:center; padding:24px; }
 .deco-rings span:nth-child(2){ inset:.7in; border-color:rgba(20,25,35,.055); }
 .deco-rings span:nth-child(3){ inset:1.4in; border-color:rgba(20,25,35,.04); }
 .deco-rings span:nth-child(4){ inset:1.95in; border:1px solid rgba(0,156,180,.2); box-shadow:0 0 40px rgba(0,156,180,.12) inset; }
-
-.badge-confidential{ display:inline-flex; align-items:center; gap:9px; font-family:var(--font-label); font-weight:600; font-size:8.5pt; letter-spacing:.26em; text-transform:uppercase; color:var(--text-mid); }
-.badge-confidential::before{ content:""; width:8px; height:8px; border-radius:50%; background:var(--dot-confidential); box-shadow:0 0 10px 1px var(--dot-confidential-glow); }
 
 /* ---------- 6. PORTADA ---------- */
 .cover{ display:grid; grid-template-rows:auto 1fr auto; padding:var(--pad); }
@@ -202,9 +281,20 @@ body{ display:flex; flex-direction:column; align-items:center; padding:24px; }
 .contact-card .row{ display:flex; align-items:center; gap:12px; margin-top:11px; font-family:var(--font-body); font-weight:400; font-size:10.6pt; color:var(--text-mid); }
 .contact-card .row svg{ width:16px; height:16px; color:var(--cyan); flex:none; }
 
-/* ---------- 15. IMPRESIÓN ---------- */
+/* ---------- 15. IMPRESIÓN / EXPORT PDF ---------- */
+/* El shell interactivo (barra superior, viewport con zoom, barra inferior) es solo para
+   pantalla — el PDF exportado con Chrome headless nunca lo ve: se oculta por completo y
+   cada .slide vuelve a su tamaño físico real, apilada en secuencia, igual que antes de
+   tener shell. Ver wiki/sistema-diseno.md §6. */
 @media print{
-  html,body{ width:11in; height:auto; background:none; padding:0; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
-  .slide{ width:11in; height:6.1875in; margin:0; border-radius:0; box-shadow:none; overflow:hidden; break-inside:avoid; }
-  .slide + .slide{ page-break-before:always; break-before:page; }
+  html,body{ width:11in; height:auto; overflow:visible; background:none; background-image:none; padding:0; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  .app-header, .slides-footer-controls{ display:none !important; }
+  .app-content, .slides-viewport{ display:block; height:auto; }
+  .slides-container{ display:block; padding:0; }
+  .slide{
+    display:block !important; position:relative; width:11in; height:6.1875in; zoom:1;
+    opacity:1; transform:none; margin:0 auto; border-radius:0; box-shadow:none;
+    page-break-after:always; break-after:page; overflow:hidden;
+  }
+  .slide:last-child{ page-break-after:auto; break-after:auto; }
 }

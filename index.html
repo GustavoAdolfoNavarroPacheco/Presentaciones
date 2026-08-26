@@ -1306,7 +1306,7 @@
         <!-- METRICS BAR -->
         <div class="metrics-bar">
           <div class="metric-item">
-            <span class="metric-num" id="stat-total">21</span>
+            <span class="metric-num" id="stat-total">22</span>
             <span class="metric-label">Decks & Demos</span>
           </div>
           <div class="metric-item">
@@ -1349,10 +1349,10 @@
 
         <div class="filter-pills">
           <button class="filter-btn active" data-category="all">
-            Todos los Decks <span class="filter-count" id="count-all">21</span>
+            Todos los Decks <span class="filter-count" id="count-all">22</span>
           </button>
           <button class="filter-btn" data-category="ia">
-            Agentes de IA <span class="filter-count" id="count-ia">7</span>
+            Agentes de IA <span class="filter-count" id="count-ia">8</span>
           </button>
           <button class="filter-btn" data-category="software">
             Ecosistemas & Software <span class="filter-count" id="count-software">7</span>
@@ -1366,7 +1366,7 @@
         </div>
 
         <div class="results-info">
-          <span>Mostrando <strong id="visibleCount" class="active-tag">21</strong> presentaciones disponibles</span>
+          <span>Mostrando <strong id="visibleCount" class="active-tag">22</strong> presentaciones disponibles</span>
           <span id="cleanUrlHint">URLs limpias: <code>/<span class="active-tag">slug</span></code></span>
         </div>
       </section>
@@ -1505,6 +1505,26 @@
     // BASE DE DATOS DE PRESENTACIONES & DEMOS
     // ==========================================================================
     const decksData = [
+      {
+        id: "fcv",
+        company: "Fundación Cardiovascular de Colombia",
+        title: "Desarrollo de Software Especializado",
+        desc: "Propuesta de Servicios Profesionales bajo modelo de bolsa de horas: perfiles mixtos Full-Stack con Ciberseguridad e Inteligencia Artificial aplicados a proyectos del sector cardiovascular — protección de historia clínica, modelos predictivos y automatización.",
+        category: "ia",
+        categoryLabel: "Ciberseguridad & IA",
+        slides: "8 Láminas",
+        investment: "Bolsa de Horas",
+        cleanSlug: "fcv",
+        directPath: "fcv/index.html",
+        pdfPath: "fcv/fcv.pdf",
+        pdfLabel: "PDF Oficial",
+        logo: "assets/logos/FCV.png",
+        monogram: "FCV",
+        accentGrad: "linear-gradient(100deg, #0891B2, #16A34A 36%, #EAB308 68%, #DB2777)",
+        glow: "rgba(8, 145, 178, 0.25)",
+        dotColor: "#CA8A04",
+        keywords: "fcv fundacion cardiovascular colombia bolsa de horas desarrollo software ciberseguridad inteligencia artificial perfiles mixtos full-stack salud clinica"
+      },
       {
         id: "marval",
         company: "Marval S.A.S.",

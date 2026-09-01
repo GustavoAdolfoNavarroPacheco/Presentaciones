@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Marval S.A.S.</title>
+<meta name="description" content="Propuesta Técnica — Fase 1 Marval S.A.S.: Proyecto A (Agente de IA Marvia, Entregas Digitales en Teams) y Proyecto B (Intranet Corporativa, MVP).">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body class="scenario-a">
+
+<svg class="hidden-defs" aria-hidden="true">
+  <defs>
+    <linearGradient id="gradBrand" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#6FA8DC"/>
+      <stop offset="34%" stop-color="#4888C8"/>
+      <stop offset="68%" stop-color="#1068B0"/>
+      <stop offset="100%" stop-color="#062A4F"/>
+    </linearGradient>
+  </defs>
+</svg>
+
+<!-- ============ BARRA SUPERIOR ============ -->
+<header class="app-header">
+  <div class="header-left">
+    <img src="assets/logo-campuslands.png" alt="Campuslands Full Service">
+    <div class="logo-divider"></div>
+    <img src="assets/logo-marval.png" alt="Marval S.A.S." class="logo-marval">
+  </div>
+  <div class="header-center">
+    <div class="scenario-selector">
+      <span class="scenario-pill" id="scenario-pill"></span>
+      <button id="btn-scenario-a" class="scenario-btn active" onclick="switchScenario('a')">Proyecto A</button>
+      <button id="btn-scenario-b" class="scenario-btn" onclick="switchScenario('b')">Proyecto B</button>
+    </div>
+  </div>
+  <div class="header-right">
+    <span class="badge-confidential">Confidencial</span>
+  </div>
+</header>
+
+<!-- ============ CONTENIDO ============ -->
+<main class="app-content">
+  <section class="slides-viewport">
+    <div class="slides-container" id="slides-container">
+
+      <!-- ============================================================
+           ESCENARIO A — AGENTE DE IA "MARVIA" (FASE 1, TEAMS)
+           ============================================================ -->
+
+      <!-- A1 — PORTADA -->
+      <div class="slide active" data-slide="1" data-scenario="a">
+        <div class="slide-inner cover">
+          <span class="corner tl"></span><span class="corner tr"></span>
+          <span class="corner bl"></span><span class="corner br"></span>
+          <div class="deco-rings"><span></span><span></span><span></span><span></span></div>
+
+          <div class="cover__topbar">
+            <img src="assets/logo-campuslands.png" alt="Campuslands Full Service" class="cover__brand">
+            <span class="cover-badge-confidential">Confidencial</span>
+          </div>
+
+          <div class="cover__body">
+            <div class="eyebrow cover__eyebrow">Campuslands Full Service · Software House</div>
+            <div class="cover__scenario">Proyecto A · Agente de IA</div>
+            <h1 class="cover__title">Un asistente inteligente,<br><svg class="gt" viewBox="0 -1082 8625.98 1333" style="height:1.333em;"><text x="0" y="0" fill="url(#gradBrand)" style="font:italic 900 1000px 'Playfair Display',serif;">no un chatbot más</text></svg></h1>
+            <div class="cover__kicker">Orquestador Central · Agente de Entregas Digitales · Canal Microsoft Teams · RAG sobre datos propios</div>
+            <div class="cover__client">
+              <span class="cover__client-para">PARA</span>
+              <img src="assets/logo-marval.png" alt="Marval S.A.S." class="cover__client-logo">
+            </div>
+            <p class="cover__subtitle">Propuesta Técnica — Ecosistema de Agentes de IA "Marvia", Fase 1</p>
+          </div>
+
+          <div class="cover__meta">
+            <div class="meta-item"><div class="meta-item__label">Preparado para</div><div class="meta-item__value">Dirección — Marval S.A.S.</div></div>
+            <div class="meta-item"><div class="meta-item__label">Preparado por</div><div class="meta-item__value">Campuslands · Full Service</div></div>
+            <div class="meta-item"><div class="meta-item__label">Fecha</div><div class="meta-item__value">Septiembre 2026</div></div>
+            <div class="meta-item"><div class="meta-item__label">Versión</div><div class="meta-item__value">Proyecto A · Agente de IA</div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- A2 — CONTEXTO ESTRATÉGICO -->
+      <div class="slide" data-slide="2" data-scenario="a">
+        <div class="slide-inner internal glow-a">
+          <header class="s-header">
+            <img src="assets/logo-campuslands.png" alt="Campuslands" class="brand">
+            <img src="assets/logo-marval.png" alt="Marval S.A.S." class="client">
+          </header>
+          <div class="s-body">
+            <div class="s-eyebrow">01 · Contexto Estratégico</div>
+            <h2 class="s-title">Infraestructura cognitiva, <span class="title-accent">no un chatbot tradicional</span></h2>
+            <div class="split">
+              <div class="quote-card">
+                <span class="qm">"</span>
+                <p>Marvia se entiende no como un chatbot tradicional, sino como una infraestructura de asistencia cognitiva capaz de razonar, ejecutar tareas y orquestar flujos de trabajo.</p>
+              </div>
+              <ul class="pain-list">
+                <li class="pain-item"><span class="ico">✓</span><span class="tx">Proyecto <b>100% independiente</b> de la Intranet Corporativa: arquitectura, infraestructura y cronograma propios.</span></li>
+                <li class="pain-item"><span class="ico">✓</span><span class="tx">Comparte principios de diseño con la Intranet (arquitectura hexagonal, portabilidad, estándares abiertos) y a futuro podrán integrarse.</span></li>
+                <li class="pain-item"><span class="ico">✓</span><span class="tx">Se diseña desde el día uno pensando en un ecosistema multiagente más amplio: Gestión Humana, Tecnología, Comercial, Abastecimiento, Recaudo, Legalización y Contable.</span></li>
+                <li class="pain-item"><span class="ico">✓</span><span class="tx">El compromiso concreto y priorizado de esta Fase 1 es <b>un único frente</b>: el Agente de Soporte para Entregas Digitales, publicado en Microsoft Teams.</span></li>
+              </ul>
+            </div>
+          </div>
+          <footer class="s-footer">
+            <span>Campuslands · Exploramos · Despegamos · Conquistamos</span>
+            <span>Marval S.A.S. · Proyecto A · Agente de IA</span>
+            <span class="pg">02</span>
+          </footer>
+        </div>
+      </div>
+
+      <!-- A3 — ALCANCE DE FASE 1 -->
+      <div class="slide" data-slide="3" data-scenario="a">
+        <div class="slide-inner internal glow-b">
+          <header class="s-header">
+            <img src="assets/logo-campuslands.png" alt="Campuslands" class="brand">
+            <img src="assets/logo-marval.png" alt="Marval S.A.S." class="client">
+          </header>
+          <div class="s-body">
+            <div class="s-eyebrow">02 · Alcance de Fase 1</div>
+            <h2 class="s-title">Un caso de uso, <span class="title-accent">una entrega impecable</span></h2>
+            <div class="dual-list">
+              <div class="list-col list-col--ok">
+                <div class="list-col__head"><span class="dot"></span><h4>En alcance — Agente de Entregas Digitales</h4></div>
+                <ul class="chk-list">
+                  <li class="chk-item"><span class="ico">✓</span><span class="tx">Asistencia en lenguaje natural sobre la app "Entregas Digitales", con base en las fuentes oficiales de Zoho Learn.</span></li>
+                  <li class="chk-item"><span class="ico">✓</span><span class="tx">Apoyo en procesos de autenticación: reenvío y verificación de códigos OTP para clientes.</span></li>
+                  <li class="chk-item"><span class="ico">✓</span><span class="tx">Gestión de registros: creación de actas y novedades directamente en el CRM.</span></li>
+                  <li class="chk-item"><span class="ico">✓</span><span class="tx">Escalamiento inteligente a soporte humano de nivel 2 cuando la incidencia excede el dominio del agente.</span></li>
+                </ul>
+              </div>
+              <div class="list-col list-col--no">
+                <div class="list-col__head"><span class="dot"></span><h4>Fuera de alcance en Fase 1</h4></div>
+                <ul class="chk-list">
+                  <li class="chk-item"><span class="ico">✕</span><span class="tx">Consulta de políticas y beneficios de Gestión Humana — cubierto por la Intranet Corporativa.</span></li>
+                  <li class="chk-item"><span class="ico">✕</span><span class="tx">Dudas técnicas sobre proyectos de Tecnología — cubierto por la Intranet Corporativa.</span></li>
+                  <li class="chk-item"><span class="ico">✕</span><span class="tx">Atención directa al cliente final: el agente siempre asiste a una persona de Marval, nunca al cliente.</span></li>
+                  <li class="chk-item"><span class="ico">✕</span><span class="tx">Agentes de Comercial, Abastecimiento, Recaudo, Legalización y Contable — fases posteriores.</span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <footer class="s-footer">
+            <span>Campuslands · Exploramos · Despegamos · Conquistamos</span>
+            <span>Marval S.A.S. · Proyecto A · Agente de IA</span>
+            <span class="pg">03</span>
+          </footer>
+        </div>
+      </div>
+
+      <!-- A4 — ARQUITECTURA MULTIAGENTE -->
+      <div class="slide" data-slide="4" data-scenario="a">
+        <div class="slide-inner internal glow-a">
+          <header class="s-header">
+            <img src="assets/logo-campuslands.png" alt="Campuslands" class="brand">
+            <img src="assets/logo-marval.png" alt="Marval S.A.S." class="client">
+          </header>
+          <div class="s-body">
+            <div class="s-eyebrow">03 · Arquitectura Multiagente</div>
+            <h2 class="s-title">Un agente, <span class="title-accent">una función</span></h2>
+            <p class="s-lead">Baja latencia · fuente de datos acotada y semántica · portabilidad (hexagonal, Docker, PostgreSQL) · sin Kubernetes por ahora.</p>
+            <div class="eco-map">
+              <div class="eco-row" style="grid-template-columns:1fr;">
+                <div class="eco-chip"><span class="n">◆</span><span class="tcol"><span class="t">Orquestador Central</span><span class="d">Único punto de entrada: interpreta la intención, valida el rol (resuelto por Teams) y enruta al agente experto correspondiente.</span></span></div>
+              </div>
+              <div class="eco-connector"></div>
+              <div class="eco-row" style="grid-template-columns:1fr;">
+                <div class="eco-chip"><span class="n">01</span><span class="tcol"><span class="t">Agente de Soporte para Entregas Digitales</span><span class="d">Único agente especializado que se construye en esta fase — herramienta de soporte directo para el personal de Marval en obra.</span></span></div>
+              </div>
+              <div class="eco-agents">
+                <span class="lbl">Reservado para fases futuras — se registran sin reescribir el orquestador</span>
+                <div class="eco-agents-row">
+                  <div class="eco-agent-chip"><span class="t">Gestión Humana</span></div>
+                  <div class="eco-agent-chip"><span class="t">Tecnología</span></div>
+                  <div class="eco-agent-chip"><span class="t">Comercial</span></div>
+                  <div class="eco-agent-chip"><span class="t">Abastecimiento</span></div>
+                  <div class="eco-agent-chip"><span class="t">Recaudo</span></div>
+                  <div class="eco-agent-chip"><span class="t">Legalización</span></div>
+                  <div class="eco-agent-chip"><span class="t">Contable</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <footer class="s-footer">
+            <span>Campuslands · Exploramos · Despegamos · Conquistamos</span>
+            <span>Marval S.A.S. · Proyecto A · Agente de IA</span>
+            <span class="pg">04</span>
+          </footer>
+        </div>
+      </div>
+
+      <!-- A5 — CAPA DE INTELIGENCIA (RAG) -->
+      <div class="slide" data-slide="5" data-scenario="a">
+        <div class="slide-inner internal glow-b">
+          <header class="s-header">
+            <img src="assets/logo-campuslands.png" alt="Campuslands" class="brand">
+            <img src="assets/logo-marval.png" alt="Marval S.A.S." class="client">
+          </header>
+          <div class="s-body">
+            <div class="s-eyebrow">04 · Capa de Inteligencia y Estrategia de Datos (RAG)</div>
+            <h2 class="s-title">La verdad de negocio, <span class="title-accent">antes de responder</span></h2>
+            <p class="s-lead">El alcance de datos de esta fase se limita estrictamente a las fuentes del dominio de Entregas Digitales.</p>
+            <div class="data-table-wrap">
+              <table class="data-table">
+                <thead><tr><th>Tipo de dato</th><th>Fuente principal</th><th>Almacenamiento</th><th>Recuperación</th></tr></thead>
+                <tbody>
+                  <tr><td><b>No estructurados</b></td><td>Zoho Learn — 11 artículos de FAQ, manuales y procedimientos, vía conexión MSP</td><td>PostgreSQL con extensión pgvector</td><td>Indexación vectorial y búsqueda semántica (RAG)</td></tr>
+                  <tr><td><b>Estructurados</b></td><td>Oracle (bodega de datos) y SOHO CRM — clientes, estado de inmuebles y procesos de entrega</td><td>Modelo de datos normalizado (capa intermedia)</td><td>Consulta semántica; sincronización asíncrona, sin acceso directo a bases transaccionales</td></tr>
+                </tbody>
+              </table>
+              <div class="table-note"><span class="lbl">Nota de alcance</span><p>Los datos de personal en Cactus (Digital Ware) no forman parte del alcance de esta Fase 1 — son insumo de un futuro Agente de Gestión Humana.</p></div>
+            </div>
+          </div>
+          <footer class="s-footer">
+            <span>Campuslands · Exploramos · Despegamos · Conquistamos</span>
+            <span>Marval S.A.S. · Proyecto A · Agente de IA</span>
+            <span class="pg">05</span>
+          </footer>
+        </div>
+      </div>
+
+      <!-- A6 — STACK TECNOLÓGICO -->
+      <div class="slide" data-slide="6" data-scenario="a">
+        <div class="slide-inner internal glow-a">
+          <header class="s-header">
+            <img src="assets/logo-campuslands.png" alt="Campuslands" class="brand">
+            <img src="assets/logo-marval.png" alt="Marval S.A.S." class="client">
+          </header>
+          <div class="s-body">
+            <div class="s-eyebrow">05 · Definiciones Técnicas y Stack Tecnológico</div>
+            <h2 class="s-title">Portabilidad absoluta, <span class="title-accent">sin vendor lock-in</span></h2>
+            <p class="s-lead">Marval requiere poder migrar la lógica de agentes entre nubes (Azure, AWS u Oracle Cloud) sin reescritura.</p>
+            <div class="feat-grid feat-grid--dense" style="grid-template-columns:repeat(3,1fr);">
+              <div class="feat-card"><span class="rf">STACK · 01</span><h4>Lenguaje y frameworks</h4><p>Python con FastAPI. LangChain como base; se evalúa LangGraph para flujos agénticos complejos.</p></div>
+              <div class="feat-card"><span class="rf">STACK · 02</span><h4>Arquitectura</h4><p>Hexagonal (puertos y adaptadores), independiente de proveedor cloud, motor de base de datos y proveedor de modelo.</p></div>
+              <div class="feat-card"><span class="rf">STACK · 03</span><h4>Despliegue</h4><p>Contenedores Docker bajo servicios administrados auto-escalables. Se evita Kubernetes por costo y complejidad.</p></div>
+              <div class="feat-card"><span class="rf">STACK · 04</span><h4>Estado y persistencia</h4><p>PostgreSQL con extensión pgvector, para búsqueda híbrida e historial de conversaciones.</p></div>
+              <div class="feat-card"><span class="rf">STACK · 05</span><h4>Integración con Teams</h4><p>Bot Framework + Teams AI Library, reutilizando la misma lógica de agentes del orquestador.</p></div>
+              <div class="feat-card"><span class="rf">STACK · 06</span><h4>Gestión de identidad</h4><p>Sin autenticación propia: recibe de Teams el contexto de usuario y rol ya resuelto.</p></div>
+            </div>
+          </div>
+          <footer class="s-footer">
+            <span>Campuslands · Exploramos · Despegamos · Conquistamos</span>
+            <span>Marval S.A.S. · Proyecto A · Agente de IA</span>
+            <span class="pg">06</span>
+          </footer>
+        </div>
+      </div>
+
+      <!-- A7 — MOTOR DE IA -->
+      <div class="slide" data-slide="7" data-scenario="a">
+        <div class="slide-inner internal glow-b">
+          <header class="s-header">
+            <img src="assets/logo-campuslands.png" alt="Campuslands" class="brand">
+            <img src="assets/logo-marval.png" alt="Marval S.A.S." class="client">
+          </header>
+          <div class="s-body">
+            <div class="s-eyebrow">06 · Motor de Inteligencia Artificial</div>
+            <h2 class="s-title">Salida rápida al mercado, <span class="title-accent">sin cerrar el futuro</span></h2>
+            <div class="data-table-wrap">
+              <table class="data-table">
+                <thead><tr><th>Criterio</th><th>Azure OpenAI (GPT-4o-mini)</th><th>Modelos locales (Llama / Mistral)</th></tr></thead>
+                <tbody>
+                  <tr><td><b>Razonamiento</b></td><td class="col-highlight">Superior y consistente desde el inicio</td><td>Requiere afinación (fine-tuning) y MLOps</td></tr>
+                  <tr><td><b>Inversión</b></td><td class="col-highlight">Variable (pago por uso); protege el presupuesto inicial</td><td>Fija (alto costo inicial en infraestructura GPU)</td></tr>
+                  <tr><td><b>Privacidad</b></td><td class="col-highlight">Contratos empresariales — los datos no entrenan el modelo</td><td>Privacidad total en perímetro local</td></tr>
+                  <tr><td><b>Implementación</b></td><td class="col-highlight">Acelerada (días)</td><td>Compleja (semanas / meses)</td></tr>
+                </tbody>
+              </table>
+              <div class="side-note" style="margin-top:.16in;"><span class="lbl">Recomendación de<br>consultoría</span><p>Iniciar la Fase 1 con Azure OpenAI protege el presupuesto de Marval durante la validación de negocio. La arquitectura hexagonal garantiza que el motor pueda migrarse a modelos locales más adelante, sin afectar la lógica del ecosistema.</p></div>
+            </div>
+          </div>
+          <footer class="s-footer">
+            <span>Campuslands · Exploramos · Despegamos · Conquistamos</span>
+            <span>Marval S.A.S. · Proyecto A · Agente de IA</span>
+            <span class="pg">07</span>
+          </footer>
+        </div>
+      </div>
+
+      <!-- A8 — INSUMOS CRÍTICOS -->
+      <div class="slide" data-slide="8" data-scenario="a">
+        <div class="slide-inner internal glow-a">
+          <header class="s-header">
+            <img src="assets/logo-campuslands.png" alt="Campuslands" class="brand">
+            <img src="assets/logo-marval.png" alt="Marval S.A.S." class="client">
+          </header>
+          <div class="s-body">
+            <div class="s-eyebrow">07 · Insumos Técnicos Críticos</div>
+            <h2 class="s-title">Cuatro insumos, <span class="title-accent">para no perder el enfoque</span></h2>
+            <p class="s-lead">Dependencias bloqueantes referidas al dominio de Entregas Digitales, solicitadas formalmente al equipo de Datos de Marval.</p>
+            <div class="feat-grid" style="grid-template-columns:repeat(2,1fr); grid-template-rows:repeat(2,1fr);">
+              <div class="feat-card feat-card--lg"><span class="rf">INSUMO · 01</span><h4>Diccionario de datos y modelo normalizado</h4><p>Detalle de entidades en Oracle y en SOHO CRM para el dominio de Entregas Digitales.</p></div>
+              <div class="feat-card feat-card--lg"><span class="rf">INSUMO · 02</span><h4>Contratos de API</h4><p>Especificaciones técnicas para la integración con el CRM y con Microsoft Graph/Teams.</p></div>
+              <div class="feat-card feat-card--lg"><span class="rf">INSUMO · 03</span><h4>Muestra de la base de conocimiento</h4><p>Al menos un artículo representativo de los 11 disponibles hoy en Zoho Learn, para dimensionar la base vectorial.</p></div>
+              <div class="feat-card feat-card--lg"><span class="rf">INSUMO · 04</span><h4>Roles y contextos de usuario</h4><p>Mapeo de perfiles (personal de obra vs. otros roles internos) para la gestión de permisos.</p></div>
+            </div>
+          </div>
+          <footer class="s-footer">
+            <span>Campuslands · Exploramos · Despegamos · Conquistamos</span>
+            <span>Marval S.A.S. · Proyecto A · Agente de IA</span>
+            <span class="pg">08</span>
+          </footer>
+        </div>
+      </div>
+
+      <!-- A9 — ROADMAP Y CIERRE -->
+      <div class="slide" data-slide="9" data-scenario="a">
+        <div class="slide-inner internal glow-b">
+          <header class="s-header">
+            <img src="assets/logo-campuslands.png" alt="Campuslands" class="brand">
+            <img src="assets/logo-marval.png" alt="Marval S.A.S." class="client">
+          </header>
+          <div class="s-body">
+            <div class="s-eyebrow">08 · Roadmap y Próximos Pasos</div>
+            <h2 class="s-title">¿Cuándo <span class="title-accent">empezamos?</span></h2>
+            <div class="cta">
+              <div class="steps">
+                <div class="step"><span class="dot">1</span><span class="lab"><b>Fase 1 — Entregas Digitales en Teams</b><span>Orquestador + agente especializado, alcance de esta propuesta.</span></span></div>
+                <div class="cn"></div>
+                <div class="step"><span class="dot">2</span><span class="lab"><b>Fase 2 — Gestión Humana y Tecnología</b><span>Nuevos agentes de dominio que reutilizan el mismo orquestador.</span></span></div>
+                <div class="cn"></div>
+                <div class="step"><span class="dot">3</span><span class="lab"><b>Fase 3 — Ecosistema multiagente ampliado</b><span>Comercial, Abastecimiento, Recaudo, Legalización y Contable.</span></span></div>
+              </div>
+              <div class="contact-card">
+                <div class="role">Su contacto directo</div>
+                <div class="name">Gabriela Pedraza Rueda</div>
+                <div class="role" style="margin:0 0 14px 0;color:var(--text-lo);letter-spacing:.06em;">Directora Full Service Global</div>
+                <div class="row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>gabriela.pedraza@campuslands.com</div>
+                <div class="row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.4-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2Z"/></svg>+57 300 302 8555</div>
+              </div>
+            </div>
+          </div>
+          <footer class="s-footer">
+            <span>Campuslands · Exploramos · Despegamos · Conquistamos</span>
+            <span>Marval S.A.S. · Proyecto A · Agente de IA</span>
+            <span class="pg">09</span>
+          </footer>
+        </div>
+      </div>
+
+      <!-- ============================================================
+           ESCENARIO B — INTRANET CORPORATIVA MARVAL (MVP, FASE 1)
+           ============================================================ -->
+
+      <!-- B1 — PORTADA -->
+      <div class="slide" data-slide="1" data-scenario="b">
+        <div class="slide-inner cover">
+          <span class="corner tl"></span><span class="corner tr"></span>
+          <span class="corner bl"></span><span class="corner br"></span>
+          <div class="deco-rings"><span></span><span></span><span></span><span></span></div>
+
+          <div class="cover__topbar">
+            <img src="assets/logo-campuslands.png" alt="Campuslands Full Service" class="cover__brand">
+            <span class="cover-badge-confidential">Confidencial</span>
+          </div>
+
+          <div class="cover__body">
+            <div class="eyebrow cover__eyebrow">Campuslands Full Service · Software House</div>
+            <div class="cover__scenario">Proyecto B · Intranet Corporativa</div>
+            <h1 class="cover__title">Un lobby digital,<br><svg class="gt" viewBox="-109.375 -1082 12277.84 1333" style="height:1.333em;"><text x="0" y="0" fill="url(#gradBrand)" style="font:italic 900 1000px 'Playfair Display',serif;">para toda la organización</text></svg></h1>
+            <div class="cover__kicker">SSO con Microsoft Entra ID · CMS por Dominios · Home · Eventos · Beneficios · Universidad Marval · SST</div>
+            <div class="cover__client">
+              <span class="cover__client-para">PARA</span>
+              <img src="assets/logo-marval.png" alt="Marval S.A.S." class="cover__client-logo">
+            </div>
+            <p class="cover__subtitle">Propuesta Técnica — Intranet Corporativa Marval, MVP Fase 1</p>
+          </div>
+
+          <div class="cover__meta">
+            <div class="meta-item"><div class="meta-item__label">Preparado para</div><div class="meta-item__value">Dirección — Marval S.A.S.</div></div>
+            <div class="meta-item"><div class="meta-item__label">Preparado por</div><div class="meta-item__value">Campuslands · Full Service</div></div>
+            <div class="meta-item"><div class="meta-item__label">Fecha</div><div class="meta-item__value">Septiembre 2026</div></div>
+            <div class="meta-item"><div class="meta-item__label">Versión</div><div class="meta-item__value">Proyecto B · Intranet Corporativa</div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- B2 — VISIÓN ESTRATÉGICA -->
+      <div class="slide" data-slide="2" data-scenario="b">
+        <div class="slide-inner internal glow-a">
+          <header class="s-header">
+            <img src="assets/logo-campuslands.png" alt="Campuslands" class="brand">
+            <img src="assets/logo-marval.png" alt="Marval S.A.S." class="client">
+          </header>
+          <div class="s-body">
+            <div class="s-eyebrow">01 · Visión Estratégica</div>
+            <h2 class="s-title">De correos masivos, <span class="title-accent">a un lobby digital</span></h2>
+            <div class="split">
+              <div class="quote-card">
+                <span class="qm">"</span>
+                <p>Históricamente la comunicación interna ha operado bajo un modelo fragmentado, dependiente de correos masivos y adjuntos, lo que genera ruido informativo y dispersión del conocimiento.</p>
+              </div>
+              <ul class="pain-list">
+                <li class="pain-item"><span class="ico">✓</span><span class="tx">Proyecto <b>100% independiente</b> del Agente de IA (Marvia), con infraestructura propia.</span></li>
+                <li class="pain-item"><span class="ico">✓</span><span class="tx">Fase 1 es una experiencia deliberadamente unidireccional e informativa — sin trámites ni interacciones transaccionales todavía.</span></li>
+                <li class="pain-item"><span class="ico">✓</span><span class="tx">El enfoque transaccional queda proyectado para Fase 2 y Fase 3, una vez validado el valor de esta primera entrega.</span></li>
+                <li class="pain-item"><span class="ico">✓</span><span class="tx">Comparte principios de arquitectura con Marvia (hexagonal, portabilidad) y podrá integrarse a futuro.</span></li>
+              </ul>
+            </div>
+          </div>
+          <footer class="s-footer">
+            <span>Campuslands · Exploramos · Despegamos · Conquistamos</span>
+            <span>Marval S.A.S. · Proyecto B · Intranet Corporativa</span>
+            <span class="pg">02</span>
+          </footer>
+        </div>
+      </div>
+
+      <!-- B3 — ARQUITECTURA Y SEGURIDAD -->
+      <div class="slide" data-slide="3" data-scenario="b">
+        <div class="slide-inner internal glow-b">
+          <header class="s-header">
+            <img src="assets/logo-campuslands.png" alt="Campuslands" class="brand">
+            <img src="assets/logo-marval.png" alt="Marval S.A.S." class="client">
+          </header>
+          <div class="s-body">
+            <div class="s-eyebrow">02 · Arquitectura y Seguridad de Acceso</div>
+            <h2 class="s-title">Identidad única, <span class="title-accent">sin bases de datos locales</span></h2>
+            <div class="feat-grid" style="grid-template-columns:repeat(3,1fr);">
+              <div class="feat-card feat-card--lg"><span class="rf">ARQUITECTURA · 01</span><h4>Hexagonal (puertos y adaptadores)</h4><p>Lógica de negocio desacoplada de agentes externos, bases de datos o nube específica — cloud-agnostic desde el diseño.</p></div>
+              <div class="feat-card feat-card--lg"><span class="rf">SEGURIDAD · 01</span><h4>SSO obligatorio con Microsoft Entra ID</h4><p>Flujo de pass-through; se prohíbe explícitamente crear bases de datos locales para credenciales de colaboradores.</p></div>
+              <div class="feat-card feat-card--lg"><span class="rf">ADOPCIÓN · 01</span><h4>Acceso inmediato para el 100%</h4><p>Todo colaborador con cuenta corporativa activa inicia sesión de inmediato, sin proceso de registro adicional.</p></div>
+            </div>
+          </div>
+          <footer class="s-footer">
+            <span>Campuslands · Exploramos · Despegamos · Conquistamos</span>
+            <span>Marval S.A.S. · Proyecto B · Intranet Corporativa</span>
+            <span class="pg">03</span>
+          </footer>
+        </div>
+      </div>
+
+      <!-- B4 — PERSISTENCIA Y FUENTES DE VERDAD -->
+      <div class="slide" data-slide="4" data-scenario="b">
+        <div class="slide-inner internal glow-a">
+          <header class="s-header">
+            <img src="assets/logo-campuslands.png" alt="Campuslands" class="brand">
+            <img src="assets/logo-marval.png" alt="Marval S.A.S." class="client">
+          </header>
+          <div class="s-body">
+            <div class="s-eyebrow">03 · Persistencia y Fuentes de Verdad</div>
+            <h2 class="s-title">Cada dato, <span class="title-accent">en su sistema de origen</span></h2>
+            <p class="s-lead">Se respeta la integridad de los sistemas ya existentes; solo se construye una base nueva para lo que hoy no existe en ningún sistema de Marval.</p>
+            <div class="data-table-wrap">
+              <table class="data-table">
+                <thead><tr><th>Sistema</th><th>Rol / fuente de verdad</th><th>Modo de consumo</th></tr></thead>
+                <tbody>
+                  <tr><td><b>Cactus (Digital Ware)</b></td><td>Única fuente de verdad de datos de personal (cumpleaños, datos básicos)</td><td>Consumo vía API o protocolo seguro, sin persistir localmente</td></tr>
+                  <tr><td><b>Zoho Learn</b></td><td>Fuente de verdad de la oferta formativa</td><td>La intranet solo refleja métricas y redirige con SSO</td></tr>
+                  <tr><td><b>Base de datos local (nueva)</b></td><td>Contenidos que hoy no existen en ningún sistema de Marval</td><td>Noticias, novedades, eventos y contenidos de SST</td></tr>
+                </tbody>
+              </table>
+              <div class="table-note"><span class="lbl">Nota</span><p>No habrá modelo de datos local para autenticación de usuarios, salvo el campo de rol necesario para permisos de administración del CMS.</p></div>
+            </div>
+          </div>
+          <footer class="s-footer">
+            <span>Campuslands · Exploramos · Despegamos · Conquistamos</span>
+            <span>Marval S.A.S. · Proyecto B · Intranet Corporativa</span>
+            <span class="pg">04</span>
+          </footer>
+        </div>
+      </div>
+
+      <!-- B5 — MÓDULOS DE FASE 1 (I) -->
+      <div class="slide" data-slide="5" data-scenario="b">
+        <div class="slide-inner internal glow-b">
+          <header class="s-header">
+            <img src="assets/logo-campuslands.png" alt="Campuslands" class="brand">
+            <img src="assets/logo-marval.png" alt="Marval S.A.S." class="client">
+          </header>
+          <div class="s-body">
+            <div class="s-eyebrow">04 · Alcance Funcional — Módulos (I)</div>
+            <h2 class="s-title">Cuatro módulos, <span class="title-accent">un solo punto de entrada</span></h2>
+            <div class="feat-grid feat-grid--dense" style="grid-template-columns:repeat(2,1fr); grid-template-rows:repeat(2,1fr);">
+              <div class="feat-card"><span class="rf">MÓDULO · 01</span><h4>Home / Inicio</h4><p>Banner dinámico, boletín de novedades, calendario de eventos y accesos rápidos (Lobby) a aplicaciones corporativas.</p></div>
+              <div class="feat-card"><span class="rf">MÓDULO · 02</span><h4>Módulo de Eventos</h4><p>Calendario corporativo con administrador de publicación. Inscripción vía Microsoft Forms existente, sin BD transaccional propia.</p></div>
+              <div class="feat-card"><span class="rf">MÓDULO · 03</span><h4>Beneficios y Convenios</h4><p>Tarjetas informativas con requisitos, vigencia y detalle por beneficio, con redirección externa cuando aplique.</p></div>
+              <div class="feat-card"><span class="rf">MÓDULO · 04</span><h4>Universidad Marval</h4><p>Métricas dinámicas en tiempo real vía API con Zoho Learn (cursos, colaboradores formados, horas de formación) y redirección con SSO.</p></div>
+            </div>
+          </div>
+          <footer class="s-footer">
+            <span>Campuslands · Exploramos · Despegamos · Conquistamos</span>
+            <span>Marval S.A.S. · Proyecto B · Intranet Corporativa</span>
+            <span class="pg">05</span>
+          </footer>
+        </div>
+      </div>
+
+      <!-- B6 — MÓDULOS DE FASE 1 (II) -->
+      <div class="slide" data-slide="6" data-scenario="b">
+        <div class="slide-inner internal glow-a">
+          <header class="s-header">
+            <img src="assets/logo-campuslands.png" alt="Campuslands" class="brand">
+            <img src="assets/logo-marval.png" alt="Marval S.A.S." class="client">
+          </header>
+          <div class="s-body">
+            <div class="s-eyebrow">05 · Alcance Funcional — Módulos (II)</div>
+            <h2 class="s-title">Seguridad, tecnología <span class="title-accent">y el asistente de IA</span></h2>
+            <div class="feat-grid" style="grid-template-columns:repeat(3,1fr);">
+              <div class="feat-card feat-card--lg"><span class="rf">MÓDULO · 05</span><h4>Seguridad y Salud (SST)</h4><p>Boletines en 5 líneas temáticas, PDF embebido (ver/descargar sin salir de la intranet) y sección "Reportar" a un Microsoft Forms existente.</p></div>
+              <div class="feat-card feat-card--lg"><span class="rf">MÓDULO · 06</span><h4>Transformación Digital</h4><p>Micrositio con boletín de proyectos, dashboards sencillos de métricas, espacio de sugerencias y enlace a la Mesa de Servicio de TI.</p></div>
+              <div class="feat-card feat-card--lg"><span class="rf">MÓDULO · 07</span><h4>Asistente Marvia (enlace)</h4><p>Únicamente un botón de acceso al bot corporativo en Microsoft Teams. Sin chat embebido en esta fase.</p></div>
+            </div>
+          </div>
+          <footer class="s-footer">
+            <span>Campuslands · Exploramos · Despegamos · Conquistamos</span>
+            <span>Marval S.A.S. · Proyecto B · Intranet Corporativa</span>
+            <span class="pg">06</span>
+          </footer>
+        </div>
+      </div>
+
+      <!-- B7 — CMS Y GOBERNANZA -->
+      <div class="slide" data-slide="7" data-scenario="b">
+        <div class="slide-inner internal glow-b">
+          <header class="s-header">
+            <img src="assets/logo-campuslands.png" alt="Campuslands" class="brand">
+            <img src="assets/logo-marval.png" alt="Marval S.A.S." class="client">
+          </header>
+          <div class="s-body">
+            <div class="s-eyebrow">06 · Sistema de Gestión de Contenidos (CMS)</div>
+            <h2 class="s-title">Cada área, <span class="title-accent">administra lo suyo</span></h2>
+            <div class="split">
+              <div class="quote-card">
+                <span class="qm">"</span>
+                <p>El sistema descentraliza la actualización de contenidos, eliminando la dependencia de TI para tareas editoriales.</p>
+              </div>
+              <ul class="pain-list">
+                <li class="pain-item"><span class="ico">✓</span><span class="tx">Acceso protegido por roles: el CMS es un entorno oculto para el usuario final, activo solo si el rol en Microsoft Entra ID corresponde a un administrador de dominio.</span></li>
+                <li class="pain-item"><span class="ico">✓</span><span class="tx">Gobernanza por dominios de datos: cada área administra únicamente su propia sección (ej. SST no puede editar Transformación Digital).</span></li>
+                <li class="pain-item"><span class="ico">✓</span><span class="tx">Dimensionamiento de referencia: 6 a 8 administradores estimados al arranque (2 de Gestión Humana, 1 de SST, 2 a 3 de Tecnología).</span></li>
+              </ul>
+            </div>
+          </div>
+          <footer class="s-footer">
+            <span>Campuslands · Exploramos · Despegamos · Conquistamos</span>
+            <span>Marval S.A.S. · Proyecto B · Intranet Corporativa</span>
+            <span class="pg">07</span>
+          </footer>
+        </div>
+      </div>
+
+      <!-- B8 — EXCLUSIONES Y ROADMAP -->
+      <div class="slide" data-slide="8" data-scenario="b">
+        <div class="slide-inner internal glow-a">
+          <header class="s-header">
+            <img src="assets/logo-campuslands.png" alt="Campuslands" class="brand">
+            <img src="assets/logo-marval.png" alt="Marval S.A.S." class="client">
+          </header>
+          <div class="s-body">
+            <div class="s-eyebrow">07 · Exclusiones Explícitas y Hoja de Ruta</div>
+            <h2 class="s-title">Lo que no <span class="title-accent">entra en el MVP</span></h2>
+            <div class="dual-list">
+              <div class="list-col list-col--no">
+                <div class="list-col__head"><span class="dot"></span><h4>Exclusiones de Fase 1</h4></div>
+                <ul class="chk-list">
+                  <li class="chk-item"><span class="ico">✕</span><span class="tx">Retos y Reconocimientos — se prioriza la estabilidad de los servicios informativos básicos.</span></li>
+                  <li class="chk-item"><span class="ico">✕</span><span class="tx">Encuestas — quedan para una fase futura, una vez estabilizado el modelo informativo.</span></li>
+                  <li class="chk-item"><span class="ico">✕</span><span class="tx">Directorio Corporativo — se delega a Microsoft Teams, evitando duplicidad de datos.</span></li>
+                  <li class="chk-item"><span class="ico">✕</span><span class="tx">Agente de IA activo — solo enlace directo al bot en Teams, sin chat embebido.</span></li>
+                  <li class="chk-item"><span class="ico">✕</span><span class="tx">Fonalmar — no se incluye en el módulo de Beneficios y Convenios de esta fase.</span></li>
+                </ul>
+              </div>
+              <div class="list-col list-col--ok">
+                <div class="list-col__head"><span class="dot"></span><h4>Hoja de ruta</h4></div>
+                <ul class="chk-list">
+                  <li class="chk-item"><span class="ico">→</span><span class="tx">Fase 2 y Fase 3: enfoque transaccional, encuestas, retos y reconocimientos.</span></li>
+                  <li class="chk-item"><span class="ico">→</span><span class="tx">Contratos de API con Cactus (Digital Ware) y Zoho Learn, con sus diccionarios de datos — requisito bloqueante para la evolución del portal.</span></li>
+                  <li class="chk-item"><span class="ico">→</span><span class="tx">Portabilidad: migrar la infraestructura de contenedores fuera de Azure implica un costo de rediseño mínimo, gracias a la arquitectura hexagonal.</span></li>
+                  <li class="chk-item"><span class="ico">→</span><span class="tx">Estándares abiertos que permiten crecer hacia un ecosistema multiagente sin comprometer el núcleo de esta Fase 1.</span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <footer class="s-footer">
+            <span>Campuslands · Exploramos · Despegamos · Conquistamos</span>
+            <span>Marval S.A.S. · Proyecto B · Intranet Corporativa</span>
+            <span class="pg">08</span>
+          </footer>
+        </div>
+      </div>
+
+      <!-- B9 — INSUMOS PENDIENTES Y CIERRE -->
+      <div class="slide" data-slide="9" data-scenario="b">
+        <div class="slide-inner internal glow-b">
+          <header class="s-header">
+            <img src="assets/logo-campuslands.png" alt="Campuslands" class="brand">
+            <img src="assets/logo-marval.png" alt="Marval S.A.S." class="client">
+          </header>
+          <div class="s-body">
+            <div class="s-eyebrow">08 · Insumos Pendientes y Próximos Pasos</div>
+            <h2 class="s-title">¿Cuándo <span class="title-accent">empezamos?</span></h2>
+            <div class="cta">
+              <div class="steps">
+                <div class="step"><span class="dot">1</span><span class="lab"><b>Mapeo funcional e historias de usuario</b><span>Sprints de cada sección de la Fase 1, en elaboración por Laura.</span></span></div>
+                <div class="cn"></div>
+                <div class="step"><span class="dot">2</span><span class="lab"><b>Historia de usuario de autenticación</b><span>Flujo específico de SSO con Microsoft Entra ID.</span></span></div>
+                <div class="cn"></div>
+                <div class="step"><span class="dot">3</span><span class="lab"><b>Validación de contenido y contratos de API</b><span>Volumen de boletines SST (Andrea y Patricia) y definición de contratos con Cactus y Zoho Learn.</span></span></div>
+                <div class="cn"></div>
+                <div class="step"><span class="dot">4</span><span class="lab"><b>Sesión técnica de aterrizaje</b><span>Modelo de datos local para eventos, boletines SST y CMS.</span></span></div>
+              </div>
+              <div class="contact-card">
+                <div class="role">Su contacto directo</div>
+                <div class="name">Gabriela Pedraza Rueda</div>
+                <div class="role" style="margin:0 0 14px 0;color:var(--text-lo);letter-spacing:.06em;">Directora Full Service Global</div>
+                <div class="row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>gabriela.pedraza@campuslands.com</div>
+                <div class="row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.4-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2Z"/></svg>+57 300 302 8555</div>
+              </div>
+            </div>
+          </div>
+          <footer class="s-footer">
+            <span>Campuslands · Exploramos · Despegamos · Conquistamos</span>
+            <span>Marval S.A.S. · Proyecto B · Intranet Corporativa</span>
+            <span class="pg">09</span>
+          </footer>
+        </div>
+      </div>
+
+    </div>
+  </section>
+</main>
+
+<!-- ============ BARRA INFERIOR ============ -->
+<footer class="slides-footer-controls">
+  <button id="btn-prev-slide" class="control-btn" onclick="navigateSlide(-1)" aria-label="Lámina anterior">
+    <svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="2" fill="none"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+  </button>
+
+  <div class="slide-indicator">
+    <span id="slide-number-display">1 / 9</span>
+    <div class="progress-bar-bg"><div id="slide-progress" class="progress-bar-fill"></div></div>
+    <div class="playback-controls">
+      <button id="btn-autoplay" class="control-btn mini" title="Reproducción automática" onclick="toggleAutoplay()">
+        <svg id="autoplay-icon" viewBox="0 0 24 24" width="16" height="16" fill="currentColor" stroke="none"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <button id="btn-next-slide" class="control-btn" onclick="navigateSlide(1)" aria-label="Lámina siguiente">
+    <svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="2" fill="none"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+  </button>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

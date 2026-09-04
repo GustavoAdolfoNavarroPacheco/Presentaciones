@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Miami Aqua Tours</title>
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <linearGradient id="gradBrand" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="#FFA94D"/>
+        <stop offset="34%" stop-color="#E0780A"/>
+        <stop offset="68%" stop-color="#3C96C8"/>
+        <stop offset="100%" stop-color="#1B4F6E"/>
+      </linearGradient>
+    </defs>
+  </svg>
+
+  <!-- ============ BARRA SUPERIOR ============ -->
+  <header class="app-header">
+    <div class="header-left">
+      <img src="assets/logo-campuslands.png" alt="Campuslands Full Service">
+      <div class="logo-divider"></div>
+      <img src="assets/logo-cliente.png" alt="Miami Aqua Tours" class="logo-client">
+    </div>
+    <div class="header-center"><!-- Un solo escenario: sin switch --></div>
+    <div class="header-right">
+      <span class="badge-confidential">Confidencial</span>
+    </div>
+  </header>
+
+  <!-- ============ CONTENIDO ============ -->
+  <main class="app-content">
+    <section class="slides-viewport">
+      <div class="slides-container" id="slides-container">
+
+        <!-- ===== 1 · PORTADA ===== -->
+        <div class="slide active" data-slide="1">
+          <div class="slide-inner cover">
+            <span class="corner tl"></span><span class="corner tr"></span>
+            <span class="corner bl"></span><span class="corner br"></span>
+            <div class="deco-rings"><span></span><span></span><span></span><span></span></div>
+
+            <div class="cover__topbar">
+              <img src="assets/logo-campuslands.png" alt="Campuslands Full Service" class="cover__brand">
+              <span class="cover-badge-confidential">Confidencial</span>
+            </div>
+
+            <div class="cover__body">
+              <div class="eyebrow cover__eyebrow">Campuslands Full Service · Auditoría Técnica</div>
+              <span class="cover__scenario">Propuesta de Servicios Técnicos</span>
+              <h1 class="cover__title">Tracking, Atribución y<br><svg class="gt" viewBox="0 0 10512 1083" style="height:1em;"><text x="0" y="1083" fill="url(#gradBrand)" style="font:italic 900 1000px 'Playfair Display',serif;">Optimización del Sitio</text></svg></h1>
+              <p class="cover__kicker">Auditoría técnica, unificación de arquitectura y medición de conversiones reales para el motor de reservas Bókun.</p>
+              <div class="cover__client">
+                <span class="cover__client-para">PARA</span>
+                <img src="assets/logo-cliente.png" alt="Miami Aqua Tours" class="cover__client-logo">
+              </div>
+            </div>
+
+            <div class="cover__meta">
+              <div class="meta-item"><div class="meta-item__label">Preparado para</div><div class="meta-item__value">Miami Aqua Tours</div></div>
+              <div class="meta-item"><div class="meta-item__label">Preparado por</div><div class="meta-item__value">Campuslands S.A.S. BIC · Full Service</div></div>
+              <div class="meta-item"><div class="meta-item__label">Fecha</div><div class="meta-item__value">Septiembre 2026</div></div>
+              <div class="meta-item"><div class="meta-item__label">Versión</div><div class="meta-item__value">v1.0</div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ===== 2 · LÍNEA BASE ===== -->
+        <div class="slide" data-slide="2">
+          <div class="slide-inner internal glow-a">
+            <header class="s-header">
+              <img src="assets/logo-campuslands.png" alt="Campuslands" class="brand">
+              <img src="assets/logo-cliente.png" alt="Miami Aqua Tours" class="client">
+            </header>
+            <div class="s-body">
+              <div class="s-eyebrow">01 · Línea Base</div>
+              <h2 class="s-title">La <svg class="gt" viewBox="0 0 4774 1083" style="height:1em;"><text x="0" y="1083" fill="url(#gradBrand)" style="font:italic 900 1000px 'Playfair Display',serif;">línea base</text></svg> del sitio, hoy</h2>
+              <p class="s-lead">Lo que encontramos al analizar la arquitectura, el tracking y el motor de reservas del sitio estático en Cloudflare Pages.</p>
+              <div class="stat-grid" style="grid-template-columns:repeat(4,1fr);">
+                <div class="stat-card"><span class="cap">Arquitectura</span><span class="big c-cyan">2 capas</span><p class="sub">Páginas heredadas de WordPress y páginas nuevas de <code>gen.py</code> conviven bajo el mismo dominio, con distinto tracking.</p></div>
+                <div class="stat-card"><span class="cap">Medición actual</span><span class="big c-violet">Solo GA4</span><p class="sub">Measurement ID cargado directo en el HTML, sin Google Tag Manager de por medio.</p></div>
+                <div class="stat-card"><span class="cap">Conversión medida</span><span class="big c-cyan">0 eventos</span><p class="sub">Ninguna reserva pagada en Bókun se registra hoy como venta (<code>purchase</code>) en la analítica.</p></div>
+                <div class="stat-card"><span class="cap">Riesgo operativo</span><span class="big c-violet">UUID doble</span><p class="sub"><code>gen.py</code>, <code>test-widget.html</code> y <code>transform.sh</code> usan dos UUID de Bókun distintos.</p></div>
+              </div>
+            </div>
+            <footer class="s-footer">
+              <span>Campuslands · Exploramos · Despegamos · Conquistamos</span>
+              <span>Propuesta Miami Aqua Tours · Full Service 2026</span>
+              <span class="pg">02</span>
+            </footer>
+          </div>
+        </div>
+
+        <!-- ===== 3 · EL RETO DEL CLIENTE ===== -->
+        <div class="slide" data-slide="3">
+          <div class="slide-inner internal glow-b">
+            <header class="s-header">
+              <img src="assets/logo-campuslands.png" alt="Campuslands" class="brand">
+              <img src="assets/logo-cliente.png" alt="Miami Aqua Tours" class="client">
+            </header>
+            <div class="s-body">
+              <div class="s-eyebrow">02 · El Reto del Cliente</div>
+              <h2 class="s-title">¿Qué campaña genera una <svg class="gt" viewBox="0 0 7285 1083" style="height:1em;"><text x="0" y="1083" fill="url(#gradBrand)" style="font:italic 900 1000px 'Playfair Display',serif;">reserva pagada</text></svg>?</h2>
+              <div class="challenge">
+                <div class="quote-card">
+                  <span class="qm">&ldquo;</span>
+                  <p>Hoy no se puede saber qué campaña de YouTube, redes o Google Ads realmente generó una reserva pagada en Miami Aqua Tours.</p>
+                  <span class="attr">— Diagnóstico técnico del sitio, Miami Aqua Tours</span>
+                </div>
+                <ul class="pain-list">
+                  <li class="pain-item"><span class="ico">1</span><span class="tx">GA4 mide visitas y clics, pero <b>nunca se envía el evento <code>purchase</code></b> cuando Bókun confirma una reserva.</span></li>
+                  <li class="pain-item"><span class="ico">2</span><span class="tx">El widget de Bókun vive en <b>widgets.bokun.io</b>, un dominio distinto — el navegador aplica same-origin y bloquea la lectura del checkout interno.</span></li>
+                  <li class="pain-item"><span class="ico">3</span><span class="tx">Las UTMs y los click IDs <b>no se persisten</b> ni viajan hasta el flujo de reserva: se pierden si no se capturan antes.</span></li>
+                  <li class="pain-item"><span class="ico">4</span><span class="tx">El sitio estático <b>no tiene backend propio</b> para recibir la confirmación de Bókun y distribuir la conversión.</span></li>
+                </ul>
+              </div>
+            </div>
+            <footer class="s-footer">
+              <span>Campuslands · Exploramos · Despegamos · Conquistamos</span>
+              <span>Propuesta Miami Aqua Tours · Full Service 2026</span>
+              <span class="pg">03</span>
+            </footer>
+          </div>
+        </div>
+
+        <!-- ===== 4 · LOS 5 FRENTES DE TRABAJO ===== -->
+        <div class="slide" data-slide="4">
+          <div class="slide-inner internal glow-a">
+            <header class="s-header">
+              <img src="assets/logo-campuslands.png" alt="Campuslands" class="brand">
+              <img src="assets/logo-cliente.png" alt="Miami Aqua Tours" class="client">
+            </header>
+            <div class="s-body">
+              <div class="s-eyebrow">03 · Alcance</div>
+              <h2 class="s-title">Los <svg class="gt" viewBox="0 0 6048 1083" style="height:1em;"><text x="0" y="1083" fill="url(#gradBrand)" style="font:italic 900 1000px 'Playfair Display',serif;">cinco frentes</text></svg> de trabajo</h2>
+              <p class="s-lead">Cada frente corrige y fortalece un área específica del sitio, en el mismo orden en que se ejecutan.</p>
+              <div class="feat-grid" style="grid-template-columns:repeat(3,1fr); grid-template-rows:repeat(2,1fr); align-content:stretch;">
+                <div class="feat-card"><span class="rf">01 · Auditoría Técnica</span><h4>Unificación de Arquitectura</h4><p>UUID de Bókun inconsistente, botones activos en tours "Coming Soon", dos capas de código sin unificar.</p></div>
+                <div class="feat-card"><span class="rf">02 · Frontend &amp; UX</span><h4>Experiencia de Usuario</h4><p>Menú móvil sin alternativa, modal de reserva sin estados de error, accesibilidad sin focus trap.</p></div>
+                <div class="feat-card"><span class="rf">03 · Rendimiento</span><h4>Velocidad del Sitio</h4><p>Imágenes sin WebP/AVIF ni srcset, Bókun y Maps cargan sin diferir, sin línea base de Lighthouse.</p></div>
+                <div class="feat-card"><span class="rf">04 · Seguridad</span><h4>Buenas Prácticas</h4><p>API key de Google Maps expuesta, sin CSP/HSTS, sin consentimiento de cookies ni Consent Mode.</p></div>
+                <div class="feat-card" style="grid-column:2 / span 2;"><span class="rf">05 · Analítica</span><h4>Tracking de Conversiones</h4><p>GTM, plan de eventos, atribución de campañas y conversión de reservas confirmadas en Bókun.</p></div>
+              </div>
+            </div>
+            <footer class="s-footer">
+              <span>Campuslands · Exploramos · Despegamos · Conquistamos</span>
+              <span>Propuesta Miami Aqua Tours · Full Service 2026</span>
+              <span class="pg">04</span>
+            </footer>
+          </div>
+        </div>
+
+        <!-- ===== 5 · ARQUITECTURA DE TRACKING RECOMENDADA ===== -->
+        <div class="slide" data-slide="5">
+          <div class="slide-inner internal glow-b">
+            <header class="s-header">
+              <img src="assets/logo-campuslands.png" alt="Campuslands" class="brand">
+              <img src="assets/logo-cliente.png" alt="Miami Aqua Tours" class="client">
+            </header>
+            <div class="s-body">
+              <div class="s-eyebrow">04 · Arquitectura Recomendada</div>
+              <h2 class="s-title">La <svg class="gt" viewBox="0 0 11710 1083" style="height:1em;"><text x="0" y="1083" fill="url(#gradBrand)" style="font:italic 900 1000px 'Playfair Display',serif;">arquitectura de tracking</text></svg> recomendada</h2>
+              <div class="pipeline">
+                <div class="pipeline-row">
+                  <div class="pipe-node"><span class="node">1</span><h4>Campañas</h4><p>UTM + click IDs (gclid, fbclid, ttclid)</p></div>
+                  <div class="pipe-node"><span class="node">2</span><h4>Página web</h4><p>GTM + GA4 + AnyTrack guardan el tracking_id</p></div>
+                  <div class="pipe-node"><span class="node">3</span><h4>Selección del tour</h4><p>select_tour y begin_checkout al abrir Bókun</p></div>
+                  <div class="pipe-node"><span class="node">4</span><h4>Widget Bókun</h4><p>Reserva confirmada y pagada</p></div>
+                  <div class="pipe-node"><span class="node">5</span><h4>Webhook / API</h4><p>Endpoint server-side recibe la confirmación</p></div>
+                  <div class="pipe-node"><span class="node">6</span><h4>Destinos</h4><p>GA4 · Google Ads · AnyTrack · Meta CAPI</p></div>
+                </div>
+                <div class="pipeline-note"><span class="lbl">Fuente de verdad</span><p>La reserva confirmada o pagada en Bókun — no el clic en "Book Now" — es la única señal que debe registrarse como venta.</p></div>
+              </div>
+            </div>
+            <footer class="s-footer">
+              <span>Campuslands · Exploramos · Despegamos · Conquistamos</span>
+              <span>Propuesta Miami Aqua Tours · Full Service 2026</span>
+              <span class="pg">05</span>
+            </footer>
+          </div>
+        </div>
+
+        <!-- ===== 6 · MEDICIÓN, ATRIBUCIÓN Y VIABILIDAD DE ANYTRACK ===== -->
+        <div class="slide" data-slide="6">
+          <div class="slide-inner internal glow-a">
+            <header class="s-header">
+              <img src="assets/logo-campuslands.png" alt="Campuslands" class="brand">
+              <img src="assets/logo-cliente.png" alt="Miami Aqua Tours" class="client">
+            </header>
+            <div class="s-body">
+              <div class="s-eyebrow">05 · Medición y Atribución</div>
+              <h2 class="s-title">Medición, atribución y <svg class="gt" viewBox="0 0 4678 1083" style="height:1em;"><text x="0" y="1083" fill="url(#gradBrand)" style="font:italic 900 1000px 'Playfair Display',serif;">AnyTrack</text></svg></h2>
+              <div class="measure-split">
+                <div class="measure-col">
+                  <div class="col-lbl">Plan de Eventos</div>
+                  <div class="evt-list">
+                    <div class="evt-row"><span class="ev">page_view</span><span class="ds">Sesiones y páginas de aterrizaje — ya se observa en la red local.</span></div>
+                    <div class="evt-row"><span class="ev">view_tour</span><span class="ds">Qué tours despiertan interés antes del clic de reserva.</span></div>
+                    <div class="evt-row"><span class="ev">select_tour</span><span class="ds">Intención explícita de reservar, con nombre, precio e ID del tour.</span></div>
+                    <div class="evt-row"><span class="ev">begin_checkout</span><span class="ds">Apertura real del widget de Bókun — no equivale a una compra.</span></div>
+                    <div class="evt-row"><span class="ev">purchase</span><span class="ds">Reserva pagada, marcada como key event, con transaction_id y valor.</span></div>
+                  </div>
+                </div>
+                <div class="measure-col">
+                  <div class="col-lbl">Viabilidad de AnyTrack</div>
+                  <div class="verdict-card"><p><b>Sí, es viable</b> como complemento de tracking y atribución — pero solo conectado al webhook o API de Bókun mide una venta real, no solo la intención de reservar.</p></div>
+                  <ul class="scn-list">
+                    <li class="scn-item"><svg class="ck half" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg><span class="tx">Solo el tag en la web: <b>visitas, UTMs y clics</b>, nunca una compra confirmada.</span></li>
+                    <li class="scn-item"><svg class="ck half" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg><span class="tx">Tag + apertura de Bókun: <b>intención de reservar</b>, no reserva pagada.</span></li>
+                    <li class="scn-item"><svg class="ck ok" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg><span class="tx">Conectado al webhook/API de Bókun: <b>conversión real</b>, con valor, tour y transaction_id.</span></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <footer class="s-footer">
+              <span>Campuslands · Exploramos · Despegamos · Conquistamos</span>
+              <span>Propuesta Miami Aqua Tours · Full Service 2026</span>
+              <span class="pg">06</span>
+            </footer>
+          </div>
+        </div>
+
+        <!-- ===== 7 · INVERSIÓN Y ALCANCE ===== -->
+        <div class="slide" data-slide="7">
+          <div class="slide-inner internal glow-b">
+            <header class="s-header">
+              <img src="assets/logo-campuslands.png" alt="Campuslands" class="brand">
+              <img src="assets/logo-cliente.png" alt="Miami Aqua Tours" class="client">
+            </header>
+            <div class="s-body">
+              <div class="s-eyebrow">06 · Inversión</div>
+              <h2 class="s-title">Cinco módulos, <svg class="gt" viewBox="0 0 8659 1083" style="height:1em;"><text x="0" y="1083" fill="url(#gradBrand)" style="font:italic 900 1000px 'Playfair Display',serif;">una sola inversión</text></svg></h2>
+              <div class="invest-wrap">
+                <div class="invest-modules">
+                  <div class="mod-cost-list">
+                    <div class="mod-cost-row"><span class="mc-label">Estructura y Coordinación del Proyecto</span><span class="mc-value">$3.276.015,61</span></div>
+                    <div class="mod-cost-row"><span class="mc-label">01 — Auditoría Técnica y Unificación de Arquitectura</span><span class="mc-value">$5.852.966,93</span></div>
+                    <div class="mod-cost-row"><span class="mc-label">02 — Mejoras de Frontend y Experiencia de Usuario</span><span class="mc-value">$4.232.073,89</span></div>
+                    <div class="mod-cost-row"><span class="mc-label">03 — Rendimiento y Velocidad del Sitio</span><span class="mc-value">$2.967.082,44</span></div>
+                    <div class="mod-cost-row"><span class="mc-label">04 — Seguridad y Buenas Prácticas</span><span class="mc-value">$3.348.019,86</span></div>
+                    <div class="mod-cost-row"><span class="mc-label">05 — Analítica y Tracking de Conversiones</span><span class="mc-value">$11.068.357,72</span></div>
+                  </div>
+                  <div class="invest__num">
+                    <div class="cap">Inversión total de la propuesta (COP)</div>
+                    <div class="big">$30.744.516,44</div>
+                    <div class="sub">Alcance funcional de los 5 frentes de trabajo del análisis técnico, más la estructura y coordinación del proyecto.</div>
+                  </div>
+                </div>
+                <div class="pay-plan">
+                  <div class="plan-card"><div class="pct"><span class="num">40%</span><span class="lbl">Anticipo</span></div><div class="info"><b>$12.297.806,58</b><span>Al inicio del proyecto.</span></div></div>
+                  <div class="plan-card"><div class="pct"><span class="num">40%</span><span class="lbl">Avance</span></div><div class="info"><b>$12.297.806,58</b><span>Hito de avance a mitad de entrega.</span></div></div>
+                  <div class="plan-card"><div class="pct"><span class="num">20%</span><span class="lbl">Cierre</span></div><div class="info"><b>$6.148.903,28</b><span>Contra entrega y aceptación final.</span></div></div>
+                </div>
+              </div>
+            </div>
+            <footer class="s-footer">
+              <span>Campuslands · Exploramos · Despegamos · Conquistamos</span>
+              <span>Propuesta Miami Aqua Tours · Full Service 2026</span>
+              <span class="pg">07</span>
+            </footer>
+          </div>
+        </div>
+
+        <!-- ===== 8 · PLAN DE FASES ===== -->
+        <div class="slide" data-slide="8">
+          <div class="slide-inner internal glow-a">
+            <header class="s-header">
+              <img src="assets/logo-campuslands.png" alt="Campuslands" class="brand">
+              <img src="assets/logo-cliente.png" alt="Miami Aqua Tours" class="client">
+            </header>
+            <div class="s-body">
+              <div class="s-eyebrow">07 · Plan de Fases</div>
+              <h2 class="s-title">De la auditoría a la <svg class="gt" viewBox="0 0 8955 1083" style="height:1em;"><text x="0" y="1083" fill="url(#gradBrand)" style="font:italic 900 1000px 'Playfair Display',serif;">conversión medida</text></svg></h2>
+              <p class="s-lead">Cinco fases en orden de ejecución — cada una construye sobre la arquitectura que deja la anterior.</p>
+              <div class="timeline">
+                <div class="timeline-row">
+                  <div class="phase"><span class="node">1</span><h4>Auditoría y Unificación</h4><p>UUID de Bókun, botones de reserva y migración de la capa heredada de WordPress.</p></div>
+                  <div class="phase"><span class="node">2</span><h4>Frontend y UX</h4><p>Menú móvil, estados del tour, modal de reserva, accesibilidad y datos estructurados.</p></div>
+                  <div class="phase"><span class="node">3</span><h4>Rendimiento</h4><p>WebP/AVIF, srcset, carga diferida de Bókun y Maps, línea base de Lighthouse.</p></div>
+                  <div class="phase"><span class="node">4</span><h4>Seguridad</h4><p>API key de Maps, CSP/HSTS, consentimiento de cookies y Consent Mode.</p></div>
+                  <div class="phase"><span class="node">5</span><h4>Analítica y Tracking</h4><p>GTM, plan de eventos, atribución de campañas y webhook de Bókun.</p></div>
+                </div>
+              </div>
+            </div>
+            <footer class="s-footer">
+              <span>Campuslands · Exploramos · Despegamos · Conquistamos</span>
+              <span>Propuesta Miami Aqua Tours · Full Service 2026</span>
+              <span class="pg">08</span>
+            </footer>
+          </div>
+        </div>
+
+        <!-- ===== 9 · QUIÉNES SOMOS — CAMPUSLANDS ===== -->
+        <div class="slide" data-slide="9">
+          <div class="slide-inner internal glow-b">
+            <header class="s-header">
+              <img src="assets/logo-campuslands.png" alt="Campuslands" class="brand">
+              <img src="assets/logo-cliente.png" alt="Miami Aqua Tours" class="client">
+            </header>
+            <div class="s-body">
+              <div class="s-eyebrow">08 · Quiénes Somos</div>
+              <h2 class="s-title">Un <svg class="gt" viewBox="0 0 7452 1083" style="height:1em;"><text x="0" y="1083" fill="url(#gradBrand)" style="font:italic 900 1000px 'Playfair Display',serif;">Software House</text></svg> de talento senior</h2>
+              <div class="about">
+                <div>
+                  <p class="about-lead"><b>Campuslands S.A.S. BIC</b> opera desde la Zona Franca Santander como una Fábrica de Software Enterprise, especializada en Inteligencia Artificial generativa y predictiva, automatización inteligente y talento certificado de nivel senior. Soluciones robustas a la medida — nunca plantillas prefabricadas.</p>
+                  <div class="about-stats">
+                    <div class="about-stat"><span class="dot"></span><span>Zona Franca Santander</span></div>
+                    <div class="about-stat"><span class="dot"></span><span>Talento senior certificado</span></div>
+                    <div class="about-stat"><span class="dot"></span><span>Soluciones a la medida, ROI real</span></div>
+                  </div>
+                </div>
+                <div class="sectors-panel">
+                  <div class="lbl">Sectores Atendidos</div>
+                  <div class="tag-row">
+                    <span class="tag-pill">Avícola</span>
+                    <span class="tag-pill">Construcción</span>
+                    <span class="tag-pill">Cárnico</span>
+                    <span class="tag-pill">Textil</span>
+                    <span class="tag-pill">Financiero</span>
+                    <span class="tag-pill is-new">Turismo &amp; Experiencias</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <footer class="s-footer">
+              <span>Campuslands · Exploramos · Despegamos · Conquistamos</span>
+              <span>Propuesta Miami Aqua Tours · Full Service 2026</span>
+              <span class="pg">09</span>
+            </footer>
+          </div>
+        </div>
+
+        <!-- ===== 10 · CIERRE / PRÓXIMOS PASOS ===== -->
+        <div class="slide" data-slide="10">
+          <div class="slide-inner internal glow-a">
+            <header class="s-header">
+              <img src="assets/logo-campuslands.png" alt="Campuslands" class="brand">
+              <img src="assets/logo-cliente.png" alt="Miami Aqua Tours" class="client">
+            </header>
+            <div class="s-body">
+              <div class="s-eyebrow">09 · Cierre</div>
+              <h2 class="s-title">¿Cuándo <svg class="gt" viewBox="0 0 5480 1083" style="height:1em;"><text x="0" y="1083" fill="url(#gradBrand)" style="font:italic 900 1000px 'Playfair Display',serif;">empezamos</text></svg>?</h2>
+              <div class="cta">
+                <div class="steps">
+                  <div class="step"><span class="dot">1</span><span class="lab"><b>Validar acceso a Bókun</b><span>Confirmar con Miami Aqua Tours el mecanismo soportado para recibir el tracking_id y la reserva confirmada.</span></span></div>
+                  <div class="cn"></div>
+                  <div class="step"><span class="dot">2</span><span class="lab"><b>Confirmar alcance y modalidad comercial</b><span>Revisión final de los 5 módulos y la forma de pago 40/40/20.</span></span></div>
+                  <div class="cn"></div>
+                  <div class="step"><span class="dot">3</span><span class="lab"><b>Kick-off y arranque</b><span>Inicio del equipo asignado y primera sesión de seguimiento.</span></span></div>
+                </div>
+                <div class="contact-card">
+                  <div class="role">Contacto Campuslands</div>
+                  <div class="name">Gabriela Pedraza Rueda</div>
+                  <div class="title">Directora Full Service Global</div>
+                  <div class="row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18v12H3z"/><path d="m3 7 9 6 9-6"/></svg>gabriela.pedraza@campuslands.com</div>
+                  <div class="row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92Z"/></svg>+57 300 302 8555</div>
+                </div>
+              </div>
+            </div>
+            <footer class="s-footer">
+              <span>Campuslands · Exploramos · Despegamos · Conquistamos</span>
+              <span>Propuesta Miami Aqua Tours · Full Service 2026</span>
+              <span class="pg">10</span>
+            </footer>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ BARRA INFERIOR ============ -->
+  <footer class="slides-footer-controls">
+    <button id="btn-prev-slide" class="control-btn" onclick="navigateSlide(-1)" aria-label="Lámina anterior">
+      <svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="2" fill="none"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+    </button>
+
+    <div class="slide-indicator">
+      <span id="slide-number-display">1 / 10</span>
+      <div class="progress-bar-bg"><div id="slide-progress" class="progress-bar-fill"></div></div>
+      <div class="playback-controls">
+        <button id="btn-autoplay" class="control-btn mini" title="Reproducción automática" onclick="toggleAutoplay()">
+          <svg id="autoplay-icon" viewBox="0 0 24 24" width="16" height="16" fill="currentColor" stroke="none"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <button id="btn-next-slide" class="control-btn" onclick="navigateSlide(1)" aria-label="Lámina siguiente">
+      <svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="2" fill="none"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    </button>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

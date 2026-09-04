@@ -1,0 +1,316 @@
+/* ============================================================
+   CAMPUSLANDS FULL SERVICE — SISTEMA DE DISEÑO v2 (Premium)
+   Presentación: Miami Aqua Tours — Tracking, Atribución y Optimización
+   Paleta derivada del logo (muestreo de píxeles del PNG):
+   naranja de marca (círculo/script "Miami") → azul aqua (texto "AQUA"/olas)
+   Narrativa: atardecer de Miami → océano aqua.
+   ============================================================ */
+
+/* ---------- 1. FUENTES LOCALES ---------- */
+@font-face { font-family:'Playfair Display'; src:url('assets/fonts/PlayfairDisplay-Bold.ttf')        format('truetype'); font-weight:700; font-style:normal; font-display:swap; }
+@font-face { font-family:'Playfair Display'; src:url('assets/fonts/PlayfairDisplay-Black.ttf')       format('truetype'); font-weight:900; font-style:normal; font-display:swap; }
+@font-face { font-family:'Playfair Display'; src:url('assets/fonts/PlayfairDisplay-Italic.ttf')      format('truetype'); font-weight:400; font-style:italic; font-display:swap; }
+@font-face { font-family:'Playfair Display'; src:url('assets/fonts/PlayfairDisplay-BlackItalic.ttf') format('truetype'); font-weight:900; font-style:italic; font-display:swap; }
+@font-face { font-family:'Montserrat';       src:url('assets/fonts/Montserrat-Medium.ttf')           format('truetype'); font-weight:500; font-style:normal; font-display:swap; }
+@font-face { font-family:'Montserrat';       src:url('assets/fonts/Montserrat-SemiBold.ttf')         format('truetype'); font-weight:600; font-style:normal; font-display:swap; }
+@font-face { font-family:'Montserrat';       src:url('assets/fonts/Montserrat-Bold.ttf')             format('truetype'); font-weight:700; font-style:normal; font-display:swap; }
+@font-face { font-family:'Poppins';          src:url('assets/fonts/Poppins-Light.ttf')               format('truetype'); font-weight:300; font-style:normal; font-display:swap; }
+@font-face { font-family:'Poppins';          src:url('assets/fonts/Poppins-Regular.ttf')             format('truetype'); font-weight:400; font-style:normal; font-display:swap; }
+@font-face { font-family:'Poppins';          src:url('assets/fonts/Poppins-Medium.ttf')              format('truetype'); font-weight:500; font-style:normal; font-display:swap; }
+@font-face { font-family:'Poppins';          src:url('assets/fonts/Poppins-SemiBold.ttf')            format('truetype'); font-weight:600; font-style:normal; font-display:swap; }
+
+/* ---------- 2. TOKENS — Miami Aqua Tours (fondo gris claro frío + wash de marca) ---------- */
+:root{
+  --bg-0:#F2F3F5; --bg-1:#E9EBEF; --bg-2:#FFFFFF; --bg-deep:#E2E4E9;
+  --bg-glow-a:rgba(224,120,10,.09); --bg-glow-b:rgba(45,130,180,.09);
+  --bg-wash:linear-gradient(135deg, rgba(255,169,77,.07) 0%, rgba(224,120,10,.05) 32%, rgba(60,150,200,.05) 66%, rgba(27,79,110,.07) 100%);
+  --text-hi:#14161B; --text-mid:#3D4451; --text-lo:#6B7280; --text-faint:#9CA3AF;
+  --cyan:#A85A06; --blue:#E0780A; --violet:#2C7BA6; --magenta:#1B4F6E; --amber:#E0780A; --lime:#2C7BA6;
+  --grad-brand:linear-gradient(100deg,#FFA94D 0%,#E0780A 34%,#3C96C8 68%,#1B4F6E 100%);
+  --grad-cyan:linear-gradient(120deg,#FFA94D,#E0780A);
+  --grad-violet:linear-gradient(120deg,#3C96C8,#1B4F6E);
+  --card-border:1px solid rgba(20,25,35,.10);
+  --dot-confidential:#1B4F6E; --dot-confidential-glow:rgba(27,79,110,.45);
+  --font-display:'Playfair Display',Georgia,serif;
+  --font-serif-alt:'DM Serif Display',Georgia,serif;
+  --font-label:'Montserrat','Segoe UI',sans-serif;
+  --font-body:'Poppins','Segoe UI',sans-serif;
+  --slide-w:11in; --slide-h:6.1875in; --pad:0.72in; --radius:14px;
+  --header-h:68px; --footer-h:68px;
+}
+
+/* ---------- 3. RESET ---------- */
+*{ box-sizing:border-box; margin:0; padding:0; }
+@page{ size:11in 6.1875in; margin:0; }
+html{ height:100%; }
+body{
+  height:100vh; overflow:hidden; background:var(--bg-0); color:var(--text-hi);
+  font-family:var(--font-body); -webkit-font-smoothing:antialiased;
+  display:flex; flex-direction:column;
+  background-image:
+    radial-gradient(120% 90% at 82% 0%, var(--bg-glow-a) 0%, transparent 45%),
+    radial-gradient(120% 90% at 8% 100%, var(--bg-glow-b) 0%, transparent 50%),
+    var(--bg-wash);
+  background-attachment:fixed;
+}
+button{ font-family:var(--font-label); cursor:pointer; }
+
+/* ---------- 4. SHELL — Barra superior ---------- */
+.app-header{
+  flex:none; height:var(--header-h); padding:0 34px;
+  display:flex; align-items:center; justify-content:space-between;
+  background:rgba(255,255,255,.86); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(20,25,35,.10); position:relative; z-index:50;
+}
+.header-left{ display:flex; align-items:center; gap:16px; }
+.header-left img{ height:24px; width:auto; display:block; object-fit:contain; }
+.header-left img.logo-client{ height:30px; }
+.logo-divider{ width:1px; height:26px; background:rgba(20,25,35,.14); }
+.header-center{ display:flex; align-items:center; }
+.header-right{ display:flex; align-items:center; }
+
+.badge-confidential{
+  display:inline-flex; align-items:center; gap:8px; font-family:var(--font-label); font-weight:700;
+  font-size:10px; letter-spacing:.18em; text-transform:uppercase; color:var(--dot-confidential);
+  background:color-mix(in srgb, var(--dot-confidential) 10%, transparent);
+  border:1px solid color-mix(in srgb, var(--dot-confidential) 28%, transparent);
+  border-radius:99px; padding:7px 16px;
+}
+.badge-confidential::before{ content:""; width:7px; height:7px; border-radius:50%; background:var(--dot-confidential); box-shadow:0 0 8px 1px var(--dot-confidential-glow); }
+
+.cover-badge-confidential{ display:inline-flex; align-items:center; gap:9px; font-family:var(--font-label); font-weight:600; font-size:8.5pt; letter-spacing:.26em; text-transform:uppercase; color:var(--text-mid); }
+.cover-badge-confidential::before{ content:""; width:8px; height:8px; border-radius:50%; background:var(--dot-confidential); box-shadow:0 0 10px 1px var(--dot-confidential-glow); }
+
+/* ---------- 5. SHELL — Viewport de láminas ---------- */
+.app-content{ flex:1; min-height:0; display:flex; }
+.slides-viewport{ flex:1; display:flex; }
+.slides-container{ flex:1; position:relative; display:flex; align-items:center; justify-content:center; padding:22px 40px; min-width:0; }
+
+.slide{
+  position:absolute; width:1056px; height:594px; zoom:var(--slide-scale,1);
+  display:none; opacity:0; transform:translateY(16px);
+  transition:opacity .45s ease, transform .45s ease;
+  border-radius:var(--radius); overflow:hidden; box-shadow:0 20px 60px rgba(0,0,0,.22);
+}
+.slide.active{ display:block; opacity:1; transform:translateY(0); }
+
+.slide-inner{
+  width:100%; height:100%; overflow:hidden; position:relative;
+  color:var(--text-hi);
+  background:
+    radial-gradient(120% 90% at 82% 18%, var(--bg-glow-a) 0%, transparent 45%),
+    radial-gradient(120% 120% at 12% 92%, var(--bg-glow-b) 0%, transparent 50%),
+    var(--bg-wash),
+    linear-gradient(150deg, var(--bg-0) 0%, var(--bg-1) 55%, var(--bg-deep) 100%);
+}
+.slide-inner.glow-a{ background:
+  radial-gradient(90% 80% at 15% 20%, var(--bg-glow-a) 0%, transparent 45%),
+  radial-gradient(110% 110% at 95% 95%, var(--bg-glow-b) 0%, transparent 50%),
+  var(--bg-wash),
+  linear-gradient(160deg,var(--bg-0),var(--bg-1) 60%,var(--bg-deep)); }
+.slide-inner.glow-b{ background:
+  radial-gradient(80% 70% at 88% 15%, var(--bg-glow-b) 0%, transparent 50%),
+  radial-gradient(120% 120% at 8% 90%, var(--bg-glow-a) 0%, transparent 50%),
+  var(--bg-wash),
+  linear-gradient(140deg,var(--bg-0),var(--bg-1) 60%,var(--bg-deep)); }
+
+/* ---------- 6. SHELL — Barra inferior ---------- */
+.slides-footer-controls{
+  flex:none; height:var(--footer-h); padding:0 34px;
+  display:flex; align-items:center; justify-content:space-between;
+  background:rgba(255,255,255,.86); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px);
+  border-top:1px solid rgba(20,25,35,.10); position:relative; z-index:50;
+}
+.control-btn{ background:none; border:1px solid rgba(20,25,35,.14); color:var(--text-hi); width:42px; height:42px; border-radius:50%; display:flex; align-items:center; justify-content:center; transition:all .25s ease; }
+.control-btn:hover{ background:var(--blue); border-color:var(--blue); color:#fff; box-shadow:0 4px 12px rgba(20,25,35,.18); }
+.control-btn.mini{ width:34px; height:34px; }
+.control-btn.active{ background:var(--grad-brand); border-color:transparent; color:#fff; }
+
+.slide-indicator{ display:flex; align-items:center; gap:18px; flex:1; max-width:520px; margin:0 26px; }
+#slide-number-display{ font-family:var(--font-label); font-weight:600; font-size:12.5px; color:var(--text-mid); min-width:44px; text-align:right; }
+.progress-bar-bg{ flex:1; height:6px; background:rgba(20,25,35,.07); border-radius:3px; overflow:hidden; }
+.progress-bar-fill{ height:100%; width:10%; background:var(--grad-brand); transition:width .3s ease; }
+.playback-controls{ display:flex; align-items:center; }
+
+/* ---------- 7. UTILIDADES ---------- */
+.gt{ display:inline-block; overflow:visible; vertical-align:baseline; }
+.title-accent{ color:var(--magenta); }
+.title-accent--blue{ color:var(--violet); }
+
+.eyebrow{ font-family:var(--font-label); font-weight:600; font-size:9.5pt; letter-spacing:.34em; text-transform:uppercase; color:var(--cyan); }
+
+.corner{ position:absolute; width:42px; height:42px; border-color:rgba(224,120,10,.4); z-index:4; }
+.corner.tl{ top:26px; left:26px; border-top:2px solid; border-left:2px solid; border-top-left-radius:4px; }
+.corner.tr{ top:26px; right:26px; border-top:2px solid; border-right:2px solid; border-top-right-radius:4px; }
+.corner.bl{ bottom:26px; left:26px; border-bottom:2px solid; border-left:2px solid; border-bottom-left-radius:4px; }
+.corner.br{ bottom:26px; right:26px; border-bottom:2px solid; border-right:2px solid; border-bottom-right-radius:4px; }
+
+.deco-rings{ position:absolute; top:50%; right:-7%; transform:translateY(-50%); width:5.2in; height:5.2in; z-index:1; pointer-events:none; }
+.deco-rings span{ position:absolute; inset:0; border-radius:50%; border:1px solid rgba(20,25,35,.07); }
+.deco-rings span:nth-child(2){ inset:.7in; border-color:rgba(20,25,35,.055); }
+.deco-rings span:nth-child(3){ inset:1.4in; border-color:rgba(20,25,35,.04); }
+.deco-rings span:nth-child(4){ inset:1.95in; border:1px solid rgba(224,120,10,.2); box-shadow:0 0 40px rgba(224,120,10,.12) inset; }
+
+/* ---------- 8. PORTADA ---------- */
+.cover{ display:grid; grid-template-rows:auto 1fr auto; padding:var(--pad); }
+.cover__topbar{ display:flex; align-items:center; justify-content:space-between; position:relative; z-index:5; }
+.cover__brand{ height:26px; width:auto; opacity:.96; }
+.cover__body{ position:relative; z-index:5; align-self:center; max-width:8.5in; }
+.cover__eyebrow{ margin-bottom:20px; }
+.cover__scenario{ display:inline-flex; align-items:center; gap:9px; font-family:var(--font-label); font-weight:700; font-size:9.5pt; letter-spacing:.22em; text-transform:uppercase; color:#fff; background:var(--grad-brand); padding:7px 16px; border-radius:99px; margin-bottom:18px; }
+.cover__title{ font-family:var(--font-display); font-weight:900; font-size:40pt; line-height:1.1; letter-spacing:-.5px; color:var(--text-hi); }
+.cover__title em{ display:inline; font-style:italic; font-weight:900; }
+.cover__kicker{ margin-top:18px; font-family:var(--font-body); font-weight:300; font-size:12pt; line-height:1.45; color:var(--text-mid); max-width:7.6in; }
+.cover__client{ display:flex; align-items:center; gap:16px; margin-top:26px; }
+.cover__client-para{ font-family:var(--font-label); font-weight:700; font-size:11pt; letter-spacing:.32em; color:var(--text-mid); }
+.cover__client-logo{ height:50px; width:auto; }
+.cover__meta{ position:relative; z-index:5; display:grid; grid-template-columns:1.6fr 1.6fr 1fr 1fr; gap:26px; padding-top:22px; border-top:1px solid rgba(20,25,35,.12); }
+.meta-item__label{ font-family:var(--font-label); font-weight:600; font-size:7.5pt; letter-spacing:.22em; text-transform:uppercase; color:var(--cyan); margin-bottom:8px; }
+.meta-item__value{ font-family:var(--font-body); font-weight:500; font-size:10.5pt; line-height:1.35; color:var(--text-hi); }
+
+/* ---------- 9. LÁMINAS INTERNAS: estructura ---------- */
+.internal{ display:grid; grid-template-rows:38px 1fr 20px; padding:.46in .66in .4in; gap:.16in; }
+.s-header{ display:flex; align-items:center; justify-content:space-between; position:relative; z-index:5; }
+.s-header .brand{ height:20px; width:auto; opacity:.95; }
+.s-header .client{ height:32px; width:auto; opacity:.98; }
+.s-footer{ display:flex; align-items:center; justify-content:space-between; position:relative; z-index:5; font-family:var(--font-label); font-weight:500; font-size:6.5pt; letter-spacing:.18em; text-transform:uppercase; color:var(--text-faint); }
+.s-footer .pg{ color:var(--cyan); font-weight:700; }
+.s-body{ position:relative; z-index:5; display:flex; flex-direction:column; min-height:0; }
+
+.s-eyebrow{ font-family:var(--font-label); font-weight:600; font-size:9pt; letter-spacing:.28em; text-transform:uppercase; color:var(--cyan); margin-bottom:8px; }
+.s-title{ font-family:var(--font-display); font-weight:700; font-size:22.5pt; line-height:1.16; color:var(--text-hi); }
+.s-title em{ font-style:italic; font-weight:900; }
+.s-lead{ margin-top:8px; font-family:var(--font-body); font-weight:300; font-size:10.4pt; line-height:1.44; color:var(--text-mid); max-width:8.7in; }
+
+/* ---------- 10. LAYOUT: Métricas (Línea Base) ---------- */
+.stat-grid{ flex:1; display:grid; gap:.26in; margin-top:.2in; align-content:center; }
+.stat-card{ background:var(--bg-2); border:var(--card-border); border-radius:14px; padding:.3in .28in; position:relative; overflow:hidden; }
+.stat-card::before{ content:""; position:absolute; left:0; top:0; bottom:0; width:5px; background:var(--grad-brand); }
+.stat-card .cap{ display:block; font-family:var(--font-label); font-weight:600; font-size:7.6pt; letter-spacing:.14em; text-transform:uppercase; color:var(--cyan); margin-bottom:12px; }
+.stat-card .big{ display:block; font-family:var(--font-display); font-weight:900; font-size:22pt; line-height:1.08; letter-spacing:-.3px; }
+.stat-card .big.c-cyan{ color:var(--blue); }
+.stat-card .big.c-violet{ color:var(--violet); }
+.stat-card .sub{ margin-top:12px; font-family:var(--font-body); font-weight:300; font-size:8.8pt; line-height:1.42; color:var(--text-mid); }
+
+/* ---------- 11. LAYOUT: Split cita + diagnóstico (El reto del cliente) ---------- */
+.challenge{ flex:1; display:grid; grid-template-columns:1fr 1fr; gap:.5in; margin-top:.2in; align-items:center; min-height:0; }
+.quote-card{ position:relative; background:var(--bg-2); border:var(--card-border); border-radius:12px; padding:.34in .34in .34in .46in; overflow:hidden; }
+.quote-card::before{ content:""; position:absolute; left:0; top:0; bottom:0; width:5px; background:var(--grad-brand); }
+.quote-card p{ font-family:var(--font-display); font-style:italic; font-weight:400; font-size:14pt; line-height:1.42; color:var(--text-hi); }
+.quote-card .qm{ font-family:var(--font-display); font-weight:900; font-size:34pt; line-height:0; color:var(--cyan); display:block; height:16px; }
+.quote-card .attr{ display:block; margin-top:14px; font-family:var(--font-label); font-weight:600; font-size:8pt; letter-spacing:.08em; color:var(--text-lo); }
+.pain-list{ display:flex; flex-direction:column; gap:.17in; list-style:none; }
+.pain-item{ display:flex; align-items:flex-start; gap:14px; }
+.pain-item .ico{ flex:none; width:24px; height:24px; border-radius:7px; display:grid; place-items:center; background:linear-gradient(135deg,rgba(224,120,10,.16),rgba(60,150,200,.14)); color:var(--cyan); font-weight:700; font-size:10.5pt; margin-top:1px; }
+.pain-item .tx{ font-family:var(--font-body); font-weight:400; font-size:9.4pt; line-height:1.4; color:var(--text-mid); }
+.pain-item .tx b{ color:var(--text-hi); font-weight:600; }
+
+/* ---------- 12. LAYOUT: Grid de módulos (Los 5 frentes de trabajo) ---------- */
+.feat-grid{ flex:1; display:grid; gap:.16in; margin-top:.14in; align-content:center; min-height:0; }
+.feat-card{ background:var(--bg-2); border:var(--card-border); border-radius:12px; padding:.2in .22in; display:flex; flex-direction:column; position:relative; overflow:hidden; }
+.feat-card::before{ content:""; position:absolute; left:0; right:0; top:0; height:3px; background:var(--grad-brand); }
+.feat-card .rf{ display:block; font-family:var(--font-label); font-weight:700; font-size:8pt; letter-spacing:.14em; color:var(--cyan); margin-bottom:9px; }
+.feat-card h4{ font-family:var(--font-label); font-weight:700; font-size:11pt; color:var(--text-hi); margin-bottom:8px; line-height:1.22; }
+.feat-card p{ font-family:var(--font-body); font-weight:300; font-size:9.2pt; line-height:1.42; color:var(--text-lo); }
+
+/* ---------- 13. LAYOUT: Diagrama de flujo (pipeline de tracking) ---------- */
+.pipeline{ flex:1; display:flex; flex-direction:column; justify-content:center; gap:.3in; margin-top:.16in; min-height:0; }
+.pipeline-row{ position:relative; display:grid; grid-template-columns:repeat(6,1fr); gap:.16in; }
+.pipeline-row::before{ content:""; position:absolute; top:-0.02in; left:22px; right:22px; height:2px; background:var(--grad-brand); opacity:.5; }
+.pipe-node{ position:relative; padding-top:.4in; }
+.pipe-node .node{ position:absolute; top:-0.17in; left:0; width:40px; height:40px; border-radius:11px; display:grid; place-items:center; font-family:var(--font-display); font-weight:900; font-size:11pt; color:#fff; background:var(--grad-brand); box-shadow:0 4px 14px rgba(27,79,110,.28); }
+.pipe-node h4{ font-family:var(--font-label); font-weight:700; font-size:9.2pt; line-height:1.24; color:var(--text-hi); margin-bottom:6px; }
+.pipe-node p{ font-family:var(--font-body); font-weight:300; font-size:7.8pt; line-height:1.38; color:var(--text-lo); }
+.pipeline-note{ margin-top:.1in; background:linear-gradient(120deg,rgba(224,120,10,.08),rgba(60,150,200,.08)); border:var(--card-border); border-radius:12px; padding:.18in .28in; display:flex; align-items:center; gap:16px; }
+.pipeline-note .lbl{ flex:none; font-family:var(--font-label); font-weight:700; font-size:8pt; letter-spacing:.16em; text-transform:uppercase; color:var(--cyan); }
+.pipeline-note p{ font-family:var(--font-body); font-weight:300; font-size:9pt; line-height:1.4; color:var(--text-mid); }
+
+/* ---------- 14. LAYOUT: Medición + Viabilidad AnyTrack (split) ---------- */
+.measure-split{ flex:1; display:grid; grid-template-columns:1.1fr .9fr; gap:.42in; margin-top:.14in; min-height:0; }
+.measure-col .col-lbl{ font-family:var(--font-label); font-weight:700; font-size:8.2pt; letter-spacing:.18em; text-transform:uppercase; color:var(--cyan); margin-bottom:.14in; }
+.evt-list{ display:flex; flex-direction:column; gap:.1in; }
+.evt-row{ display:flex; align-items:flex-start; gap:12px; background:var(--bg-2); border:var(--card-border); border-radius:10px; padding:.11in .16in; }
+.evt-row .ev{ flex:none; min-width:1.15in; font-family:var(--font-label); font-weight:700; font-size:8.6pt; color:var(--blue); background:rgba(224,120,10,.08); border-radius:6px; padding:3px 8px; }
+.evt-row .ds{ font-family:var(--font-body); font-weight:400; font-size:8.6pt; line-height:1.36; color:var(--text-mid); }
+.verdict-card{ position:relative; background:var(--bg-2); border:var(--card-border); border-radius:12px; padding:.24in .26in; margin-bottom:.16in; overflow:hidden; }
+.verdict-card::before{ content:""; position:absolute; left:0; top:0; bottom:0; width:5px; background:var(--grad-brand); }
+.verdict-card p{ font-family:var(--font-body); font-weight:400; font-size:9.4pt; line-height:1.46; color:var(--text-hi); }
+.verdict-card p b{ color:var(--blue); font-weight:700; }
+.scn-list{ display:flex; flex-direction:column; gap:.1in; list-style:none; }
+.scn-item{ display:flex; align-items:flex-start; gap:10px; }
+.scn-item .ck{ flex:none; width:18px; height:18px; margin-top:1px; }
+.scn-item .ck.ok{ color:var(--blue); }
+.scn-item .ck.half{ color:var(--text-faint); }
+.scn-item .tx{ font-family:var(--font-body); font-weight:400; font-size:8.6pt; line-height:1.36; color:var(--text-mid); }
+.scn-item .tx b{ color:var(--text-hi); font-weight:600; }
+
+/* ---------- 15. LAYOUT: Inversión (desglose por módulo + plan de pago) ---------- */
+.invest-wrap{ flex:1; display:flex; flex-direction:column; min-height:0; margin-top:.06in; gap:.16in; justify-content:center; }
+.invest-modules{ display:grid; grid-template-columns:1.15fr .85fr; gap:.5in; align-items:center; }
+.mod-cost-list{ display:flex; flex-direction:column; gap:.08in; }
+.mod-cost-row{ display:flex; align-items:center; justify-content:space-between; gap:14px; background:var(--bg-2); border:var(--card-border); border-radius:12px; padding:.1in .2in; }
+.mod-cost-row .mc-label{ font-family:var(--font-label); font-weight:700; font-size:9.2pt; color:var(--text-hi); }
+.mod-cost-row .mc-value{ font-family:var(--font-label); font-weight:700; font-size:10pt; color:var(--cyan); white-space:nowrap; }
+.invest__num .cap{ font-family:var(--font-label); font-weight:600; font-size:9pt; letter-spacing:.24em; text-transform:uppercase; color:var(--cyan); margin-bottom:8px; }
+.invest__num .big{ font-family:var(--font-display); font-weight:900; font-size:26pt; line-height:1.05; letter-spacing:-.5px; color:var(--blue); }
+.invest__num .sub{ margin-top:10px; font-family:var(--font-body); font-weight:300; font-size:9.2pt; line-height:1.4; color:var(--text-mid); max-width:4.3in; }
+.pay-plan{ display:flex; gap:.16in; }
+.plan-card{ flex:1; display:flex; flex-direction:column; align-items:flex-start; gap:6px; background:var(--bg-2); border:var(--card-border); border-radius:12px; padding:.14in .18in; }
+.plan-card .pct{ display:flex; align-items:baseline; gap:8px; }
+.plan-card .pct .num{ font-family:var(--font-label); font-weight:800; font-size:17pt; line-height:1; color:var(--cyan); }
+.plan-card .pct .lbl{ font-family:var(--font-label); font-weight:700; font-size:7.2pt; letter-spacing:.1em; text-transform:uppercase; color:var(--text-lo); }
+.plan-card .info b{ display:block; font-family:var(--font-label); font-weight:800; font-size:12pt; color:var(--text-hi); margin-bottom:2px; }
+.plan-card .info span{ font-family:var(--font-body); font-weight:300; font-size:7.8pt; color:var(--text-lo); line-height:1.3; }
+
+/* ---------- 16. LAYOUT: Timeline (Plan de fases) ---------- */
+.timeline{ flex:1; display:flex; flex-direction:column; justify-content:center; gap:.1in; margin-top:.16in; min-height:0; }
+.timeline-row{ position:relative; display:grid; grid-template-columns:repeat(5,1fr); gap:.24in; }
+.timeline-row::before{ content:""; position:absolute; top:-0.02in; left:26px; right:26px; height:2px; background:var(--grad-brand); opacity:.45; }
+.phase{ position:relative; padding-top:.42in; }
+.phase .node{ position:absolute; top:-0.19in; left:0; width:48px; height:44px; border-radius:12px; display:grid; place-items:center; font-family:var(--font-display); font-weight:900; font-size:11.5pt; white-space:nowrap; color:#fff; background:var(--grad-brand); box-shadow:0 4px 14px rgba(27,79,110,.28); }
+.phase h4{ font-family:var(--font-label); font-weight:700; font-size:9.6pt; line-height:1.26; color:var(--text-hi); margin-bottom:7px; }
+.phase p{ font-family:var(--font-body); font-weight:300; font-size:8.3pt; line-height:1.4; color:var(--text-lo); }
+
+/* ---------- 17. LAYOUT: Quiénes Somos (split texto + sectores) ---------- */
+.about{ flex:1; display:grid; grid-template-columns:1.18fr .82fr; gap:.55in; align-items:center; margin-top:.2in; }
+.about-lead{ font-family:var(--font-body); font-weight:300; font-size:11pt; line-height:1.56; color:var(--text-mid); }
+.about-lead b{ font-weight:600; color:var(--text-hi); }
+.about-stats{ display:flex; flex-direction:column; gap:.14in; margin-top:.26in; }
+.about-stat{ display:flex; align-items:center; gap:12px; background:var(--bg-2); border:var(--card-border); border-radius:10px; padding:.12in .18in; }
+.about-stat .dot{ flex:none; width:8px; height:8px; border-radius:50%; background:var(--grad-brand); }
+.about-stat span{ font-family:var(--font-label); font-weight:600; font-size:9.6pt; color:var(--text-hi); }
+.sectors-panel{ background:var(--bg-2); border:var(--card-border); border-radius:16px; padding:.32in .3in; }
+.sectors-panel .lbl{ font-family:var(--font-label); font-weight:700; font-size:8.5pt; letter-spacing:.2em; text-transform:uppercase; color:var(--cyan); margin-bottom:.2in; }
+.tag-row{ display:flex; flex-wrap:wrap; gap:9px; }
+.tag-pill{ font-family:var(--font-label); font-weight:600; font-size:8.6pt; letter-spacing:.03em; color:var(--text-mid); background:rgba(20,25,35,.04); border:1px solid rgba(20,25,35,.12); border-radius:99px; padding:7px 15px; }
+.tag-pill.is-new{ color:#fff; background:var(--grad-brand); border:none; font-weight:700; }
+
+/* ---------- 18. LAYOUT: Cierre / CTA ---------- */
+.cta{ flex:1; display:grid; grid-template-columns:1.15fr .85fr; gap:.55in; align-items:center; margin-top:.2in; }
+.steps{ display:flex; flex-direction:column; gap:.22in; }
+.step{ display:flex; align-items:center; gap:18px; }
+.step .dot{ flex:none; width:40px; height:40px; border-radius:50%; display:grid; place-items:center; font-family:var(--font-display); font-weight:900; font-size:15pt; color:#fff; background:var(--grad-brand); }
+.step .lab b{ font-family:var(--font-label); font-weight:700; font-size:12.6pt; color:var(--text-hi); display:block; margin-bottom:2px; }
+.step .lab span{ font-family:var(--font-body); font-weight:300; font-size:10pt; line-height:1.35; color:var(--text-lo); }
+.step .cn{ width:2px; height:14px; margin-left:19px; background:linear-gradient(var(--blue),transparent); }
+.contact-card{ position:relative; background:var(--bg-2); border:var(--card-border); border-radius:16px; padding:.4in .38in; overflow:hidden; }
+.contact-card::before{ content:""; position:absolute; left:0; top:0; bottom:0; width:5px; background:var(--grad-brand); }
+.contact-card .role{ font-family:var(--font-label); font-weight:600; font-size:8.5pt; letter-spacing:.2em; text-transform:uppercase; color:var(--cyan); margin-bottom:11px; }
+.contact-card .name{ font-family:var(--font-display); font-weight:700; font-size:21pt; color:var(--text-hi); line-height:1.1; margin-bottom:4px; }
+.contact-card .title{ font-family:var(--font-body); font-weight:400; font-size:9.6pt; color:var(--text-lo); margin-bottom:16px; }
+.contact-card .row{ display:flex; align-items:center; gap:12px; margin-top:11px; font-family:var(--font-body); font-weight:400; font-size:10.6pt; color:var(--text-mid); }
+.contact-card .row svg{ width:16px; height:16px; color:var(--cyan); flex:none; }
+
+/* ---------- 19. IMPRESIÓN / EXPORT PDF ---------- */
+@media print{
+  html,body{ width:11in; height:auto; overflow:visible; background:none; background-image:none; padding:0; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  .app-header, .slides-footer-controls{ display:none !important; }
+  .app-content, .slides-viewport{ display:block; height:auto; }
+  .slides-container{ display:block; padding:0; }
+  .slide{
+    display:block !important; position:relative; width:11in; height:6.1875in; zoom:1;
+    opacity:1; transform:none; margin:0 auto; border-radius:0; box-shadow:none;
+    page-break-after:always; break-after:page; overflow:hidden;
+  }
+  .slide:last-child{ page-break-after:auto; break-after:auto; }
+}

@@ -6,7 +6,7 @@
 
 const state = {
     currentSlide: 1,
-    totalSlides: 27,
+    totalSlides: 28,
     sidebarCollapsed: false,
 };
 
@@ -37,6 +37,21 @@ function sectionStartFor(slideNumber) {
     return start;
 }
 
+// Desliza la pastilla de selección hasta el nav-item activo (en vez de reasignar
+// un fondo instantáneo por clase en cada item).
+function moveNavIndicator() {
+    const indicator = document.getElementById('navIndicator');
+    const active = document.querySelector('.nav-item.active');
+    const nav = document.querySelector('.sidebar-nav');
+    if (!indicator || !active || !nav) return;
+    const itemRect = active.getBoundingClientRect();
+    const navRect = nav.getBoundingClientRect();
+    const top = itemRect.top - navRect.top + nav.scrollTop;
+    indicator.style.transform = `translateY(${top}px)`;
+    indicator.style.height = `${itemRect.height}px`;
+    indicator.style.opacity = '1';
+}
+
 function updateSlideDisplay() {
     let activeSlideEl = null;
     document.querySelectorAll('.slide').forEach((slide) => {
@@ -49,6 +64,7 @@ function updateSlideDisplay() {
     document.querySelectorAll('.nav-item').forEach((item) => {
         item.classList.toggle('active', parseInt(item.dataset.nav, 10) === currentSectionStart);
     });
+    moveNavIndicator();
 
     if (activeSlideEl) {
         document.getElementById('crumb-title').textContent = activeSlideEl.dataset.title || '';
@@ -76,6 +92,9 @@ function toggleSidebar() {
     const sidebar = document.getElementById('sidebar');
     state.sidebarCollapsed = !state.sidebarCollapsed;
     sidebar.classList.toggle('collapsed', state.sidebarCollapsed);
+    // El colapso oculta las etiquetas de grupo y reacomoda los nav-items de inmediato
+    // (sin transición propia), así que la pastilla se puede reposicionar ya mismo.
+    moveNavIndicator();
     // Recalcular el zoom de la lámina una vez termine la transición de ancho del sidebar.
     setTimeout(resizeSlideStage, 400);
 }
@@ -85,7 +104,7 @@ document.addEventListener('keydown', (e) => {
     if (e.key === 'ArrowLeft') navigateSlide(-1);
 });
 
-window.addEventListener('resize', resizeSlideStage);
+window.addEventListener('resize', () => { resizeSlideStage(); moveNavIndicator(); });
 
 window.addEventListener('DOMContentLoaded', () => {
     resizeSlideStage();

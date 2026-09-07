@@ -88,11 +88,20 @@ img{ display:block; }
 .app-sidebar.collapsed .sidebar-client{ justify-content:center; }
 .app-sidebar.collapsed .sidebar-client__tx{ display:none; }
 
-.sidebar-nav{ flex:1; min-height:0; overflow-y:auto; overflow-x:hidden; padding:14px 12px 10px; display:flex; flex-direction:column; gap:16px; }
+.sidebar-nav{ position:relative; flex:1; min-height:0; overflow-y:auto; overflow-x:hidden; padding:14px 12px 10px; display:flex; flex-direction:column; gap:16px; }
 .sidebar-nav::-webkit-scrollbar{ width:5px; }
 .sidebar-nav::-webkit-scrollbar-thumb{ background:rgba(20,25,35,.14); border-radius:4px; }
 
-.nav-group{ display:flex; flex-direction:column; gap:3px; }
+/* Indicador deslizante — una sola pastilla en gradiente que se desliza detrás del
+   nav-item activo (en vez de reasignar fondo instantáneo por clase). */
+.nav-indicator{
+  position:absolute; left:12px; right:12px; top:0; height:0;
+  background:var(--grad-brand); border-radius:10px; box-shadow:0 4px 14px rgba(150,110,20,.28);
+  transform:translateY(0); opacity:0; pointer-events:none; z-index:0;
+  transition:transform .4s cubic-bezier(.65,0,.35,1), height .3s ease, opacity .25s ease;
+}
+
+.nav-group{ display:flex; flex-direction:column; gap:3px; position:relative; z-index:1; }
 .nav-group-label{
   font:600 8px var(--font-label); letter-spacing:.13em; text-transform:uppercase;
   color:var(--text-faint); padding:0 10px; margin-bottom:5px; white-space:nowrap;
@@ -100,13 +109,14 @@ img{ display:block; }
 .app-sidebar.collapsed .nav-group-label{ display:none; }
 
 .nav-item{
-  display:flex; align-items:center; gap:12px; padding:8px 10px; border-radius:10px;
+  position:relative; z-index:1; display:flex; align-items:center; gap:12px; padding:8px 10px; border-radius:10px;
   color:var(--text-mid); font:500 11.5px var(--font-body); white-space:nowrap;
-  cursor:pointer; transition:background .2s ease, color .2s ease, box-shadow .2s ease;
+  cursor:pointer; transition:background .2s ease, color .2s ease;
 }
 .nav-item svg{ flex:none; width:17px; height:17px; }
 .nav-item:hover{ background:rgba(20,25,35,.055); color:var(--text-hi); }
-.nav-item.active{ background:var(--grad-brand); color:#fff; box-shadow:0 4px 14px rgba(150,110,20,.28); }
+.nav-item.active{ background:none; color:#fff; }
+.nav-item.active:hover{ background:none; }
 .nav-item .nav-label{ overflow:hidden; text-overflow:ellipsis; }
 .app-sidebar.collapsed .nav-item{ justify-content:center; padding:9px; }
 .app-sidebar.collapsed .nav-item .nav-label{ display:none; }
@@ -229,6 +239,21 @@ img{ display:block; }
 .cover__title{ font-family:var(--font-display); font-weight:800; font-size:21pt; line-height:1.16; letter-spacing:-.3px; color:var(--text-hi); max-width:9.6in; }
 .cover__kicker{ margin-top:8px; font-family:var(--font-body); font-weight:300; font-size:9.6pt; line-height:1.4; color:var(--text-mid); max-width:8.6in; }
 
+/* ---------- 6.0 PORTADA GENERAL (lámina 1) — lockup de logos grande ---------- */
+.cover--main .cover__body{ justify-content:center; padding-top:0; }
+.cover__lockup{ display:flex; align-items:center; gap:22px; margin-bottom:28px; }
+.cover__lockup-camp{ height:42px; width:auto; }
+.cover__lockup-x{ font-family:var(--font-display); font-weight:400; font-style:italic; font-size:22pt; color:var(--text-faint); line-height:1; }
+.cover__lockup-giron{ height:84px; width:auto; }
+.cover--main .cover__title{ font-size:25pt; }
+.cover--main .cover__kicker{ font-size:10.6pt; max-width:9in; }
+
+/* ---------- 6.0b RESUMEN GENERAL (lámina 2) — índice sin hero, con footer ---------- */
+.cover--index .cover__index-title{ font-family:var(--font-display); font-weight:700; font-size:17.5pt; line-height:1.22; color:var(--text-hi); max-width:9in; }
+.cover--index .cover__index-title em{ font-style:italic; font-weight:900; }
+.cover--index .cover__kicker{ max-width:9in; }
+.cover--index .cat-grid{ margin-top:.2in; }
+
 .cat-grid{ flex:1; display:grid; grid-template-columns:repeat(3,1fr); gap:.34in; margin-top:.14in; min-height:0; }
 .cat-block{ display:flex; flex-direction:column; min-height:0; }
 .cat-head{ display:flex; align-items:baseline; justify-content:space-between; margin-bottom:7px; padding-bottom:5px; border-bottom:1px solid rgba(20,25,35,.14); }
@@ -272,7 +297,7 @@ img{ display:block; }
 .cover--sol .cover__modules .lbl{ flex:none; font-family:var(--font-label); font-weight:700; font-size:8pt; letter-spacing:.2em; text-transform:uppercase; color:var(--text-faint); }
 .cover--sol .cover__client{ display:flex; align-items:center; gap:16px; margin-top:26px; }
 .cover--sol .cover__client-para{ font-family:var(--font-label); font-weight:700; font-size:9.5pt; letter-spacing:.3em; color:var(--text-mid); }
-.cover--sol .cover__client-logo{ height:38px; width:auto; }
+.cover--sol .cover__client-logo{ height:66px; width:auto; }
 .cover--sol .cover__meta{ margin-top:26px; padding-top:16px; }
 .cover--sol .cover__meta .meta-item__value{ font-size:10.5pt; font-weight:600; }
 

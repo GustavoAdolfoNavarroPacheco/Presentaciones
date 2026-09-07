@@ -240,7 +240,7 @@ img{ display:block; }
 .cover__kicker{ margin-top:8px; font-family:var(--font-body); font-weight:300; font-size:9.6pt; line-height:1.4; color:var(--text-mid); max-width:8.6in; }
 
 /* ---------- 6.0 PORTADA GENERAL (lámina 1) — lockup de logos grande ---------- */
-.cover--main .cover__body{ justify-content:center; padding-top:0; }
+.cover--main .cover__body{ display:flex; justify-content:center; padding-top:0; }
 .cover__lockup{ display:flex; align-items:center; gap:22px; margin-bottom:28px; }
 .cover__lockup-camp{ height:42px; width:auto; }
 .cover__lockup-x{ font-family:var(--font-display); font-weight:400; font-style:italic; font-size:22pt; color:var(--text-faint); line-height:1; }
@@ -300,6 +300,81 @@ img{ display:block; }
 .cover--sol .cover__client-logo{ height:66px; width:auto; }
 .cover--sol .cover__meta{ margin-top:26px; padding-top:16px; }
 .cover--sol .cover__meta .meta-item__value{ font-size:10.5pt; font-weight:600; }
+
+/* ============================================================
+   6.2 PORTADA + CONTENIDO UNIFICADOS — cover--unified
+   Optimización 2026-09-07: cada una de las 13 propuestas pasa de 2 láminas
+   (portada + contenido) a 1 sola. Reusa .cover--sol como base (misma tipografía,
+   mismo badge "Propuesta N de 13") pero todo se compacta y se alinea arriba
+   (en vez de centrado) para que quepa también la grilla de contenido real.
+   ============================================================ */
+.cover--unified{ padding:.34in .66in .26in; }
+/* display:grid con filas explícitas (en vez del flex-column + flex:1 anidado del resto del
+   sistema): el contenido (mod-grid/sys-split) es SIEMPRE el 4º hijo tras badge+título+kicker,
+   así que puede tomar directamente la fila "1fr". Esto evita un problema real de Chrome:
+   con flex:1 anidado en 3-4 niveles (cover__body → sys-split → sys-col → sol-list) el
+   render de pantalla y el de exportación a PDF calculan el alto disponible distinto —
+   en pantalla el contenido queda pegado abajo, en el PDF exportado queda pegado arriba con
+   un vacío grande debajo. Con grid-template-rows:auto auto auto 1fr el alto de la fila de
+   contenido es un cálculo directo de una sola capa, igual en pantalla y en PDF. */
+.cover--unified .cover__body{ display:grid; grid-template-rows:auto auto auto 1fr; row-gap:0; }
+.cover--unified .sol-index{ font-size:8pt; padding:5px 13px; margin-bottom:9px; }
+.cover--unified .cover__title{ font-size:16.5pt; line-height:1.16; max-width:9.6in; }
+.cover--unified .cover__kicker{ font-size:8.7pt; line-height:1.36; margin-top:5px; max-width:9.6in; }
+.cover--unified .cover__meta{ margin-top:8px; padding-top:7px; gap:20px; }
+.cover--unified .cover__meta .meta-item__label{ font-size:6.3pt; margin-bottom:2px; }
+.cover--unified .cover__meta .meta-item__value{ font-size:8.3pt; }
+.cover--unified .s-footer{ margin-top:6px; }
+
+/* Contenido (mod-grid / sys-split) reinsertado bajo el kicker, compactado para
+   convivir con título + meta en la misma lámina física. */
+.cover--unified .mod-grid{ margin-top:8px; gap:.15in; }
+.cover--unified .mod-card, .cover--unified .mod-card--lg{ padding:.14in .17in; }
+.cover--unified .mod-card .m-ico, .cover--unified .mod-card--lg .m-ico{ width:25px; height:25px; margin-bottom:5px; }
+.cover--unified .mod-card .m-ico svg, .cover--unified .mod-card--lg .m-ico svg{ width:13px; height:13px; }
+.cover--unified .mod-card h4, .cover--unified .mod-card--lg h4{ font-size:9.4pt; margin-bottom:3px; }
+.cover--unified .mod-card p, .cover--unified .mod-card--lg p{ font-size:7.9pt; line-height:1.3; }
+.cover--unified .mod-grid.roomy{ gap:.22in; }
+/* Pocas tarjetas en una sola fila (variante roomy, p.ej. 3 tarjetas): se agrandan más que
+   el tamaño compacto genérico para que la fila ocupe la banda disponible sin dejar un
+   vacío grande debajo — no se trata de alargar la caja, sino de que su propio contenido
+   (ícono, título, texto) pese más dentro de ella. */
+.cover--unified .mod-grid.roomy .mod-card--lg{ padding:.3in .28in; }
+.cover--unified .mod-grid.roomy .mod-card--lg .m-ico{ width:40px; height:40px; border-radius:11px; margin-bottom:13px; }
+.cover--unified .mod-grid.roomy .mod-card--lg .m-ico svg{ width:20px; height:20px; }
+.cover--unified .mod-grid.roomy .mod-card--lg h4{ font-size:11.5pt; margin-bottom:7px; }
+.cover--unified .mod-grid.roomy .mod-card--lg p{ font-size:9.2pt; line-height:1.44; }
+
+.cover--unified .sys-split{ margin-top:8px; }
+/* Centrado robusto con margin:auto (en vez de flex:1 + justify-content:center, que en el
+   export a PDF de Chrome headless resuelve la altura disponible distinto que en pantalla y
+   deja el contenido pegado arriba con un vacío grande abajo — ver nota técnica). Con
+   margin:auto 0 el motor SIEMPRE reparte el espacio sobrante repartido entre arriba y abajo,
+   en pantalla y en PDF por igual. */
+.cover--unified .sys-col-head{ font-size:9.3pt; }
+.cover--unified .sys-col-sub{ font-size:7.7pt; margin-bottom:6px; line-height:1.32; }
+.cover--unified .sol-list{ flex:none; margin:auto 0; gap:5px; }
+/* min-height fijo (no flex:1/margin:auto, que no reparten espacio de forma fiable dentro de
+   .sys-col en el export a PDF — ver nota técnica arriba): centran su propio contenido por
+   dentro (ya lo hacían) dentro de una caja de alto fijo, cálculo autocontenido e inmune a
+   cómo el ancestro resuelva el espacio disponible. */
+.cover--unified .highlight-card{ flex:none; margin:0; min-height:2.3in; }
+.cover--unified .sect-panel{ flex:none; margin:0; min-height:2.3in; }
+.cover--unified .sol-card{ padding:5px 9px 5px 11px; }
+.cover--unified .sol-card h5{ font-size:8.1pt; margin-bottom:1px; }
+.cover--unified .sol-card p{ font-size:7.1pt; line-height:1.26; }
+/* Panel único (sect-panel) / tarjeta destacada única (highlight-card): además del centrado
+   por margin:auto de arriba, se agranda su contenido propio para que no se vea como una
+   caja de texto pequeño perdida dentro de un marco grande. */
+.cover--unified .sect-panel{ padding:.16in .22in; }
+.cover--unified .sect-panel .lbl{ font-size:8pt; margin-bottom:.11in; }
+.cover--unified .sect-panel .tag-row{ margin-bottom:.13in; gap:8px; }
+.cover--unified .sect-panel .tag-row .tag-pill{ font-size:7.4pt; padding:5.5px 13px; }
+.cover--unified .sect-panel p.note{ font-size:8.4pt; line-height:1.42; }
+.cover--unified .highlight-card{ padding:.24in .28in; }
+.cover--unified .highlight-card h5{ font-size:10.6pt; margin-bottom:8px; }
+.cover--unified .highlight-card p{ font-size:9pt; line-height:1.44; }
+.cover--unified .tag-pill{ font-size:6.7pt; padding:4px 9px; }
 
 /* ============================================================
    7. LÁMINAS INTERNAS — estructura común

@@ -1,11 +1,12 @@
 // ==========================================
 // ALCALDÍA MUNICIPAL DE GIRÓN, SANTANDER
-// Shell interactivo: barra lateral retráctil + 14 apartados
+// Shell interactivo: barra lateral retráctil (14 apartados) +
+// barra inferior (navega portada ↔ contenido dentro de cada solución)
 // ==========================================
 
 const state = {
     currentSlide: 1,
-    totalSlides: 14,
+    totalSlides: 27,
     sidebarCollapsed: false,
 };
 
@@ -22,6 +23,20 @@ function resizeSlideStage() {
     document.documentElement.style.setProperty('--slide-scale', scale.toFixed(4));
 }
 
+// El nav-item de la barra lateral apunta a la PORTADA de cada sección (el número más
+// bajo del par portada/contenido, o 1 para el resumen). Resaltamos ese nav-item tanto
+// si el usuario está viendo la portada como el contenido de esa misma solución.
+function sectionStartFor(slideNumber) {
+    const navNumbers = [...document.querySelectorAll('.nav-item')]
+        .map((el) => parseInt(el.dataset.nav, 10))
+        .sort((a, b) => a - b);
+    let start = navNumbers[0];
+    for (const n of navNumbers) {
+        if (n <= slideNumber) start = n; else break;
+    }
+    return start;
+}
+
 function updateSlideDisplay() {
     let activeSlideEl = null;
     document.querySelectorAll('.slide').forEach((slide) => {
@@ -30,8 +45,9 @@ function updateSlideDisplay() {
         if (isActive) activeSlideEl = slide;
     });
 
+    const currentSectionStart = sectionStartFor(state.currentSlide);
     document.querySelectorAll('.nav-item').forEach((item) => {
-        item.classList.toggle('active', parseInt(item.dataset.nav, 10) === state.currentSlide);
+        item.classList.toggle('active', parseInt(item.dataset.nav, 10) === currentSectionStart);
     });
 
     if (activeSlideEl) {
@@ -39,12 +55,21 @@ function updateSlideDisplay() {
         document.getElementById('crumb-eyebrow').textContent = activeSlideEl.dataset.eyebrow || 'Alcaldía de Girón';
     }
     document.getElementById('header-count').textContent = `${state.currentSlide} / ${state.totalSlides}`;
+    document.getElementById('slide-number-display').textContent = `${state.currentSlide} / ${state.totalSlides}`;
+    document.getElementById('slide-progress').style.width = `${(state.currentSlide / state.totalSlides) * 100}%`;
 }
 
 function goToSlide(n) {
     if (n < 1 || n > state.totalSlides) return;
     state.currentSlide = n;
     updateSlideDisplay();
+}
+
+function navigateSlide(direction) {
+    let next = state.currentSlide + direction;
+    if (next > state.totalSlides) next = 1;
+    if (next < 1) next = state.totalSlides;
+    goToSlide(next);
 }
 
 function toggleSidebar() {
@@ -56,8 +81,8 @@ function toggleSidebar() {
 }
 
 document.addEventListener('keydown', (e) => {
-    if (e.key === 'ArrowRight') goToSlide(state.currentSlide + 1 > state.totalSlides ? 1 : state.currentSlide + 1);
-    if (e.key === 'ArrowLeft') goToSlide(state.currentSlide - 1 < 1 ? state.totalSlides : state.currentSlide - 1);
+    if (e.key === 'ArrowRight') navigateSlide(1);
+    if (e.key === 'ArrowLeft') navigateSlide(-1);
 });
 
 window.addEventListener('resize', resizeSlideStage);

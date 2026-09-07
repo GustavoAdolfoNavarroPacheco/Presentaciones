@@ -1,0 +1,315 @@
+/* ============================================================
+   CAMPUSLANDS FULL SERVICE — SISTEMA DE DISEÑO v2 (Premium)
+   Presentación: Alcaldía Municipal de Girón, Santander
+   Paleta derivada del escudo (heráldica dorada/bronce, monocromo):
+   oro brillante → oro → bronce → bronce oscuro. Acento frío institucional
+   (azul) para "Confidencial", por la regla de seguridad de marca cálida.
+   Shell: barra lateral retráctil (14 apartados), no switch de escenarios.
+   Fuente única: Poppins (display, labels y cuerpo).
+   ============================================================ */
+
+/* ---------- 1. FUENTES LOCALES (Poppins, única familia) ---------- */
+@font-face { font-family:'Poppins'; src:url('assets/fonts/Poppins-Light.ttf')       format('truetype'); font-weight:300; font-style:normal; font-display:swap; }
+@font-face { font-family:'Poppins'; src:url('assets/fonts/Poppins-Regular.ttf')     format('truetype'); font-weight:400; font-style:normal; font-display:swap; }
+@font-face { font-family:'Poppins'; src:url('assets/fonts/Poppins-Italic.ttf')      format('truetype'); font-weight:400; font-style:italic; font-display:swap; }
+@font-face { font-family:'Poppins'; src:url('assets/fonts/Poppins-Medium.ttf')      format('truetype'); font-weight:500; font-style:normal; font-display:swap; }
+@font-face { font-family:'Poppins'; src:url('assets/fonts/Poppins-MediumItalic.ttf')format('truetype'); font-weight:500; font-style:italic; font-display:swap; }
+@font-face { font-family:'Poppins'; src:url('assets/fonts/Poppins-SemiBold.ttf')    format('truetype'); font-weight:600; font-style:normal; font-display:swap; }
+@font-face { font-family:'Poppins'; src:url('assets/fonts/Poppins-Bold.ttf')        format('truetype'); font-weight:700; font-style:normal; font-display:swap; }
+@font-face { font-family:'Poppins'; src:url('assets/fonts/Poppins-ExtraBold.ttf')   format('truetype'); font-weight:800; font-style:normal; font-display:swap; }
+@font-face { font-family:'Poppins'; src:url('assets/fonts/Poppins-Black.ttf')       format('truetype'); font-weight:900; font-style:normal; font-display:swap; }
+
+/* ---------- 2. TOKENS — Girón (oro/bronce heráldico + acento azul institucional) ---------- */
+:root{
+  --bg-0:#F2F3F5; --bg-1:#E9EBEF; --bg-2:#FFFFFF; --bg-deep:#E2E4E9;
+  --bg-glow-a:rgba(217,163,46,.10); --bg-glow-b:rgba(14,92,138,.08);
+  --bg-wash:linear-gradient(135deg, rgba(240,194,78,.07) 0%, rgba(217,163,46,.05) 32%, rgba(122,85,16,.05) 66%, rgba(74,54,8,.07) 100%);
+  --text-hi:#14161B; --text-mid:#3D4451; --text-lo:#6B7280; --text-faint:#9CA3AF;
+  --cyan:#8A5A0E; --blue:#A9781A; --violet:#7A5510; --magenta:#4A3608;
+  --grad-brand:linear-gradient(100deg,#F0C24E 0%,#D9A32E 36%,#A9781A 68%,#7A5510 100%);
+  --grad-cyan:linear-gradient(120deg,#F0C24E,#D9A32E);
+  --grad-violet:linear-gradient(120deg,#A9781A,#7A5510);
+  --card-border:1px solid rgba(20,25,35,.10);
+  --dot-confidential:#0E5C8A; --dot-confidential-glow:rgba(14,92,138,.45);
+  --font-display:'Poppins','Segoe UI',sans-serif;
+  --font-label:'Poppins','Segoe UI',sans-serif;
+  --font-body:'Poppins','Segoe UI',sans-serif;
+  --slide-w:11in; --slide-h:6.1875in; --pad:0.72in; --radius:14px;
+  --header-h:60px;
+  --sidebar-w:272px; --sidebar-w-collapsed:76px;
+}
+
+/* ---------- 3. RESET ---------- */
+*{ box-sizing:border-box; margin:0; padding:0; }
+@page{ size:11in 6.1875in; margin:0; }
+html{ height:100%; }
+body{
+  height:100vh; overflow:hidden; background:var(--bg-0); color:var(--text-hi);
+  font-family:var(--font-body); -webkit-font-smoothing:antialiased;
+  display:flex; flex-direction:row;
+}
+button{ font-family:var(--font-label); cursor:pointer; background:none; border:none; }
+img{ display:block; }
+
+/* ============================================================
+   4. SIDEBAR RETRÁCTIL — navegación de los 14 apartados
+   ============================================================ */
+.app-sidebar{
+  flex:none; width:var(--sidebar-w); height:100vh; overflow:hidden;
+  display:flex; flex-direction:column;
+  background:rgba(255,255,255,.92); backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px);
+  border-right:1px solid rgba(20,25,35,.10); position:relative; z-index:80;
+  transition:width .38s cubic-bezier(.65,0,.35,1);
+}
+.app-sidebar.collapsed{ width:var(--sidebar-w-collapsed); }
+
+.sidebar-head{ flex:none; padding:18px 16px 14px; border-bottom:1px solid rgba(20,25,35,.08); }
+.sidebar-head__row{ display:flex; align-items:center; justify-content:space-between; margin-bottom:14px; }
+.sidebar-head__mark{ height:22px; width:auto; opacity:.94; }
+.sidebar-toggle{
+  flex:none; width:30px; height:30px; border-radius:8px; display:grid; place-items:center;
+  color:var(--text-lo); border:1px solid rgba(20,25,35,.12); transition:all .2s ease;
+}
+.sidebar-toggle:hover{ background:var(--blue); color:#fff; border-color:var(--blue); }
+.sidebar-toggle svg{ width:15px; height:15px; transition:transform .38s cubic-bezier(.65,0,.35,1); }
+.app-sidebar.collapsed .sidebar-toggle svg{ transform:rotate(180deg); }
+.app-sidebar.collapsed .sidebar-head__row{ justify-content:center; }
+.app-sidebar.collapsed .sidebar-head__mark{ display:none; }
+
+.sidebar-client{ display:flex; align-items:center; gap:10px; overflow:hidden; white-space:nowrap; }
+.sidebar-client img{ flex:none; height:38px; width:auto; }
+.sidebar-client__tx{ display:flex; flex-direction:column; gap:1px; min-width:0; transition:opacity .2s ease; }
+.sidebar-client__tx b{ font:600 10.5px var(--font-label); color:var(--text-hi); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.sidebar-client__tx span{ font:500 7.5px var(--font-label); letter-spacing:.1em; text-transform:uppercase; color:var(--cyan); white-space:nowrap; }
+.app-sidebar.collapsed .sidebar-client{ justify-content:center; }
+.app-sidebar.collapsed .sidebar-client__tx{ display:none; }
+
+.sidebar-nav{ flex:1; min-height:0; overflow-y:auto; overflow-x:hidden; padding:14px 12px 10px; display:flex; flex-direction:column; gap:16px; }
+.sidebar-nav::-webkit-scrollbar{ width:5px; }
+.sidebar-nav::-webkit-scrollbar-thumb{ background:rgba(20,25,35,.14); border-radius:4px; }
+
+.nav-group{ display:flex; flex-direction:column; gap:3px; }
+.nav-group-label{
+  font:600 8px var(--font-label); letter-spacing:.13em; text-transform:uppercase;
+  color:var(--text-faint); padding:0 10px; margin-bottom:5px; white-space:nowrap;
+}
+.app-sidebar.collapsed .nav-group-label{ display:none; }
+
+.nav-item{
+  display:flex; align-items:center; gap:12px; padding:8px 10px; border-radius:10px;
+  color:var(--text-mid); font:500 11.5px var(--font-body); white-space:nowrap;
+  cursor:pointer; transition:background .2s ease, color .2s ease, box-shadow .2s ease;
+}
+.nav-item svg{ flex:none; width:17px; height:17px; }
+.nav-item:hover{ background:rgba(20,25,35,.055); color:var(--text-hi); }
+.nav-item.active{ background:var(--grad-brand); color:#fff; box-shadow:0 4px 14px rgba(150,110,20,.28); }
+.nav-item .nav-label{ overflow:hidden; text-overflow:ellipsis; }
+.app-sidebar.collapsed .nav-item{ justify-content:center; padding:9px; }
+.app-sidebar.collapsed .nav-item .nav-label{ display:none; }
+
+.sidebar-foot{ flex:none; padding:12px 16px 16px; border-top:1px solid rgba(20,25,35,.08); }
+.app-sidebar.collapsed .sidebar-foot{ display:flex; justify-content:center; padding:12px 8px 16px; }
+
+/* ============================================================
+   5. COLUMNA PRINCIPAL — barra superior + viewport de láminas
+   ============================================================ */
+.app-main{ flex:1; min-width:0; height:100vh; display:flex; flex-direction:column; }
+
+.app-header{
+  flex:none; height:var(--header-h); padding:0 32px;
+  display:flex; align-items:center; justify-content:space-between;
+  background:rgba(255,255,255,.82); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(20,25,35,.10); position:relative; z-index:50;
+}
+.header-crumb{ display:flex; flex-direction:column; gap:1px; min-width:0; }
+.header-crumb__eyebrow{ font:600 8px var(--font-label); letter-spacing:.2em; text-transform:uppercase; color:var(--cyan); }
+.header-crumb__title{ font:600 13px var(--font-label); color:var(--text-hi); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.header-right{ display:flex; align-items:center; gap:16px; }
+.header-count{ font:600 11.5px var(--font-label); color:var(--text-lo); }
+
+.badge-confidential{
+  display:inline-flex; align-items:center; gap:8px; font-family:var(--font-label); font-weight:700;
+  font-size:10px; letter-spacing:.18em; text-transform:uppercase; color:var(--dot-confidential);
+  background:color-mix(in srgb, var(--dot-confidential) 10%, transparent);
+  border:1px solid color-mix(in srgb, var(--dot-confidential) 28%, transparent);
+  border-radius:99px; padding:7px 16px;
+}
+.badge-confidential::before{ content:""; width:7px; height:7px; border-radius:50%; background:var(--dot-confidential); box-shadow:0 0 8px 1px var(--dot-confidential-glow); }
+.app-sidebar.collapsed .badge-confidential{ padding:7px; }
+.app-sidebar.collapsed .badge-confidential .txt{ display:none; }
+
+.app-content{ flex:1; min-height:0; display:flex; }
+.slides-viewport{ flex:1; display:flex; }
+.slides-container{
+  flex:1; position:relative; display:flex; align-items:center; justify-content:center;
+  padding:22px 40px; min-width:0;
+  background-image:
+    radial-gradient(120% 90% at 82% 0%, var(--bg-glow-a) 0%, transparent 45%),
+    radial-gradient(120% 90% at 8% 100%, var(--bg-glow-b) 0%, transparent 50%),
+    var(--bg-wash);
+  background-attachment:fixed;
+}
+
+.slide{
+  position:absolute; width:1056px; height:594px; zoom:var(--slide-scale,1);
+  display:none; opacity:0; transform:translateY(14px);
+  transition:opacity .4s ease, transform .4s ease;
+  border-radius:var(--radius); overflow:hidden; box-shadow:0 20px 60px rgba(20,20,10,.18);
+}
+.slide.active{ display:block; opacity:1; transform:translateY(0); }
+
+.slide-inner{
+  width:100%; height:100%; overflow:hidden; position:relative; color:var(--text-hi);
+  background:
+    radial-gradient(120% 90% at 82% 18%, var(--bg-glow-a) 0%, transparent 45%),
+    radial-gradient(120% 120% at 12% 92%, var(--bg-glow-b) 0%, transparent 50%),
+    var(--bg-wash),
+    linear-gradient(150deg, var(--bg-0) 0%, var(--bg-1) 55%, var(--bg-deep) 100%);
+}
+.slide-inner.glow-a{ background:
+  radial-gradient(90% 80% at 15% 20%, var(--bg-glow-a) 0%, transparent 45%),
+  radial-gradient(110% 110% at 95% 95%, var(--bg-glow-b) 0%, transparent 50%),
+  var(--bg-wash),
+  linear-gradient(160deg,var(--bg-0),var(--bg-1) 60%,var(--bg-deep)); }
+.slide-inner.glow-b{ background:
+  radial-gradient(80% 70% at 88% 15%, var(--bg-glow-b) 0%, transparent 50%),
+  radial-gradient(120% 120% at 8% 90%, var(--bg-glow-a) 0%, transparent 50%),
+  var(--bg-wash),
+  linear-gradient(140deg,var(--bg-0),var(--bg-1) 60%,var(--bg-deep)); }
+
+/* ---------- UTILIDADES ---------- */
+.gt{ display:inline-block; overflow:visible; vertical-align:baseline; }
+.eyebrow{ font-family:var(--font-label); font-weight:600; font-size:9.5pt; letter-spacing:.3em; text-transform:uppercase; color:var(--cyan); }
+
+.corner{ position:absolute; width:38px; height:38px; border-color:rgba(169,120,26,.4); z-index:4; }
+.corner.tl{ top:24px; left:24px; border-top:2px solid; border-left:2px solid; border-top-left-radius:4px; }
+.corner.tr{ top:24px; right:24px; border-top:2px solid; border-right:2px solid; border-top-right-radius:4px; }
+.corner.bl{ bottom:24px; left:24px; border-bottom:2px solid; border-left:2px solid; border-bottom-left-radius:4px; }
+.corner.br{ bottom:24px; right:24px; border-bottom:2px solid; border-right:2px solid; border-bottom-right-radius:4px; }
+
+.deco-rings{ position:absolute; top:50%; right:-8%; transform:translateY(-50%); width:4.6in; height:4.6in; z-index:1; pointer-events:none; }
+.deco-rings span{ position:absolute; inset:0; border-radius:50%; border:1px solid rgba(20,25,35,.06); }
+.deco-rings span:nth-child(2){ inset:.6in; border-color:rgba(20,25,35,.05); }
+.deco-rings span:nth-child(3){ inset:1.2in; border-color:rgba(20,25,35,.04); }
+.deco-rings span:nth-child(4){ inset:1.7in; border:1px solid rgba(169,120,26,.22); box-shadow:0 0 40px rgba(169,120,26,.10) inset; }
+
+.tag-row{ display:flex; flex-wrap:wrap; gap:8px; }
+.tag-pill{ font-family:var(--font-label); font-weight:600; font-size:8.4pt; letter-spacing:.02em; color:var(--text-mid); background:rgba(20,25,35,.04); border:1px solid rgba(20,25,35,.12); border-radius:99px; padding:6px 14px; }
+.tag-pill.is-new{ color:#fff; background:var(--grad-brand); border:none; font-weight:700; }
+
+/* ============================================================
+   6. PORTADA / RESUMEN (lámina 1)
+   ============================================================ */
+.cover{ display:grid; grid-template-rows:auto 1fr auto; padding:.42in .72in .32in; }
+.cover__topbar{ display:flex; align-items:center; justify-content:space-between; position:relative; z-index:5; }
+.cover__brand{ height:24px; width:auto; opacity:.96; }
+.cover-badge-confidential{ display:inline-flex; align-items:center; gap:9px; font-family:var(--font-label); font-weight:600; font-size:8.5pt; letter-spacing:.26em; text-transform:uppercase; color:var(--text-mid); }
+.cover-badge-confidential::before{ content:""; width:8px; height:8px; border-radius:50%; background:var(--dot-confidential); box-shadow:0 0 10px 1px var(--dot-confidential-glow); }
+
+.cover__body{ position:relative; z-index:5; padding-top:.1in; min-height:0; display:flex; flex-direction:column; }
+.cover__eyebrow{ margin-bottom:8px; }
+.cover__title{ font-family:var(--font-display); font-weight:800; font-size:21pt; line-height:1.16; letter-spacing:-.3px; color:var(--text-hi); max-width:9.6in; }
+.cover__kicker{ margin-top:8px; font-family:var(--font-body); font-weight:300; font-size:9.6pt; line-height:1.4; color:var(--text-mid); max-width:8.6in; }
+
+.cat-grid{ flex:1; display:grid; grid-template-columns:repeat(3,1fr); gap:.34in; margin-top:.14in; min-height:0; }
+.cat-block{ display:flex; flex-direction:column; min-height:0; }
+.cat-head{ display:flex; align-items:baseline; justify-content:space-between; margin-bottom:7px; padding-bottom:5px; border-bottom:1px solid rgba(20,25,35,.14); }
+.cat-head h3{ font:700 9.5pt var(--font-label); color:var(--text-hi); letter-spacing:.01em; }
+.cat-head .cnt{ font:700 8.4pt var(--font-label); color:var(--blue); }
+.cat-list{ display:flex; flex-direction:column; gap:4px; flex:1; justify-content:center; }
+
+.sol-chip{
+  display:flex; align-items:center; gap:9px; background:var(--bg-2); border:var(--card-border);
+  border-radius:8px; padding:4.5px 9px; cursor:pointer; text-align:left; width:100%;
+  transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+}
+.sol-chip:hover{ transform:translateX(3px); box-shadow:0 4px 12px rgba(20,25,35,.10); border-color:rgba(169,120,26,.35); }
+.sol-chip .ic{ flex:none; width:19px; height:19px; border-radius:6px; display:grid; place-items:center; background:linear-gradient(135deg, rgba(217,163,46,.18), rgba(14,92,138,.10)); color:var(--blue); }
+.sol-chip .ic svg{ width:11px; height:11px; }
+.sol-chip .tx{ display:flex; flex-direction:column; gap:0; min-width:0; }
+.sol-chip .tx b{ font:600 7.6pt var(--font-label); color:var(--text-hi); line-height:1.18; }
+.sol-chip .tx span{ font:400 6.5pt var(--font-body); color:var(--text-lo); line-height:1.2; }
+
+.cover__meta{ position:relative; z-index:5; display:flex; align-items:center; justify-content:space-between; gap:26px; padding-top:.09in; margin-top:.08in; border-top:1px solid rgba(20,25,35,.12); }
+.cover__meta-row{ display:flex; gap:34px; }
+.meta-item__label{ font-family:var(--font-label); font-weight:600; font-size:7.2pt; letter-spacing:.2em; text-transform:uppercase; color:var(--cyan); margin-bottom:5px; }
+.meta-item__value{ font-family:var(--font-body); font-weight:500; font-size:9.6pt; line-height:1.3; color:var(--text-hi); }
+
+/* ============================================================
+   7. LÁMINAS INTERNAS — estructura común
+   ============================================================ */
+.internal{ display:grid; grid-template-rows:36px 1fr 18px; padding:.42in .64in .36in; gap:.14in; }
+.s-header{ display:flex; align-items:center; justify-content:space-between; position:relative; z-index:5; }
+.s-header .brand{ height:19px; width:auto; opacity:.95; }
+.s-header .client{ height:30px; width:auto; opacity:.98; }
+.s-footer{ display:flex; align-items:center; justify-content:space-between; position:relative; z-index:5; font-family:var(--font-label); font-weight:500; font-size:6.4pt; letter-spacing:.17em; text-transform:uppercase; color:var(--text-faint); }
+.s-footer .pg{ color:var(--cyan); font-weight:700; }
+.s-body{ position:relative; z-index:5; display:flex; flex-direction:column; min-height:0; }
+
+.s-eyebrow{ font-family:var(--font-label); font-weight:600; font-size:8.6pt; letter-spacing:.26em; text-transform:uppercase; color:var(--cyan); margin-bottom:7px; }
+.s-title{ font-family:var(--font-display); font-weight:700; font-size:20.5pt; line-height:1.18; color:var(--text-hi); }
+.s-lead{ margin-top:7px; font-family:var(--font-body); font-weight:300; font-size:9.8pt; line-height:1.42; color:var(--text-mid); max-width:8.9in; }
+
+/* ---------- 7.1 Grid simple de módulos (cotizaciones de un solo sistema) ---------- */
+.mod-grid{ flex:1; display:flex; flex-wrap:wrap; justify-content:center; align-content:center; gap:.2in; margin-top:.14in; min-height:0; }
+.mod-grid.cols-2 .mod-card{ flex:1 1 46%; max-width:47%; }
+.mod-grid.cols-3 .mod-card{ flex:1 1 30%; max-width:31%; }
+.mod-card{ background:var(--bg-2); border:var(--card-border); border-radius:12px; padding:.18in .2in; display:flex; flex-direction:column; position:relative; overflow:hidden; }
+.mod-card::before{ content:""; position:absolute; left:0; right:0; top:0; height:3px; background:var(--grad-brand); }
+.mod-card .m-ico{ flex:none; width:32px; height:32px; border-radius:9px; display:grid; place-items:center; background:linear-gradient(135deg, rgba(217,163,46,.18), rgba(14,92,138,.10)); color:var(--blue); margin-bottom:8px; }
+.mod-card .m-ico svg{ width:17px; height:17px; }
+.mod-card h4{ font-family:var(--font-label); font-weight:700; font-size:10.2pt; color:var(--text-hi); margin-bottom:5px; line-height:1.2; }
+.mod-card p{ font-family:var(--font-body); font-weight:400; font-size:8.7pt; line-height:1.4; color:var(--text-lo); }
+
+/* Variante "roomy": pocas tarjetas (p.ej. 3) en una sola fila — se agrandan para que la
+   lámina no deje una franja vacía debajo (ver wiki/sistema-diseno.md §5.1). */
+.mod-grid.roomy{ gap:.3in; }
+.mod-card--lg{ padding:.34in .3in; }
+.mod-card--lg .m-ico{ width:44px; height:44px; border-radius:12px; margin-bottom:14px; }
+.mod-card--lg .m-ico svg{ width:22px; height:22px; }
+.mod-card--lg h4{ font-size:13pt; margin-bottom:9px; }
+.mod-card--lg p{ font-size:9.8pt; line-height:1.48; }
+.mod-card__tags{ display:flex; flex-wrap:wrap; gap:7px; margin-top:16px; }
+.mod-card--lg .tag-pill{ font-size:7.6pt; padding:5px 12px; }
+
+/* ---------- 7.2 Split de 2 sistemas (cotizaciones con dos módulos independientes) ---------- */
+.sys-split{ flex:1; display:grid; grid-template-columns:1fr 1fr; gap:0; margin-top:.1in; min-height:0; }
+.sys-col{ display:flex; flex-direction:column; min-height:0; padding:0 .34in; }
+.sys-col:first-child{ padding-left:0; border-right:1px solid rgba(20,25,35,.13); }
+.sys-col:last-child{ padding-right:0; }
+.sys-col-head{ font:700 8.6pt var(--font-label); letter-spacing:.14em; text-transform:uppercase; color:var(--cyan); margin-bottom:4px; }
+.sys-col-sub{ font:400 8.2pt var(--font-body); color:var(--text-lo); margin-bottom:10px; line-height:1.36; }
+.sol-list{ display:flex; flex-direction:column; gap:7px; flex:1; justify-content:center; }
+.sol-card{ position:relative; background:var(--bg-2); border:var(--card-border); border-radius:8px; padding:7px 11px 7px 13px; overflow:hidden; }
+.sol-card::before{ content:""; position:absolute; left:0; top:0; bottom:0; width:3px; background:var(--grad-brand); }
+.sol-card h5{ font:700 9.2pt var(--font-label); color:var(--text-hi); margin-bottom:2px; }
+.sol-card p{ font:400 7.9pt var(--font-body); line-height:1.33; color:var(--text-mid); }
+
+/* Panel de secretarías/dependencias parametrizadas (agentes-correo) */
+.sect-panel{ background:var(--bg-2); border:var(--card-border); border-radius:14px; padding:.1in .22in; flex:1; display:flex; flex-direction:column; justify-content:center; }
+.sect-panel .lbl{ font:700 7.8pt var(--font-label); letter-spacing:.16em; text-transform:uppercase; color:var(--cyan); margin-bottom:.11in; }
+.sect-panel .tag-row{ margin-bottom:.12in; }
+.sect-panel p.note{ font:400 8.2pt var(--font-body); line-height:1.4; color:var(--text-mid); }
+
+/* ---------- 7.3 Destacado (para el segundo sistema pequeño, p.ej. comités sociales) ---------- */
+.highlight-card{ position:relative; flex:1; display:flex; flex-direction:column; justify-content:center; background:var(--bg-2); border:var(--card-border); border-radius:14px; padding:.24in .26in; overflow:hidden; }
+.highlight-card::before{ content:""; position:absolute; left:0; top:0; bottom:0; width:4px; background:var(--grad-brand); }
+.highlight-card h5{ font:700 10.5pt var(--font-label); color:var(--text-hi); margin-bottom:8px; }
+.highlight-card p{ font:400 8.8pt var(--font-body); line-height:1.44; color:var(--text-mid); }
+
+/* ============================================================
+   8. IMPRESIÓN / EXPORT PDF — el shell no se ve en el PDF
+   ============================================================ */
+@media print{
+  html,body{ width:11in; height:auto; overflow:visible; background:none; background-image:none; padding:0; -webkit-print-color-adjust:exact; print-color-adjust:exact; display:block; }
+  .app-sidebar, .app-header{ display:none !important; }
+  .app-main{ height:auto; display:block; }
+  .app-content, .slides-viewport{ display:block; height:auto; }
+  .slides-container{ display:block; padding:0; background:none; }
+  .slide{
+    display:block !important; position:relative; width:11in; height:6.1875in; zoom:1;
+    opacity:1; transform:none; margin:0 auto; border-radius:0; box-shadow:none;
+    page-break-after:always; break-after:page; overflow:hidden;
+  }
+  .slide:last-child{ page-break-after:auto; break-after:auto; }
+}

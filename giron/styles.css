@@ -4,7 +4,7 @@
    Paleta derivada del escudo (heráldica dorada/bronce, monocromo):
    oro brillante → oro → bronce → bronce oscuro. Acento frío institucional
    (azul) para "Confidencial", por la regla de seguridad de marca cálida.
-   Shell: barra lateral retráctil (14 apartados), no switch de escenarios.
+   Shell: barra lateral retráctil (11 apartados), no switch de escenarios.
    Fuentes: Playfair Display (display) + Montserrat (labels) + Poppins (cuerpo),
    el estándar v2 — revertido desde Poppins-única a pedido del usuario (2026-09-07).
    ============================================================ */
@@ -56,7 +56,7 @@ button{ font-family:var(--font-label); cursor:pointer; background:none; border:n
 img{ display:block; }
 
 /* ============================================================
-   4. SIDEBAR RETRÁCTIL — navegación de los 14 apartados
+   4. SIDEBAR RETRÁCTIL — navegación de los 11 apartados
    ============================================================ */
 .app-sidebar{
   flex:none; width:var(--sidebar-w); height:100vh; overflow:hidden;
@@ -252,16 +252,12 @@ img{ display:block; }
 .cover--index .cover__index-title{ font-family:var(--font-display); font-weight:700; font-size:19pt; line-height:1.2; color:var(--text-hi); max-width:9in; }
 .cover--index .cover__index-title em{ font-style:italic; font-weight:900; }
 .cover--index .cover__kicker{ max-width:9in; }
-.cover--index .cat-grid{ margin-top:.2in; }
+.cover--index .sol-grid-flat{ margin-top:.28in; }
 
-.cat-grid{ flex:1; display:grid; grid-template-columns:repeat(3,1fr); gap:.36in; margin-top:.16in; min-height:0; }
-.cat-block{ display:flex; flex-direction:column; min-height:0; }
-.cat-head{ display:flex; align-items:center; gap:10px; min-height:38px; margin-bottom:10px; padding-bottom:9px; border-bottom:2px solid rgba(20,25,35,.10); }
-.cat-head .cat-ico{ flex:none; width:27px; height:27px; border-radius:9px; display:grid; place-items:center; background:var(--grad-brand); color:#fff; box-shadow:0 3px 8px rgba(169,120,26,.28); }
-.cat-head .cat-ico svg{ width:14px; height:14px; }
-.cat-head h3{ flex:1; min-width:0; font:700 10pt var(--font-label); color:var(--text-hi); letter-spacing:.01em; line-height:1.2; }
-.cat-head .cnt{ flex:none; font:700 7.4pt var(--font-label); letter-spacing:.06em; color:var(--blue); background:rgba(20,25,35,.05); border:1px solid rgba(20,25,35,.08); padding:3px 9px; border-radius:99px; }
-.cat-list{ display:flex; flex-direction:column; gap:5px; flex:1; justify-content:center; }
+/* Grid plano de 2 columnas para el índice de apartados (sin agrupación por
+   categoría — cada botón navega directo a su lámina de detalle). */
+.sol-grid-flat{ flex:1; display:grid; grid-template-columns:repeat(2,1fr); grid-auto-rows:1fr; gap:14px 22px; min-height:0; }
+.sol-grid-flat .sol-chip:last-child:nth-child(odd){ grid-column:1 / -1; }
 
 .sol-chip{
   display:flex; align-items:center; gap:10px; background:var(--bg-2); border:var(--card-border);
@@ -398,7 +394,44 @@ img{ display:block; }
 .cover--unified .tag-pill{ font-size:6.7pt; padding:4px 9px; }
 
 /* ============================================================
-   6.3 CIERRE DEL PROYECTO — láminas 16-18 (equipo/cronograma,
+   6.2b APARTADOS FUSIONADOS — cover--merge (láminas 4-9)
+   Optimización 2026-09-09: 12 de las 13 propuestas se fusionan de a
+   2 por lámina (la única que queda sola es Agentes de Correo). Cada
+   mitad es una solución autónoma (título propio + lead + lista de
+   módulos + meta), dividida izquierda/derecha con un separador —
+   ninguna comparte título/kicker con la otra, a diferencia de
+   .sys-split (que sí asume un único título de lámina para 2
+   subsistemas de la MISMA propuesta). .merge-split es un grid de 2
+   columnas con stretch por defecto: ambas mitades quedan siempre a
+   la misma altura sin necesitar subgrid, y cada `.merge-list` centra
+   su propio contenido con `justify-content:center` dentro de esa
+   altura compartida — así una mitad de 3 ítems y su vecina de 7
+   quedan con el mismo espaciado uniforme en vez de alturas dispares.
+   ============================================================ */
+.cover--merge .cover__body{ grid-template-rows:auto auto 1fr; row-gap:0; }
+.merge-topline{ margin-top:10px; }
+.merge-topline .sol-index{ margin:0; }
+.merge-title{
+  font-family:var(--font-display); font-weight:800; font-size:17pt; line-height:1.2;
+  color:var(--text-hi); margin-top:9px; margin-bottom:6px; max-width:9.6in;
+}
+.merge-title .amp{ font-style:italic; font-weight:400; color:var(--blue); margin:0 4px; }
+
+.merge-split{ display:grid; grid-template-columns:1fr 1fr; gap:0; min-height:0; margin-top:2px; }
+.merge-half{ display:flex; flex-direction:column; min-height:0; padding:0 .32in; }
+.merge-half:first-child{ padding-left:0; border-right:1px solid rgba(20,25,35,.13); }
+.merge-half:last-child{ padding-right:0; }
+.merge-half__title{ font-family:var(--font-label); font-weight:700; font-size:11.5pt; color:var(--text-hi); margin-bottom:3px; }
+.merge-half__lead{ font-family:var(--font-body); font-weight:400; font-size:7.8pt; line-height:1.34; color:var(--text-lo); margin-bottom:8px; }
+.merge-list{ display:flex; flex-direction:column; gap:5px; flex:1; justify-content:center; }
+.merge-item{ position:relative; background:var(--bg-2); border:var(--card-border); border-radius:7px; padding:5px 10px 5px 12px; overflow:hidden; line-height:1.3; }
+.merge-item::before{ content:""; position:absolute; left:0; top:0; bottom:0; width:3px; background:var(--grad-brand); }
+.merge-item b{ font-family:var(--font-label); font-weight:700; font-size:7.9pt; color:var(--text-hi); }
+.merge-item span{ font-family:var(--font-body); font-weight:400; font-size:7pt; color:var(--text-mid); margin-left:3px; }
+.merge-meta{ margin-top:8px; font-family:var(--font-label); font-weight:600; font-size:6.6pt; letter-spacing:.05em; text-transform:uppercase; color:var(--cyan); }
+
+/* ============================================================
+   6.3 CIERRE DEL PROYECTO — láminas 10-12 (equipo/cronograma,
    inversión/pago, contacto). Reusan .cover--unified / .sys-split
    como base; estos son los componentes propios de contenido.
    ============================================================ */

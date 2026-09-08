@@ -6,7 +6,7 @@
 
 const state = {
     currentSlide: 1,
-    totalSlides: 18,
+    totalSlides: 12,
     sidebarCollapsed: false,
 };
 

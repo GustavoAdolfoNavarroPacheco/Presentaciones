@@ -252,7 +252,7 @@ button{ font-family:var(--font-label); cursor:pointer; }
 .mod-cost-row .mc-label{ font-family:var(--font-label); font-weight:700; font-size:9.2pt; color:var(--text-hi); }
 .mod-cost-row .mc-value{ font-family:var(--font-label); font-weight:700; font-size:10pt; color:var(--cyan); white-space:nowrap; }
 .invest__num .cap{ font-family:var(--font-label); font-weight:600; font-size:9pt; letter-spacing:.24em; text-transform:uppercase; color:var(--cyan); margin-bottom:8px; }
-.invest__num .big{ font-family:var(--font-display); font-weight:900; font-size:26pt; line-height:1.05; letter-spacing:-.5px; color:var(--blue); }
+.invest__num .big{ font-family:var(--font-display); font-weight:900; font-size:36pt; line-height:1.05; }
 .invest__num .sub{ margin-top:10px; font-family:var(--font-body); font-weight:300; font-size:9.2pt; line-height:1.4; color:var(--text-mid); max-width:4.3in; }
 .pay-plan{ display:flex; gap:.16in; }
 .plan-card{ flex:1; display:flex; flex-direction:column; align-items:flex-start; gap:6px; background:var(--bg-2); border:var(--card-border); border-radius:12px; padding:.1in .18in; }

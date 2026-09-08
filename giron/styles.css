@@ -369,7 +369,7 @@ img{ display:block; }
    la descripción (sys-col-sub) — el bloque subtítulo+descripción baja como unidad, sin
    mover las tarjetas de abajo (quedan centradas por margin:auto dentro de la fila 3 del
    subgrid, cuyo tamaño depende solo de la SUMA fila1+fila2, no de cómo se reparte). */
-.cover--unified .sys-col-head{ font-size:9.3pt; margin-top:10px; }
+.cover--unified .sys-col-head{ font-size:9.3pt; margin-top:18px; }
 .cover--unified .sys-col-sub{ font-size:7.7pt; margin-bottom:0; line-height:1.32; }
 .cover--unified .sol-list{ flex:none; margin:auto 0; gap:5px; }
 /* Mismo centrado con margin:auto que sol-list (arriba) — no un alto fijo aparte — para que

@@ -265,8 +265,23 @@ img{ display:block; }
 .cover--index .sol-grid-flat{ margin-top:.28in; }
 
 /* Grid plano de 2 columnas para el índice de apartados (sin agrupación por
-   categoría — cada botón navega directo a su lámina de detalle). */
-.sol-grid-flat{ flex:1; display:grid; grid-template-columns:repeat(2,1fr); grid-auto-rows:1fr; gap:14px 22px; min-height:0; }
+   categoría — cada botón navega directo a su lámina de detalle).
+   Ajuste 2026-09-08 (a pedido del usuario, con una imagen de referencia): con
+   flex:1 + grid-auto-rows:1fr el grid se estiraba a ocupar TODO el espacio
+   restante hasta el pie de página, dejando el 7° botón (ancho completo, fila
+   impar) pegado directamente al footer — 0px de margen, mientras que arriba
+   (entre el kicker y la primera fila) sí había 17px de aire. Además, con
+   grid-auto-rows:1fr el contenido de esa fila más ancha podía exceder su
+   propio carril y desbordar el grid por debajo (medido con
+   getBoundingClientRect: el borde inferior del botón quedaba por debajo del
+   borde inferior del propio grid). Se cambia a flex:none + grid-auto-rows:
+   min-content (cada fila mide solo lo que su contenido necesita, sin
+   estirarse ni desbordar) y se agrega margin-bottom, calibrado en el
+   navegador para que el espacio libre abajo (17-18px) quede igual al de
+   arriba (17px) — la diferencia de gap:14px→6px entre filas fue necesaria
+   para liberar el espacio vertical exacto que ese margen requiere, ya que el
+   alto total de la columna es fijo. */
+.sol-grid-flat{ flex:none; display:grid; grid-template-columns:repeat(2,1fr); grid-auto-rows:min-content; gap:6px 22px; min-height:0; margin-bottom:17px; }
 .sol-grid-flat .sol-chip:last-child:nth-child(odd){ grid-column:1 / -1; }
 
 .sol-chip{

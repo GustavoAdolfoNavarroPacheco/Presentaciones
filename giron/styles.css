@@ -349,7 +349,16 @@ img{ display:block; }
 .cover--unified .mod-grid.roomy .mod-card--lg h4{ font-size:11.5pt; margin-bottom:7px; }
 .cover--unified .mod-grid.roomy .mod-card--lg p{ font-size:9.2pt; line-height:1.44; }
 
-.cover--unified .sys-split{ margin-top:4px; }
+.cover--unified .sys-split{ margin-top:4px; grid-template-rows:auto auto 1fr; }
+/* Subgrid: las dos columnas comparten las mismas 3 filas (título / subtítulo / contenido)
+   en vez de cada una medir su propio alto por separado. Antes, cuando una columna traía un
+   subtítulo de 1 línea y la otra de 2, el contenido de cada una arrancaba en una fila
+   distinta — la tarjeta única (highlight-card/sect-panel) quedaba desalineada del primer
+   ítem de la lista vecina, y con tamaño arbitrario. Con subgrid la fila de contenido
+   arranca exactamente igual en ambas columnas y tiene la MISMA altura en las dos, así que
+   el centrado por margin:auto (abajo) las deja alineadas entre sí en vez de cada una
+   centrada dentro de su propia caja. */
+.cover--unified .sys-col{ display:grid; grid-template-rows:subgrid; grid-row:1 / span 3; }
 /* Centrado robusto con margin:auto (en vez de flex:1 + justify-content:center, que en el
    export a PDF de Chrome headless resuelve la altura disponible distinto que en pantalla y
    deja el contenido pegado arriba con un vacío grande abajo — ver nota técnica). Con
@@ -358,18 +367,17 @@ img{ display:block; }
 .cover--unified .sys-col-head{ font-size:9.3pt; }
 .cover--unified .sys-col-sub{ font-size:7.7pt; margin-bottom:6px; line-height:1.32; }
 .cover--unified .sol-list{ flex:none; margin:auto 0; gap:5px; }
-/* min-height fijo (no flex:1/margin:auto, que no reparten espacio de forma fiable dentro de
-   .sys-col en el export a PDF — ver nota técnica arriba): centran su propio contenido por
-   dentro (ya lo hacían) dentro de una caja de alto fijo, cálculo autocontenido e inmune a
-   cómo el ancestro resuelva el espacio disponible. */
-.cover--unified .highlight-card{ flex:none; margin:0; min-height:2.3in; }
-.cover--unified .sect-panel{ flex:none; margin:0; min-height:2.3in; }
+/* Mismo centrado con margin:auto que sol-list (arriba) — no un alto fijo aparte — para que
+   la caja quede alineada y proporcionada igual que la columna vecina en vez de con su propia
+   altura fija que no coincidía ni en posición ni en tamaño (ver ajuste 2026-09-08). */
+.cover--unified .highlight-card{ flex:none; margin:auto 0; }
+.cover--unified .sect-panel{ flex:none; margin:auto 0; }
 .cover--unified .sol-card{ padding:5px 9px 5px 11px; }
 .cover--unified .sol-card h5{ font-size:8.1pt; margin-bottom:1px; }
 .cover--unified .sol-card p{ font-size:7.1pt; line-height:1.26; }
-/* Panel único (sect-panel) / tarjeta destacada única (highlight-card): además del centrado
-   por margin:auto de arriba, se agranda su contenido propio para que no se vea como una
-   caja de texto pequeño perdida dentro de un marco grande. */
+/* Panel único (sect-panel) / tarjeta destacada única (highlight-card): se agranda su
+   contenido propio para que no se vea como una caja de texto pequeño perdida dentro de un
+   marco grande (el tamaño/posición de la caja ya los resuelve el margin:auto de arriba). */
 .cover--unified .sect-panel{ padding:.16in .22in; }
 .cover--unified .sect-panel .lbl{ font-size:8pt; margin-bottom:.11in; }
 .cover--unified .sect-panel .tag-row{ margin-bottom:.13in; gap:8px; }

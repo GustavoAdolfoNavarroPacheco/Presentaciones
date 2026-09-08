@@ -349,7 +349,7 @@ img{ display:block; }
 .cover--unified .mod-grid.roomy .mod-card--lg h4{ font-size:11.5pt; margin-bottom:7px; }
 .cover--unified .mod-grid.roomy .mod-card--lg p{ font-size:9.2pt; line-height:1.44; }
 
-.cover--unified .sys-split{ margin-top:4px; grid-template-rows:auto auto 1fr; }
+.cover--unified .sys-split{ margin-top:0; grid-template-rows:auto auto 1fr; }
 /* Subgrid: las dos columnas comparten las mismas 3 filas (título / subtítulo / contenido)
    en vez de cada una medir su propio alto por separado. Antes, cuando una columna traía un
    subtítulo de 1 línea y la otra de 2, el contenido de cada una arrancaba en una fila
@@ -364,8 +364,13 @@ img{ display:block; }
    deja el contenido pegado arriba con un vacío grande abajo — ver nota técnica). Con
    margin:auto 0 el motor SIEMPRE reparte el espacio sobrante repartido entre arriba y abajo,
    en pantalla y en PDF por igual. */
-.cover--unified .sys-col-head{ font-size:9.3pt; }
-.cover--unified .sys-col-sub{ font-size:7.7pt; margin-bottom:6px; line-height:1.32; }
+/* Separación entre el kicker y el subtítulo de columna (antes quedaban casi pegados): se
+   le da margen arriba al subtítulo y se recorta esa misma cantidad del margen inferior de
+   la descripción (sys-col-sub) — el bloque subtítulo+descripción baja como unidad, sin
+   mover las tarjetas de abajo (quedan centradas por margin:auto dentro de la fila 3 del
+   subgrid, cuyo tamaño depende solo de la SUMA fila1+fila2, no de cómo se reparte). */
+.cover--unified .sys-col-head{ font-size:9.3pt; margin-top:10px; }
+.cover--unified .sys-col-sub{ font-size:7.7pt; margin-bottom:0; line-height:1.32; }
 .cover--unified .sol-list{ flex:none; margin:auto 0; gap:5px; }
 /* Mismo centrado con margin:auto que sol-list (arriba) — no un alto fijo aparte — para que
    la caja quede alineada y proporcionada igual que la columna vecina en vez de con su propia

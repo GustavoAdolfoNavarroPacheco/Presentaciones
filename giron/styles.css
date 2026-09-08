@@ -398,6 +398,73 @@ img{ display:block; }
 .cover--unified .tag-pill{ font-size:6.7pt; padding:4px 9px; }
 
 /* ============================================================
+   6.3 CIERRE DEL PROYECTO — láminas 16-18 (equipo/cronograma,
+   inversión/pago, contacto). Reusan .cover--unified / .sys-split
+   como base; estos son los componentes propios de contenido.
+   ============================================================ */
+
+/* Barra de nota con acento en gradiente (reusa el lenguaje visual de .sol-card) */
+.note-bar{ position:relative; background:var(--bg-2); border:var(--card-border); border-radius:8px; padding:7px 11px 7px 14px; overflow:hidden; }
+.note-bar::before{ content:""; position:absolute; left:0; top:0; bottom:0; width:3px; background:var(--grad-brand); }
+.note-bar{ font-family:var(--font-body); font-weight:400; font-size:7.6pt; line-height:1.38; color:var(--text-mid); }
+.note-bar b{ color:var(--text-hi); font-weight:600; }
+
+/* ---------- 16 · Equipo ---------- */
+.team-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:6px; }
+.team-chip{ display:flex; align-items:center; gap:8px; background:var(--bg-2); border:var(--card-border); border-radius:9px; padding:6px 9px; }
+.team-chip__ic{ flex:none; width:26px; height:26px; border-radius:8px; display:grid; place-items:center; background:var(--grad-brand); color:#fff; font:700 7.6pt var(--font-label); box-shadow:0 3px 8px rgba(169,120,26,.25); }
+.team-chip__tx{ display:flex; flex-direction:column; gap:0; min-width:0; }
+.team-chip__tx b{ font:700 7.9pt var(--font-label); color:var(--text-hi); line-height:1.2; }
+.team-chip__tx span{ font:500 6.5pt var(--font-label); letter-spacing:.06em; text-transform:uppercase; color:var(--text-lo); }
+
+/* Contenedor único para 2 bloques que comparten la fila de contenido del subgrid
+   (p.ej. timeline+nota, o tiles+nota) — el subgrid de .sys-col solo reserva una fila
+   para el contenido, así que si van 2 elementos sueltos como hijos directos, el
+   segundo cae en una fila implícita que se superpone visualmente al primero. */
+.sys-col-fill{ flex:none; margin:auto 0; display:flex; flex-direction:column; gap:8px; }
+
+/* ---------- 16 · Cronograma (timeline vertical) ---------- */
+.timeline-v{ position:relative; display:flex; flex-direction:column; gap:9px; padding-left:2px; }
+.tl-step{ position:relative; display:flex; align-items:flex-start; gap:10px; }
+.tl-step:not(:last-child)::before{ content:""; position:absolute; left:4px; top:13px; width:1px; height:calc(100% + 9px); background:rgba(20,25,35,.14); }
+.tl-dot{ position:relative; z-index:1; flex:none; width:9px; height:9px; margin-top:3px; border-radius:50%; background:var(--grad-brand); box-shadow:0 0 0 3px rgba(217,163,46,.16); }
+.tl-tx{ display:flex; flex-direction:column; gap:1px; }
+.tl-tx b{ font:700 8.6pt var(--font-label); color:var(--text-hi); }
+.tl-tx span{ font:400 7.3pt var(--font-body); line-height:1.32; color:var(--text-lo); }
+
+/* ---------- 17 · Qué incluye (checklist) ---------- */
+.check-list{ display:flex; flex-direction:column; gap:8px; margin:auto 0; }
+.check-item{ display:flex; align-items:flex-start; gap:10px; }
+.check-item .ck{ flex:none; width:17px; height:17px; margin-top:1px; border-radius:50%; background:var(--grad-brand); display:grid; place-items:center; }
+.check-item .ck svg{ width:9px; height:9px; stroke:#fff; }
+.check-item span:last-child{ font:400 8.3pt var(--font-body); line-height:1.4; color:var(--text-mid); }
+
+/* ---------- 17 · Forma de pago (tiles) ---------- */
+.pay-tiles{ display:flex; gap:8px; }
+.pay-tile{ flex:1; text-align:center; background:var(--bg-2); border:var(--card-border); border-radius:10px; padding:12px 6px; }
+.pay-tile b{ display:block; font-family:var(--font-display); font-weight:800; font-size:18pt; color:var(--blue); }
+.pay-tile span{ display:block; margin-top:4px; font:600 6.4pt var(--font-label); letter-spacing:.03em; text-transform:uppercase; color:var(--text-lo); line-height:1.25; }
+
+/* ---------- 18 · Cierre y contacto ---------- */
+.cover--close .cover__body{ display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; gap:15px; padding-top:0; }
+.cover--close .sol-index{ display:inline-flex; align-items:center; gap:8px; font-family:var(--font-label); font-weight:700; font-size:8pt; letter-spacing:.24em; text-transform:uppercase; color:var(--cyan); background:none; padding:0; margin-bottom:0; }
+.cover--close .sol-index::before{ content:""; width:6px; height:6px; border-radius:50%; background:#D9A32E; box-shadow:0 0 8px 1px rgba(217,163,46,.5); }
+.close-title{ font-family:var(--font-display); font-weight:800; font-size:27pt; line-height:1.12; color:var(--text-hi); }
+.close-steps{ display:flex; align-items:center; gap:24px; flex-wrap:wrap; justify-content:center; }
+.close-step{ display:flex; align-items:center; gap:9px; font-family:var(--font-body); font-weight:500; font-size:9.4pt; color:var(--text-mid); }
+.cs-n{ flex:none; width:25px; height:25px; border-radius:50%; background:var(--grad-brand); color:#fff; font-family:var(--font-label); font-weight:700; font-size:9.6pt; display:grid; place-items:center; box-shadow:0 3px 8px rgba(169,120,26,.28); }
+.close-statement{ max-width:7.4in; font-family:var(--font-body); font-weight:300; font-size:9.6pt; line-height:1.5; color:var(--text-mid); }
+.close-contact{ display:flex; align-items:center; gap:18px; }
+.close-contact__tx{ text-align:right; }
+.close-contact__tx b{ display:block; font-family:var(--font-label); font-weight:700; font-size:10.5pt; color:var(--text-hi); }
+.close-contact__tx span{ display:block; margin-top:2px; font-family:var(--font-label); font-weight:500; font-size:7.6pt; letter-spacing:.06em; text-transform:uppercase; color:var(--cyan); }
+.close-contact__links{ display:flex; flex-direction:column; gap:2px; padding-left:18px; border-left:1px solid rgba(20,25,35,.16); font-family:var(--font-body); font-weight:500; font-size:8.3pt; color:var(--text-lo); text-align:left; }
+.close-lockup{ margin-top:2px; gap:14px; margin-bottom:0; }
+.close-lockup .cover__lockup-camp{ height:24px; }
+.close-lockup .cover__lockup-x{ font-size:15pt; }
+.close-lockup .cover__lockup-giron{ height:46px; }
+
+/* ============================================================
    7. LÁMINAS INTERNAS — estructura común
    ============================================================ */
 .internal{ display:grid; grid-template-rows:36px 1fr 18px; padding:.42in .64in .36in; gap:.14in; }

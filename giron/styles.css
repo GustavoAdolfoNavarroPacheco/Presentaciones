@@ -206,7 +206,17 @@ img{ display:block; }
   linear-gradient(140deg,var(--bg-0),var(--bg-1) 60%,var(--bg-deep)); }
 
 /* ---------- UTILIDADES ---------- */
-.gt{ display:inline-block; overflow:visible; vertical-align:baseline; }
+/* height:1.14em (con !important porque cada <svg class="gt"> trae su propio
+   style="height:1em" inline, que gana sobre cualquier regla de hoja de estilos salvo
+   !important): el viewBox (0 0 W 1083) no está recortado al alto real de la tinta del
+   glifo — a height:1em exacto, el trazo visible de la palabra en itálica/gradiente
+   rendeaba ~7% más bajo que una letra mayúscula del texto en negrita vecino (medido con
+   getBBox() del <text> real vs. un rango de texto de la misma línea), y al ser un color
+   de menor contraste (dorado sobre claro vs. negro), se percibía todavía más chico de lo
+   que ya era. 1.14em iguala la altura de tinta real (confirmado con la misma medición:
+   ratio 1.067, antes 0.933) sin romper el ajuste a una sola línea en ningún título del
+   deck (auditoría 2026-09-08, ver wiki/log.md). */
+.gt{ display:inline-block; overflow:visible; vertical-align:baseline; height:1.14em !important; }
 .eyebrow{ font-family:var(--font-label); font-weight:600; font-size:9.5pt; letter-spacing:.3em; text-transform:uppercase; color:var(--cyan); }
 
 .corner{ position:absolute; width:38px; height:38px; border-color:rgba(169,120,26,.4); z-index:4; }
@@ -286,7 +296,13 @@ img{ display:block; }
    ============================================================ */
 .cover--sol{ padding:.5in .8in .46in; }
 .cover--sol .cover__body{ justify-content:center; padding-top:0; flex:1; }
-.cover--sol .sol-index{
+/* Insignia "Propuesta Técnica N de 07": regla base SIN scope a .cover--sol para que
+   cualquier lámina que use .sol-index (incluidas las fusionadas cover--merge) reciba el
+   mismo tratamiento en píldora/banner de gradiente — antes solo aplicaba en la portada de
+   cada solución, y las 6 láminas fusionadas quedaban con el badge sin ningún estilo (texto
+   plano, sin fondo). .cover--unified y .cover--close siguen sobrescribiendo tamaño/relleno
+   más abajo sin cambios. */
+.sol-index{
   display:inline-flex; align-items:center; gap:9px; font-family:var(--font-label); font-weight:700;
   font-size:9pt; letter-spacing:.24em; text-transform:uppercase; color:#fff; background:var(--grad-brand);
   padding:7px 16px; border-radius:99px; margin-bottom:20px;
@@ -410,9 +426,18 @@ img{ display:block; }
    ============================================================ */
 .cover--merge .cover__body{ grid-template-rows:auto auto 1fr; row-gap:0; }
 .merge-topline{ margin-top:10px; }
-.merge-topline .sol-index{ margin:0; }
+/* Ajuste 2026-09-08 (pedido explícito del usuario, tomando la lámina 3 "Agentes IA de
+   Correo" como referencia): en la portada de cada solución (.cover--sol) esta insignia es
+   hija directa del grid .cover__body y se estira sola al ancho completo de la columna
+   (comportamiento por defecto de CSS Grid, justify-items:stretch); en las láminas
+   fusionadas queda envuelta en .merge-topline, un div normal que NO estira a sus hijos —
+   por eso se veía como texto plano sin fondo. width:100% + box-sizing:border-box replica
+   el mismo banner de ancho completo aquí. */
+.merge-topline .sol-index{ margin:0; width:100%; box-sizing:border-box; }
+/* Título más grande (19pt, igual que .cover--unified .cover__title en la lámina 3) — antes
+   17pt, se sentía más chico que su lámina de referencia. */
 .merge-title{
-  font-family:var(--font-display); font-weight:800; font-size:17pt; line-height:1.2;
+  font-family:var(--font-display); font-weight:800; font-size:19pt; line-height:1.2;
   color:var(--text-hi); margin-top:9px; margin-bottom:6px; max-width:9.6in;
 }
 .merge-title .amp{ font-style:italic; font-weight:400; color:var(--blue); margin:0 4px; }
@@ -421,7 +446,10 @@ img{ display:block; }
 .merge-half{ display:flex; flex-direction:column; min-height:0; padding:0 .32in; }
 .merge-half:first-child{ padding-left:0; border-right:1px solid rgba(20,25,35,.13); }
 .merge-half:last-child{ padding-right:0; }
-.merge-half__title{ font-family:var(--font-label); font-weight:700; font-size:11.5pt; color:var(--text-hi); margin-bottom:3px; }
+/* Coloreado con el mismo acento ámbar que .sys-col-head (lámina 3, "PLATAFORMA BASE DE
+   AGENTES IA DE CORREO" / "PARAMETRIZACIÓN..."), a pedido explícito del usuario — antes
+   quedaba en texto negro plano sin ningún acento de color. */
+.merge-half__title{ font-family:var(--font-label); font-weight:700; font-size:11.5pt; color:var(--cyan); margin-bottom:3px; }
 .merge-half__lead{ font-family:var(--font-body); font-weight:400; font-size:7.8pt; line-height:1.34; color:var(--text-lo); margin-bottom:8px; }
 .merge-list{ display:flex; flex-direction:column; gap:5px; flex:1; justify-content:center; }
 .merge-item{ position:relative; background:var(--bg-2); border:var(--card-border); border-radius:7px; padding:5px 10px 5px 12px; overflow:hidden; line-height:1.3; }
@@ -440,6 +468,16 @@ img{ display:block; }
 .merge-half--roomy .merge-item::before{ width:4px; }
 .merge-half--roomy .merge-item b{ font-size:9.6pt; display:block; margin-bottom:2px; }
 .merge-half--roomy .merge-item span{ font-size:8.4pt; margin-left:0; }
+
+/* Variante intermedia "--fill": mismo problema que --roomy (mitad subllenada) pero para
+   pares con 5 ítems por lado (lámina 5, y el lado "Comités y Actas" de la lámina 7) — el
+   boost completo de --roomy (pensado para 3-4 ítems) desborda a 5 ítems por lado; --fill
+   sube padding/tipografía/gap de forma más moderada, calibrada para que 5 tarjetas quepan
+   sin desbordar y aun así suban el % de llenado a la par del resto del deck. */
+.merge-half--fill .merge-list{ gap:9px; }
+.merge-half--fill .merge-item{ padding:8px 13px 8px 15px; }
+.merge-half--fill .merge-item b{ font-size:8.6pt; display:block; margin-bottom:1px; }
+.merge-half--fill .merge-item span{ font-size:7.6pt; margin-left:0; }
 
 /* ============================================================
    6.3 CIERRE DEL PROYECTO — láminas 10-12 (equipo/cronograma,

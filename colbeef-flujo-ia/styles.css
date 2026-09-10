@@ -302,6 +302,40 @@ button{ font-family:var(--font-label); cursor:pointer; }
 .step-track .st-item.active-ok .lb{ color:var(--text-hi); font-weight:700; }
 .step-track .st-line{ flex:1; height:1px; background:rgba(20,25,35,.16); margin:0 10px; }
 
+/* ---------- 15c. PHONE FRAME — mockup de WhatsApp (mensajes sintéticos, no capturas reales) ---------- */
+.phone-frame{ width:1.85in; margin:0 auto; background:#fff; border:var(--card-border); border-radius:16px; box-shadow:0 14px 30px rgba(20,25,35,.14); overflow:hidden; }
+.phone-frame .pf-status{ display:flex; justify-content:space-between; align-items:center; padding:3px 10px 1px; font-family:var(--font-label); font-weight:700; font-size:6.2pt; color:var(--text-hi); background:#fff; }
+.phone-frame .pf-status svg{ width:10px; height:10px; }
+.phone-frame .pf-header{ display:flex; align-items:center; gap:6px; padding:5px 9px; background:linear-gradient(135deg,#1B5E33,#2E8B4F); color:#fff; }
+.phone-frame .pf-header .back{ width:10px; height:10px; flex:none; opacity:.9; }
+.phone-frame .pf-header .av{ width:17px; height:17px; border-radius:50%; background:#fff; color:#1B5E33; display:grid; place-items:center; font-weight:700; font-size:6.8pt; flex:none; }
+.phone-frame .pf-header .tx{ line-height:1.15; }
+.phone-frame .pf-header .tx b{ display:block; font-size:6.8pt; font-weight:700; }
+.phone-frame .pf-header .tx span{ display:block; font-size:5.4pt; opacity:.85; }
+.phone-frame .pf-body{ background:#E7DFC9; background-image:radial-gradient(rgba(120,110,80,.06) 1px, transparent 1px); background-size:12px 12px; padding:10px 9px; min-height:.95in; display:flex; align-items:center; }
+.phone-frame .pf-bubble{ background:#fff; border-radius:3px 8px 8px 8px; padding:7px 9px; font-family:var(--font-body); font-size:6.8pt; line-height:1.36; color:var(--text-hi); box-shadow:0 1px 3px rgba(0,0,0,.14); position:relative; }
+.phone-frame .pf-bubble b{ font-weight:700; }
+.phone-frame .pf-bubble .pf-foot{ display:flex; align-items:center; gap:5px; justify-content:flex-end; margin-top:5px; font-size:5.8pt; color:var(--text-faint); }
+.phone-frame .pf-bubble .pf-foot svg{ width:10px; height:7px; color:#4FA8E0; }
+
+/* ---------- 15d. FLOW CONNECTOR — bajada de un paso del pipe a una caja lateral ---------- */
+.flow-connector{ display:flex; justify-content:flex-end; padding-right:6.5%; margin-top:2px; }
+.flow-connector svg{ width:16px; height:18px; color:var(--violet); }
+.notify-box{ position:relative; background:var(--bg-2); border:var(--card-border); border-radius:10px; padding:.14in .18in; overflow:hidden; }
+.notify-box::before{ content:""; position:absolute; left:0; right:0; top:0; height:3px; background:var(--grad-violet); }
+.notify-box h5{ font-family:var(--font-label); font-weight:700; font-size:9.5pt; color:var(--text-hi); margin-bottom:6px; }
+.notify-box p{ font-family:var(--font-body); font-weight:300; font-size:8pt; line-height:1.4; color:var(--text-lo); }
+.notify-link{ display:flex; align-items:center; justify-content:center; color:var(--violet); }
+.notify-link svg{ width:26px; height:14px; }
+
+/* ---------- 15e. TAG PILL ROW — píldoras grandes de características (2+ colores) ---------- */
+.tag-pill-row{ display:flex; flex-wrap:wrap; gap:10px; }
+.tag-pill-row .tp{ flex:1; min-width:1.5in; text-align:center; font-family:var(--font-label); font-weight:700; font-size:8.2pt; letter-spacing:.02em; padding:8px 14px; border-radius:9px; }
+.tag-pill-row .tp.c1{ background:rgba(46,111,184,.12); color:#2E6FB8; }
+.tag-pill-row .tp.c2{ background:rgba(184,120,46,.14); color:#9C6B1F; }
+.tag-pill-row .tp.c3{ background:rgba(46,139,79,.13); color:var(--violet); }
+.tag-pill-row .tp.c4{ background:rgba(27,94,51,.14); color:var(--magenta); }
+
 /* ---------- 16. EVIDENCE — capturas reales enmarcadas ---------- */
 .evidence-row{ display:grid; gap:.2in; margin-top:.16in; align-items:stretch; flex:1; min-height:0; }
 .evidence-card{ background:var(--bg-2); border:var(--card-border); border-radius:12px; padding:.12in; display:flex; flex-direction:column; box-shadow:0 10px 26px rgba(20,25,35,.08); height:100%; min-height:0; }

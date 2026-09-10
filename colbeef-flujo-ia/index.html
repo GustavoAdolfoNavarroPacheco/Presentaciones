@@ -197,8 +197,7 @@
             <div class="s-body">
               <div class="s-eyebrow">Flujo 2 · Cambio de Propietario</div>
               <h2 class="s-title">Transferir animales <svg class="gt" viewBox="0 0 11819 1083" style="height:1em;"><text x="0" y="1083" fill="url(#gradBrand)" style="font:italic 900 1000px 'Playfair Display',serif;">con trazabilidad en SIRT</text></svg></h2>
-              <p class="s-lead">El agente valida las guías del cliente, permite seleccionar animales y confirma el nuevo propietario antes de enviar la solicitud a SIRT.</p>
-              <div class="pipe" style="grid-template-columns:repeat(9,1fr);">
+              <div class="pipe" style="grid-template-columns:repeat(9,1fr); margin-top:.1in;">
                 <div class="pipe-item"><span class="n">1</span><h5>Inicio</h5></div>
                 <div class="pipe-item"><span class="n">2</span><h5>Cambio de propietario</h5></div>
                 <div class="pipe-item"><span class="n">3</span><h5>Mostrar guías disponibles</h5></div>
@@ -209,18 +208,38 @@
                 <div class="pipe-item"><span class="n">8</span><h5>Confirmar acción</h5></div>
                 <div class="pipe-item"><span class="n">9</span><h5>Enviar a SIRT</h5></div>
               </div>
-              <div class="split-chat" style="grid-template-columns:1.3fr 1fr; margin-top:.14in;">
-                <div class="channel-note" style="flex-wrap:wrap; gap:8px;">
-                  <span class="lbl">Filtro por propietario</span><span class="lbl">Selección por guía</span><span class="lbl">Validación documental</span><span class="lbl">Notificación automática</span>
-                </div>
-                <div class="chat-mock" style="padding:.12in .16in;">
-                  <div class="chat-mock__head"><span class="av">C</span><span>Notificar nuevo propietario</span></div>
-                  <div class="msgs">
-                    <div class="msg agente"><span class="who">Colbeef</span><div class="bubble">Hola {name}, te informamos que se registró un cambio de propietario en Colbeef. En el documento puedes revisar los animales que fueron transferidos a tu propiedad.</div></div>
+              <div class="flow-connector"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-dasharray="3 3"><path d="M12 4v13M6 12l6 6 6-6"/></svg></div>
+              <div style="display:flex; align-items:center; gap:.22in; margin-top:.02in;">
+                <div class="phone-frame">
+                  <div class="pf-status">
+                    <span>9:41</span>
+                    <span style="display:flex; gap:4px; align-items:center;">
+                      <svg viewBox="0 0 24 24" fill="currentColor"><rect x="1" y="16" width="3" height="6"/><rect x="7" y="12" width="3" height="10"/><rect x="13" y="8" width="3" height="14"/><rect x="19" y="4" width="3" height="18"/></svg>
+                      <svg viewBox="0 0 24 24" fill="currentColor"><rect x="1" y="8" width="18" height="10" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/><rect x="3" y="10" width="13" height="6" rx="1"/><rect x="20" y="11" width="2" height="4"/></svg>
+                    </span>
+                  </div>
+                  <div class="pf-header">
+                    <svg class="back" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M15 18l-6-6 6-6"/></svg>
+                    <span class="av">C</span>
+                    <div class="tx"><b>Tu plantilla</b><span>en línea</span></div>
+                  </div>
+                  <div class="pf-body">
+                    <div class="pf-bubble">
+                      Hola <b>{name}</b>, te informamos que se registró un <b>cambio de propietario</b> en Colbeef. En el documento puedes revisar los animales que fueron transferidos a tu propiedad.
+                      <div class="pf-foot"><span>4:44 p.m.</span><svg viewBox="0 0 16 11" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M1 5.5l3 3 7-7"/><path d="M5.5 5.5l3 3 7-7"/></svg></div>
+                    </div>
                   </div>
                 </div>
+                <div class="notify-link"><svg viewBox="0 0 40 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-dasharray="3 3"><path d="M38 10H4M10 4l-6 6 6 6"/></svg></div>
+                <div class="notify-box" style="flex:1;">
+                  <h5>Notificar nuevo propietario</h5>
+                  <p>Mensaje automático de confirmación enviado al nuevo propietario tras registrar el cambio en SIRT.</p>
+                </div>
               </div>
-              <p style="margin-top:.1in; font-family:var(--font-body); font-weight:300; font-size:7.8pt; color:var(--text-lo);">Este flujo aplica cuando el cliente solicita transferir animales a otro propietario.</p>
+              <div class="tag-pill-row" style="margin-top:.14in;">
+                <span class="tp c1">Filtro por propietario</span><span class="tp c2">Selección por guía</span><span class="tp c3">Validación documental</span><span class="tp c4">Notificación automática</span>
+              </div>
+              <p style="margin-top:.08in; font-family:var(--font-body); font-weight:300; font-size:7.6pt; color:var(--text-lo); text-align:center;">Este flujo aplica cuando el cliente solicita transferir animales a otro propietario.</p>
             </div>
             <footer class="s-footer">
               <span>Campuslands · Exploramos · Despegamos · Conquistamos</span>

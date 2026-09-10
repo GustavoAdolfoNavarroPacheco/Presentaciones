@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Colbeef S.A.S.</title>
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <linearGradient id="gradBrand" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="#E2543F"/>
+        <stop offset="34%" stop-color="#D93A2E"/>
+        <stop offset="68%" stop-color="#4CAA6A"/>
+        <stop offset="100%" stop-color="#1B5E33"/>
+      </linearGradient>
+    </defs>
+  </svg>
+
+  <!-- ============ BARRA SUPERIOR ============ -->
+  <header class="app-header">
+    <div class="header-left">
+      <img src="assets/logo-campuslands.png" alt="Campuslands Full Service">
+      <div class="logo-divider"></div>
+      <img src="assets/logo-cliente.png" alt="Colbeef S.A.S." class="logo-client">
+    </div>
+    <div class="header-center"><!-- Un solo escenario: sin switch --></div>
+    <div class="header-right">
+      <span class="badge-confidential">Confidencial</span>
+    </div>
+  </header>
+
+  <!-- ============ CONTENIDO ============ -->
+  <main class="app-content">
+    <section class="slides-viewport">
+      <div class="slides-container" id="slides-container">
+
+        <!-- ===== 1 · PORTADA ===== -->
+        <div class="slide active" data-slide="1">
+          <div class="slide-inner cover">
+            <span class="corner tl"></span><span class="corner tr"></span>
+            <span class="corner bl"></span><span class="corner br"></span>
+            <div class="deco-rings"><span></span><span></span><span></span><span></span></div>
+
+            <div class="cover__topbar">
+              <img src="assets/logo-campuslands.png" alt="Campuslands Full Service" class="cover__brand">
+              <span class="cover-badge-confidential">Confidencial</span>
+            </div>
+
+            <div class="cover__body">
+              <div class="eyebrow cover__eyebrow">Campuslands Full Service · Software House</div>
+              <span class="cover__scenario">Propuesta para Validación</span>
+              <h1 class="cover__title">Flujo conversacional<br>del <svg class="gt" viewBox="0 0 4399 1083" style="height:1em;"><text x="0" y="1083" fill="url(#gradBrand)" style="font:italic 900 1000px 'Playfair Display',serif;">Agente IA</text></svg></h1>
+              <p class="cover__kicker">Desde el primer mensaje hasta el cierre, incluyendo consulta a SIRT y manejo de contingencias.</p>
+              <div class="cover__client">
+                <span class="cover__client-para">PARA</span>
+                <img src="assets/logo-cliente.png" alt="Colbeef S.A.S." class="cover__client-logo">
+              </div>
+              <div class="cover__steps">
+                <div class="cs"><span class="num">1</span><span class="lb">Usuario</span></div>
+                <div class="cs-arrow"></div>
+                <div class="cs"><span class="num">2</span><span class="lb">Agente IA</span></div>
+                <div class="cs-arrow"></div>
+                <div class="cs"><span class="num">3</span><span class="lb">SIRT</span></div>
+                <div class="cs-arrow"></div>
+                <div class="cs"><span class="num">4</span><span class="lb">Cierre</span></div>
+              </div>
+            </div>
+
+            <div class="cover__meta">
+              <div class="meta-item"><div class="meta-item__label">Preparado para</div><div class="meta-item__value">Dirección — Colbeef S.A.S.</div></div>
+              <div class="meta-item"><div class="meta-item__label">Preparado por</div><div class="meta-item__value">Campuslands · Full Service</div></div>
+              <div class="meta-item"><div class="meta-item__label">Fecha</div><div class="meta-item__value">10 de Septiembre, 2026</div></div>
+              <div class="meta-item"><div class="meta-item__label">Versión</div><div class="meta-item__value">Flujo Conversacional · 1.0</div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ===== 2 · 01 MAPA COMPLETO DE LA CONVERSACIÓN ===== -->
+        <div class="slide" data-slide="2">
+          <div class="slide-inner internal glow-a">
+            <header class="s-header">
+              <img src="assets/logo-campuslands.png" alt="Campuslands" class="brand">
+              <img src="assets/logo-cliente.png" alt="Colbeef S.A.S." class="client">
+            </header>
+            <div class="s-body">
+              <div class="s-eyebrow">01 · Mapa Completo de la Conversación</div>
+              <h2 class="s-title">Del primer mensaje al cierre, <svg class="gt" viewBox="0 0 5362 1083" style="height:1em;"><text x="0" y="1083" fill="url(#gradBrand)" style="font:italic 900 1000px 'Playfair Display',serif;">paso a paso</text></svg></h2>
+              <p class="s-lead">Vista ejecutiva: decisiones principales desde la entrada del usuario hasta el cierre.</p>
+              <div class="pipe" style="grid-template-columns:repeat(7,1fr);">
+                <div class="pipe-item"><span class="n">1</span><h5>Usuario inicia conversación</h5></div>
+                <div class="pipe-item"><span class="n">2</span><h5>Agente recibe y entiende</h5></div>
+                <div class="pipe-item"><span class="n">3</span><h5>Clasifica la intención</h5></div>
+                <div class="pipe-item" style="background:linear-gradient(160deg,#FCEFC8,#F6DFA0); border-color:#C9973A;"><span class="n" style="background:#C9973A;">4</span><h5>¿Requiere datos de SIRT?</h5></div>
+                <div class="pipe-item"><span class="n">5</span><h5>Consulta SIRT</h5></div>
+                <div class="pipe-item"><span class="n">6</span><h5>Construye respuesta</h5></div>
+                <div class="pipe-item"><span class="n">7</span><h5>Cierre</h5></div>
+              </div>
+              <div class="outcome-row" style="grid-template-columns:repeat(3,1fr);">
+                <div class="outcome-box ok"><span class="ob-tag">NO · Ruta directa</span><h5>Respuesta con conocimiento</h5><p>El agente responde sin consultar SIRT cuando la solicitud no requiere datos externos.</p></div>
+                <div class="outcome-box warn"><span class="ob-tag">Contingencia</span><h5>SIRT no disponible</h5><p>No inventa datos. Informa al usuario, registra el incidente y activa la notificación configurada.</p></div>
+                <div class="outcome-box neutral"><span class="ob-tag">Cierre</span><h5>Resultado final</h5><p>Resuelto · aclaración · indisponibilidad · escalamiento.</p></div>
+              </div>
+              <div class="callout-strip">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg>
+                <p>Principio clave: el agente nunca debe fabricar información cuando SIRT no responde.</p>
+              </div>
+              <div class="channel-note"><span class="lbl">Canal</span><p>Entrada omnicanal — Web, WhatsApp u otro canal definido para producción. El flujo lógico del agente se mantiene.</p></div>
+            </div>
+            <footer class="s-footer">
+              <span>Campuslands · Exploramos · Despegamos · Conquistamos</span>
+              <span>Flujo Conversacional Colbeef · Full Service 2026</span>
+              <span class="pg">02</span>
+            </footer>
+          </div>
+        </div>
+
+        <!-- ===== 3 · VALIDACIÓN INICIAL DEL CLIENTE (DIAGRAMA) ===== -->
+        <div class="slide" data-slide="3">
+          <div class="slide-inner internal glow-b">
+            <header class="s-header">
+              <img src="assets/logo-campuslands.png" alt="Campuslands" class="brand">
+              <img src="assets/logo-cliente.png" alt="Colbeef S.A.S." class="client">
+            </header>
+            <div class="s-body">
+              <div class="s-eyebrow">Validación Inicial del Cliente</div>
+              <h2 class="s-title">Identificar <svg class="gt" viewBox="0 0 8768 1083" style="height:1em;"><text x="0" y="1083" fill="url(#gradBrand)" style="font:italic 900 1000px 'Playfair Display',serif;">antes de responder</text></svg></h2>
+              <p class="s-lead">Antes de consultar información, el agente debe identificar al cliente por número telefónico.</p>
+              <div class="pipe-row">
+                <div class="pipe-item"><span class="n">1</span><h5>Inicio</h5><p>Usuario escribe</p></div>
+                <div class="pipe-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+                <div class="pipe-item"><span class="n">2</span><h5>Solicitar contacto</h5><p>Por política de Meta</p></div>
+                <div class="pipe-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+                <div class="pipe-item"><span class="n">3</span><h5>Obtener número</h5><p>Contacto compartido</p></div>
+                <div class="pipe-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+                <div class="pipe-item"><span class="n">4</span><h5>Validar cliente</h5><p>Buscar en base de datos</p></div>
+                <div class="pipe-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+                <div class="pipe-diamond"><div class="dshape"></div><div class="dtext">¿Existe en la base de clientes?</div></div>
+              </div>
+              <div class="outcome-row" style="grid-template-columns:repeat(2,1fr); max-width:6.4in; margin-left:auto;">
+                <div class="outcome-box ok"><span class="ob-tag">SÍ</span><h5>Continuar flujo</h5><p>Pasa al flujo conversacional normal.</p></div>
+                <div class="outcome-box warn"><span class="ob-tag">NO</span><h5>Cliente no encontrado</h5><p>Informar, solicitar registro o derivar.</p></div>
+              </div>
+              <div class="channel-note" style="margin-top:.14in; gap:8px; flex-wrap:wrap;">
+                <span class="lbl">Política de Meta</span><span class="lbl">Validación por número</span><span class="lbl">Control de acceso</span>
+              </div>
+              <p style="margin-top:.08in; font-family:var(--font-body); font-weight:300; font-size:7.8pt; color:var(--text-lo);">Este flujo ocurre antes de la consulta funcional del agente.</p>
+            </div>
+            <footer class="s-footer">
+              <span>Campuslands · Exploramos · Despegamos · Conquistamos</span>
+              <span>Flujo Conversacional Colbeef · Full Service 2026</span>
+              <span class="pg">03</span>
+            </footer>
+          </div>
+        </div>
+
+        <!-- ===== 4 · VALIDACIÓN INICIAL — EVIDENCIA REAL ===== -->
+        <div class="slide" data-slide="4">
+          <div class="slide-inner internal glow-a">
+            <header class="s-header">
+              <img src="assets/logo-campuslands.png" alt="Campuslands" class="brand">
+              <img src="assets/logo-cliente.png" alt="Colbeef S.A.S." class="client">
+            </header>
+            <div class="s-body">
+              <div class="s-eyebrow">Validación Inicial del Cliente</div>
+              <h2 class="s-title">El flujo <svg class="gt" viewBox="0 0 12682 1083" style="height:1em;"><text x="0" y="1083" fill="url(#gradBrand)" style="font:italic 900 1000px 'Playfair Display',serif;">funcionando en producción</text></svg></h2>
+              <p class="s-lead">Capturas reales de WhatsApp: solicitud de contacto y caso de cliente no encontrado en la base.</p>
+              <div class="evidence-row" style="grid-template-columns:1fr 1fr;">
+                <div class="evidence-card">
+                  <span class="ecap">Captura real · Solicitud de contacto y menú</span>
+                  <div class="eimg-wrap"><img src="assets/evidence/validacion-chat-1.jpg" alt="Solicitud de contacto por WhatsApp"></div>
+                </div>
+                <div class="evidence-card">
+                  <span class="ecap">Captura real · Cliente no encontrado en base</span>
+                  <div class="eimg-wrap"><img src="assets/evidence/validacion-chat-2.jpg" alt="Cliente no encontrado en la base de datos"></div>
+                </div>
+              </div>
+            </div>
+            <footer class="s-footer">
+              <span>Campuslands · Exploramos · Despegamos · Conquistamos</span>
+              <span>Flujo Conversacional Colbeef · Full Service 2026</span>
+              <span class="pg">04</span>
+            </footer>
+          </div>
+        </div>
+
+        <!-- ===== 5 · FLUJO 2 · CAMBIO DE PROPIETARIO (DIAGRAMA) ===== -->
+        <div class="slide" data-slide="5">
+          <div class="slide-inner internal glow-b">
+            <header class="s-header">
+              <img src="assets/logo-campuslands.png" alt="Campuslands" class="brand">
+              <img src="assets/logo-cliente.png" alt="Colbeef S.A.S." class="client">
+            </header>
+            <div class="s-body">
+              <div class="s-eyebrow">Flujo 2 · Cambio de Propietario</div>
+              <h2 class="s-title">Transferir animales <svg class="gt" viewBox="0 0 11819 1083" style="height:1em;"><text x="0" y="1083" fill="url(#gradBrand)" style="font:italic 900 1000px 'Playfair Display',serif;">con trazabilidad en SIRT</text></svg></h2>
+              <p class="s-lead">El agente valida las guías del cliente, permite seleccionar animales y confirma el nuevo propietario antes de enviar la solicitud a SIRT.</p>
+              <div class="pipe" style="grid-template-columns:repeat(9,1fr);">
+                <div class="pipe-item"><span class="n">1</span><h5>Inicio</h5></div>
+                <div class="pipe-item"><span class="n">2</span><h5>Cambio de propietario</h5></div>
+                <div class="pipe-item"><span class="n">3</span><h5>Mostrar guías disponibles</h5></div>
+                <div class="pipe-item"><span class="n">4</span><h5>Seleccionar guía</h5></div>
+                <div class="pipe-item"><span class="n">5</span><h5>Listar animales</h5></div>
+                <div class="pipe-item"><span class="n">6</span><h5>Seleccionar animales</h5></div>
+                <div class="pipe-item"><span class="n">7</span><h5>Nuevo propietario</h5></div>
+                <div class="pipe-item"><span class="n">8</span><h5>Confirmar acción</h5></div>
+                <div class="pipe-item"><span class="n">9</span><h5>Enviar a SIRT</h5></div>
+              </div>
+              <div class="split-chat" style="grid-template-columns:1.3fr 1fr; margin-top:.14in;">
+                <div class="channel-note" style="flex-wrap:wrap; gap:8px;">
+                  <span class="lbl">Filtro por propietario</span><span class="lbl">Selección por guía</span><span class="lbl">Validación documental</span><span class="lbl">Notificación automática</span>
+                </div>
+                <div class="chat-mock" style="padding:.12in .16in;">
+                  <div class="chat-mock__head"><span class="av">C</span><span>Notificar nuevo propietario</span></div>
+                  <div class="msgs">
+                    <div class="msg agente"><span class="who">Colbeef</span><div class="bubble">Hola {name}, te informamos que se registró un cambio de propietario en Colbeef. En el documento puedes revisar los animales que fueron transferidos a tu propiedad.</div></div>
+                  </div>
+                </div>
+              </div>
+              <p style="margin-top:.1in; font-family:var(--font-body); font-weight:300; font-size:7.8pt; color:var(--text-lo);">Este flujo aplica cuando el cliente solicita transferir animales a otro propietario.</p>
+            </div>
+            <footer class="s-footer">
+              <span>Campuslands · Exploramos · Despegamos · Conquistamos</span>
+              <span>Flujo Conversacional Colbeef · Full Service 2026</span>
+              <span class="pg">05</span>
+            </footer>
+          </div>
+        </div>
+
+        <!-- ===== 6 · FLUJO 2 — EVIDENCIA REAL ===== -->
+        <div class="slide" data-slide="6">
+          <div class="slide-inner internal glow-a">
+            <header class="s-header">
+              <img src="assets/logo-campuslands.png" alt="Campuslands" class="brand">
+              <img src="assets/logo-cliente.png" alt="Colbeef S.A.S." class="client">
+            </header>
+            <div class="s-body">
+              <div class="s-eyebrow">Flujo 2 · Cambio de Propietario</div>
+              <h2 class="s-title">El flujo <svg class="gt" viewBox="0 0 12682 1083" style="height:1em;"><text x="0" y="1083" fill="url(#gradBrand)" style="font:italic 900 1000px 'Playfair Display',serif;">funcionando en producción</text></svg></h2>
+              <p class="s-lead">Capturas reales de WhatsApp: menú y selección de guía, datos del nuevo propietario y confirmación del cambio.</p>
+              <div class="evidence-row" style="grid-template-columns:1fr 1fr; grid-template-rows:1fr auto;">
+                <div class="evidence-card">
+                  <span class="ecap">Menú y guías disponibles</span>
+                  <div class="eimg-wrap"><img src="assets/evidence/flujo2-chat-1.jpg" alt="Menú principal y guías disponibles"></div>
+                </div>
+                <div class="evidence-card">
+                  <span class="ecap">Cambio de propietario completado</span>
+                  <div class="eimg-wrap"><img src="assets/evidence/flujo2-chat-3.jpg" alt="Confirmación del cambio de propietario"></div>
+                </div>
+                <div class="evidence-card" style="grid-column:1 / -1; flex-direction:row; align-items:center; gap:12px; max-height:1.05in;">
+                  <span class="ecap" style="flex:none; margin-bottom:0; writing-mode:vertical-rl; transform:rotate(180deg);">Datos del nuevo propietario</span>
+                  <div class="eimg-wrap" style="height:100%;"><img src="assets/evidence/flujo2-chat-2.jpg" alt="Solicitud de datos del nuevo propietario"></div>
+                </div>
+              </div>
+            </div>
+            <footer class="s-footer">
+              <span>Campuslands · Exploramos · Despegamos · Conquistamos</span>
+              <span>Flujo Conversacional Colbeef · Full Service 2026</span>
+              <span class="pg">06</span>
+            </footer>
+          </div>
+        </div>
+
+        <!-- ===== 7 · FLUJO 3 · PLANILLAJE ===== -->
+        <div class="slide" data-slide="7">
+          <div class="slide-inner internal glow-b">
+            <header class="s-header">
+              <img src="assets/logo-campuslands.png" alt="Campuslands" class="brand">
+              <img src="assets/logo-cliente.png" alt="Colbeef S.A.S." class="client">
+            </header>
+            <div class="s-body">
+              <div class="s-eyebrow">Flujo 3 · Planillaje</div>
+              <h2 class="s-title">Registro de sacrificio <svg class="gt" viewBox="0 0 5453 1083" style="height:1em;"><text x="0" y="1083" fill="url(#gradBrand)" style="font:italic 900 1000px 'Playfair Display',serif;">leído por IA</text></svg></h2>
+              <p class="s-lead">El agente guía el registro de los animales que van para sacrificio, valida la información extraída y la envía a SIRT para dejar trazabilidad del proceso.</p>
+              <div class="pipe" style="grid-template-columns:repeat(9,1fr); margin-top:.12in;">
+                <div class="pipe-item"><span class="n">1</span><h5>Inicio</h5></div>
+                <div class="pipe-item"><span class="n">2</span><h5>Planillaje</h5></div>
+                <div class="pipe-item"><span class="n">3</span><h5>Mostrar guías disponibles</h5></div>
+                <div class="pipe-item"><span class="n">4</span><h5>Seleccionar guía</h5></div>
+                <div class="pipe-item"><span class="n">5</span><h5>Registrar animales</h5></div>
+                <div class="pipe-item"><span class="n">6</span><h5>Extraer información</h5></div>
+                <div class="pipe-item"><span class="n">7</span><h5>Confirmar datos</h5></div>
+                <div class="pipe-item"><span class="n">8</span><h5>Enviar a SIRT</h5></div>
+                <div class="pipe-item"><span class="n">9</span><h5>Entregar resultado</h5></div>
+              </div>
+              <div class="split-chat" style="grid-template-columns:.62fr 1fr; margin-top:.12in; align-items:stretch;">
+                <div style="display:flex; flex-direction:column; gap:.14in; justify-content:center;">
+                  <div class="outcome-box neutral"><span class="ob-tag">Resultado</span><h5>Resultado y comprobante</h5><p>Confirmación automática y envío de PDF.</p></div>
+                  <div class="channel-note" style="flex-wrap:wrap; gap:6px;">
+                    <span class="lbl">Filtro por guía</span><span class="lbl">Lectura desde imagen</span><span class="lbl">Trazabilidad en SIRT</span>
+                  </div>
+                </div>
+                <div class="evidence-card" style="max-height:2.55in;">
+                  <span class="ecap">Captura real · Planillaje leído por IA</span>
+                  <div class="eimg-wrap"><img src="assets/evidence/flujo3-chat.png" alt="Planillaje extraído automáticamente por el agente"></div>
+                </div>
+              </div>
+            </div>
+            <footer class="s-footer">
+              <span>Campuslands · Exploramos · Despegamos · Conquistamos</span>
+              <span>Flujo Conversacional Colbeef · Full Service 2026</span>
+              <span class="pg">07</span>
+            </footer>
+          </div>
+        </div>
+
+        <!-- ===== 8 · FLUJO 4 · DESPACHO DE CAVA ===== -->
+        <div class="slide" data-slide="8">
+          <div class="slide-inner internal glow-a">
+            <header class="s-header">
+              <img src="assets/logo-campuslands.png" alt="Campuslands" class="brand">
+              <img src="assets/logo-cliente.png" alt="Colbeef S.A.S." class="client">
+            </header>
+            <div class="s-body">
+              <div class="s-eyebrow">Flujo 4 · Despacho de Cava</div>
+              <h2 class="s-title">Despacho de cava, <svg class="gt" viewBox="0 0 10244 1083" style="height:1em;"><text x="0" y="1083" fill="url(#gradBrand)" style="font:italic 900 1000px 'Playfair Display',serif;">automático y validado</text></svg></h2>
+              <p class="s-lead">El sistema envía automáticamente el reporte de animales en CAVA, el cliente define los destinos y el agente valida la información antes de registrarla en SIRT.</p>
+              <div class="pipe" style="grid-template-columns:repeat(9,1fr); margin-top:.12in;">
+                <div class="pipe-item"><span class="n">1</span><h5>Inicio</h5></div>
+                <div class="pipe-item"><span class="n">2</span><h5>Programar envío</h5></div>
+                <div class="pipe-item"><span class="n">3</span><h5>Enviar plantilla</h5></div>
+                <div class="pipe-item"><span class="n">4</span><h5>Cliente completa</h5></div>
+                <div class="pipe-item"><span class="n">5</span><h5>Recibir respuesta</h5></div>
+                <div class="pipe-item"><span class="n">6</span><h5>Extraer información</h5></div>
+                <div class="pipe-item"><span class="n">7</span><h5>Confirmar datos</h5></div>
+                <div class="pipe-item"><span class="n">8</span><h5>Enviar a SIRT</h5></div>
+                <div class="pipe-item"><span class="n">9</span><h5>Entregar resultado</h5></div>
+              </div>
+              <div class="evidence-row" style="grid-template-columns:.62fr 1fr 1fr; margin-top:.14in;">
+                <div style="display:flex; flex-direction:column; gap:.12in; justify-content:center;">
+                  <div class="outcome-box neutral"><span class="ob-tag">Resultado</span><h5>Resultado y registro</h5><p>Confirmación automática y envío a SIRT.</p></div>
+                  <div class="channel-note" style="flex-wrap:wrap; gap:6px;">
+                    <span class="lbl">Horarios configurables</span><span class="lbl">Envío automático</span><span class="lbl">Trazabilidad en SIRT</span>
+                  </div>
+                </div>
+                <div class="evidence-card">
+                  <span class="ecap">Captura real · Envío por WhatsApp</span>
+                  <div class="eimg-wrap"><img src="assets/evidence/flujo4-chat.png" alt="Reporte de CAVA enviado por WhatsApp"></div>
+                </div>
+                <div class="evidence-card">
+                  <span class="ecap">Captura real · Reporte de CAVA</span>
+                  <div class="eimg-wrap"><img src="assets/evidence/flujo4-reporte-pdf.png" alt="Reporte de animales en CAVA listos para despacho"></div>
+                </div>
+              </div>
+              <p style="margin-top:.08in; font-family:var(--font-body); font-weight:300; font-size:7.8pt; color:var(--text-lo);">Este flujo aplica cuando el propietario despacha desde CAVA los animales listos para salida.</p>
+            </div>
+            <footer class="s-footer">
+              <span>Campuslands · Exploramos · Despegamos · Conquistamos</span>
+              <span>Flujo Conversacional Colbeef · Full Service 2026</span>
+              <span class="pg">08</span>
+            </footer>
+          </div>
+        </div>
+
+        <!-- ===== 9 · 02 INICIO Y ENTENDIMIENTO ===== -->
+        <div class="slide" data-slide="9">
+          <div class="slide-inner internal glow-a">
+            <header class="s-header">
+              <img src="assets/logo-campuslands.png" alt="Campuslands" class="brand">
+              <img src="assets/logo-cliente.png" alt="Colbeef S.A.S." class="client">
+            </header>
+            <div class="s-body">
+              <div class="s-eyebrow">02 · Inicio y Entendimiento</div>
+              <h2 class="s-title">De un mensaje libre <svg class="gt" viewBox="0 0 12022 1083" style="height:1em;"><text x="0" y="1083" fill="url(#gradBrand)" style="font:italic 900 1000px 'Playfair Display',serif;">a una solicitud procesable</text></svg></h2>
+              <p class="s-lead">Objetivo: convertir un mensaje libre del usuario en una solicitud clara y procesable.</p>
+              <div class="split-chat">
+                <div class="pipe-mini">
+                  <div class="pm-item"><span class="n">1</span><div class="tx"><b>Recibir mensaje</b><span>Texto libre + contexto disponible del canal.</span></div></div>
+                  <div class="pm-item"><span class="n">2</span><div class="tx"><b>Detectar intención</b><span>Qué quiere lograr el usuario y qué información solicita.</span></div></div>
+                  <div class="pm-item"><span class="n">3</span><div class="tx"><b>Extraer datos</b><span>Entidades, identificadores, fechas, referencias u otros parámetros.</span></div></div>
+                  <div class="pm-item"><span class="n">4</span><div class="tx"><b>Pedir faltantes</b><span>Solo pregunta por la información indispensable para continuar.</span></div></div>
+                  <div class="pm-item"><span class="n">5</span><div class="tx"><b>Confirmar</b><span>Valida que entendió correctamente antes de una operación sensible.</span></div></div>
+                </div>
+                <div class="chat-mock">
+                  <div class="chat-mock__head"><span class="av">C</span><span>Ejemplo de interacción · Conversación inicial</span></div>
+                  <div class="msgs">
+                    <div class="msg usuario"><span class="who">Usuario</span><div class="bubble">"Necesito consultar información sobre …"</div></div>
+                    <div class="msg agente"><span class="who">Agente IA</span><div class="bubble">"Entendido. Para realizar la consulta necesito confirmar …"</div></div>
+                    <div class="msg usuario"><span class="who">Usuario</span><div class="bubble">Entrega el dato faltante.</div></div>
+                    <div class="msg agente"><span class="who">Agente IA</span><div class="bubble">Confirma la intención y continúa.</div></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <footer class="s-footer">
+              <span>Campuslands · Exploramos · Despegamos · Conquistamos</span>
+              <span>Flujo Conversacional Colbeef · Full Service 2026</span>
+              <span class="pg">09</span>
+            </footer>
+          </div>
+        </div>
+
+        <!-- ===== 10 · 03 ENRUTAMIENTO DE LA SOLICITUD ===== -->
+        <div class="slide" data-slide="10">
+          <div class="slide-inner internal glow-b">
+            <header class="s-header">
+              <img src="assets/logo-campuslands.png" alt="Campuslands" class="brand">
+              <img src="assets/logo-cliente.png" alt="Colbeef S.A.S." class="client">
+            </header>
+            <div class="s-body">
+              <div class="s-eyebrow">03 · Enrutamiento de la Solicitud</div>
+              <h2 class="s-title">Cuatro rutas, <svg class="gt" viewBox="0 0 10574 1083" style="height:1em;"><text x="0" y="1083" fill="url(#gradBrand)" style="font:italic 900 1000px 'Playfair Display',serif;">una decisión por turno</text></svg></h2>
+              <p class="s-lead">El agente decide qué ruta ejecutar según la intención y la información requerida.</p>
+              <div class="route-grid">
+                <div class="route-card r-a"><span class="rtag">Ruta A</span><h4>Consulta informativa</h4><p>Responde con conocimiento autorizado, reglas del negocio o contenido disponible.</p><p><b>No requiere llamada a SIRT.</b></p></div>
+                <div class="route-card r-b"><span class="rtag">Ruta B</span><h4>Consulta de datos / operación</h4><p>Valida parámetros y consume SIRT para obtener información actualizada.</p><p>La respuesta depende del resultado del servicio.</p></div>
+                <div class="route-card r-c"><span class="rtag">Ruta C</span><h4>Solicitud ambigua</h4><p>Formula una aclaración puntual y vuelve a clasificar la intención.</p><p>Evita ejecutar consultas con datos incompletos.</p></div>
+                <div class="route-card r-d"><span class="rtag">Ruta D</span><h4>Fuera de alcance</h4><p>Explica el límite del agente y deriva al mecanismo definido de atención o escalamiento.</p></div>
+              </div>
+              <div class="process-bar"><span>Clasificar → validar → ejecutar la ruta → responder</span></div>
+              <p class="route-note">La intención puede cambiar durante la conversación; el agente vuelve a clasificar cuando el usuario aporta nueva información.</p>
+            </div>
+            <footer class="s-footer">
+              <span>Campuslands · Exploramos · Despegamos · Conquistamos</span>
+              <span>Flujo Conversacional Colbeef · Full Service 2026</span>
+              <span class="pg">10</span>
+            </footer>
+          </div>
+        </div>
+
+        <!-- ===== 11 · 04 CONSULTA A SIRT ===== -->
+        <div class="slide" data-slide="11">
+          <div class="slide-inner internal glow-a">
+            <header class="s-header">
+              <img src="assets/logo-campuslands.png" alt="Campuslands" class="brand">
+              <img src="assets/logo-cliente.png" alt="Colbeef S.A.S." class="client">
+            </header>
+            <div class="s-body">
+              <div class="s-eyebrow">04 · Consulta a SIRT</div>
+              <h2 class="s-title">SIRT como fuente <svg class="gt" viewBox="0 0 7655 1083" style="height:1em;"><text x="0" y="1083" fill="url(#gradBrand)" style="font:italic 900 1000px 'Playfair Display',serif;">externa de datos</text></svg></h2>
+              <p class="s-lead">SIRT actúa como fuente externa de datos para las solicitudes que dependen de información operativa.</p>
+              <div class="pipe-row">
+                <div class="pipe-item"><span class="n">1</span><h5>Agente IA prepara solicitud</h5></div>
+                <div class="pipe-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+                <div class="pipe-item"><span class="n">2</span><h5>Valida parámetros</h5></div>
+                <div class="pipe-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+                <div class="pipe-item"><span class="n">3</span><h5>Invoca API SIRT</h5></div>
+                <div class="pipe-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+                <div class="pipe-item"><span class="n">4</span><h5>Evalúa respuesta</h5></div>
+                <div class="pipe-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+                <div class="pipe-item"><span class="n">5</span><h5>Normaliza datos y construye respuesta</h5></div>
+              </div>
+              <div class="panel-trio">
+                <div class="panel"><span class="p-tag">Validaciones Técnicas</span><h5>Antes y durante la llamada</h5>
+                  <ul><li>Credenciales / autenticación</li><li>Campos requeridos</li><li>Formato de datos</li><li>Timeout de la petición</li><li>Código HTTP y estructura de respuesta</li></ul>
+                </div>
+                <div class="panel"><span class="p-tag">Validaciones de Negocio</span><h5>Después de recibir datos</h5>
+                  <ul><li>Resultado encontrado / no encontrado</li><li>Errores funcionales de SIRT</li><li>Datos mínimos para responder</li><li>Mensaje comprensible para el usuario</li></ul>
+                </div>
+                <div class="panel warn"><span class="p-tag">Regla de Seguridad</span><h5>No inventar información</h5>
+                  <p>Si SIRT falla, expira el tiempo de respuesta o devuelve un resultado inválido, el agente debe activar la ruta de contingencia.</p>
+                </div>
+              </div>
+            </div>
+            <footer class="s-footer">
+              <span>Campuslands · Exploramos · Despegamos · Conquistamos</span>
+              <span>Flujo Conversacional Colbeef · Full Service 2026</span>
+              <span class="pg">11</span>
+            </footer>
+          </div>
+        </div>
+
+        <!-- ===== 12 · 05 CONTINGENCIA — MENSAJE AL USUARIO ===== -->
+        <div class="slide" data-slide="12">
+          <div class="slide-inner internal glow-b">
+            <header class="s-header">
+              <img src="assets/logo-campuslands.png" alt="Campuslands" class="brand">
+              <img src="assets/logo-cliente.png" alt="Colbeef S.A.S." class="client">
+            </header>
+            <div class="s-body">
+              <div class="s-eyebrow">05 · Contingencia cuando SIRT no está disponible</div>
+              <h2 class="s-title">La conversación continúa, <svg class="gt" viewBox="0 0 9443 1083" style="height:1em;"><text x="0" y="1083" fill="url(#gradBrand)" style="font:italic 900 1000px 'Playfair Display',serif;">de forma controlada</text></svg></h2>
+              <p class="s-lead">La conversación continúa de forma controlada sin presentar datos no verificables.</p>
+              <div class="pipe-row">
+                <div class="pipe-item active"><span class="n">1</span><h5>Detectar falla</h5></div>
+                <div class="pipe-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+                <div class="pipe-item"><span class="n">2</span><h5>Informar al usuario</h5></div>
+                <div class="pipe-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+                <div class="pipe-item"><span class="n">3</span><h5>Registrar incidente</h5></div>
+                <div class="pipe-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+                <div class="pipe-item"><span class="n">4</span><h5>Notificar responsables</h5></div>
+                <div class="pipe-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+                <div class="pipe-item"><span class="n">5</span><h5>Cerrar / reintentar</h5></div>
+              </div>
+              <div class="split-chat" style="grid-template-columns:1fr 1fr;">
+                <div class="panel active"><span class="p-tag">Mensaje al Usuario</span><h5>Respuesta segura</h5>
+                  <p style="font-family:var(--font-display); font-style:italic; font-size:10pt; color:var(--text-hi); line-height:1.4;">"En este momento no puedo validar la información porque el servicio externo no está disponible. La incidencia fue registrada."</p>
+                  <p style="margin-top:8px;">El texto final se ajusta al tono aprobado por COLBEEF.</p>
+                </div>
+                <div class="outcome-box neutral" style="display:flex; flex-direction:column; justify-content:center;"><span class="ob-tag">Recuperación</span><h5>Vuelta a la ruta normal</h5><p>Al restablecerse SIRT, el agente vuelve a la ruta normal automáticamente.</p></div>
+              </div>
+            </div>
+            <footer class="s-footer">
+              <span>Campuslands · Exploramos · Despegamos · Conquistamos</span>
+              <span>Flujo Conversacional Colbeef · Full Service 2026</span>
+              <span class="pg">12</span>
+            </footer>
+          </div>
+        </div>
+
+        <!-- ===== 13 · 05 CONTINGENCIA — OBSERVABILIDAD ===== -->
+        <div class="slide" data-slide="13">
+          <div class="slide-inner internal glow-a">
+            <header class="s-header">
+              <img src="assets/logo-campuslands.png" alt="Campuslands" class="brand">
+              <img src="assets/logo-cliente.png" alt="Colbeef S.A.S." class="client">
+            </header>
+            <div class="s-body">
+              <div class="s-eyebrow">05 · Contingencia cuando SIRT no está disponible</div>
+              <h2 class="s-title">Cada falla, <svg class="gt" viewBox="0 0 9548 1083" style="height:1em;"><text x="0" y="1083" fill="url(#gradBrand)" style="font:italic 900 1000px 'Playfair Display',serif;">registrada y trazable</text></svg></h2>
+              <p class="s-lead">La conversación continúa de forma controlada sin presentar datos no verificables.</p>
+              <div class="pipe-row">
+                <div class="pipe-item"><span class="n">1</span><h5>Detectar falla</h5></div>
+                <div class="pipe-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+                <div class="pipe-item"><span class="n">2</span><h5>Informar al usuario</h5></div>
+                <div class="pipe-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+                <div class="pipe-item active"><span class="n">3</span><h5>Registrar incidente</h5></div>
+                <div class="pipe-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+                <div class="pipe-item"><span class="n">4</span><h5>Notificar responsables</h5></div>
+                <div class="pipe-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+                <div class="pipe-item"><span class="n">5</span><h5>Cerrar / reintentar</h5></div>
+              </div>
+              <div class="split-chat" style="grid-template-columns:.8fr 1.2fr;">
+                <div class="panel active"><span class="p-tag">Observabilidad</span><h5>Registro técnico</h5>
+                  <p>Guardar fecha/hora, endpoint, tipo de error, correlación de la conversación y estado de recuperación para diagnóstico.</p>
+                </div>
+                <div class="evidence-card" style="max-height:1.7in;">
+                  <span class="ecap">Captura real · Tabla de incidentes SIRT</span>
+                  <div class="eimg-wrap"><img src="assets/evidence/sirt-incidentes-tabla.jpg" alt="Tabla de incidentes de SIRT en base de datos"></div>
+                </div>
+              </div>
+            </div>
+            <footer class="s-footer">
+              <span>Campuslands · Exploramos · Despegamos · Conquistamos</span>
+              <span>Flujo Conversacional Colbeef · Full Service 2026</span>
+              <span class="pg">13</span>
+            </footer>
+          </div>
+        </div>
+
+        <!-- ===== 14 · 05 CONTINGENCIA — NOTIFICACIÓN (CAÍDA) ===== -->
+        <div class="slide" data-slide="14">
+          <div class="slide-inner internal glow-b">
+            <header class="s-header">
+              <img src="assets/logo-campuslands.png" alt="Campuslands" class="brand">
+              <img src="assets/logo-cliente.png" alt="Colbeef S.A.S." class="client">
+            </header>
+            <div class="s-body">
+              <div class="s-eyebrow">05 · Contingencia cuando SIRT no está disponible</div>
+              <h2 class="s-title">Alertas configuradas, <svg class="gt" viewBox="0 0 10121 1083" style="height:1em;"><text x="0" y="1083" fill="url(#gradBrand)" style="font:italic 900 1000px 'Playfair Display',serif;">sin depender de nadie</text></svg></h2>
+              <p class="s-lead">La conversación continúa de forma controlada sin presentar datos no verificables.</p>
+              <div class="pipe-row">
+                <div class="pipe-item"><span class="n">1</span><h5>Detectar falla</h5></div>
+                <div class="pipe-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+                <div class="pipe-item"><span class="n">2</span><h5>Informar al usuario</h5></div>
+                <div class="pipe-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+                <div class="pipe-item"><span class="n">3</span><h5>Registrar incidente</h5></div>
+                <div class="pipe-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+                <div class="pipe-item active"><span class="n">4</span><h5>Notificar responsables</h5></div>
+                <div class="pipe-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+                <div class="pipe-item"><span class="n">5</span><h5>Cerrar / reintentar</h5></div>
+              </div>
+              <div class="split-chat" style="grid-template-columns:.8fr 1.2fr;">
+                <div class="panel active"><span class="p-tag">Notificación</span><h5>Alertas configuradas</h5>
+                  <p>Enviar notificación a los correos y números de teléfono definidos para incidentes de conexión con SIRT.</p>
+                </div>
+                <div class="evidence-card" style="max-height:1.7in;">
+                  <span class="ecap">Captura real · Alerta de caída del servicio</span>
+                  <div class="eimg-wrap"><img src="assets/evidence/sirt-caida-email.jpg" alt="Correo de alerta: SIRT API caída"></div>
+                </div>
+              </div>
+            </div>
+            <footer class="s-footer">
+              <span>Campuslands · Exploramos · Despegamos · Conquistamos</span>
+              <span>Flujo Conversacional Colbeef · Full Service 2026</span>
+              <span class="pg">14</span>
+            </footer>
+          </div>
+        </div>
+
+        <!-- ===== 15 · 05 CONTINGENCIA — NOTIFICACIÓN (RECUPERADA) ===== -->
+        <div class="slide" data-slide="15">
+          <div class="slide-inner internal glow-a">
+            <header class="s-header">
+              <img src="assets/logo-campuslands.png" alt="Campuslands" class="brand">
+              <img src="assets/logo-cliente.png" alt="Colbeef S.A.S." class="client">
+            </header>
+            <div class="s-body">
+              <div class="s-eyebrow">05 · Contingencia cuando SIRT no está disponible</div>
+              <h2 class="s-title">La recuperación <svg class="gt" viewBox="0 0 8709 1083" style="height:1em;"><text x="0" y="1083" fill="url(#gradBrand)" style="font:italic 900 1000px 'Playfair Display',serif;">también se notifica</text></svg></h2>
+              <p class="s-lead">La conversación continúa de forma controlada sin presentar datos no verificables.</p>
+              <div class="pipe-row">
+                <div class="pipe-item"><span class="n">1</span><h5>Detectar falla</h5></div>
+                <div class="pipe-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+                <div class="pipe-item"><span class="n">2</span><h5>Informar al usuario</h5></div>
+                <div class="pipe-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+                <div class="pipe-item"><span class="n">3</span><h5>Registrar incidente</h5></div>
+                <div class="pipe-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+                <div class="pipe-item active-ok"><span class="n">4</span><h5>Notificar responsables</h5></div>
+                <div class="pipe-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+                <div class="pipe-item active-ok"><span class="n">5</span><h5>Cerrar / reintentar</h5></div>
+              </div>
+              <div class="split-chat" style="grid-template-columns:.8fr 1.2fr;">
+                <div class="panel active"><span class="p-tag">Notificación</span><h5>Alertas configuradas</h5>
+                  <p>Enviar notificación a los correos y números de teléfono definidos para incidentes de conexión con SIRT.</p>
+                </div>
+                <div class="evidence-card" style="max-height:1.7in;">
+                  <span class="ecap">Captura real · Alerta de servicio restablecido</span>
+                  <div class="eimg-wrap"><img src="assets/evidence/sirt-recuperada-email.jpg" alt="Correo de alerta: SIRT API recuperada"></div>
+                </div>
+              </div>
+              <div class="callout-strip" style="margin-top:.1in; background:linear-gradient(120deg,rgba(46,139,79,.12),rgba(46,139,79,.04)); border-color:rgba(46,139,79,.28);">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--violet);"><path d="M20 6 9 17l-5-5"/></svg>
+                <p>Recuperación: al restablecerse SIRT, el agente vuelve a la ruta normal.</p>
+              </div>
+            </div>
+            <footer class="s-footer">
+              <span>Campuslands · Exploramos · Despegamos · Conquistamos</span>
+              <span>Flujo Conversacional Colbeef · Full Service 2026</span>
+              <span class="pg">15</span>
+            </footer>
+          </div>
+        </div>
+
+        <!-- ===== 16 · 06 CONSTRUCCIÓN DE RESPUESTA Y CIERRE ===== -->
+        <div class="slide" data-slide="16">
+          <div class="slide-inner internal glow-b">
+            <header class="s-header">
+              <img src="assets/logo-campuslands.png" alt="Campuslands" class="brand">
+              <img src="assets/logo-cliente.png" alt="Colbeef S.A.S." class="client">
+            </header>
+            <div class="s-body">
+              <div class="s-eyebrow">06 · Construcción de Respuesta y Cierre</div>
+              <h2 class="s-title">Cada conversación termina <svg class="gt" viewBox="0 0 10055 1083" style="height:1em;"><text x="0" y="1083" fill="url(#gradBrand)" style="font:italic 900 1000px 'Playfair Display',serif;">en un estado explícito</text></svg></h2>
+              <p class="s-lead">Cada conversación debe terminar en un estado explícito y trazable.</p>
+              <div class="status-grid">
+                <div class="status-card s-ok"><span class="stag">Estado 1</span><h4>Resuelto</h4><p>SIRT o la fuente interna entrega información válida. El agente responde y confirma si la solicitud quedó atendida.</p></div>
+                <div class="status-card s-clar"><span class="stag">Estado 2</span><h4>Requiere aclaración</h4><p>Falta un dato indispensable. El agente pregunta, conserva el contexto y retoma el flujo cuando el usuario responde.</p></div>
+                <div class="status-card s-warn"><span class="stag">Estado 3</span><h4>SIRT no disponible</h4><p>No hay información verificable. Se informa la contingencia, se registra y se activa la notificación correspondiente.</p></div>
+                <div class="status-card s-esc"><span class="stag">Estado 4</span><h4>Escalamiento</h4><p>La solicitud requiere intervención humana, un proceso no soportado o revisión adicional según las reglas definidas.</p></div>
+              </div>
+              <div class="process-bar"><span>Cierre de conversación → Confirmar resultado → Ofrecer siguiente acción válida → Finalizar y registrar</span></div>
+              <p class="route-note">Resultado esperado: una experiencia consistente, con información verificable y una ruta clara cuando el servicio externo falla.</p>
+            </div>
+            <footer class="s-footer">
+              <span>Campuslands · Exploramos · Despegamos · Conquistamos</span>
+              <span>Flujo Conversacional Colbeef · Full Service 2026</span>
+              <span class="pg">16</span>
+            </footer>
+          </div>
+        </div>
+
+        <!-- ===== 17 · 07 FLUJO FINAL ===== -->
+        <div class="slide" data-slide="17">
+          <div class="slide-inner internal glow-a">
+            <header class="s-header">
+              <img src="assets/logo-campuslands.png" alt="Campuslands" class="brand">
+              <img src="assets/logo-cliente.png" alt="Colbeef S.A.S." class="client">
+            </header>
+            <div class="s-body">
+              <div class="s-eyebrow">07 · Flujo Final</div>
+              <h2 class="s-title">El flujo completo, <svg class="gt" viewBox="0 0 6030 1083" style="height:1em;"><text x="0" y="1083" fill="url(#gradBrand)" style="font:italic 900 1000px 'Playfair Display',serif;">de un vistazo</text></svg></h2>
+              <p class="s-lead">Esta lámina puede utilizarse como resumen ejecutivo del flujo completo.</p>
+              <div class="pipe" style="grid-template-columns:repeat(7,1fr);">
+                <div class="pipe-item"><span class="n">1</span><h5>Inicio</h5><p>Usuario escribe</p></div>
+                <div class="pipe-item"><span class="n">2</span><h5>Entender</h5><p>Intención + datos</p></div>
+                <div class="pipe-item"><span class="n">3</span><h5>Validar</h5><p>¿Falta información?</p></div>
+                <div class="pipe-item"><span class="n">4</span><h5>Enrutar</h5><p>Directo o SIRT</p></div>
+                <div class="pipe-item"><span class="n">5</span><h5>Consultar</h5><p>API SIRT</p></div>
+                <div class="pipe-item"><span class="n">6</span><h5>Responder</h5><p>Datos verificados</p></div>
+                <div class="pipe-item"><span class="n">7</span><h5>Cerrar</h5><p>Resultado final</p></div>
+              </div>
+              <div class="final-decision">
+                <div class="pipe-diamond" style="width:84px; height:84px;"><div class="dshape"></div><div class="dtext">¿SIRT responde correctamente?</div></div>
+              </div>
+              <div class="final-outcomes">
+                <div class="outcome-box warn"><span class="ob-tag">NO · Contingencia</span><h5>Falla de SIRT</h5><p>Informar · registrar incidente · notificar responsables.</p></div>
+                <div class="outcome-box ok"><span class="ob-tag">SÍ · Ruta normal</span><h5>Responder y cerrar</h5><p>Presentar información verificada y confirmar el resultado.</p></div>
+              </div>
+              <div class="principle-row">
+                <div class="principle-chip"><span>No inventar datos</span></div>
+                <div class="principle-chip"><span>Mantener contexto</span></div>
+                <div class="principle-chip"><span>Trazabilidad</span></div>
+                <div class="principle-chip"><span>Cierre explícito</span></div>
+              </div>
+            </div>
+            <footer class="s-footer">
+              <span>Campuslands · Exploramos · Despegamos · Conquistamos</span>
+              <span>Flujo Conversacional Colbeef · Full Service 2026</span>
+              <span class="pg">17</span>
+            </footer>
+          </div>
+        </div>
+
+        <!-- ===== 18 · CIERRE Y CONTACTO ===== -->
+        <div class="slide" data-slide="18">
+          <div class="slide-inner cover cover--close">
+            <span class="corner tl"></span><span class="corner tr"></span>
+            <span class="corner bl"></span><span class="corner br"></span>
+            <div class="deco-rings"><span></span><span></span><span></span><span></span></div>
+            <div class="cover__topbar">
+              <span></span>
+              <span class="cover-badge-confidential">Confidencial</span>
+            </div>
+            <div class="cover__body">
+              <span class="sol-index">Próximo paso: validación con Colbeef</span>
+              <h1 class="close-title">¿Cuándo <svg class="gt" viewBox="0 0 5323 1083" style="height:1em;"><text x="0" y="1083" fill="url(#gradBrand)" style="font:italic 900 1000px 'Playfair Display',serif;">empezamos</text></svg>?</h1>
+              <div class="close-steps">
+                <div class="close-step"><span class="cs-n">1</span><span>Validación del flujo documentado con el equipo Colbeef.</span></div>
+                <div class="close-step"><span class="cs-n">2</span><span>Implementación en el agente conversacional en producción.</span></div>
+                <div class="close-step"><span class="cs-n">3</span><span>Monitoreo, ajuste y mejora continua del flujo.</span></div>
+              </div>
+              <p class="close-statement">Un agente conversacional confiable no es el que siempre responde — es el que sabe cuándo no puede hacerlo. Este flujo documentado es la base para que Colbeef opere con trazabilidad total, sin fabricar información, desde el primer mensaje hasta el cierre.</p>
+              <div class="close-contact">
+                <div class="close-contact__tx"><b>Gabriela Pedraza Rueda</b><span>Directora Full Service Global</span></div>
+                <div class="close-contact__links"><span>gabriela.pedraza@campuslands.com</span><span>+57 300 302 8555</span></div>
+              </div>
+              <div class="cover__lockup close-lockup">
+                <img src="assets/logo-campuslands.png" alt="Campuslands Full Service" class="cover__lockup-camp">
+                <span class="cover__lockup-x">×</span>
+                <img src="assets/logo-cliente.png" alt="Colbeef S.A.S." class="cover__lockup-client">
+              </div>
+            </div>
+            <footer class="s-footer"><span>Campuslands · Exploramos · Despegamos · Conquistamos</span><span>Flujo Conversacional Colbeef · Full Service 2026</span><span class="pg">18</span></footer>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ BARRA INFERIOR ============ -->
+  <footer class="slides-footer-controls">
+    <button id="btn-prev-slide" class="control-btn" onclick="navigateSlide(-1)" aria-label="Lámina anterior">
+      <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+    </button>
+
+    <div class="slide-indicator">
+      <span id="slide-number-display">1 / 18</span>
+      <div class="progress-bar-bg"><div id="slide-progress" class="progress-bar-fill"></div></div>
+      <div class="playback-controls">
+        <button id="btn-autoplay" class="control-btn mini" title="Reproducción automática" onclick="toggleAutoplay()">
+          <svg id="autoplay-icon" viewBox="0 0 24 24" width="16" height="16" fill="currentColor" stroke="none"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <button id="btn-next-slide" class="control-btn" onclick="navigateSlide(1)" aria-label="Lámina siguiente">
+      <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    </button>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,364 @@
+/* ============================================================
+   CAMPUSLANDS FULL SERVICE — SISTEMA DE DISEÑO v2 (Premium)
+   Presentación: Colbeef S.A.S. — Flujo Conversacional del Agente IA
+   Paleta reutilizada de presentaciones/colbeef-plan-trabajo/
+   (rojo del wordmark → verde del isotipo). Shell interactivo v3.
+   ============================================================ */
+
+/* ---------- 1. FUENTES LOCALES ---------- */
+@font-face { font-family:'Playfair Display'; src:url('assets/fonts/PlayfairDisplay-Regular.ttf')     format('truetype'); font-weight:400; font-style:normal; font-display:swap; }
+@font-face { font-family:'Playfair Display'; src:url('assets/fonts/PlayfairDisplay-Bold.ttf')        format('truetype'); font-weight:700; font-style:normal; font-display:swap; }
+@font-face { font-family:'Playfair Display'; src:url('assets/fonts/PlayfairDisplay-Black.ttf')       format('truetype'); font-weight:900; font-style:normal; font-display:swap; }
+@font-face { font-family:'Playfair Display'; src:url('assets/fonts/PlayfairDisplay-Italic.ttf')      format('truetype'); font-weight:400; font-style:italic; font-display:swap; }
+@font-face { font-family:'Playfair Display'; src:url('assets/fonts/PlayfairDisplay-BlackItalic.ttf') format('truetype'); font-weight:900; font-style:italic; font-display:swap; }
+@font-face { font-family:'DM Serif Display'; src:url('assets/fonts/DMSerifDisplay-Regular.ttf')      format('truetype'); font-weight:400; font-style:normal; font-display:swap; }
+@font-face { font-family:'Montserrat';       src:url('assets/fonts/Montserrat-Regular.ttf')          format('truetype'); font-weight:400; font-style:normal; font-display:swap; }
+@font-face { font-family:'Montserrat';       src:url('assets/fonts/Montserrat-Medium.ttf')           format('truetype'); font-weight:500; font-style:normal; font-display:swap; }
+@font-face { font-family:'Montserrat';       src:url('assets/fonts/Montserrat-SemiBold.ttf')         format('truetype'); font-weight:600; font-style:normal; font-display:swap; }
+@font-face { font-family:'Montserrat';       src:url('assets/fonts/Montserrat-Bold.ttf')             format('truetype'); font-weight:700; font-style:normal; font-display:swap; }
+@font-face { font-family:'Poppins';          src:url('assets/fonts/Poppins-Light.ttf')               format('truetype'); font-weight:300; font-style:normal; font-display:swap; }
+@font-face { font-family:'Poppins';          src:url('assets/fonts/Poppins-Regular.ttf')             format('truetype'); font-weight:400; font-style:normal; font-display:swap; }
+@font-face { font-family:'Poppins';          src:url('assets/fonts/Poppins-Medium.ttf')              format('truetype'); font-weight:500; font-style:normal; font-display:swap; }
+@font-face { font-family:'Poppins';          src:url('assets/fonts/Poppins-SemiBold.ttf')            format('truetype'); font-weight:600; font-style:normal; font-display:swap; }
+
+/* ---------- 2. TOKENS — Colbeef (fondo gris claro frío + wash rojo→verde de marca) ---------- */
+:root{
+  --bg-0:#F2F3F5; --bg-1:#E9EBEF; --bg-2:#FFFFFF; --bg-deep:#E2E4E9;
+  --bg-glow-a:rgba(217,58,46,.09); --bg-glow-b:rgba(27,94,51,.09);
+  --bg-wash:linear-gradient(135deg, rgba(224,74,58,.07) 0%, rgba(184,52,31,.05) 32%, rgba(46,139,79,.05) 66%, rgba(27,94,51,.07) 100%);
+  --text-hi:#14161B; --text-mid:#3D4451; --text-lo:#6B7280; --text-faint:#9CA3AF;
+  --cyan:#8A1F1F; --blue:#D93A2E; --violet:#2E8B4F; --magenta:#1B5E33; --amber:#B8341F; --lime:#2E8B4F;
+  --grad-brand:linear-gradient(100deg,#E2543F 0%,#D93A2E 34%,#4CAA6A 68%,#1B5E33 100%);
+  --grad-cyan:linear-gradient(120deg,#E2543F,#B8341F);
+  --grad-violet:linear-gradient(120deg,#4CAA6A,#1B5E33);
+  --card-border:1px solid rgba(20,25,35,.10);
+  --dot-confidential:#1B7A4A; --dot-confidential-glow:rgba(27,122,74,.45);
+  --status-ok:#1B7A4A; --status-warn:#B8341F; --status-info:#2E6FB8; --status-esc:#6B7280;
+  --font-display:'Playfair Display',Georgia,serif;
+  --font-serif-alt:'DM Serif Display',Georgia,serif;
+  --font-label:'Montserrat','Segoe UI',sans-serif;
+  --font-body:'Poppins','Segoe UI',sans-serif;
+  --slide-w:11in; --slide-h:6.1875in; --pad:0.72in; --radius:14px;
+  --header-h:64px; --footer-h:64px;
+}
+
+/* ---------- 3. RESET ---------- */
+*{ box-sizing:border-box; margin:0; padding:0; }
+@page{ size:11in 6.1875in; margin:0; }
+html{ height:100%; }
+body{
+  height:100vh; overflow:hidden; background:var(--bg-0); color:var(--text-hi);
+  font-family:var(--font-body); -webkit-font-smoothing:antialiased;
+  display:flex; flex-direction:column;
+  background-image:
+    radial-gradient(120% 90% at 82% 0%, var(--bg-glow-a) 0%, transparent 45%),
+    radial-gradient(120% 90% at 8% 100%, var(--bg-glow-b) 0%, transparent 50%),
+    var(--bg-wash);
+  background-attachment:fixed;
+}
+button{ font-family:var(--font-label); cursor:pointer; }
+
+/* ---------- 4. SHELL — Barra superior ---------- */
+.app-header{
+  flex:none; height:var(--header-h); padding:0 32px;
+  display:flex; align-items:center; justify-content:space-between;
+  background:rgba(255,255,255,.86); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(20,25,35,.10); position:relative; z-index:50;
+}
+.header-left{ display:flex; align-items:center; gap:16px; }
+.header-left img{ height:22px; width:auto; display:block; object-fit:contain; }
+.header-left img.logo-client{ height:28px; }
+.logo-divider{ width:1px; height:24px; background:rgba(20,25,35,.14); }
+.header-center{ display:flex; align-items:center; }
+.header-right{ display:flex; align-items:center; }
+
+.badge-confidential{
+  display:inline-flex; align-items:center; gap:8px; font-family:var(--font-label); font-weight:700;
+  font-size:10px; letter-spacing:.18em; text-transform:uppercase; color:var(--dot-confidential);
+  background:color-mix(in srgb, var(--dot-confidential) 10%, transparent);
+  border:1px solid color-mix(in srgb, var(--dot-confidential) 28%, transparent);
+  border-radius:99px; padding:7px 16px;
+}
+.badge-confidential::before{ content:""; width:7px; height:7px; border-radius:50%; background:var(--dot-confidential); box-shadow:0 0 8px 1px var(--dot-confidential-glow); }
+.cover-badge-confidential{ display:inline-flex; align-items:center; gap:9px; font-family:var(--font-label); font-weight:600; font-size:8.5pt; letter-spacing:.26em; text-transform:uppercase; color:var(--text-mid); }
+.cover-badge-confidential::before{ content:""; width:8px; height:8px; border-radius:50%; background:var(--dot-confidential); box-shadow:0 0 10px 1px var(--dot-confidential-glow); }
+
+/* ---------- 5. SHELL — Viewport de láminas ---------- */
+.app-content{ flex:1; min-height:0; display:flex; }
+.slides-viewport{ flex:1; display:flex; }
+.slides-container{ flex:1; position:relative; display:flex; align-items:center; justify-content:center; padding:20px 36px; min-width:0; }
+
+.slide{
+  position:absolute; width:1056px; height:594px; zoom:var(--slide-scale,1);
+  display:none; opacity:0; transform:translateY(16px);
+  transition:opacity .45s ease, transform .45s ease;
+  border-radius:var(--radius); overflow:hidden; box-shadow:0 20px 60px rgba(0,0,0,.22);
+}
+.slide.active{ display:block; opacity:1; transform:translateY(0); }
+
+.slide-inner{
+  width:100%; height:100%; overflow:hidden; position:relative;
+  color:var(--text-hi);
+  background:
+    radial-gradient(120% 90% at 82% 18%, var(--bg-glow-a) 0%, transparent 45%),
+    radial-gradient(120% 120% at 12% 92%, var(--bg-glow-b) 0%, transparent 50%),
+    var(--bg-wash),
+    linear-gradient(150deg, var(--bg-0) 0%, var(--bg-1) 55%, var(--bg-deep) 100%);
+}
+.slide-inner.glow-a{ background:
+  radial-gradient(90% 80% at 15% 20%, var(--bg-glow-a) 0%, transparent 45%),
+  radial-gradient(110% 110% at 95% 95%, var(--bg-glow-b) 0%, transparent 50%),
+  var(--bg-wash),
+  linear-gradient(160deg,var(--bg-0),var(--bg-1) 60%,var(--bg-deep)); }
+.slide-inner.glow-b{ background:
+  radial-gradient(80% 70% at 88% 15%, var(--bg-glow-b) 0%, transparent 45%),
+  radial-gradient(120% 120% at 8% 90%, var(--bg-glow-a) 0%, transparent 50%),
+  var(--bg-wash),
+  linear-gradient(140deg,var(--bg-0),var(--bg-1) 60%,var(--bg-deep)); }
+
+/* ---------- 6. SHELL — Barra inferior ---------- */
+.slides-footer-controls{
+  flex:none; height:var(--footer-h); padding:0 32px;
+  display:flex; align-items:center; justify-content:space-between;
+  background:rgba(255,255,255,.86); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px);
+  border-top:1px solid rgba(20,25,35,.10); position:relative; z-index:50;
+}
+.control-btn{ background:none; border:1px solid rgba(20,25,35,.14); color:var(--text-hi); width:40px; height:40px; border-radius:50%; display:flex; align-items:center; justify-content:center; transition:all .25s ease; }
+.control-btn:hover{ background:var(--blue); border-color:var(--blue); color:#fff; box-shadow:0 4px 12px rgba(20,25,35,.18); }
+.control-btn.mini{ width:32px; height:32px; }
+.control-btn.active{ background:var(--grad-brand); border-color:transparent; color:#fff; }
+
+.slide-indicator{ display:flex; align-items:center; gap:18px; flex:1; max-width:520px; margin:0 26px; }
+#slide-number-display{ font-family:var(--font-label); font-weight:600; font-size:12px; color:var(--text-mid); min-width:48px; text-align:right; }
+.progress-bar-bg{ flex:1; height:6px; background:rgba(20,25,35,.07); border-radius:3px; overflow:hidden; }
+.progress-bar-fill{ height:100%; width:6%; background:var(--grad-brand); transition:width .3s ease; }
+.playback-controls{ display:flex; align-items:center; }
+
+/* ---------- 7. UTILIDADES ---------- */
+.gt{ display:inline-block; overflow:visible; vertical-align:baseline; }
+.gradient-text{ background:var(--grad-brand); background-size:112% 100%; background-position:0 0; -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; color:transparent; }
+.gt-cyan{ background:var(--grad-cyan); background-size:112% 100%; -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; color:transparent; }
+.gt-violet{ background:var(--grad-violet); background-size:112% 100%; -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; color:transparent; }
+
+.eyebrow{ font-family:var(--font-label); font-weight:600; font-size:9.5pt; letter-spacing:.34em; text-transform:uppercase; color:var(--cyan); }
+
+.corner{ position:absolute; width:38px; height:38px; border-color:rgba(217,58,46,.45); z-index:4; }
+.corner.tl{ top:24px; left:24px; border-top:2px solid; border-left:2px solid; border-top-left-radius:4px; }
+.corner.tr{ top:24px; right:24px; border-top:2px solid; border-right:2px solid; border-top-right-radius:4px; }
+.corner.bl{ bottom:24px; left:24px; border-bottom:2px solid; border-left:2px solid; border-bottom-left-radius:4px; }
+.corner.br{ bottom:24px; right:24px; border-bottom:2px solid; border-right:2px solid; border-bottom-right-radius:4px; }
+
+.deco-rings{ position:absolute; top:50%; right:-7%; transform:translateY(-50%); width:5.2in; height:5.2in; z-index:1; pointer-events:none; }
+.deco-rings span{ position:absolute; inset:0; border-radius:50%; border:1px solid rgba(20,25,35,.07); }
+.deco-rings span:nth-child(2){ inset:.7in; border-color:rgba(20,25,35,.055); }
+.deco-rings span:nth-child(3){ inset:1.4in; border-color:rgba(20,25,35,.04); }
+.deco-rings span:nth-child(4){ inset:1.95in; border:1px solid rgba(217,58,46,.18); box-shadow:0 0 40px rgba(217,58,46,.1) inset; }
+
+/* ---------- 8. PORTADA ---------- */
+.cover{ display:grid; grid-template-rows:auto 1fr auto; padding:var(--pad); }
+.cover__topbar{ display:flex; align-items:center; justify-content:space-between; position:relative; z-index:5; }
+.cover__brand{ height:24px; width:auto; opacity:.96; }
+.cover__body{ position:relative; z-index:5; align-self:center; max-width:8.5in; }
+.cover__eyebrow{ margin-bottom:18px; }
+.cover__scenario{ display:inline-flex; align-items:center; gap:9px; font-family:var(--font-label); font-weight:700; font-size:9.5pt; letter-spacing:.22em; text-transform:uppercase; color:var(--text-hi); background:var(--grad-brand); padding:7px 16px; border-radius:99px; margin-bottom:16px; }
+.cover__title{ font-family:var(--font-display); font-weight:900; font-size:38pt; line-height:1.08; letter-spacing:-.5px; color:var(--text-hi); }
+.cover__title em{ display:inline; font-style:italic; font-weight:900; }
+.cover__kicker{ margin-top:16px; font-family:var(--font-body); font-weight:300; font-size:11.5pt; line-height:1.45; color:var(--text-mid); max-width:7.6in; }
+.cover__client{ display:flex; align-items:center; gap:16px; margin-top:22px; }
+.cover__client-para{ font-family:var(--font-label); font-weight:700; font-size:11pt; letter-spacing:.32em; color:var(--text-mid); }
+.cover__client-logo{ height:42px; width:auto; }
+.cover__steps{ display:flex; align-items:center; gap:0; margin-top:.42in; }
+.cover__steps .cs{ display:flex; align-items:center; gap:10px; }
+.cover__steps .cs .num{ flex:none; width:30px; height:30px; border-radius:50%; display:grid; place-items:center; font-family:var(--font-label); font-weight:700; font-size:10.5pt; color:#fff; background:var(--grad-brand); }
+.cover__steps .cs .lb{ font-family:var(--font-label); font-weight:600; font-size:9.5pt; letter-spacing:.04em; color:var(--text-hi); }
+.cover__steps .cs-arrow{ width:34px; height:1px; background:rgba(20,25,35,.2); margin:0 6px; }
+.cover__meta{ position:relative; z-index:5; display:grid; grid-template-columns:1.6fr 1.6fr 1fr 1fr; gap:26px; padding-top:20px; border-top:1px solid rgba(20,25,35,.12); }
+.meta-item__label{ font-family:var(--font-label); font-weight:600; font-size:7.5pt; letter-spacing:.22em; text-transform:uppercase; color:var(--cyan); margin-bottom:8px; }
+.meta-item__value{ font-family:var(--font-body); font-weight:500; font-size:10.5pt; line-height:1.35; color:var(--text-hi); }
+
+/* ---------- 9. LÁMINAS INTERNAS: estructura ---------- */
+.internal{ display:grid; grid-template-rows:34px 1fr 18px; padding:.4in .62in .34in; gap:.13in; }
+.s-header{ display:flex; align-items:center; justify-content:space-between; position:relative; z-index:5; }
+.s-header .brand{ height:18px; width:auto; opacity:.95; }
+.s-header .client{ height:28px; width:auto; opacity:.98; }
+.s-footer{ display:flex; align-items:center; justify-content:space-between; position:relative; z-index:5; font-family:var(--font-label); font-weight:500; font-size:6.3pt; letter-spacing:.16em; text-transform:uppercase; color:var(--text-faint); }
+.s-footer .pg{ color:var(--cyan); font-weight:700; }
+.s-body{ position:relative; z-index:5; display:flex; flex-direction:column; min-height:0; }
+
+.s-eyebrow{ font-family:var(--font-label); font-weight:600; font-size:8pt; letter-spacing:.26em; text-transform:uppercase; color:var(--cyan); margin-bottom:6px; }
+.s-title{ font-family:var(--font-display); font-weight:700; font-size:19.5pt; line-height:1.1; color:var(--text-hi); }
+.s-title em{ font-style:italic; font-weight:900; }
+.s-lead{ margin-top:5px; font-family:var(--font-body); font-weight:300; font-size:9.2pt; line-height:1.36; color:var(--text-mid); max-width:8.8in; }
+
+/* ---------- 10. PIPE — flujo horizontal compacto de N pasos ---------- */
+.pipe{ display:grid; gap:8px; margin-top:.16in; align-items:stretch; }
+.pipe-item{ background:var(--bg-2); border:var(--card-border); border-radius:10px; padding:.12in .13in; position:relative; overflow:hidden; display:flex; flex-direction:column; }
+.pipe-item::before{ content:""; position:absolute; left:0; top:0; height:3px; width:100%; background:var(--grad-brand); }
+.pipe-item .n{ flex:none; width:19px; height:19px; border-radius:50%; display:grid; place-items:center; background:var(--grad-brand); color:#fff; font-family:var(--font-label); font-weight:700; font-size:7.6pt; margin-bottom:6px; }
+.pipe-item h5{ font-family:var(--font-label); font-weight:700; font-size:7.6pt; line-height:1.18; color:var(--text-hi); margin-bottom:3px; }
+.pipe-item p{ font-family:var(--font-body); font-weight:300; font-size:6.5pt; line-height:1.28; color:var(--text-lo); }
+.pipe-row{ display:flex; align-items:stretch; gap:0; margin-top:.16in; }
+.pipe-row .pipe-item{ flex:1; }
+.pipe-arrow{ flex:none; width:16px; display:grid; place-items:center; color:var(--blue); }
+.pipe-arrow svg{ width:11px; height:11px; }
+.pipe-item.active{ background:linear-gradient(160deg, rgba(217,58,46,.07) 0%, rgba(46,139,79,.04) 100%), var(--bg-2); box-shadow:0 10px 22px rgba(217,58,46,.16); }
+.pipe-item.active::before{ height:5px; box-shadow:0 1px 8px rgba(217,58,46,.3); }
+.pipe-item.active-ok{ background:linear-gradient(160deg, rgba(46,139,79,.09) 0%, rgba(46,139,79,.03) 100%), var(--bg-2); box-shadow:0 10px 22px rgba(46,139,79,.16); }
+.pipe-item.active-ok::before{ background:var(--grad-violet); height:5px; box-shadow:0 1px 8px rgba(46,139,79,.3); }
+.pipe-item.active-ok .n{ background:var(--grad-violet); }
+
+/* Diamante de decisión (Sí/No) */
+.pipe-diamond{ flex:none; width:74px; height:74px; margin:0 4px; position:relative; }
+.pipe-diamond .dshape{ position:absolute; inset:0; background:linear-gradient(135deg,#FCEFC8,#F6DFA0); border:1.5px solid #C9973A; transform:rotate(45deg); border-radius:6px; }
+.pipe-diamond .dtext{ position:absolute; inset:0; display:flex; align-items:center; justify-content:center; text-align:center; padding:6px; font-family:var(--font-label); font-weight:700; font-size:6.2pt; line-height:1.14; color:#7A5A12; z-index:2; }
+.branch-lbl{ position:absolute; font-family:var(--font-label); font-weight:800; font-size:7.5pt; letter-spacing:.04em; }
+.branch-lbl.si{ color:var(--violet); }
+.branch-lbl.no{ color:var(--amber); }
+
+/* ---------- 11. OUTCOME ROW — cajas de resultado bajo el pipe ---------- */
+.outcome-row{ display:grid; gap:.16in; margin-top:.18in; }
+.outcome-box{ border-radius:10px; padding:.16in .18in; position:relative; border:1px solid rgba(20,25,35,.12); background:var(--bg-2); }
+.outcome-box .ob-tag{ display:block; font-family:var(--font-label); font-weight:700; font-size:6.4pt; letter-spacing:.14em; text-transform:uppercase; margin-bottom:5px; }
+.outcome-box h5{ font-family:var(--font-label); font-weight:700; font-size:9pt; color:var(--text-hi); margin-bottom:4px; }
+.outcome-box p{ font-family:var(--font-body); font-weight:300; font-size:7.3pt; line-height:1.32; color:var(--text-lo); }
+.outcome-box.ok{ background:linear-gradient(160deg,rgba(46,139,79,.09),rgba(46,139,79,.03)); border-color:rgba(46,139,79,.28); }
+.outcome-box.ok .ob-tag{ color:var(--violet); }
+.outcome-box.warn{ background:linear-gradient(160deg,rgba(217,58,46,.09),rgba(217,58,46,.03)); border-color:rgba(217,58,46,.28); }
+.outcome-box.warn .ob-tag{ color:var(--blue); }
+.outcome-box.neutral{ background:var(--bg-2); }
+.outcome-box.neutral .ob-tag{ color:var(--cyan); }
+
+/* ---------- 12. CALLOUT — franja de principio clave ---------- */
+.callout-strip{ margin-top:.16in; background:linear-gradient(120deg,rgba(217,58,46,.1),rgba(27,94,51,.1)); border:1px solid rgba(217,58,46,.22); border-radius:10px; padding:.13in .22in; display:flex; align-items:center; gap:12px; }
+.callout-strip svg{ flex:none; width:16px; height:16px; color:var(--blue); }
+.callout-strip p{ font-family:var(--font-label); font-weight:700; font-size:8.6pt; color:var(--text-hi); }
+.channel-note{ margin-top:.1in; display:flex; align-items:center; gap:10px; }
+.channel-note .lbl{ font-family:var(--font-label); font-weight:700; font-size:6.6pt; letter-spacing:.16em; text-transform:uppercase; color:var(--cyan); background:rgba(217,58,46,.08); border-radius:99px; padding:4px 10px; }
+.channel-note p{ font-family:var(--font-body); font-weight:300; font-size:7.6pt; color:var(--text-lo); }
+
+/* ---------- 13. ROUTE GRID — 4 tarjetas de ruta (A/B/C/D) ---------- */
+.route-grid{ flex:1; display:grid; grid-template-columns:repeat(4,1fr); gap:.18in; margin-top:.2in; align-content:center; min-height:0; }
+.route-card{ background:var(--bg-2); border:var(--card-border); border-radius:12px; padding:.22in .18in; display:flex; flex-direction:column; position:relative; overflow:hidden; }
+.route-card::before{ content:""; position:absolute; left:0; right:0; top:0; height:3px; }
+.route-card.r-a::before{ background:var(--violet); }
+.route-card.r-b::before{ background:var(--blue); }
+.route-card.r-c::before{ background:#C9973A; }
+.route-card.r-d::before{ background:var(--text-faint); }
+.route-card .rtag{ font-family:var(--font-label); font-weight:700; font-size:6.6pt; letter-spacing:.16em; text-transform:uppercase; margin-bottom:8px; }
+.route-card.r-a .rtag{ color:var(--violet); }
+.route-card.r-b .rtag{ color:var(--blue); }
+.route-card.r-c .rtag{ color:#9C7623; }
+.route-card.r-d .rtag{ color:var(--text-faint); }
+.route-card h4{ font-family:var(--font-label); font-weight:700; font-size:10pt; line-height:1.2; color:var(--text-hi); margin-bottom:10px; }
+.route-card p{ font-family:var(--font-body); font-weight:300; font-size:7.8pt; line-height:1.36; color:var(--text-lo); margin-bottom:6px; }
+.process-bar{ margin-top:.2in; background:rgba(20,25,35,.045); border:1px solid rgba(20,25,35,.1); border-radius:99px; padding:.1in .3in; text-align:center; }
+.process-bar span{ font-family:var(--font-label); font-weight:700; font-size:8.2pt; color:var(--text-hi); }
+.route-note{ margin-top:.12in; text-align:center; font-family:var(--font-body); font-weight:300; font-size:8pt; color:var(--text-lo); }
+
+/* ---------- 14. PANEL TRIO — 3 paneles informativos ---------- */
+.panel-trio{ display:grid; grid-template-columns:repeat(3,1fr); gap:.18in; margin-top:.18in; }
+.panel{ background:var(--bg-2); border:var(--card-border); border-radius:12px; padding:.2in .2in; position:relative; overflow:hidden; }
+.panel::before{ content:""; position:absolute; left:0; top:0; bottom:0; width:4px; background:var(--grad-brand); }
+.panel.warn::before{ background:var(--grad-cyan); }
+.panel .p-tag{ font-family:var(--font-label); font-weight:700; font-size:6.6pt; letter-spacing:.14em; text-transform:uppercase; color:var(--cyan); margin-bottom:6px; }
+.panel h5{ font-family:var(--font-label); font-weight:700; font-size:9.2pt; color:var(--text-hi); margin-bottom:8px; }
+.panel ul{ list-style:none; display:flex; flex-direction:column; gap:5px; }
+.panel li{ font-family:var(--font-body); font-weight:300; font-size:7.6pt; line-height:1.34; color:var(--text-mid); padding-left:12px; position:relative; }
+.panel li::before{ content:"•"; position:absolute; left:0; color:var(--cyan); font-weight:700; }
+.panel p{ font-family:var(--font-body); font-weight:300; font-size:7.8pt; line-height:1.38; color:var(--text-mid); }
+.panel.active{
+  background:linear-gradient(160deg, rgba(217,58,46,.06) 0%, rgba(46,139,79,.04) 100%), var(--bg-2);
+  box-shadow:0 16px 32px rgba(217,58,46,.14);
+  border-color:rgba(217,58,46,.16);
+}
+.panel.active::before{ width:6px; box-shadow:0 0 10px 1px rgba(217,58,46,.35); }
+.panel.active .p-tag{ display:inline-flex; align-items:center; gap:5px; }
+.panel.active .p-tag::before{ content:""; width:5px; height:5px; border-radius:50%; background:var(--blue); box-shadow:0 0 6px 1px rgba(217,58,46,.5); }
+
+/* ---------- 15. STATUS GRID — 4 tarjetas de estado de cierre ---------- */
+.status-grid{ flex:1; display:grid; grid-template-columns:repeat(4,1fr); gap:.16in; margin-top:.18in; align-content:center; min-height:0; }
+.status-card{ background:var(--bg-2); border:var(--card-border); border-radius:12px; padding:.2in .17in; position:relative; overflow:hidden; }
+.status-card::before{ content:""; position:absolute; left:0; right:0; top:0; height:3px; }
+.status-card.s-ok::before{ background:var(--status-ok); }
+.status-card.s-clar::before{ background:#C9973A; }
+.status-card.s-warn::before{ background:var(--status-warn); }
+.status-card.s-esc::before{ background:var(--status-esc); }
+.status-card .stag{ font-family:var(--font-label); font-weight:700; font-size:6.6pt; letter-spacing:.14em; text-transform:uppercase; margin-bottom:8px; }
+.status-card.s-ok .stag{ color:var(--status-ok); }
+.status-card.s-clar .stag{ color:#9C7623; }
+.status-card.s-warn .stag{ color:var(--status-warn); }
+.status-card.s-esc .stag{ color:var(--status-esc); }
+.status-card h4{ font-family:var(--font-label); font-weight:700; font-size:9.6pt; color:var(--text-hi); margin-bottom:8px; }
+.status-card p{ font-family:var(--font-body); font-weight:300; font-size:7.6pt; line-height:1.36; color:var(--text-lo); }
+
+/* ---------- 16. EVIDENCE — capturas reales enmarcadas ---------- */
+.evidence-row{ display:grid; gap:.2in; margin-top:.16in; align-items:stretch; flex:1; min-height:0; }
+.evidence-card{ background:var(--bg-2); border:var(--card-border); border-radius:12px; padding:.12in; display:flex; flex-direction:column; box-shadow:0 10px 26px rgba(20,25,35,.08); height:100%; min-height:0; }
+.evidence-card .ecap{ flex:none; font-family:var(--font-label); font-weight:700; font-size:6.6pt; letter-spacing:.12em; text-transform:uppercase; color:var(--cyan); margin-bottom:8px; display:flex; align-items:center; gap:6px; }
+.evidence-card .ecap::before{ content:""; width:6px; height:6px; border-radius:50%; background:var(--dot-confidential); }
+.evidence-card .eimg-wrap{ flex:1; min-height:0; display:flex; align-items:center; justify-content:center; background:var(--bg-1); border-radius:8px; overflow:hidden; }
+.evidence-card img{ max-width:100%; max-height:100%; object-fit:contain; display:block; }
+
+/* ---------- 17. CHAT MOCK — mini conversación de ejemplo ---------- */
+.split-chat{ flex:1; display:grid; grid-template-columns:.86fr 1.14fr; gap:.4in; align-items:center; margin-top:.1in; min-height:0; }
+.split-chat__intro{ display:flex; flex-direction:column; gap:.14in; }
+.pipe-mini{ display:flex; flex-direction:column; gap:.11in; }
+.pipe-mini .pm-item{ display:flex; align-items:flex-start; gap:10px; }
+.pipe-mini .pm-item .n{ flex:none; width:20px; height:20px; border-radius:50%; display:grid; place-items:center; background:var(--grad-brand); color:#fff; font-family:var(--font-label); font-weight:700; font-size:8pt; }
+.pipe-mini .pm-item .tx b{ display:block; font-family:var(--font-label); font-weight:700; font-size:8.6pt; color:var(--text-hi); }
+.pipe-mini .pm-item .tx span{ font-family:var(--font-body); font-weight:300; font-size:7.6pt; color:var(--text-lo); line-height:1.3; }
+.chat-mock{ display:flex; flex-direction:column; background:var(--bg-2); border:var(--card-border); border-radius:16px; padding:.18in .2in; box-shadow:0 14px 34px rgba(20,25,35,.1); }
+.chat-mock__head{ display:flex; align-items:center; gap:8px; padding-bottom:.08in; margin-bottom:.1in; border-bottom:1px solid rgba(20,25,35,.08); }
+.chat-mock__head .av{ flex:none; width:20px; height:20px; border-radius:50%; background:var(--grad-brand); display:grid; place-items:center; font-family:var(--font-label); font-weight:700; font-size:8pt; color:#fff; }
+.chat-mock__head span{ font-family:var(--font-label); font-weight:600; font-size:7pt; letter-spacing:.1em; text-transform:uppercase; color:var(--text-lo); }
+.chat-mock .msgs{ display:flex; flex-direction:column; gap:.08in; }
+.chat-mock .msg{ display:flex; flex-direction:column; max-width:88%; }
+.chat-mock .msg.agente{ align-self:flex-start; align-items:flex-start; }
+.chat-mock .msg.usuario{ align-self:flex-end; align-items:flex-end; }
+.chat-mock .who{ font-family:var(--font-label); font-weight:700; font-size:6.2pt; letter-spacing:.1em; text-transform:uppercase; margin-bottom:2px; }
+.chat-mock .msg.agente .who{ color:var(--cyan); }
+.chat-mock .msg.usuario .who{ color:var(--text-faint); }
+.chat-mock .bubble{ font-family:var(--font-body); font-weight:400; font-size:8pt; line-height:1.34; padding:.08in .13in; border-radius:11px; }
+.chat-mock .msg.agente .bubble{ background:linear-gradient(135deg,rgba(217,58,46,.07),rgba(27,94,51,.07)); border:1px solid rgba(217,58,46,.16); color:var(--text-hi); border-top-left-radius:3px; }
+.chat-mock .msg.usuario .bubble{ background:var(--bg-1); color:var(--text-mid); border-top-right-radius:3px; }
+
+/* ---------- 18. FLUJO FINAL — resumen ejecutivo ---------- */
+.final-decision{ display:flex; align-items:center; justify-content:center; gap:.3in; margin-top:.2in; }
+.final-decision .fd-label{ font-family:var(--font-label); font-weight:700; font-size:9.5pt; color:var(--text-hi); text-align:center; }
+.final-outcomes{ display:grid; grid-template-columns:1fr 1fr; gap:.3in; margin-top:.1in; max-width:7in; margin-left:auto; margin-right:auto; }
+.principle-row{ display:grid; grid-template-columns:repeat(4,1fr); gap:.14in; margin-top:.22in; }
+.principle-chip{ text-align:center; background:var(--bg-2); border:var(--card-border); border-radius:10px; padding:.13in .1in; }
+.principle-chip span{ font-family:var(--font-label); font-weight:700; font-size:7.8pt; color:var(--text-hi); }
+
+/* ---------- 19. CIERRE (patrón Girón) ---------- */
+.cover--close .cover__body{ display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; gap:14px; padding-top:0; max-width:9in; }
+.sol-index{ display:inline-flex; align-items:center; gap:9px; font-family:var(--font-label); font-weight:700; font-size:8pt; letter-spacing:.24em; text-transform:uppercase; color:var(--cyan); }
+.sol-index::before{ content:""; width:6px; height:6px; border-radius:50%; background:var(--dot-confidential); box-shadow:0 0 8px 1px var(--dot-confidential-glow); }
+.close-title{ font-family:var(--font-display); font-weight:800; font-size:27pt; line-height:1.12; color:var(--text-hi); }
+.close-steps{ display:flex; align-items:center; gap:22px; flex-wrap:wrap; justify-content:center; }
+.close-step{ display:flex; align-items:center; gap:9px; font-family:var(--font-body); font-weight:500; font-size:9.2pt; color:var(--text-mid); }
+.cs-n{ flex:none; width:24px; height:24px; border-radius:50%; background:var(--grad-brand); color:#fff; font-family:var(--font-label); font-weight:700; font-size:9.4pt; display:grid; place-items:center; box-shadow:0 3px 8px rgba(217,58,46,.28); }
+.close-statement{ max-width:7.3in; font-family:var(--font-body); font-weight:300; font-size:9.4pt; line-height:1.48; color:var(--text-mid); }
+.close-contact{ display:flex; align-items:center; gap:18px; }
+.close-contact__tx{ text-align:right; }
+.close-contact__tx b{ display:block; font-family:var(--font-label); font-weight:700; font-size:10.4pt; color:var(--text-hi); }
+.close-contact__tx span{ display:block; margin-top:2px; font-family:var(--font-label); font-weight:500; font-size:7.5pt; letter-spacing:.06em; text-transform:uppercase; color:var(--cyan); }
+.close-contact__links{ display:flex; flex-direction:column; gap:2px; padding-left:18px; border-left:1px solid rgba(20,25,35,.16); font-family:var(--font-body); font-weight:500; font-size:8.2pt; color:var(--text-lo); text-align:left; }
+.close-lockup{ margin-top:2px; display:flex; align-items:center; gap:14px; }
+.close-lockup .cover__lockup-camp{ height:22px; }
+.close-lockup .cover__lockup-x{ font-size:14pt; color:var(--text-faint); }
+.close-lockup .cover__lockup-client{ height:40px; }
+
+/* ---------- 20. IMPRESIÓN / EXPORT PDF ---------- */
+@media print{
+  html,body{ width:11in; height:auto; overflow:visible; background:none; background-image:none; padding:0; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  .app-header, .slides-footer-controls{ display:none !important; }
+  .app-content, .slides-viewport{ display:block; height:auto; }
+  .slides-container{ display:block; padding:0; }
+  .slide{
+    display:block !important; position:relative; width:11in; height:6.1875in; zoom:1;
+    opacity:1; transform:none; margin:0 auto; border-radius:0; box-shadow:none;
+    page-break-after:always; break-after:page; overflow:hidden;
+  }
+  .slide:last-child{ page-break-after:auto; break-after:auto; }
+}

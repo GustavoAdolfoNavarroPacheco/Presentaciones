@@ -197,7 +197,9 @@ button{ font-family:var(--font-label); cursor:pointer; }
 .pipe-item .n{ flex:none; width:19px; height:19px; border-radius:50%; display:grid; place-items:center; background:var(--grad-brand); color:#fff; font-family:var(--font-label); font-weight:700; font-size:7.6pt; margin-bottom:6px; }
 .pipe-item h5{ font-family:var(--font-label); font-weight:700; font-size:7.6pt; line-height:1.18; color:var(--text-hi); margin-bottom:3px; }
 .pipe-item p{ font-family:var(--font-body); font-weight:300; font-size:6.5pt; line-height:1.28; color:var(--text-lo); }
-.pipe-row{ display:flex; align-items:stretch; gap:0; margin-top:.16in; }
+.pipe-row{ display:flex; align-items:flex-start; gap:0; margin-top:.16in; }
+.pipe-chain{ display:flex; align-items:center; flex:1; }
+.pipe-chain .pipe-item{ flex:1; }
 .pipe-row .pipe-item{ flex:1; }
 .pipe-arrow{ flex:none; width:16px; display:grid; place-items:center; color:var(--blue); }
 .pipe-arrow svg{ width:11px; height:11px; }

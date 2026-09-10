@@ -130,14 +130,16 @@
               <h2 class="s-title">Identificar <svg class="gt" viewBox="0 0 8768 1083" style="height:1em;"><text x="0" y="1083" fill="url(#gradBrand)" style="font:italic 900 1000px 'Playfair Display',serif;">antes de responder</text></svg></h2>
               <p class="s-lead">Antes de consultar información, el agente debe identificar al cliente por número telefónico.</p>
               <div class="pipe-row">
-                <div class="pipe-item"><span class="n">1</span><h5>Inicio</h5><p>Usuario escribe</p></div>
-                <div class="pipe-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
-                <div class="pipe-item"><span class="n">2</span><h5>Solicitar contacto</h5><p>Por política de Meta</p></div>
-                <div class="pipe-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
-                <div class="pipe-item"><span class="n">3</span><h5>Obtener número</h5><p>Contacto compartido</p></div>
-                <div class="pipe-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
-                <div class="pipe-item"><span class="n">4</span><h5>Validar cliente</h5><p>Buscar en base de datos</p></div>
-                <div class="pipe-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+                <div class="pipe-chain">
+                  <div class="pipe-item"><span class="n">1</span><h5>Inicio</h5><p>Usuario escribe</p></div>
+                  <div class="pipe-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+                  <div class="pipe-item"><span class="n">2</span><h5>Solicitar contacto</h5><p>Por política de Meta</p></div>
+                  <div class="pipe-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+                  <div class="pipe-item"><span class="n">3</span><h5>Obtener número</h5><p>Contacto compartido</p></div>
+                  <div class="pipe-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+                  <div class="pipe-item"><span class="n">4</span><h5>Validar cliente</h5><p>Buscar en base de datos</p></div>
+                  <div class="pipe-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+                </div>
                 <div class="branch-grid">
                   <div class="pipe-diamond" style="grid-column:1; grid-row:1;"><div class="dshape"></div><div class="dtext">¿Existe en la base de clientes?</div></div>
                   <div class="branch-arrow si" style="grid-column:2; grid-row:1;"><span class="branch-lbl si">SÍ</span><svg viewBox="0 0 24 14" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M2 7h18M14 1l6 6-6 6"/></svg></div>

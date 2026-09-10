@@ -138,16 +138,18 @@
                 <div class="pipe-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
                 <div class="pipe-item"><span class="n">4</span><h5>Validar cliente</h5><p>Buscar en base de datos</p></div>
                 <div class="pipe-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
-                <div class="pipe-diamond"><div class="dshape"></div><div class="dtext">¿Existe en la base de clientes?</div></div>
+                <div class="branch-grid">
+                  <div class="pipe-diamond" style="grid-column:1; grid-row:1;"><div class="dshape"></div><div class="dtext">¿Existe en la base de clientes?</div></div>
+                  <div class="branch-arrow si" style="grid-column:2; grid-row:1;"><span class="branch-lbl si">SÍ</span><svg viewBox="0 0 24 14" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M2 7h18M14 1l6 6-6 6"/></svg></div>
+                  <div class="outcome-box ok" style="grid-column:3; grid-row:1;"><span class="ob-tag">Sí</span><h5>Continuar flujo</h5><p>Pasa al flujo conversacional normal.</p></div>
+                  <div class="branch-arrow no" style="grid-row:2;"><svg viewBox="0 0 14 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 2v18M1 14l6 6 6-6"/></svg><span class="branch-lbl no">NO</span></div>
+                  <div class="outcome-box warn" style="grid-column:1 / span 2; grid-row:3;"><span class="ob-tag">No</span><h5>Cliente no encontrado</h5><p>Informar, solicitar registro o derivar.</p></div>
+                </div>
               </div>
-              <div class="outcome-row" style="grid-template-columns:repeat(2,1fr); max-width:6.4in; margin-left:auto;">
-                <div class="outcome-box ok"><span class="ob-tag">SÍ</span><h5>Continuar flujo</h5><p>Pasa al flujo conversacional normal.</p></div>
-                <div class="outcome-box warn"><span class="ob-tag">NO</span><h5>Cliente no encontrado</h5><p>Informar, solicitar registro o derivar.</p></div>
+              <div class="tag-pill-row" style="margin-top:.22in;">
+                <span class="tp c1">Política de Meta</span><span class="tp c2">Validación por número</span><span class="tp c3">Control de acceso</span>
               </div>
-              <div class="channel-note" style="margin-top:.14in; gap:8px; flex-wrap:wrap;">
-                <span class="lbl">Política de Meta</span><span class="lbl">Validación por número</span><span class="lbl">Control de acceso</span>
-              </div>
-              <p style="margin-top:.08in; font-family:var(--font-body); font-weight:300; font-size:7.8pt; color:var(--text-lo);">Este flujo ocurre antes de la consulta funcional del agente.</p>
+              <p style="margin-top:.1in; font-family:var(--font-body); font-weight:300; font-size:7.8pt; color:var(--text-lo); text-align:center;">Este flujo ocurre antes de la consulta funcional del agente.</p>
             </div>
             <footer class="s-footer">
               <span>Campuslands · Exploramos · Despegamos · Conquistamos</span>

@@ -211,9 +211,18 @@ button{ font-family:var(--font-label); cursor:pointer; }
 .pipe-diamond{ flex:none; width:74px; height:74px; margin:0 4px; position:relative; }
 .pipe-diamond .dshape{ position:absolute; inset:0; background:linear-gradient(135deg,#FCEFC8,#F6DFA0); border:1.5px solid #C9973A; transform:rotate(45deg); border-radius:6px; }
 .pipe-diamond .dtext{ position:absolute; inset:0; display:flex; align-items:center; justify-content:center; text-align:center; padding:6px; font-family:var(--font-label); font-weight:700; font-size:6.2pt; line-height:1.14; color:#7A5A12; z-index:2; }
-.branch-lbl{ position:absolute; font-family:var(--font-label); font-weight:800; font-size:7.5pt; letter-spacing:.04em; }
+.branch-lbl{ font-family:var(--font-label); font-weight:800; font-size:7.5pt; letter-spacing:.04em; }
 .branch-lbl.si{ color:var(--violet); }
-.branch-lbl.no{ color:var(--amber); }
+.branch-lbl.no{ color:var(--blue); }
+
+/* Grid de bifurcación Sí/No (diamante -> 2 desenlaces conectados con flechas) */
+.branch-grid{ display:grid; grid-template-columns:74px 44px minmax(1.9in,1fr); grid-template-rows:74px auto auto; align-items:center; row-gap:8px; column-gap:2px; flex:1; margin-left:10px; }
+.branch-arrow{ display:flex; align-items:center; justify-content:center; color:var(--text-faint); }
+.branch-arrow svg{ width:20px; height:20px; }
+.branch-arrow.si{ flex-direction:column; gap:1px; }
+.branch-arrow.si svg{ width:24px; height:14px; }
+.branch-arrow.no{ flex-direction:column; gap:1px; grid-column:1; justify-self:center; }
+.branch-arrow.no svg{ width:14px; height:22px; }
 
 /* ---------- 11. OUTCOME ROW — cajas de resultado bajo el pipe ---------- */
 .outcome-row{ display:grid; gap:.16in; margin-top:.18in; }

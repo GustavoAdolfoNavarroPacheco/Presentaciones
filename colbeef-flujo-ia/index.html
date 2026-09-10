@@ -209,9 +209,15 @@
                 <div class="pipe-item"><span class="n">8</span><h5>Confirmar acción</h5></div>
                 <div class="pipe-item"><span class="n">9</span><h5>Enviar a SIRT</h5></div>
               </div>
-              <div class="split-chat" style="grid-template-columns:1.3fr 1fr; margin-top:.14in;">
-                <div class="channel-note" style="flex-wrap:wrap; gap:8px;">
-                  <span class="lbl">Filtro por propietario</span><span class="lbl">Selección por guía</span><span class="lbl">Validación documental</span><span class="lbl">Notificación automática</span>
+              <div class="split-chat" style="grid-template-columns:1.3fr 1fr; margin-top:.14in; align-items:stretch;">
+                <div style="display:flex; flex-direction:column; gap:.16in; justify-content:center;">
+                  <div class="channel-note" style="flex-wrap:wrap; gap:8px;">
+                    <span class="lbl">Filtro por propietario</span><span class="lbl">Selección por guía</span><span class="lbl">Validación documental</span><span class="lbl">Notificación automática</span>
+                  </div>
+                  <div class="evidence-card" style="flex-direction:row; align-items:center; gap:12px; max-height:1.15in;">
+                    <span class="ecap" style="flex:none; margin-bottom:0; writing-mode:vertical-rl; transform:rotate(180deg);">Datos del nuevo propietario</span>
+                    <div class="eimg-wrap" style="height:100%;"><img src="assets/evidence/flujo2-chat-2.jpg" alt="Solicitud de datos del nuevo propietario"></div>
+                  </div>
                 </div>
                 <div class="chat-mock" style="padding:.12in .16in;">
                   <div class="chat-mock__head"><span class="av">C</span><span>Notificar nuevo propietario</span></div>
@@ -240,8 +246,7 @@
             <div class="s-body">
               <div class="s-eyebrow">Flujo 2 · Cambio de Propietario</div>
               <h2 class="s-title">El flujo <svg class="gt" viewBox="0 0 12682 1083" style="height:1em;"><text x="0" y="1083" fill="url(#gradBrand)" style="font:italic 900 1000px 'Playfair Display',serif;">funcionando en producción</text></svg></h2>
-              <p class="s-lead">Capturas reales de WhatsApp: menú y selección de guía, datos del nuevo propietario y confirmación del cambio.</p>
-              <div class="evidence-row" style="grid-template-columns:1fr 1fr; grid-template-rows:1fr auto;">
+              <div class="evidence-row" style="grid-template-columns:1fr 1fr; margin-top:.12in;">
                 <div class="evidence-card">
                   <span class="ecap">Menú y guías disponibles</span>
                   <div class="eimg-wrap"><img src="assets/evidence/flujo2-chat-1.jpg" alt="Menú principal y guías disponibles"></div>
@@ -249,10 +254,6 @@
                 <div class="evidence-card">
                   <span class="ecap">Cambio de propietario completado</span>
                   <div class="eimg-wrap"><img src="assets/evidence/flujo2-chat-3.jpg" alt="Confirmación del cambio de propietario"></div>
-                </div>
-                <div class="evidence-card" style="grid-column:1 / -1; flex-direction:row; align-items:center; gap:12px; max-height:1.05in;">
-                  <span class="ecap" style="flex:none; margin-bottom:0; writing-mode:vertical-rl; transform:rotate(180deg);">Datos del nuevo propietario</span>
-                  <div class="eimg-wrap" style="height:100%;"><img src="assets/evidence/flujo2-chat-2.jpg" alt="Solicitud de datos del nuevo propietario"></div>
                 </div>
               </div>
             </div>
@@ -274,8 +275,7 @@
             <div class="s-body">
               <div class="s-eyebrow">Flujo 3 · Planillaje</div>
               <h2 class="s-title">Registro de sacrificio <svg class="gt" viewBox="0 0 5453 1083" style="height:1em;"><text x="0" y="1083" fill="url(#gradBrand)" style="font:italic 900 1000px 'Playfair Display',serif;">leído por IA</text></svg></h2>
-              <p class="s-lead">El agente guía el registro de los animales que van para sacrificio, valida la información extraída y la envía a SIRT para dejar trazabilidad del proceso.</p>
-              <div class="pipe" style="grid-template-columns:repeat(9,1fr); margin-top:.12in;">
+              <div class="pipe" style="grid-template-columns:repeat(9,1fr); margin-top:.08in;">
                 <div class="pipe-item"><span class="n">1</span><h5>Inicio</h5></div>
                 <div class="pipe-item"><span class="n">2</span><h5>Planillaje</h5></div>
                 <div class="pipe-item"><span class="n">3</span><h5>Mostrar guías disponibles</h5></div>
@@ -286,14 +286,14 @@
                 <div class="pipe-item"><span class="n">8</span><h5>Enviar a SIRT</h5></div>
                 <div class="pipe-item"><span class="n">9</span><h5>Entregar resultado</h5></div>
               </div>
-              <div class="split-chat" style="grid-template-columns:.62fr 1fr; margin-top:.12in; align-items:stretch;">
+              <div class="split-chat" style="grid-template-columns:.34fr 1.66fr; margin-top:.12in; align-items:stretch;">
                 <div style="display:flex; flex-direction:column; gap:.14in; justify-content:center;">
                   <div class="outcome-box neutral"><span class="ob-tag">Resultado</span><h5>Resultado y comprobante</h5><p>Confirmación automática y envío de PDF.</p></div>
                   <div class="channel-note" style="flex-wrap:wrap; gap:6px;">
                     <span class="lbl">Filtro por guía</span><span class="lbl">Lectura desde imagen</span><span class="lbl">Trazabilidad en SIRT</span>
                   </div>
                 </div>
-                <div class="evidence-card" style="max-height:2.55in;">
+                <div class="evidence-card">
                   <span class="ecap">Captura real · Planillaje leído por IA</span>
                   <div class="eimg-wrap"><img src="assets/evidence/flujo3-chat.png" alt="Planillaje extraído automáticamente por el agente"></div>
                 </div>
@@ -317,8 +317,7 @@
             <div class="s-body">
               <div class="s-eyebrow">Flujo 4 · Despacho de Cava</div>
               <h2 class="s-title">Despacho de cava, <svg class="gt" viewBox="0 0 10244 1083" style="height:1em;"><text x="0" y="1083" fill="url(#gradBrand)" style="font:italic 900 1000px 'Playfair Display',serif;">automático y validado</text></svg></h2>
-              <p class="s-lead">El sistema envía automáticamente el reporte de animales en CAVA, el cliente define los destinos y el agente valida la información antes de registrarla en SIRT.</p>
-              <div class="pipe" style="grid-template-columns:repeat(9,1fr); margin-top:.12in;">
+              <div class="pipe" style="grid-template-columns:repeat(9,1fr); margin-top:.08in;">
                 <div class="pipe-item"><span class="n">1</span><h5>Inicio</h5></div>
                 <div class="pipe-item"><span class="n">2</span><h5>Programar envío</h5></div>
                 <div class="pipe-item"><span class="n">3</span><h5>Enviar plantilla</h5></div>
@@ -329,13 +328,7 @@
                 <div class="pipe-item"><span class="n">8</span><h5>Enviar a SIRT</h5></div>
                 <div class="pipe-item"><span class="n">9</span><h5>Entregar resultado</h5></div>
               </div>
-              <div class="evidence-row" style="grid-template-columns:.62fr 1fr 1fr; margin-top:.14in;">
-                <div style="display:flex; flex-direction:column; gap:.12in; justify-content:center;">
-                  <div class="outcome-box neutral"><span class="ob-tag">Resultado</span><h5>Resultado y registro</h5><p>Confirmación automática y envío a SIRT.</p></div>
-                  <div class="channel-note" style="flex-wrap:wrap; gap:6px;">
-                    <span class="lbl">Horarios configurables</span><span class="lbl">Envío automático</span><span class="lbl">Trazabilidad en SIRT</span>
-                  </div>
-                </div>
+              <div class="evidence-row" style="grid-template-columns:1fr 1fr; margin-top:.12in;">
                 <div class="evidence-card">
                   <span class="ecap">Captura real · Envío por WhatsApp</span>
                   <div class="eimg-wrap"><img src="assets/evidence/flujo4-chat.png" alt="Reporte de CAVA enviado por WhatsApp"></div>
@@ -345,7 +338,10 @@
                   <div class="eimg-wrap"><img src="assets/evidence/flujo4-reporte-pdf.png" alt="Reporte de animales en CAVA listos para despacho"></div>
                 </div>
               </div>
-              <p style="margin-top:.08in; font-family:var(--font-body); font-weight:300; font-size:7.8pt; color:var(--text-lo);">Este flujo aplica cuando el propietario despacha desde CAVA los animales listos para salida.</p>
+              <div class="channel-note" style="margin-top:.1in; flex-wrap:wrap; gap:6px;">
+                <span class="lbl">Horarios configurables</span><span class="lbl">Envío automático</span><span class="lbl">Trazabilidad en SIRT</span>
+                <p style="margin-left:8px;">Este flujo aplica cuando el propietario despacha desde CAVA los animales listos para salida.</p>
+              </div>
             </div>
             <footer class="s-footer">
               <span>Campuslands · Exploramos · Despegamos · Conquistamos</span>
@@ -473,24 +469,23 @@
             <div class="s-body">
               <div class="s-eyebrow">05 · Contingencia cuando SIRT no está disponible</div>
               <h2 class="s-title">La conversación continúa, <svg class="gt" viewBox="0 0 9443 1083" style="height:1em;"><text x="0" y="1083" fill="url(#gradBrand)" style="font:italic 900 1000px 'Playfair Display',serif;">de forma controlada</text></svg></h2>
-              <p class="s-lead">La conversación continúa de forma controlada sin presentar datos no verificables.</p>
-              <div class="pipe-row">
-                <div class="pipe-item active"><span class="n">1</span><h5>Detectar falla</h5></div>
-                <div class="pipe-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
-                <div class="pipe-item"><span class="n">2</span><h5>Informar al usuario</h5></div>
-                <div class="pipe-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
-                <div class="pipe-item"><span class="n">3</span><h5>Registrar incidente</h5></div>
-                <div class="pipe-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
-                <div class="pipe-item"><span class="n">4</span><h5>Notificar responsables</h5></div>
-                <div class="pipe-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
-                <div class="pipe-item"><span class="n">5</span><h5>Cerrar / reintentar</h5></div>
+              <div class="step-track">
+                <div class="st-item active"><span class="dot">1</span><span class="lb">Detectar falla</span></div>
+                <div class="st-line"></div>
+                <div class="st-item"><span class="dot">2</span><span class="lb">Informar al usuario</span></div>
+                <div class="st-line"></div>
+                <div class="st-item"><span class="dot">3</span><span class="lb">Registrar incidente</span></div>
+                <div class="st-line"></div>
+                <div class="st-item"><span class="dot">4</span><span class="lb">Notificar responsables</span></div>
+                <div class="st-line"></div>
+                <div class="st-item"><span class="dot">5</span><span class="lb">Cerrar / reintentar</span></div>
               </div>
-              <div class="split-chat" style="grid-template-columns:1fr 1fr;">
-                <div class="panel active"><span class="p-tag">Mensaje al Usuario</span><h5>Respuesta segura</h5>
-                  <p style="font-family:var(--font-display); font-style:italic; font-size:10pt; color:var(--text-hi); line-height:1.4;">"En este momento no puedo validar la información porque el servicio externo no está disponible. La incidencia fue registrada."</p>
-                  <p style="margin-top:8px;">El texto final se ajusta al tono aprobado por COLBEEF.</p>
+              <div class="split-chat" style="grid-template-columns:1fr 1fr; margin-top:.2in;">
+                <div class="panel active" style="padding:.4in .38in;"><span class="p-tag">Mensaje al Usuario</span><h5 style="font-size:12pt; margin-bottom:14px;">Respuesta segura</h5>
+                  <p style="font-family:var(--font-display); font-style:italic; font-size:14.5pt; color:var(--text-hi); line-height:1.5;">"En este momento no puedo validar la información porque el servicio externo no está disponible. La incidencia fue registrada."</p>
+                  <p style="margin-top:16px; font-size:9.5pt;">El texto final se ajusta al tono aprobado por COLBEEF.</p>
                 </div>
-                <div class="outcome-box neutral" style="display:flex; flex-direction:column; justify-content:center;"><span class="ob-tag">Recuperación</span><h5>Vuelta a la ruta normal</h5><p>Al restablecerse SIRT, el agente vuelve a la ruta normal automáticamente.</p></div>
+                <div class="outcome-box neutral" style="display:flex; flex-direction:column; justify-content:center; padding:.4in .38in;"><span class="ob-tag" style="font-size:8pt;">Recuperación</span><h5 style="font-size:13pt; margin-bottom:12px;">Vuelta a la ruta normal</h5><p style="font-size:10pt; line-height:1.5;">Al restablecerse SIRT, el agente vuelve a la ruta normal automáticamente — sin intervención manual y sin perder el contexto de la conversación.</p></div>
               </div>
             </div>
             <footer class="s-footer">
@@ -511,23 +506,22 @@
             <div class="s-body">
               <div class="s-eyebrow">05 · Contingencia cuando SIRT no está disponible</div>
               <h2 class="s-title">Cada falla, <svg class="gt" viewBox="0 0 9548 1083" style="height:1em;"><text x="0" y="1083" fill="url(#gradBrand)" style="font:italic 900 1000px 'Playfair Display',serif;">registrada y trazable</text></svg></h2>
-              <p class="s-lead">La conversación continúa de forma controlada sin presentar datos no verificables.</p>
-              <div class="pipe-row">
-                <div class="pipe-item"><span class="n">1</span><h5>Detectar falla</h5></div>
-                <div class="pipe-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
-                <div class="pipe-item"><span class="n">2</span><h5>Informar al usuario</h5></div>
-                <div class="pipe-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
-                <div class="pipe-item active"><span class="n">3</span><h5>Registrar incidente</h5></div>
-                <div class="pipe-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
-                <div class="pipe-item"><span class="n">4</span><h5>Notificar responsables</h5></div>
-                <div class="pipe-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
-                <div class="pipe-item"><span class="n">5</span><h5>Cerrar / reintentar</h5></div>
+              <div class="step-track">
+                <div class="st-item"><span class="dot">1</span><span class="lb">Detectar falla</span></div>
+                <div class="st-line"></div>
+                <div class="st-item"><span class="dot">2</span><span class="lb">Informar al usuario</span></div>
+                <div class="st-line"></div>
+                <div class="st-item active"><span class="dot">3</span><span class="lb">Registrar incidente</span></div>
+                <div class="st-line"></div>
+                <div class="st-item"><span class="dot">4</span><span class="lb">Notificar responsables</span></div>
+                <div class="st-line"></div>
+                <div class="st-item"><span class="dot">5</span><span class="lb">Cerrar / reintentar</span></div>
               </div>
-              <div class="split-chat" style="grid-template-columns:.8fr 1.2fr;">
-                <div class="panel active"><span class="p-tag">Observabilidad</span><h5>Registro técnico</h5>
+              <div class="split-chat" style="grid-template-columns:.5fr 1.5fr; margin-top:.16in; align-items:stretch;">
+                <div class="panel active" style="display:flex; flex-direction:column; justify-content:center;"><span class="p-tag">Observabilidad</span><h5>Registro técnico</h5>
                   <p>Guardar fecha/hora, endpoint, tipo de error, correlación de la conversación y estado de recuperación para diagnóstico.</p>
                 </div>
-                <div class="evidence-card" style="max-height:1.7in;">
+                <div class="evidence-card">
                   <span class="ecap">Captura real · Tabla de incidentes SIRT</span>
                   <div class="eimg-wrap"><img src="assets/evidence/sirt-incidentes-tabla.jpg" alt="Tabla de incidentes de SIRT en base de datos"></div>
                 </div>
@@ -551,23 +545,22 @@
             <div class="s-body">
               <div class="s-eyebrow">05 · Contingencia cuando SIRT no está disponible</div>
               <h2 class="s-title">Alertas configuradas, <svg class="gt" viewBox="0 0 10121 1083" style="height:1em;"><text x="0" y="1083" fill="url(#gradBrand)" style="font:italic 900 1000px 'Playfair Display',serif;">sin depender de nadie</text></svg></h2>
-              <p class="s-lead">La conversación continúa de forma controlada sin presentar datos no verificables.</p>
-              <div class="pipe-row">
-                <div class="pipe-item"><span class="n">1</span><h5>Detectar falla</h5></div>
-                <div class="pipe-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
-                <div class="pipe-item"><span class="n">2</span><h5>Informar al usuario</h5></div>
-                <div class="pipe-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
-                <div class="pipe-item"><span class="n">3</span><h5>Registrar incidente</h5></div>
-                <div class="pipe-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
-                <div class="pipe-item active"><span class="n">4</span><h5>Notificar responsables</h5></div>
-                <div class="pipe-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
-                <div class="pipe-item"><span class="n">5</span><h5>Cerrar / reintentar</h5></div>
+              <div class="step-track">
+                <div class="st-item"><span class="dot">1</span><span class="lb">Detectar falla</span></div>
+                <div class="st-line"></div>
+                <div class="st-item"><span class="dot">2</span><span class="lb">Informar al usuario</span></div>
+                <div class="st-line"></div>
+                <div class="st-item"><span class="dot">3</span><span class="lb">Registrar incidente</span></div>
+                <div class="st-line"></div>
+                <div class="st-item active"><span class="dot">4</span><span class="lb">Notificar responsables</span></div>
+                <div class="st-line"></div>
+                <div class="st-item"><span class="dot">5</span><span class="lb">Cerrar / reintentar</span></div>
               </div>
-              <div class="split-chat" style="grid-template-columns:.8fr 1.2fr;">
-                <div class="panel active"><span class="p-tag">Notificación</span><h5>Alertas configuradas</h5>
+              <div class="split-chat" style="grid-template-columns:.5fr 1.5fr; margin-top:.16in; align-items:stretch;">
+                <div class="panel active" style="display:flex; flex-direction:column; justify-content:center;"><span class="p-tag">Notificación</span><h5>Alertas configuradas</h5>
                   <p>Enviar notificación a los correos y números de teléfono definidos para incidentes de conexión con SIRT.</p>
                 </div>
-                <div class="evidence-card" style="max-height:1.7in;">
+                <div class="evidence-card">
                   <span class="ecap">Captura real · Alerta de caída del servicio</span>
                   <div class="eimg-wrap"><img src="assets/evidence/sirt-caida-email.jpg" alt="Correo de alerta: SIRT API caída"></div>
                 </div>
@@ -591,28 +584,27 @@
             <div class="s-body">
               <div class="s-eyebrow">05 · Contingencia cuando SIRT no está disponible</div>
               <h2 class="s-title">La recuperación <svg class="gt" viewBox="0 0 8709 1083" style="height:1em;"><text x="0" y="1083" fill="url(#gradBrand)" style="font:italic 900 1000px 'Playfair Display',serif;">también se notifica</text></svg></h2>
-              <p class="s-lead">La conversación continúa de forma controlada sin presentar datos no verificables.</p>
-              <div class="pipe-row">
-                <div class="pipe-item"><span class="n">1</span><h5>Detectar falla</h5></div>
-                <div class="pipe-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
-                <div class="pipe-item"><span class="n">2</span><h5>Informar al usuario</h5></div>
-                <div class="pipe-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
-                <div class="pipe-item"><span class="n">3</span><h5>Registrar incidente</h5></div>
-                <div class="pipe-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
-                <div class="pipe-item active-ok"><span class="n">4</span><h5>Notificar responsables</h5></div>
-                <div class="pipe-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
-                <div class="pipe-item active-ok"><span class="n">5</span><h5>Cerrar / reintentar</h5></div>
+              <div class="step-track">
+                <div class="st-item"><span class="dot">1</span><span class="lb">Detectar falla</span></div>
+                <div class="st-line"></div>
+                <div class="st-item"><span class="dot">2</span><span class="lb">Informar al usuario</span></div>
+                <div class="st-line"></div>
+                <div class="st-item"><span class="dot">3</span><span class="lb">Registrar incidente</span></div>
+                <div class="st-line"></div>
+                <div class="st-item active-ok"><span class="dot">4</span><span class="lb">Notificar responsables</span></div>
+                <div class="st-line"></div>
+                <div class="st-item active-ok"><span class="dot">5</span><span class="lb">Cerrar / reintentar</span></div>
               </div>
-              <div class="split-chat" style="grid-template-columns:.8fr 1.2fr;">
-                <div class="panel active"><span class="p-tag">Notificación</span><h5>Alertas configuradas</h5>
+              <div class="split-chat" style="grid-template-columns:.5fr 1.5fr; margin-top:.14in; align-items:stretch;">
+                <div class="panel active" style="display:flex; flex-direction:column; justify-content:center;"><span class="p-tag">Notificación</span><h5>Alertas configuradas</h5>
                   <p>Enviar notificación a los correos y números de teléfono definidos para incidentes de conexión con SIRT.</p>
                 </div>
-                <div class="evidence-card" style="max-height:1.7in;">
+                <div class="evidence-card">
                   <span class="ecap">Captura real · Alerta de servicio restablecido</span>
                   <div class="eimg-wrap"><img src="assets/evidence/sirt-recuperada-email.jpg" alt="Correo de alerta: SIRT API recuperada"></div>
                 </div>
               </div>
-              <div class="callout-strip" style="margin-top:.1in; background:linear-gradient(120deg,rgba(46,139,79,.12),rgba(46,139,79,.04)); border-color:rgba(46,139,79,.28);">
+              <div class="callout-strip" style="margin-top:.08in; background:linear-gradient(120deg,rgba(46,139,79,.12),rgba(46,139,79,.04)); border-color:rgba(46,139,79,.28);">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--violet);"><path d="M20 6 9 17l-5-5"/></svg>
                 <p>Recuperación: al restablecerse SIRT, el agente vuelve a la ruta normal.</p>
               </div>

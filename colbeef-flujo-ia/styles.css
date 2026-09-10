@@ -291,6 +291,17 @@ button{ font-family:var(--font-label); cursor:pointer; }
 .status-card h4{ font-family:var(--font-label); font-weight:700; font-size:9.6pt; color:var(--text-hi); margin-bottom:8px; }
 .status-card p{ font-family:var(--font-body); font-weight:300; font-size:7.6pt; line-height:1.36; color:var(--text-lo); }
 
+/* ---------- 15b. STEP TRACK — rastreador compacto de pasos (libera alto para evidencia) ---------- */
+.step-track{ display:flex; align-items:center; margin-top:.1in; padding:.08in .16in; background:var(--bg-2); border:var(--card-border); border-radius:99px; }
+.step-track .st-item{ display:flex; align-items:center; gap:7px; flex:none; }
+.step-track .st-item .dot{ flex:none; width:21px; height:21px; border-radius:50%; background:rgba(20,25,35,.08); color:var(--text-lo); font-family:var(--font-label); font-weight:700; font-size:7.6pt; display:grid; place-items:center; transition:all .2s ease; }
+.step-track .st-item .lb{ font-family:var(--font-label); font-weight:600; font-size:7.4pt; color:var(--text-lo); white-space:nowrap; }
+.step-track .st-item.active .dot{ background:var(--grad-brand); color:#fff; box-shadow:0 0 0 3px rgba(217,58,46,.16); }
+.step-track .st-item.active .lb{ color:var(--text-hi); font-weight:700; }
+.step-track .st-item.active-ok .dot{ background:var(--grad-violet); color:#fff; box-shadow:0 0 0 3px rgba(46,139,79,.16); }
+.step-track .st-item.active-ok .lb{ color:var(--text-hi); font-weight:700; }
+.step-track .st-line{ flex:1; height:1px; background:rgba(20,25,35,.16); margin:0 10px; }
+
 /* ---------- 16. EVIDENCE — capturas reales enmarcadas ---------- */
 .evidence-row{ display:grid; gap:.2in; margin-top:.16in; align-items:stretch; flex:1; min-height:0; }
 .evidence-card{ background:var(--bg-2); border:var(--card-border); border-radius:12px; padding:.12in; display:flex; flex-direction:column; box-shadow:0 10px 26px rgba(20,25,35,.08); height:100%; min-height:0; }

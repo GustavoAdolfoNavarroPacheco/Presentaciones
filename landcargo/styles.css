@@ -277,9 +277,10 @@ button{ font-family:var(--font-label); cursor:pointer; }
 
 /* ---------- 13c. LAYOUT: Flow-columns (pasos verticales numerados y conectados) ---------- */
 .flow-columns{ width:100%; flex:1; display:grid; grid-template-columns:1fr 34px 1fr; align-items:stretch; min-height:0; margin-top:.1in; }
-.flow-col{ display:flex; flex-direction:column; justify-content:center; }
-.flow-col__head{ font-family:var(--font-label); font-weight:700; font-size:10.6pt; color:var(--cyan); margin-bottom:16px; }
-.flow-connector{ display:flex; align-items:center; justify-content:center; align-self:flex-start; height:30px; margin-top:1px; }
+.flow-col{ display:flex; flex-direction:column; min-height:0; }
+.flow-col__head{ flex:none; font-family:var(--font-label); font-weight:700; font-size:10.6pt; color:var(--cyan); height:33px; display:flex; align-items:center; }
+.flow-col__steps{ flex:1; min-height:0; display:flex; flex-direction:column; justify-content:center; }
+.flow-connector{ display:flex; align-items:center; justify-content:center; align-self:flex-start; height:33px; }
 .flow-connector__spacer{ display:none; }
 .flow-connector__icon{ display:flex; align-items:center; justify-content:center; color:var(--blue); }
 .flow-connector__icon svg{ width:19px; height:19px; }
@@ -296,6 +297,15 @@ button{ font-family:var(--font-label); cursor:pointer; }
 .flow-col--solo .flow-step .n{ width:20px; height:20px; font-size:7.8pt; }
 .flow-col--solo .flow-step .tx b{ font-size:7.8pt; margin-bottom:2px; }
 .flow-col--solo .flow-step .tx span{ font-size:6.9pt; }
+.flow-step--danger .n{ background:linear-gradient(120deg,#E0786A,var(--magenta)); box-shadow:0 3px 7px rgba(199,86,66,.3); }
+.flow-step--muted .n{ background:linear-gradient(120deg,#9AA1AD,var(--magenta)); box-shadow:0 3px 7px rgba(69,75,87,.25); font-weight:400; }
+
+.merge-split--trio .flow-col--solo{ padding:2px 4px 0; }
+.merge-split--trio .flow-col--solo .flow-step{ padding-bottom:14px; }
+.merge-split--trio .flow-col--solo .flow-step .n{ width:21px; height:21px; font-size:8pt; }
+.merge-split--trio .flow-col--solo .flow-step::before{ left:10.5px; top:25px; }
+.merge-split--trio .flow-col--solo .flow-step .tx b{ font-size:8pt; }
+.merge-split--trio .flow-col--solo .flow-step .tx span{ font-size:7.1pt; }
 
 /* ---------- 13d. LAYOUT: Merge-item con ícono (variante de merge-list) ---------- */
 .merge-item--ic{ display:flex; align-items:center; gap:11px; padding:10px 14px; }
@@ -313,7 +323,7 @@ button{ font-family:var(--font-label); cursor:pointer; }
 .merge-item--warn .ic{ background:linear-gradient(120deg,#E0786A,var(--magenta)); }
 
 /* ---------- 13e. LAYOUT: Split asimétrico (panel de marca + grid) ---------- */
-.split-asym{ width:100%; flex:1; display:grid; grid-template-columns:.82fr 2.18fr; gap:0; min-height:0; margin-top:.14in; }
+.split-asym{ width:100%; flex:1; display:grid; grid-template-columns:.82fr 2.18fr; gap:0; min-height:0; margin:.14in 0 .26in; }
 .split-asym__side{ position:relative; background:linear-gradient(165deg, rgba(59,120,223,.10), rgba(69,75,87,.07)); border:var(--card-border); border-right:none; border-radius:14px 0 0 14px; padding:.19in .2in; display:flex; flex-direction:column; min-height:0; overflow:hidden; }
 .split-asym__side .ic-lg{ flex:none; width:29px; height:29px; border-radius:9px; background:var(--grad-brand); display:flex; align-items:center; justify-content:center; color:#fff; box-shadow:0 5px 12px rgba(0,71,160,.28); }
 .split-asym__side .ic-lg svg{ width:15px; height:15px; }
@@ -322,14 +332,14 @@ button{ font-family:var(--font-label); cursor:pointer; }
 .split-asym__side .flow-col{ margin-top:8px; justify-content:flex-start; }
 .split-asym__side .flow-step .n{ width:18px; height:18px; font-size:7.2pt; }
 .split-asym__side .flow-step::before{ left:8px; }
-.split-asym__main{ background:var(--bg-2); border:var(--card-border); border-radius:0 14px 14px 0; padding:.22in .24in; display:flex; flex-direction:column; justify-content:center; }
-.split-asym__main .icon-grid-label{ margin-top:0; }
-.split-asym__main .icon-grid{ gap:14px; }
-.split-asym__main .icon-card{ padding:17px 17px 16px; gap:10px; }
-.split-asym__main .icon-card .ic{ width:32px; height:32px; }
-.split-asym__main .icon-card .ic svg{ width:17px; height:17px; }
-.split-asym__main .icon-card b{ font-size:9.2pt; }
-.split-asym__main .icon-card span{ font-size:8pt; }
+.split-asym__main{ background:var(--bg-2); border:var(--card-border); border-radius:0 14px 14px 0; padding:.19in .22in; display:flex; flex-direction:column; justify-content:center; min-height:0; overflow:hidden; }
+.split-asym__main .icon-grid-label{ margin-top:0; margin-bottom:.07in; }
+.split-asym__main .icon-grid{ gap:11px; }
+.split-asym__main .icon-card{ padding:12px 13px 11px; gap:7px; }
+.split-asym__main .icon-card .ic{ width:27px; height:27px; }
+.split-asym__main .icon-card .ic svg{ width:14px; height:14px; }
+.split-asym__main .icon-card b{ font-size:8.4pt; }
+.split-asym__main .icon-card span{ font-size:7.3pt; }
 
 /* ---------- 13f. DINAMISMO: animaciones de entrada por ítem (se repiten al reactivar la lámina) ---------- */
 @keyframes itemFadeUp{ from{ opacity:0; transform:translateY(13px); } to{ opacity:1; transform:translateY(0); } }

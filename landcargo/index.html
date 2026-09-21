@@ -216,20 +216,24 @@
               <div class="flow-columns">
                 <div class="flow-col">
                   <div class="flow-col__head">Cumplidos</div>
-                  <div class="flow-step"><span class="n">1</span><div class="tx"><b>Registro de cumplido</b><span>Valida tiquete de cargue y descargue del manifiesto/remesa.</span></div></div>
-                  <div class="flow-step"><span class="n">2</span><div class="tx"><b>Validación de pesos y tarifas</b><span>Tipo de peso, tarifa de flete/tabla/facturación/pago y tolerancia de faltante.</span></div></div>
-                  <div class="flow-step"><span class="n">3</span><div class="tx"><b>Cálculo de retención FOPAC</b><span>Automático sobre el cumplido, conforme a la normativa vigente.</span></div></div>
-                  <div class="flow-step"><span class="n">4</span><div class="tx"><b>Tiempos logísticos al RNDC</b><span>Reportados en el mismo flujo de cumplimiento.</span></div></div>
-                  <div class="flow-step"><span class="n">5</span><div class="tx"><b>Auditoría de novedades</b><span>Anulaciones y ajustes con trazabilidad de usuario y fecha.</span></div></div>
+                  <div class="flow-col__steps">
+                    <div class="flow-step"><span class="n">1</span><div class="tx"><b>Registro de cumplido</b><span>Valida tiquete de cargue y descargue del manifiesto/remesa.</span></div></div>
+                    <div class="flow-step"><span class="n">2</span><div class="tx"><b>Validación de pesos y tarifas</b><span>Tipo de peso, tarifa de flete/tabla y tolerancia de faltante.</span></div></div>
+                    <div class="flow-step"><span class="n">3</span><div class="tx"><b>Cálculo de retención FOPAC</b><span>Automático sobre el cumplido, conforme a la normativa vigente.</span></div></div>
+                    <div class="flow-step"><span class="n">4</span><div class="tx"><b>Tiempos logísticos al RNDC</b><span>Reportados en el mismo flujo de cumplimiento.</span></div></div>
+                    <div class="flow-step"><span class="n">5</span><div class="tx"><b>Auditoría de novedades</b><span>Anulaciones y ajustes con trazabilidad de usuario y fecha.</span></div></div>
+                  </div>
                 </div>
                 <div class="flow-connector"><span class="flow-connector__spacer"></span><span class="flow-connector__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
                 <div class="flow-col">
                   <div class="flow-col__head">Liquidaciones</div>
-                  <div class="flow-step"><span class="n">1</span><div class="tx"><b>Liquidación parametrizable</b><span>Sin plantilla fija — trae el manifiesto o cumplido a liquidar.</span></div></div>
-                  <div class="flow-step"><span class="n">2</span><div class="tx"><b>Descuentos autorizados por ley</b><span>Solo los que permite la normativa vigente.</span></div></div>
-                  <div class="flow-step"><span class="n">3</span><div class="tx"><b>Comprobantes por tipo de cuenta</b><span>Clasificados, no como saldo genérico.</span></div></div>
-                  <div class="flow-step"><span class="n">4</span><div class="tx"><b>Egreso consolidado multi-cuenta</b><span>Soporte final integrado para envío a pago.</span></div></div>
-                  <div class="flow-step"><span class="n">5</span><div class="tx"><b>Envío automático por correo</b><span>Liquidación definitiva al transportador, sin cuentas personales.</span></div></div>
+                  <div class="flow-col__steps">
+                    <div class="flow-step"><span class="n">1</span><div class="tx"><b>Liquidación parametrizable</b><span>Sin plantilla fija — trae el manifiesto o cumplido a liquidar.</span></div></div>
+                    <div class="flow-step"><span class="n">2</span><div class="tx"><b>Descuentos autorizados por ley</b><span>Solo los que permite la normativa vigente.</span></div></div>
+                    <div class="flow-step"><span class="n">3</span><div class="tx"><b>Comprobantes por tipo de cuenta</b><span>Clasificados, no como saldo genérico.</span></div></div>
+                    <div class="flow-step"><span class="n">4</span><div class="tx"><b>Egreso consolidado multi-cuenta</b><span>Soporte final integrado para envío a pago.</span></div></div>
+                    <div class="flow-step"><span class="n">5</span><div class="tx"><b>Envío automático por correo</b><span>Liquidación definitiva al transportador, sin cuentas personales.</span></div></div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -391,20 +395,20 @@
               <div class="merge-split merge-split--trio">
                 <div class="merge-half">
                   <div class="merge-half__head"><span class="merge-half__title">Riesgos Identificados</span></div>
-                  <div class="merge-list">
-                    <div class="merge-item merge-item--ic merge-item--warn"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l9 16H3z"/><path d="M12 9.5v4"/><circle cx="12" cy="16.5" r=".3" fill="currentColor" stroke="none"/></svg></span><span class="txwrap"><b>Desconexión TMS↔GPS</b><span>Pérdida o retraso de tiempos logísticos por cortes temporales.</span></span></div>
-                    <div class="merge-item merge-item--ic merge-item--warn"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l9 16H3z"/><path d="M12 9.5v4"/><circle cx="12" cy="16.5" r=".3" fill="currentColor" stroke="none"/></svg></span><span class="txwrap"><b>Dependencia regulatoria</b><span>Prescindir de ControlT exigiría habilitación propia.</span></span></div>
-                    <div class="merge-item merge-item--ic merge-item--warn"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l9 16H3z"/><path d="M12 9.5v4"/><circle cx="12" cy="16.5" r=".3" fill="currentColor" stroke="none"/></svg></span><span class="txwrap"><b>Migración de datos históricos</b><span>Dispersos en hojas de cálculo y en TrazApp/SYSCOM.</span></span></div>
-                    <div class="merge-item merge-item--ic merge-item--warn"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l9 16H3z"/><path d="M12 9.5v4"/><circle cx="12" cy="16.5" r=".3" fill="currentColor" stroke="none"/></svg></span><span class="txwrap"><b>Crecimiento de despachadores</b><span>Aumenta el volumen de solicitudes de terceros.</span></span></div>
+                  <div class="flow-col flow-col--solo">
+                    <div class="flow-step flow-step--danger"><span class="n">!</span><div class="tx"><b>Desconexión TMS↔GPS</b><span>Pérdida o retraso de tiempos logísticos por cortes temporales.</span></div></div>
+                    <div class="flow-step flow-step--danger"><span class="n">!</span><div class="tx"><b>Dependencia regulatoria</b><span>Prescindir de ControlT exigiría habilitación propia.</span></div></div>
+                    <div class="flow-step flow-step--danger"><span class="n">!</span><div class="tx"><b>Migración de datos históricos</b><span>Dispersos en hojas de cálculo y en TrazApp/SYSCOM.</span></div></div>
+                    <div class="flow-step flow-step--danger"><span class="n">!</span><div class="tx"><b>Crecimiento de despachadores</b><span>Aumenta el volumen de solicitudes de terceros.</span></div></div>
                   </div>
                 </div>
                 <div class="merge-half">
                   <div class="merge-half__head"><span class="merge-half__title">Fuera de Alcance (Esta Toma)</span></div>
-                  <div class="merge-list">
-                    <div class="merge-item"><b>Módulo Comercial/CRM detallado</b><span>Sesión dedicada pendiente de agendar con el área.</span></div>
-                    <div class="merge-item"><b>Bodegas e inventarios 4PL</b><span>Necesidad futura, sin proceso relevado en esta sesión.</span></div>
-                    <div class="merge-item"><b>Integración técnica detallada</b><span>Contratos de API con RNDC, RUN y la plataforma GPS.</span></div>
-                    <div class="merge-item"><b>Validación de nombres de sistemas</b><span>Nombres/campos (p. ej. TrazApp/SYSCOM) pendientes de confirmación oficial.</span></div>
+                  <div class="flow-col flow-col--solo">
+                    <div class="flow-step flow-step--muted"><span class="n">×</span><div class="tx"><b>Módulo Comercial/CRM detallado</b><span>Sesión dedicada pendiente de agendar con el área.</span></div></div>
+                    <div class="flow-step flow-step--muted"><span class="n">×</span><div class="tx"><b>Bodegas e inventarios 4PL</b><span>Necesidad futura, sin proceso relevado en esta sesión.</span></div></div>
+                    <div class="flow-step flow-step--muted"><span class="n">×</span><div class="tx"><b>Integración técnica detallada</b><span>Contratos de API con RNDC, RUN y la plataforma GPS.</span></div></div>
+                    <div class="flow-step flow-step--muted"><span class="n">×</span><div class="tx"><b>Validación de nombres de sistemas</b><span>Nombres/campos (p. ej. TrazApp/SYSCOM) pendientes de confirmación oficial.</span></div></div>
                   </div>
                 </div>
                 <div class="merge-half">

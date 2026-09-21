@@ -261,8 +261,109 @@ button{ font-family:var(--font-label); cursor:pointer; }
 .cover__lockup-x{ font-family:var(--font-display); font-weight:400; font-style:italic; font-size:15pt; color:var(--text-faint); line-height:1; }
 .cover__lockup-client{ height:34px; width:auto; }
 
+/* ---------- 13b. LAYOUT: Icon-grid (grid de tarjetas con ícono) ---------- */
+.icon-grid-label{ font-family:var(--font-label); font-weight:700; font-size:8.2pt; letter-spacing:.18em; text-transform:uppercase; color:var(--cyan); margin:.17in 0 .09in; }
+.icon-grid-label:first-child{ margin-top:.02in; }
+.icon-grid{ width:100%; display:grid; gap:10px; }
+.icon-grid--4{ grid-template-columns:repeat(4,1fr); }
+.icon-grid--5{ grid-template-columns:repeat(5,1fr); }
+.icon-grid--3{ grid-template-columns:repeat(3,1fr); }
+.icon-card{ position:relative; background:var(--bg-2); border:var(--card-border); border-radius:12px; padding:13px 13px 12px; display:flex; flex-direction:column; gap:8px; overflow:hidden; }
+.icon-card::before{ content:""; position:absolute; left:0; top:0; height:3px; width:100%; background:var(--grad-brand); }
+.icon-card .ic{ flex:none; width:28px; height:28px; border-radius:8px; background:var(--grad-brand); display:flex; align-items:center; justify-content:center; color:#fff; box-shadow:0 3px 8px rgba(0,71,160,.22); }
+.icon-card .ic svg{ width:15px; height:15px; }
+.icon-card b{ font-family:var(--font-label); font-weight:700; font-size:8.1pt; line-height:1.24; color:var(--text-hi); }
+.icon-card span{ font-family:var(--font-body); font-weight:300; font-size:7.1pt; line-height:1.34; color:var(--text-lo); }
+
+/* ---------- 13c. LAYOUT: Flow-columns (pasos verticales numerados y conectados) ---------- */
+.flow-columns{ width:100%; flex:1; display:grid; grid-template-columns:1fr 34px 1fr; align-items:stretch; min-height:0; margin-top:.1in; }
+.flow-col{ display:flex; flex-direction:column; justify-content:center; }
+.flow-col__head{ font-family:var(--font-label); font-weight:700; font-size:10.6pt; color:var(--cyan); margin-bottom:16px; }
+.flow-connector{ display:flex; align-items:center; justify-content:center; align-self:flex-start; height:30px; margin-top:1px; }
+.flow-connector__spacer{ display:none; }
+.flow-connector__icon{ display:flex; align-items:center; justify-content:center; color:var(--blue); }
+.flow-connector__icon svg{ width:19px; height:19px; }
+.flow-step{ position:relative; display:flex; gap:13px; padding-bottom:20px; }
+.flow-step:last-child{ padding-bottom:0; }
+.flow-step::before{ content:""; position:absolute; left:13px; top:29px; bottom:-4px; width:1.5px; background:rgba(20,25,35,.14); }
+.flow-step:last-child::before{ display:none; }
+.flow-step .n{ position:relative; z-index:1; flex:none; width:27px; height:27px; border-radius:50%; background:var(--grad-brand); color:#fff; font-family:var(--font-label); font-weight:700; font-size:10pt; display:grid; place-items:center; box-shadow:0 3px 7px rgba(0,71,160,.25); }
+.flow-step .tx{ padding-top:3px; }
+.flow-step .tx b{ display:block; font-family:var(--font-label); font-weight:700; font-size:9.6pt; color:var(--text-hi); margin-bottom:3px; }
+.flow-step .tx span{ font-family:var(--font-body); font-weight:300; font-size:8.4pt; line-height:1.36; color:var(--text-lo); }
+.flow-col--solo .flow-step{ gap:10px; padding-bottom:12px; }
+.flow-col--solo .flow-step::before{ left:10px; top:24px; }
+.flow-col--solo .flow-step .n{ width:20px; height:20px; font-size:7.8pt; }
+.flow-col--solo .flow-step .tx b{ font-size:7.8pt; margin-bottom:2px; }
+.flow-col--solo .flow-step .tx span{ font-size:6.9pt; }
+
+/* ---------- 13d. LAYOUT: Merge-item con ícono (variante de merge-list) ---------- */
+.merge-item--ic{ display:flex; align-items:center; gap:11px; padding:10px 14px; }
+.merge-item--ic::before{ display:none; }
+.merge-item--ic .ic{ flex:none; width:25px; height:25px; border-radius:8px; background:var(--grad-brand); color:#fff; display:flex; align-items:center; justify-content:center; }
+.merge-item--ic .ic svg{ width:14px; height:14px; }
+.merge-item--ic .txwrap{ flex:1; line-height:1.34; }
+.merge-item--ic .txwrap b{ display:block; font-family:var(--font-label); font-weight:700; font-size:8.4pt; color:var(--text-hi); }
+.merge-item--ic .txwrap span{ display:block; font-family:var(--font-body); font-weight:400; font-size:7.4pt; color:var(--text-mid); margin-left:0; }
+.merge-split--trio .merge-item--ic{ padding:9px 12px; gap:9px; }
+.merge-split--trio .merge-item--ic .ic{ width:22px; height:22px; }
+.merge-split--trio .merge-item--ic .ic svg{ width:12px; height:12px; }
+.merge-split--trio .merge-item--ic .txwrap b{ font-size:7.6pt; }
+.merge-split--trio .merge-item--ic .txwrap span{ font-size:6.8pt; }
+.merge-item--warn .ic{ background:linear-gradient(120deg,#E0786A,var(--magenta)); }
+
+/* ---------- 13e. LAYOUT: Split asimétrico (panel de marca + grid) ---------- */
+.split-asym{ width:100%; flex:1; display:grid; grid-template-columns:.82fr 2.18fr; gap:0; min-height:0; margin-top:.14in; }
+.split-asym__side{ position:relative; background:linear-gradient(165deg, rgba(59,120,223,.10), rgba(69,75,87,.07)); border:var(--card-border); border-right:none; border-radius:14px 0 0 14px; padding:.19in .2in; display:flex; flex-direction:column; min-height:0; overflow:hidden; }
+.split-asym__side .ic-lg{ flex:none; width:29px; height:29px; border-radius:9px; background:var(--grad-brand); display:flex; align-items:center; justify-content:center; color:#fff; box-shadow:0 5px 12px rgba(0,71,160,.28); }
+.split-asym__side .ic-lg svg{ width:15px; height:15px; }
+.split-asym__side h4{ margin-top:8px; font-family:var(--font-label); font-weight:700; font-size:11pt; color:var(--text-hi); line-height:1.2; }
+.split-asym__side p{ margin-top:4px; font-family:var(--font-body); font-weight:300; font-size:7.3pt; line-height:1.32; color:var(--text-mid); }
+.split-asym__side .flow-col{ margin-top:8px; justify-content:flex-start; }
+.split-asym__side .flow-step .n{ width:18px; height:18px; font-size:7.2pt; }
+.split-asym__side .flow-step::before{ left:8px; }
+.split-asym__main{ background:var(--bg-2); border:var(--card-border); border-radius:0 14px 14px 0; padding:.22in .24in; display:flex; flex-direction:column; justify-content:center; }
+.split-asym__main .icon-grid-label{ margin-top:0; }
+.split-asym__main .icon-grid{ gap:14px; }
+.split-asym__main .icon-card{ padding:17px 17px 16px; gap:10px; }
+.split-asym__main .icon-card .ic{ width:32px; height:32px; }
+.split-asym__main .icon-card .ic svg{ width:17px; height:17px; }
+.split-asym__main .icon-card b{ font-size:9.2pt; }
+.split-asym__main .icon-card span{ font-size:8pt; }
+
+/* ---------- 13f. DINAMISMO: animaciones de entrada por ítem (se repiten al reactivar la lámina) ---------- */
+@keyframes itemFadeUp{ from{ opacity:0; transform:translateY(13px); } to{ opacity:1; transform:translateY(0); } }
+@keyframes headFadeUp{ from{ opacity:0; transform:translateY(9px); } to{ opacity:1; transform:translateY(0); } }
+.slide.active .s-eyebrow{ animation:headFadeUp .45s ease both; }
+.slide.active .s-title{ animation:headFadeUp .5s ease both .06s; }
+.slide.active .s-lead{ animation:headFadeUp .5s ease both .12s; }
+.slide.active .merge-item,
+.slide.active .icon-card,
+.slide.active .pipe-item,
+.slide.active .flow-step{ animation:itemFadeUp .48s cubic-bezier(.22,.75,.28,1) both; }
+.slide.active .merge-list .merge-item:nth-child(1),.slide.active .icon-grid .icon-card:nth-child(1),.slide.active .pipe-chain .pipe-item:nth-child(1),.slide.active .flow-col .flow-step:nth-child(1){ animation-delay:.10s; }
+.slide.active .merge-list .merge-item:nth-child(2),.slide.active .icon-grid .icon-card:nth-child(2),.slide.active .pipe-chain .pipe-item:nth-child(2),.slide.active .flow-col .flow-step:nth-child(2){ animation-delay:.16s; }
+.slide.active .merge-list .merge-item:nth-child(3),.slide.active .icon-grid .icon-card:nth-child(3),.slide.active .pipe-chain .pipe-item:nth-child(3),.slide.active .flow-col .flow-step:nth-child(3){ animation-delay:.22s; }
+.slide.active .merge-list .merge-item:nth-child(4),.slide.active .icon-grid .icon-card:nth-child(4),.slide.active .pipe-chain .pipe-item:nth-child(4),.slide.active .flow-col .flow-step:nth-child(4){ animation-delay:.28s; }
+.slide.active .merge-list .merge-item:nth-child(5),.slide.active .icon-grid .icon-card:nth-child(5),.slide.active .pipe-chain .pipe-item:nth-child(5),.slide.active .flow-col .flow-step:nth-child(5){ animation-delay:.34s; }
+.slide.active .merge-list .merge-item:nth-child(6),.slide.active .pipe-chain .pipe-item:nth-child(6){ animation-delay:.40s; }
+.slide.active .pipe-chain .pipe-item:nth-child(7){ animation-delay:.46s; }
+.slide.active .pipe-chain .pipe-item:nth-child(8){ animation-delay:.52s; }
+.slide.active .pipe-chain .pipe-item:nth-child(9){ animation-delay:.58s; }
+.slide.active .pipe-chain .pipe-item:nth-child(10){ animation-delay:.64s; }
+.slide.active .side-note{ animation:itemFadeUp .5s ease both .5s; }
+.slide.active .split-asym__side{ animation:itemFadeUp .5s ease both .1s; }
+.slide.active .split-asym__main .icon-card:nth-child(2){ animation-delay:.18s; }
+.slide.active .split-asym__main .icon-card:nth-child(3){ animation-delay:.24s; }
+.slide.active .split-asym__main .icon-card:nth-child(4){ animation-delay:.30s; }
+.slide.active .flow-connector svg{ animation:itemFadeUp .5s ease both .3s; }
+
+.merge-item, .icon-card, .flow-step .tx, .pipe-item{ transition:transform .25s ease, box-shadow .25s ease; }
+.merge-item:hover, .icon-card:hover{ transform:translateY(-2px); box-shadow:0 10px 20px rgba(15,25,45,.10); }
+
 /* ---------- 13. IMPRESIÓN / EXPORT PDF ---------- */
 @media print{
+  *{ animation:none !important; transition:none !important; }
   html,body{ width:11in; height:auto; overflow:visible; background:none; background-image:none; padding:0; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
   .app-header, .slides-footer-controls{ display:none !important; }
   .app-content, .slides-viewport{ display:block; height:auto; }

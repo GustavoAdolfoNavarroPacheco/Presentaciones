@@ -225,8 +225,8 @@ button{ font-family:var(--font-label); cursor:pointer; }
 .merge-split--trio .merge-item span{ font-size:6.6pt; }
 
 /* ---------- 12. LAYOUT: Taxonomía normativa (tiers jerárquicos) ---------- */
-.tier-wrap{ flex:none; display:flex; flex-direction:column; margin-top:.12in; gap:6px; }
-.tier-row{ position:relative; display:grid; grid-template-columns:1.5in 1.55in 1fr; align-items:center; gap:14px; background:var(--bg-2); border:var(--card-border); border-radius:9px; padding:8px 14px; }
+.tier-wrap{ flex:none; display:flex; flex-direction:column; margin-top:.1in; gap:5px; }
+.tier-row{ position:relative; display:grid; grid-template-columns:1.5in 1.55in 1fr; align-items:center; gap:14px; background:var(--bg-2); border:var(--card-border); border-radius:9px; padding:6px 14px; }
 .tier-row::before{ content:""; position:absolute; left:0; top:0; bottom:0; width:4px; background:var(--grad-brand); }
 .tier-row .tn{ display:flex; align-items:center; gap:9px; }
 .tier-row .tn .lv{ flex:none; width:19px; height:19px; border-radius:50%; background:var(--grad-brand); color:#fff; font-family:var(--font-label); font-weight:700; font-size:7.6pt; display:grid; place-items:center; }
@@ -245,6 +245,8 @@ button{ font-family:var(--font-label); cursor:pointer; }
 .kpi-grid--4{ grid-template-columns:repeat(4,1fr); }
 .kpi-grid--4 .kv{ font-size:15pt; }
 .kpi-grid--stat .kv{ font-family:var(--font-display); }
+.kpi-grid--auto{ flex:none; }
+.kpi-grid--auto .kpi-card{ padding:.15in .18in; }
 
 /* ---------- 14. LAYOUT: Split genérico (texto + panel) ---------- */
 .about{ flex:1; display:grid; grid-template-columns:1.18fr .82fr; gap:.5in; align-items:center; margin-top:.16in; }

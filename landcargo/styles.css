@@ -1,0 +1,276 @@
+/* ============================================================
+   CAMPUSLANDS FULL SERVICE — SISTEMA DE DISEÑO v2 (Premium)
+   Presentación: Land Cargo S.A.S. — Sistema TMS + ERP a la Medida
+   Paleta derivada del logo (muestreo de píxeles):
+   periwinkle → azul corporativo → azul marino profundo → gris pizarra del wordmark
+   ============================================================ */
+
+/* ---------- 1. FUENTES LOCALES ---------- */
+@font-face { font-family:'Playfair Display'; src:url('assets/fonts/PlayfairDisplay-Bold.ttf')        format('truetype'); font-weight:700; font-style:normal; font-display:swap; }
+@font-face { font-family:'Playfair Display'; src:url('assets/fonts/PlayfairDisplay-Black.ttf')       format('truetype'); font-weight:900; font-style:normal; font-display:swap; }
+@font-face { font-family:'Playfair Display'; src:url('assets/fonts/PlayfairDisplay-Italic.ttf')      format('truetype'); font-weight:400; font-style:italic; font-display:swap; }
+@font-face { font-family:'Playfair Display'; src:url('assets/fonts/PlayfairDisplay-BlackItalic.ttf') format('truetype'); font-weight:900; font-style:italic; font-display:swap; }
+@font-face { font-family:'Montserrat';       src:url('assets/fonts/Montserrat-Medium.ttf')           format('truetype'); font-weight:500; font-style:normal; font-display:swap; }
+@font-face { font-family:'Montserrat';       src:url('assets/fonts/Montserrat-SemiBold.ttf')         format('truetype'); font-weight:600; font-style:normal; font-display:swap; }
+@font-face { font-family:'Montserrat';       src:url('assets/fonts/Montserrat-Bold.ttf')             format('truetype'); font-weight:700; font-style:normal; font-display:swap; }
+@font-face { font-family:'Poppins';          src:url('assets/fonts/Poppins-Light.ttf')               format('truetype'); font-weight:300; font-style:normal; font-display:swap; }
+@font-face { font-family:'Poppins';          src:url('assets/fonts/Poppins-Regular.ttf')             format('truetype'); font-weight:400; font-style:normal; font-display:swap; }
+@font-face { font-family:'Poppins';          src:url('assets/fonts/Poppins-Medium.ttf')              format('truetype'); font-weight:500; font-style:normal; font-display:swap; }
+@font-face { font-family:'Poppins';          src:url('assets/fonts/Poppins-SemiBold.ttf')            format('truetype'); font-weight:600; font-style:normal; font-display:swap; }
+
+/* ---------- 2. TOKENS — Land Cargo (fondo gris claro frío + wash de marca) ---------- */
+:root{
+  --bg-0:#F2F3F5; --bg-1:#E9EBEF; --bg-2:#FFFFFF; --bg-deep:#E2E4E9;
+  --bg-glow-a:rgba(59,120,223,.09); --bg-glow-b:rgba(0,71,160,.09);
+  --bg-wash:linear-gradient(135deg, rgba(127,174,234,.07) 0%, rgba(59,120,223,.06) 32%, rgba(0,71,160,.05) 66%, rgba(69,75,87,.07) 100%);
+  --text-hi:#14161B; --text-mid:#3D4451; --text-lo:#6B7280; --text-faint:#9CA3AF;
+  --cyan:#0B3D75; --blue:#0047A0; --violet:#3B78DF; --magenta:#454B57; --amber:#B4650C; --lime:#2F8F3E;
+  --grad-brand:linear-gradient(100deg,#7FAEEA 0%,#3B78DF 34%,#0047A0 66%,#454B57 100%);
+  --grad-cyan:linear-gradient(120deg,#7FAEEA,#3B78DF);
+  --grad-violet:linear-gradient(120deg,#0047A0,#454B57);
+  --card-border:1px solid rgba(20,25,35,.10);
+  --dot-confidential:#B4650C; --dot-confidential-glow:rgba(180,101,12,.45);
+  --font-display:'Playfair Display',Georgia,serif;
+  --font-serif-alt:'DM Serif Display',Georgia,serif;
+  --font-label:'Montserrat','Segoe UI',sans-serif;
+  --font-body:'Poppins','Segoe UI',sans-serif;
+  --slide-w:11in; --slide-h:6.1875in; --pad:0.72in; --radius:14px;
+  --header-h:68px; --footer-h:68px;
+}
+
+/* ---------- 3. RESET ---------- */
+*{ box-sizing:border-box; margin:0; padding:0; }
+@page{ size:11in 6.1875in; margin:0; }
+html{ height:100%; }
+body{
+  height:100vh; overflow:hidden; background:var(--bg-0); color:var(--text-hi);
+  font-family:var(--font-body); -webkit-font-smoothing:antialiased;
+  display:flex; flex-direction:column;
+  background-image:
+    radial-gradient(120% 90% at 82% 0%, var(--bg-glow-a) 0%, transparent 45%),
+    radial-gradient(120% 90% at 8% 100%, var(--bg-glow-b) 0%, transparent 50%),
+    var(--bg-wash);
+  background-attachment:fixed;
+}
+button{ font-family:var(--font-label); cursor:pointer; }
+
+/* ---------- 4. SHELL — Barra superior ---------- */
+.app-header{
+  flex:none; height:var(--header-h); padding:0 34px;
+  display:flex; align-items:center; justify-content:space-between;
+  background:rgba(255,255,255,.86); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(20,25,35,.10); position:relative; z-index:50;
+}
+.header-left{ display:flex; align-items:center; gap:16px; }
+.header-left img{ height:24px; width:auto; display:block; object-fit:contain; }
+.header-left img.logo-client{ height:30px; }
+.logo-divider{ width:1px; height:26px; background:rgba(20,25,35,.14); }
+.header-center{ display:flex; align-items:center; }
+.header-right{ display:flex; align-items:center; }
+
+.badge-confidential{
+  display:inline-flex; align-items:center; gap:8px; font-family:var(--font-label); font-weight:700;
+  font-size:10px; letter-spacing:.18em; text-transform:uppercase; color:var(--dot-confidential);
+  background:color-mix(in srgb, var(--dot-confidential) 10%, transparent);
+  border:1px solid color-mix(in srgb, var(--dot-confidential) 28%, transparent);
+  border-radius:99px; padding:7px 16px;
+}
+.badge-confidential::before{ content:""; width:7px; height:7px; border-radius:50%; background:var(--dot-confidential); box-shadow:0 0 8px 1px var(--dot-confidential-glow); }
+
+.cover-badge-confidential{ display:inline-flex; align-items:center; gap:9px; font-family:var(--font-label); font-weight:600; font-size:8.5pt; letter-spacing:.26em; text-transform:uppercase; color:var(--text-mid); }
+.cover-badge-confidential::before{ content:""; width:8px; height:8px; border-radius:50%; background:var(--dot-confidential); box-shadow:0 0 10px 1px var(--dot-confidential-glow); }
+
+/* ---------- 5. SHELL — Viewport de láminas ---------- */
+.app-content{ flex:1; min-height:0; display:flex; }
+.slides-viewport{ flex:1; display:flex; }
+.slides-container{ flex:1; position:relative; display:flex; align-items:center; justify-content:center; padding:22px 40px; min-width:0; }
+
+.slide{
+  position:absolute; width:1056px; height:594px; zoom:var(--slide-scale,1);
+  display:none; opacity:0; transform:translateY(16px);
+  transition:opacity .45s ease, transform .45s ease;
+  border-radius:var(--radius); overflow:hidden; box-shadow:0 20px 60px rgba(0,0,0,.22);
+}
+.slide.active{ display:block; opacity:1; transform:translateY(0); }
+
+.slide-inner{
+  width:100%; height:100%; overflow:hidden; position:relative;
+  color:var(--text-hi);
+  background:
+    radial-gradient(120% 90% at 82% 18%, var(--bg-glow-a) 0%, transparent 45%),
+    radial-gradient(120% 120% at 12% 92%, var(--bg-glow-b) 0%, transparent 50%),
+    var(--bg-wash),
+    linear-gradient(150deg, var(--bg-0) 0%, var(--bg-1) 55%, var(--bg-deep) 100%);
+}
+.slide-inner.glow-a{ background:
+  radial-gradient(90% 80% at 15% 20%, var(--bg-glow-a) 0%, transparent 45%),
+  radial-gradient(110% 110% at 95% 95%, var(--bg-glow-b) 0%, transparent 50%),
+  var(--bg-wash),
+  linear-gradient(160deg,var(--bg-0),var(--bg-1) 60%,var(--bg-deep)); }
+.slide-inner.glow-b{ background:
+  radial-gradient(80% 70% at 88% 15%, var(--bg-glow-b) 0%, transparent 50%),
+  radial-gradient(120% 120% at 8% 90%, var(--bg-glow-a) 0%, transparent 50%),
+  var(--bg-wash),
+  linear-gradient(140deg,var(--bg-0),var(--bg-1) 60%,var(--bg-deep)); }
+
+/* ---------- 6. SHELL — Barra inferior ---------- */
+.slides-footer-controls{
+  flex:none; height:var(--footer-h); padding:0 34px;
+  display:flex; align-items:center; justify-content:space-between;
+  background:rgba(255,255,255,.86); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px);
+  border-top:1px solid rgba(20,25,35,.10); position:relative; z-index:50;
+}
+.control-btn{ background:none; border:1px solid rgba(20,25,35,.14); color:var(--text-hi); width:42px; height:42px; border-radius:50%; display:flex; align-items:center; justify-content:center; transition:all .25s ease; }
+.control-btn:hover{ background:var(--blue); border-color:var(--blue); color:#fff; box-shadow:0 4px 12px rgba(20,25,35,.18); }
+.control-btn.mini{ width:34px; height:34px; }
+.control-btn.active{ background:var(--grad-brand); border-color:transparent; color:#fff; }
+
+.slide-indicator{ display:flex; align-items:center; gap:18px; flex:1; max-width:520px; margin:0 26px; }
+#slide-number-display{ font-family:var(--font-label); font-weight:600; font-size:12.5px; color:var(--text-mid); min-width:44px; text-align:right; }
+.progress-bar-bg{ flex:1; height:6px; background:rgba(20,25,35,.07); border-radius:3px; overflow:hidden; }
+.progress-bar-fill{ height:100%; width:10%; background:var(--grad-brand); transition:width .3s ease; }
+.playback-controls{ display:flex; align-items:center; }
+
+/* ---------- 7. UTILIDADES ---------- */
+.gt{ display:inline-block; overflow:visible; vertical-align:baseline; }
+.eyebrow{ font-family:var(--font-label); font-weight:600; font-size:9.5pt; letter-spacing:.34em; text-transform:uppercase; color:var(--cyan); }
+
+.corner{ position:absolute; width:42px; height:42px; border-color:rgba(0,71,160,.4); z-index:4; }
+.corner.tl{ top:26px; left:26px; border-top:2px solid; border-left:2px solid; border-top-left-radius:4px; }
+.corner.tr{ top:26px; right:26px; border-top:2px solid; border-right:2px solid; border-top-right-radius:4px; }
+.corner.bl{ bottom:26px; left:26px; border-bottom:2px solid; border-left:2px solid; border-bottom-left-radius:4px; }
+.corner.br{ bottom:26px; right:26px; border-bottom:2px solid; border-right:2px solid; border-bottom-right-radius:4px; }
+
+.deco-rings{ position:absolute; top:50%; right:-7%; transform:translateY(-50%); width:5.2in; height:5.2in; z-index:1; pointer-events:none; }
+.deco-rings span{ position:absolute; inset:0; border-radius:50%; border:1px solid rgba(20,25,35,.07); }
+.deco-rings span:nth-child(2){ inset:.7in; border-color:rgba(20,25,35,.055); }
+.deco-rings span:nth-child(3){ inset:1.4in; border-color:rgba(20,25,35,.04); }
+.deco-rings span:nth-child(4){ inset:1.95in; border:1px solid rgba(0,71,160,.2); box-shadow:0 0 40px rgba(0,71,160,.12) inset; }
+
+/* ---------- 8. PORTADA ---------- */
+.cover{ display:grid; grid-template-rows:auto 1fr auto; padding:var(--pad); }
+.cover__topbar{ display:flex; align-items:center; justify-content:space-between; position:relative; z-index:5; }
+.cover__brand{ height:26px; width:auto; opacity:.96; }
+.cover__body{ position:relative; z-index:5; align-self:center; max-width:8.5in; }
+.cover__eyebrow{ margin-bottom:20px; }
+.cover__scenario{ display:inline-flex; align-items:center; gap:9px; font-family:var(--font-label); font-weight:700; font-size:9.5pt; letter-spacing:.22em; text-transform:uppercase; color:#fff; background:var(--grad-brand); padding:7px 16px; border-radius:99px; margin-bottom:18px; }
+.cover__title{ font-family:var(--font-display); font-weight:900; font-size:36pt; line-height:1.12; letter-spacing:-.5px; color:var(--text-hi); }
+.cover__title em{ display:inline; font-style:italic; font-weight:900; }
+.cover__kicker{ margin-top:18px; font-family:var(--font-body); font-weight:300; font-size:12pt; line-height:1.45; color:var(--text-mid); max-width:7.6in; }
+.cover__client{ display:flex; align-items:center; gap:16px; margin-top:26px; }
+.cover__client-para{ font-family:var(--font-label); font-weight:700; font-size:11pt; letter-spacing:.32em; color:var(--text-mid); }
+.cover__client-logo{ height:46px; width:auto; }
+.cover__meta{ position:relative; z-index:5; display:grid; grid-template-columns:1.6fr 1.6fr 1fr 1fr; gap:26px; padding-top:22px; border-top:1px solid rgba(20,25,35,.12); }
+.meta-item__label{ font-family:var(--font-label); font-weight:600; font-size:7.5pt; letter-spacing:.22em; text-transform:uppercase; color:var(--cyan); margin-bottom:8px; }
+.meta-item__value{ font-family:var(--font-body); font-weight:500; font-size:10.5pt; line-height:1.35; color:var(--text-hi); }
+
+/* ---------- 9. LÁMINAS INTERNAS: estructura ---------- */
+.internal{ display:grid; grid-template-rows:38px 1fr 20px; padding:.46in .66in .4in; gap:.16in; }
+.s-header{ display:flex; align-items:center; justify-content:space-between; position:relative; z-index:5; }
+.s-header .brand{ height:20px; width:auto; opacity:.95; }
+.s-header .client{ height:32px; width:auto; opacity:.98; }
+.s-footer{ display:flex; align-items:center; justify-content:space-between; position:relative; z-index:5; font-family:var(--font-label); font-weight:500; font-size:6.5pt; letter-spacing:.18em; text-transform:uppercase; color:var(--text-faint); }
+.s-footer .pg{ color:var(--cyan); font-weight:700; }
+.s-body{ position:relative; z-index:5; display:flex; flex-direction:column; min-height:0; }
+
+.s-eyebrow{ font-family:var(--font-label); font-weight:600; font-size:9pt; letter-spacing:.28em; text-transform:uppercase; color:var(--cyan); margin-bottom:8px; }
+.s-title{ font-family:var(--font-display); font-weight:700; font-size:22pt; line-height:1.14; color:var(--text-hi); }
+.s-title em{ font-style:italic; font-weight:900; }
+.s-lead{ margin-top:8px; font-family:var(--font-body); font-weight:300; font-size:10.2pt; line-height:1.42; color:var(--text-mid); max-width:8.9in; }
+
+/* ---------- 10. LAYOUT: Pipeline horizontal (Flujo Operativo) ---------- */
+.pipe-row{ display:flex; align-items:stretch; gap:0; margin-top:.18in; }
+.pipe-chain{ display:flex; align-items:stretch; flex:1; }
+.pipe-item{ flex:1; background:var(--bg-2); border:var(--card-border); border-radius:10px; padding:.13in .1in; position:relative; overflow:hidden; display:flex; flex-direction:column; }
+.pipe-item::before{ content:""; position:absolute; left:0; top:0; height:3px; width:100%; background:var(--grad-brand); }
+.pipe-item .n{ flex:none; width:18px; height:18px; border-radius:50%; display:grid; place-items:center; background:var(--grad-brand); color:#fff; font-family:var(--font-label); font-weight:700; font-size:7.4pt; margin-bottom:6px; }
+.pipe-item h5{ font-family:var(--font-label); font-weight:700; font-size:7.4pt; line-height:1.2; color:var(--text-hi); margin-bottom:3px; }
+.pipe-item p{ font-family:var(--font-body); font-weight:300; font-size:6.3pt; line-height:1.28; color:var(--text-lo); }
+.pipe-arrow{ flex:none; width:14px; display:grid; place-items:center; color:var(--blue); }
+.pipe-arrow svg{ width:10px; height:10px; }
+
+.side-note{ margin-top:.2in; background:linear-gradient(120deg,rgba(59,120,223,.09),rgba(69,75,87,.06)); border:var(--card-border); border-radius:12px; padding:.17in .26in; display:flex; align-items:flex-start; gap:18px; }
+.side-note .lbl{ flex:none; width:1.5in; font-family:var(--font-label); font-weight:700; font-size:8pt; letter-spacing:.16em; text-transform:uppercase; color:var(--cyan); padding-top:2px; }
+.scope-list{ flex:1; display:grid; grid-template-columns:1fr 1fr; gap:5px 22px; list-style:none; }
+.scope-list li{ display:flex; align-items:flex-start; gap:8px; font-family:var(--font-body); font-weight:300; font-size:8.1pt; line-height:1.32; color:var(--text-mid); }
+.scope-list li::before{ content:"—"; flex:none; color:var(--violet); font-weight:600; }
+
+/* ---------- 11. LAYOUT: Merge-split (pares de módulos funcionales) ---------- */
+.merge-split{ flex:1; display:grid; grid-template-columns:1fr 1fr; gap:0; min-height:0; margin-top:.16in; }
+.merge-half{ display:flex; flex-direction:column; min-height:0; padding:0 .34in; }
+.merge-half:first-child{ padding-left:0; border-right:1px solid rgba(20,25,35,.13); }
+.merge-half:last-child{ padding-right:0; }
+.merge-half__head{ display:flex; align-items:baseline; justify-content:space-between; gap:10px; margin-bottom:5px; }
+.merge-half__title{ font-family:var(--font-label); font-weight:700; font-size:11.5pt; color:var(--cyan); line-height:1.22; }
+.merge-half__price{ flex:none; font-family:var(--font-display); font-weight:800; font-size:11pt; color:var(--text-hi); white-space:nowrap; }
+.merge-half__lead{ font-family:var(--font-body); font-weight:400; font-size:7.8pt; line-height:1.34; color:var(--text-lo); margin-bottom:8px; }
+.merge-list{ display:flex; flex-direction:column; gap:5px; flex:1; justify-content:center; }
+.merge-item{ position:relative; background:var(--bg-2); border:var(--card-border); border-radius:7px; padding:5px 10px 5px 12px; overflow:hidden; line-height:1.3; }
+.merge-item::before{ content:""; position:absolute; left:0; top:0; bottom:0; width:3px; background:var(--grad-brand); }
+.merge-item b{ font-family:var(--font-label); font-weight:700; font-size:7.7pt; color:var(--text-hi); }
+.merge-item span{ font-family:var(--font-body); font-weight:400; font-size:6.9pt; color:var(--text-mid); margin-left:3px; }
+
+.merge-half--roomy .merge-list{ gap:12px; }
+.merge-half--roomy .merge-item{ padding:10px 15px 10px 18px; border-radius:10px; }
+.merge-half--roomy .merge-item::before{ width:4px; }
+.merge-half--roomy .merge-item b{ font-size:9.2pt; margin-bottom:3px; }
+.merge-half--roomy .merge-item span{ font-size:8.2pt; }
+
+.merge-split--trio{ grid-template-columns:1fr 1fr 1fr; }
+.merge-split--trio .merge-half{ padding:0 .24in; }
+.merge-split--trio .merge-half:first-child{ padding-left:0; }
+.merge-split--trio .merge-half:not(:last-child){ border-right:1px solid rgba(20,25,35,.13); }
+.merge-split--trio .merge-half:last-child{ padding-right:0; border-right:none; }
+.merge-split--trio .merge-half__title{ font-size:9.6pt; }
+.merge-split--trio .merge-item b{ font-size:7.3pt; }
+.merge-split--trio .merge-item span{ font-size:6.6pt; }
+
+/* ---------- 12. LAYOUT: Cierre / CTA ---------- */
+.cta{ flex:1; display:grid; grid-template-columns:1.15fr .85fr; gap:.55in; align-items:center; margin-top:.2in; }
+.steps{ display:flex; flex-direction:column; gap:.22in; }
+.step{ display:flex; align-items:center; gap:18px; }
+.step .dot{ flex:none; width:40px; height:40px; border-radius:50%; display:grid; place-items:center; font-family:var(--font-display); font-weight:900; font-size:15pt; color:#fff; background:var(--grad-brand); }
+.step .lab b{ font-family:var(--font-label); font-weight:700; font-size:12.6pt; color:var(--text-hi); display:block; margin-bottom:2px; }
+.step .lab span{ font-family:var(--font-body); font-weight:300; font-size:10pt; line-height:1.35; color:var(--text-lo); }
+.step .cn{ width:2px; height:14px; margin-left:19px; background:linear-gradient(var(--blue),transparent); }
+.contact-card{ position:relative; background:var(--bg-2); border:var(--card-border); border-radius:16px; padding:.4in .38in; overflow:hidden; }
+.contact-card::before{ content:""; position:absolute; left:0; top:0; bottom:0; width:5px; background:var(--grad-brand); }
+.contact-card .role{ font-family:var(--font-label); font-weight:600; font-size:8.5pt; letter-spacing:.2em; text-transform:uppercase; color:var(--cyan); margin-bottom:11px; }
+.contact-card .name{ font-family:var(--font-display); font-weight:700; font-size:21pt; color:var(--text-hi); line-height:1.1; margin-bottom:4px; }
+.contact-card .title{ font-family:var(--font-body); font-weight:400; font-size:9.6pt; color:var(--text-lo); margin-bottom:16px; }
+.contact-card .row{ display:flex; align-items:center; gap:12px; margin-top:11px; font-family:var(--font-body); font-weight:400; font-size:10.6pt; color:var(--text-mid); }
+.contact-card .row svg{ width:16px; height:16px; color:var(--cyan); flex:none; }
+
+/* ---------- 12b. LAYOUT: Cierre y Contacto (portada centrada) ---------- */
+.cover--close .cover__body{ display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; gap:15px; padding-top:0; }
+.close-badge{ display:inline-flex; align-items:center; gap:8px; font-family:var(--font-label); font-weight:700; font-size:8pt; letter-spacing:.24em; text-transform:uppercase; color:var(--cyan); }
+.close-badge::before{ content:""; width:6px; height:6px; border-radius:50%; background:var(--dot-confidential); box-shadow:0 0 8px 1px var(--dot-confidential-glow); }
+.close-title{ font-family:var(--font-display); font-weight:800; font-size:27pt; line-height:1.12; color:var(--text-hi); }
+.close-title em{ font-style:italic; font-weight:900; }
+.close-steps{ display:flex; align-items:center; gap:24px; flex-wrap:wrap; justify-content:center; }
+.close-step{ display:flex; align-items:center; gap:9px; font-family:var(--font-body); font-weight:500; font-size:9.4pt; color:var(--text-mid); }
+.cs-n{ flex:none; width:25px; height:25px; border-radius:50%; background:var(--grad-brand); color:#fff; font-family:var(--font-label); font-weight:700; font-size:9.6pt; display:grid; place-items:center; box-shadow:0 3px 8px rgba(0,71,160,.28); }
+.close-statement{ max-width:7.4in; font-family:var(--font-body); font-weight:300; font-size:9.6pt; line-height:1.5; color:var(--text-mid); }
+.close-contact{ display:flex; align-items:center; gap:18px; }
+.close-contact__tx{ text-align:right; }
+.close-contact__tx b{ display:block; font-family:var(--font-label); font-weight:700; font-size:10.5pt; color:var(--text-hi); }
+.close-contact__tx span{ display:block; margin-top:2px; font-family:var(--font-label); font-weight:500; font-size:7.6pt; letter-spacing:.06em; text-transform:uppercase; color:var(--cyan); }
+.close-contact__links{ display:flex; flex-direction:column; gap:2px; padding-left:18px; border-left:1px solid rgba(20,25,35,.16); font-family:var(--font-body); font-weight:500; font-size:8.3pt; color:var(--text-lo); text-align:left; }
+.cover__lockup{ display:flex; align-items:center; gap:14px; margin-top:2px; }
+.cover__lockup-camp{ height:24px; width:auto; }
+.cover__lockup-x{ font-family:var(--font-display); font-weight:400; font-style:italic; font-size:15pt; color:var(--text-faint); line-height:1; }
+.cover__lockup-client{ height:34px; width:auto; }
+
+/* ---------- 13. IMPRESIÓN / EXPORT PDF ---------- */
+@media print{
+  html,body{ width:11in; height:auto; overflow:visible; background:none; background-image:none; padding:0; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  .app-header, .slides-footer-controls{ display:none !important; }
+  .app-content, .slides-viewport{ display:block; height:auto; }
+  .slides-container{ display:block; padding:0; }
+  .slide{
+    display:block !important; position:relative; width:11in; height:6.1875in; zoom:1;
+    opacity:1; transform:none; margin:0 auto; border-radius:0; box-shadow:none;
+    page-break-after:always; break-after:page; overflow:hidden;
+  }
+  .slide:last-child{ page-break-after:auto; break-after:auto; }
+}

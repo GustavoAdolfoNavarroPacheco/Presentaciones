@@ -240,8 +240,7 @@ button{ font-family:var(--font-label); cursor:pointer; }
 
 /* ---------- 14. LAYOUT: Métrica de inversión (hero centrado + chips de alcance) ---------- */
 .price-hero{ flex:1; display:flex; flex-direction:column; justify-content:center; gap:.3in; min-height:0; }
-.price-hero__card{ position:relative; background:var(--bg-2); border:var(--card-border); border-radius:20px; padding:.32in .5in; text-align:center; overflow:hidden; }
-.price-hero__card::before{ content:""; position:absolute; left:0; right:0; top:0; height:5px; background:var(--grad-brand); }
+.price-hero__card{ position:relative; padding:.32in .5in; text-align:center; overflow:visible; }
 .price-hero__lbl{ font-family:var(--font-label); font-weight:700; font-size:9pt; letter-spacing:.22em; text-transform:uppercase; color:var(--cyan); margin-bottom:.14in; }
 .price-hero__val{ font-family:var(--font-display); font-weight:900; font-size:50pt; line-height:1; color:var(--text-hi); }
 .price-hero__cur{ margin-top:.12in; font-family:var(--font-label); font-weight:600; font-size:11pt; color:var(--text-lo); }
@@ -253,10 +252,10 @@ button{ font-family:var(--font-label); cursor:pointer; }
 
 /* price-plain — inversión sin recuadro, para la lámina de cierre junto a la tarjeta de contacto */
 .price-plain{ display:flex; flex-direction:column; justify-content:center; height:100%; }
-.price-plain .pp-bar{ width:44px; height:4px; background:var(--grad-brand); border-radius:99px; margin-bottom:.22in; }
-.price-plain .pp-lbl{ font-family:var(--font-label); font-weight:700; font-size:8.5pt; letter-spacing:.2em; text-transform:uppercase; color:var(--cyan); margin-bottom:.14in; }
-.price-plain .pp-val{ font-family:var(--font-display); font-weight:900; font-size:38pt; line-height:1.02; color:var(--text-hi); }
-.price-plain .pp-cur{ margin-top:.12in; font-family:var(--font-label); font-weight:600; font-size:10.5pt; color:var(--text-lo); }
+.price-plain .pp-bar{ width:56px; height:5px; background:var(--grad-brand); border-radius:99px; margin-bottom:.28in; }
+.price-plain .pp-lbl{ font-family:var(--font-label); font-weight:700; font-size:10pt; letter-spacing:.2em; text-transform:uppercase; color:var(--cyan); margin-bottom:.16in; }
+.price-plain .pp-val{ font-family:var(--font-display); font-weight:900; font-size:48pt; line-height:1.02; color:var(--text-hi); }
+.price-plain .pp-cur{ margin-top:.14in; font-family:var(--font-label); font-weight:600; font-size:12.5pt; color:var(--text-lo); }
 
 /* ---------- 15. LAYOUT: Cierre / CTA ---------- */
 .cta{ flex:1; display:grid; grid-template-columns:1.1fr .9fr; gap:.5in; align-items:center; margin-top:.16in; min-height:0; }

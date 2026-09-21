@@ -188,18 +188,28 @@ button{ font-family:var(--font-label); cursor:pointer; }
 .agenda-card p{ font-family:var(--font-body); font-weight:300; font-size:10pt; line-height:1.48; color:var(--text-mid); flex:1; }
 .agenda-card .a-scope{ margin-top:.2in; font-family:var(--font-label); font-weight:600; font-size:8.6pt; letter-spacing:.06em; color:var(--text-lo); border-top:1px solid rgba(20,25,35,.1); padding-top:.16in; }
 
-/* ---------- 11. LAYOUT: Grid de tarjetas (feat-grid, 2x2 funcionalidades) ---------- */
-.feat-grid{ flex:1; display:grid; gap:.18in; margin-top:.16in; align-content:center; min-height:0; }
-.feat-card{ background:var(--bg-2); border:var(--card-border); border-radius:12px; padding:.26in .28in; display:flex; flex-direction:column; justify-content:center; position:relative; overflow:hidden; }
+/* ---------- 11. LAYOUT: Grid de tarjetas (feat-grid, 2x2 funcionalidades — Pilar 3) ---------- */
+.feat-grid{ flex:1; display:grid; gap:.15in; margin-top:.12in; align-content:center; min-height:0; }
+.feat-card{ background:var(--bg-2); border:var(--card-border); border-radius:12px; padding:.19in .26in .15in; display:flex; flex-direction:column; justify-content:flex-start; position:relative; overflow:hidden; }
 .feat-card::before{ content:""; position:absolute; left:0; right:0; top:0; height:3px; background:var(--grad-brand); }
-.feat-card .f-ico{ flex:none; width:38px; height:38px; border-radius:11px; display:grid; place-items:center; background:linear-gradient(135deg,rgba(0,173,239,.14),rgba(166,206,58,.14)); color:var(--cyan); margin-bottom:12px; }
-.feat-card .f-ico svg{ width:19px; height:19px; }
-.feat-card .rf{ display:block; font-family:var(--font-label); font-weight:700; font-size:8pt; letter-spacing:.14em; color:var(--cyan); margin-bottom:9px; }
-.feat-card h4{ font-family:var(--font-label); font-weight:700; font-size:11.5pt; color:var(--text-hi); margin-bottom:10px; line-height:1.24; }
-.feat-card p{ font-family:var(--font-body); font-weight:300; font-size:10pt; line-height:1.5; color:var(--text-lo); }
-.feat-card ul{ list-style:none; display:flex; flex-direction:column; gap:6px; }
-.feat-card ul li{ font-family:var(--font-body); font-weight:300; font-size:9pt; line-height:1.38; color:var(--text-lo); padding-left:14px; position:relative; }
-.feat-card ul li::before{ content:""; position:absolute; left:0; top:.55em; width:5px; height:5px; border-radius:50%; background:var(--grad-brand); }
+.feat-card .f-ico{ flex:none; width:32px; height:32px; border-radius:9px; display:grid; place-items:center; background:linear-gradient(135deg,rgba(0,173,239,.14),rgba(166,206,58,.14)); color:var(--cyan); margin-bottom:9px; }
+.feat-card .f-ico svg{ width:16px; height:16px; }
+.feat-card .rf{ display:block; font-family:var(--font-label); font-weight:700; font-size:7.6pt; letter-spacing:.14em; color:var(--cyan); margin-bottom:6px; }
+.feat-card h4{ font-family:var(--font-label); font-weight:700; font-size:10.6pt; color:var(--text-hi); margin-bottom:6px; line-height:1.22; }
+.feat-card p{ font-family:var(--font-body); font-weight:300; font-size:8.8pt; line-height:1.4; color:var(--text-lo); }
+
+/* ---------- 11b. LAYOUT: Alcance (alc-grid, 2x2 uniforme — Video Alcance) ---------- */
+.alc-grid{ flex:1; display:grid; grid-template-columns:repeat(2,1fr); grid-template-rows:repeat(2,1fr); gap:.18in; margin-top:.16in; min-height:0; }
+.alc-card{ background:var(--bg-2); border:var(--card-border); border-radius:12px; padding:.15in .22in .14in; display:flex; flex-direction:column; justify-content:flex-start; position:relative; overflow:hidden; }
+.alc-card::before{ content:""; position:absolute; left:0; right:0; top:0; height:3px; background:var(--grad-brand); }
+.alc-card .a-ico{ flex:none; width:26px; height:26px; border-radius:8px; display:grid; place-items:center; background:linear-gradient(135deg,rgba(0,173,239,.14),rgba(166,206,58,.14)); color:var(--cyan); margin-bottom:7px; }
+.alc-card .a-ico svg{ width:14px; height:14px; }
+.alc-card .a-rf{ display:block; font-family:var(--font-label); font-weight:700; font-size:7.2pt; letter-spacing:.12em; text-transform:uppercase; color:var(--cyan); margin-bottom:5px; }
+.alc-card h4{ font-family:var(--font-label); font-weight:700; font-size:10pt; color:var(--text-hi); margin-bottom:6px; line-height:1.2; }
+.alc-card .a-body{ font-family:var(--font-body); font-weight:300; font-size:8.4pt; line-height:1.4; color:var(--text-lo); }
+.alc-card ul.a-list{ list-style:none; display:flex; flex-direction:column; gap:3px; }
+.alc-card ul.a-list li{ font-family:var(--font-body); font-weight:300; font-size:8.4pt; line-height:1.34; color:var(--text-lo); padding-left:12px; position:relative; }
+.alc-card ul.a-list li::before{ content:""; position:absolute; left:0; top:.52em; width:4px; height:4px; border-radius:50%; background:var(--grad-brand); }
 
 /* ---------- 12. LAYOUT: Mapa de alcance (4 pilares) ---------- */
 .pillar-grid{ flex:1; display:grid; grid-template-columns:repeat(4,1fr); gap:.2in; margin-top:.18in; align-content:center; min-height:0; }
@@ -228,18 +238,25 @@ button{ font-family:var(--font-label); cursor:pointer; }
 .cap-card p.solo{ font-family:var(--font-body); font-weight:300; font-size:9.6pt; line-height:1.5; color:var(--text-mid); }
 .cap-card .c-stat{ margin-top:auto; padding-top:.18in; border-top:1px solid rgba(20,25,35,.1); font-family:var(--font-label); font-weight:600; font-size:8.6pt; color:var(--text-lo); }
 
-/* ---------- 14. LAYOUT: Métrica de inversión ---------- */
-.metric-hero{ flex:1; display:grid; grid-template-columns:.92fr 1.08fr; gap:.5in; align-items:center; margin-top:.18in; min-height:0; }
-.price-card{ position:relative; background:var(--bg-2); border:var(--card-border); border-radius:18px; padding:.4in .36in; overflow:hidden; height:100%; display:flex; flex-direction:column; justify-content:center; }
-.price-card::before{ content:""; position:absolute; left:0; top:0; bottom:0; width:5px; background:var(--grad-brand); }
-.price-card .p-lbl{ font-family:var(--font-label); font-weight:700; font-size:8.5pt; letter-spacing:.2em; text-transform:uppercase; color:var(--cyan); margin-bottom:.16in; }
-.price-card .p-val{ font-family:var(--font-display); font-weight:900; font-size:33pt; line-height:1.05; color:var(--text-hi); }
-.price-card .p-cur{ font-family:var(--font-label); font-weight:600; font-size:11pt; color:var(--text-lo); margin-top:.1in; }
-.price-note{ display:flex; flex-direction:column; gap:.16in; }
-.price-note .n-lbl{ font-family:var(--font-label); font-weight:700; font-size:8.5pt; letter-spacing:.18em; text-transform:uppercase; color:var(--cyan); margin-bottom:.06in; }
-.scope-list{ list-style:none; display:flex; flex-direction:column; gap:10px; }
-.scope-list li{ display:flex; align-items:flex-start; gap:11px; font-family:var(--font-body); font-weight:400; font-size:9.4pt; line-height:1.4; color:var(--text-mid); }
-.scope-list li .ck{ flex:none; width:17px; height:17px; margin-top:1px; color:var(--blue); }
+/* ---------- 14. LAYOUT: Métrica de inversión (hero centrado + chips de alcance) ---------- */
+.price-hero{ flex:1; display:flex; flex-direction:column; justify-content:center; gap:.3in; min-height:0; }
+.price-hero__card{ position:relative; background:var(--bg-2); border:var(--card-border); border-radius:20px; padding:.32in .5in; text-align:center; overflow:hidden; }
+.price-hero__card::before{ content:""; position:absolute; left:0; right:0; top:0; height:5px; background:var(--grad-brand); }
+.price-hero__lbl{ font-family:var(--font-label); font-weight:700; font-size:9pt; letter-spacing:.22em; text-transform:uppercase; color:var(--cyan); margin-bottom:.14in; }
+.price-hero__val{ font-family:var(--font-display); font-weight:900; font-size:50pt; line-height:1; color:var(--text-hi); }
+.price-hero__cur{ margin-top:.12in; font-family:var(--font-label); font-weight:600; font-size:11pt; color:var(--text-lo); }
+.scope-chip-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:.16in; }
+.scope-chip{ display:flex; align-items:center; gap:11px; background:var(--bg-2); border:var(--card-border); border-radius:12px; padding:.15in .16in; }
+.scope-chip .s-ico{ flex:none; width:30px; height:30px; border-radius:9px; display:grid; place-items:center; background:linear-gradient(135deg,rgba(0,173,239,.14),rgba(166,206,58,.14)); color:var(--cyan); }
+.scope-chip .s-ico svg{ width:15px; height:15px; }
+.scope-chip span{ font-family:var(--font-body); font-weight:500; font-size:8.6pt; line-height:1.3; color:var(--text-mid); }
+
+/* price-plain — inversión sin recuadro, para la lámina de cierre junto a la tarjeta de contacto */
+.price-plain{ display:flex; flex-direction:column; justify-content:center; height:100%; }
+.price-plain .pp-bar{ width:44px; height:4px; background:var(--grad-brand); border-radius:99px; margin-bottom:.22in; }
+.price-plain .pp-lbl{ font-family:var(--font-label); font-weight:700; font-size:8.5pt; letter-spacing:.2em; text-transform:uppercase; color:var(--cyan); margin-bottom:.14in; }
+.price-plain .pp-val{ font-family:var(--font-display); font-weight:900; font-size:38pt; line-height:1.02; color:var(--text-hi); }
+.price-plain .pp-cur{ margin-top:.12in; font-family:var(--font-label); font-weight:600; font-size:10.5pt; color:var(--text-lo); }
 
 /* ---------- 15. LAYOUT: Cierre / CTA ---------- */
 .cta{ flex:1; display:grid; grid-template-columns:1.1fr .9fr; gap:.5in; align-items:center; margin-top:.16in; min-height:0; }

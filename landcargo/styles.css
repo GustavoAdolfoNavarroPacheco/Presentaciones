@@ -62,9 +62,9 @@ button{ font-family:var(--font-label); cursor:pointer; }
   border-bottom:1px solid rgba(20,25,35,.10); position:relative; z-index:50;
 }
 .header-left{ display:flex; align-items:center; gap:16px; }
-.header-left img{ height:24px; width:auto; display:block; object-fit:contain; }
-.header-left img.logo-client{ height:30px; }
-.logo-divider{ width:1px; height:26px; background:rgba(20,25,35,.14); }
+.header-left img{ height:32px; width:auto; display:block; object-fit:contain; }
+.header-left img.logo-client{ height:40px; }
+.logo-divider{ width:1px; height:32px; background:rgba(20,25,35,.14); }
 .header-center{ display:flex; align-items:center; }
 .header-right{ display:flex; align-items:center; }
 

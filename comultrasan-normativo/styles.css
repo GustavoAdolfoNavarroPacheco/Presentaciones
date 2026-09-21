@@ -225,8 +225,8 @@ button{ font-family:var(--font-label); cursor:pointer; }
 .merge-split--trio .merge-item span{ font-size:6.6pt; }
 
 /* ---------- 12. LAYOUT: Taxonomía normativa (tiers jerárquicos) ---------- */
-.tier-wrap{ flex:1; display:flex; flex-direction:column; min-height:0; margin-top:.14in; gap:5px; justify-content:center; }
-.tier-row{ position:relative; display:grid; grid-template-columns:1.5in 1.55in 1fr; align-items:center; gap:14px; background:var(--bg-2); border:var(--card-border); border-radius:9px; padding:7px 14px; overflow:hidden; }
+.tier-wrap{ flex:none; display:flex; flex-direction:column; margin-top:.12in; gap:6px; }
+.tier-row{ position:relative; display:grid; grid-template-columns:1.5in 1.55in 1fr; align-items:center; gap:14px; background:var(--bg-2); border:var(--card-border); border-radius:9px; padding:8px 14px; }
 .tier-row::before{ content:""; position:absolute; left:0; top:0; bottom:0; width:4px; background:var(--grad-brand); }
 .tier-row .tn{ display:flex; align-items:center; gap:9px; }
 .tier-row .tn .lv{ flex:none; width:19px; height:19px; border-radius:50%; background:var(--grad-brand); color:#fff; font-family:var(--font-label); font-weight:700; font-size:7.6pt; display:grid; place-items:center; }

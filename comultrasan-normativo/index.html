@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Financiera Comultrasan</title>
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <linearGradient id="gradBrand" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="#0B6667"/>
+        <stop offset="34%" stop-color="#14826E"/>
+        <stop offset="68%" stop-color="#3FAA46"/>
+        <stop offset="100%" stop-color="#8DC63F"/>
+      </linearGradient>
+    </defs>
+  </svg>
+
+  <!-- ============ BARRA SUPERIOR ============ -->
+  <header class="app-header">
+    <div class="header-left">
+      <img src="assets/logo-campuslands.png" alt="Campuslands Full Service">
+      <div class="logo-divider"></div>
+      <img src="assets/logo-cliente.png" alt="Financiera Comultrasan" class="logo-client">
+    </div>
+    <div class="header-center"><!-- Un solo escenario: sin switch --></div>
+    <div class="header-right">
+      <span class="badge-confidential">Confidencial</span>
+    </div>
+  </header>
+
+  <!-- ============ CONTENIDO ============ -->
+  <main class="app-content">
+    <section class="slides-viewport">
+      <div class="slides-container" id="slides-container">
+
+        <!-- ===== 1 · PORTADA ===== -->
+        <div class="slide active" data-slide="1">
+          <div class="slide-inner cover">
+            <div class="deco-rings"><span></span><span></span><span></span><span></span></div>
+
+            <div class="cover__topbar">
+              <img src="assets/logo-campuslands.png" alt="Campuslands Full Service" class="cover__brand">
+              <span class="cover-badge-confidential">Confidencial</span>
+            </div>
+
+            <div class="cover__body">
+              <div class="eyebrow cover__eyebrow">Campuslands Full Service · Propuesta Técnica y Comercial</div>
+              <span class="cover__scenario">Agente de IA Generativa · Sistema Normativo Interno</span>
+              <h1 class="cover__title">Agente de Inteligencia Artificial<br><svg class="gt" viewBox="0 0 18480 1083" style="height:1em;"><text x="0" y="1083" fill="url(#gradBrand)" style="font:italic 900 1000px 'Playfair Display',serif;">para el Sistema Normativo Interno</text></svg></h1>
+              <p class="cover__kicker">Copiloto cognitivo con pipeline RAG, búsqueda híbrida y citación auditable al 100%, que reemplaza el buscador léxico de SharePoint On-Premise para los ~960 documentos normativos de la Cooperativa — omnicanal (Intranet, Xiscoop, SmartRoad) y bimodal por voz y texto.</p>
+              <div class="cover__client">
+                <span class="cover__client-para">PARA</span>
+                <img src="assets/logo-cliente.png" alt="Financiera Comultrasan" class="cover__client-logo">
+              </div>
+            </div>
+
+            <div class="cover__meta">
+              <div class="meta-item"><div class="meta-item__label">Preparado para</div><div class="meta-item__value">Financiera Comultrasan — Cooperativa Especializada en Ahorro y Crédito</div></div>
+              <div class="meta-item"><div class="meta-item__label">Preparado por</div><div class="meta-item__value">Campuslands S.A.S. BIC · Full Service</div></div>
+              <div class="meta-item"><div class="meta-item__label">Fecha</div><div class="meta-item__value">Septiembre 2026</div></div>
+              <div class="meta-item"><div class="meta-item__label">Versión</div><div class="meta-item__value">v1.0</div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ===== 2 · EL RETO ACTUAL ===== -->
+        <div class="slide" data-slide="2">
+          <div class="slide-inner internal glow-a">
+            <header class="s-header">
+              <img src="assets/logo-campuslands.png" alt="Campuslands" class="brand">
+              <img src="assets/logo-cliente.png" alt="Financiera Comultrasan" class="client">
+            </header>
+            <div class="s-body">
+              <div class="s-eyebrow">01 · El Reto Actual</div>
+              <h2 class="s-title">El costo oculto de <svg class="gt" viewBox="0 0 7280 1083" style="height:1em;"><text x="0" y="1083" fill="url(#gradBrand)" style="font:italic 900 1000px 'Playfair Display',serif;">buscar a mano</text></svg></h2>
+              <p class="s-lead">Casi 1.100 colaboradores en 52 agencias y 8 corresponsales dependen hoy de un buscador puramente léxico para resolver dudas normativas — sin comprensión semántica del contenido.</p>
+
+              <div class="kpi-grid kpi-grid--4" style="margin-top:.18in;">
+                <div class="kpi-card"><div class="kv">1.100</div><div class="kl">Colaboradores</div><div class="kd">En las 7 áreas geográficas donde opera la Cooperativa</div></div>
+                <div class="kpi-card"><div class="kv">52+8</div><div class="kl">Agencias y Corresponsales</div><div class="kd">Red de atención en Santander, Boyacá, Cesar y más</div></div>
+                <div class="kpi-card"><div class="kv">~960</div><div class="kl">Documentos Normativos</div><div class="kd">Alojados hoy en SharePoint On-Premise</div></div>
+                <div class="kpi-card"><div class="kv">6</div><div class="kl">Tipologías Oficiales</div><div class="kd">Políticas, procedimientos, instructivos y más</div></div>
+              </div>
+
+              <div class="side-note">
+                <span class="lbl">Consecuencias</span>
+                <ul class="scope-list">
+                  <li>Buscador léxico: solo coincidencias por palabra clave, sin comprensión semántica del contenido</li>
+                  <li>Descarga y apertura manual, documento tras documento, hasta encontrar el requisito correcto</li>
+                  <li>Saturación de correos y llamadas a analistas de procesos y cumplimiento</li>
+                  <li>Discrepancias en la aplicación de las normas entre agencias y pérdida de productividad</li>
+                </ul>
+              </div>
+            </div>
+            <footer class="s-footer">
+              <span>Campuslands · Exploramos · Despegamos · Conquistamos</span>
+              <span>Propuesta Financiera Comultrasan · Full Service 2026</span>
+              <span class="pg">02</span>
+            </footer>
+          </div>
+        </div>
+
+        <!-- ===== 3 · LA SOLUCIÓN — COPILOTO COGNITIVO ===== -->
+        <div class="slide" data-slide="3">
+          <div class="slide-inner internal glow-b">
+            <header class="s-header">
+              <img src="assets/logo-campuslands.png" alt="Campuslands" class="brand">
+              <img src="assets/logo-cliente.png" alt="Financiera Comultrasan" class="client">
+            </header>
+            <div class="s-body">
+              <div class="s-eyebrow">02 · La Solución</div>
+              <h2 class="s-title">El copiloto <svg class="gt" viewBox="0 0 13440 1083" style="height:1em;"><text x="0" y="1083" fill="url(#gradBrand)" style="font:italic 900 1000px 'Playfair Display',serif;">cognitivo institucional</text></svg></h2>
+              <p class="s-lead">Un pipeline RAG que indexa el acervo documental, recupera con precisión y responde con anclaje estricto al contenido normativo vigente — sin inventar, sin desviarse.</p>
+
+              <div class="pipe-row">
+                <div class="pipe-chain">
+                  <div class="pipe-item"><span class="n">1</span><h5>Consulta</h5><p>Pregunta en lenguaje natural, por texto o voz, desde Intranet, Xiscoop o SmartRoad</p></div>
+                  <div class="pipe-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+                  <div class="pipe-item"><span class="n">2</span><h5>Búsqueda Híbrida</h5><p>Recuperación vectorial densa + léxica BM25 sobre los ~960 documentos indexados</p></div>
+                  <div class="pipe-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+                  <div class="pipe-item"><span class="n">3</span><h5>Re-ranking</h5><p>Modelo cross-encoder ordena los fragmentos por relevancia contextual estricta</p></div>
+                  <div class="pipe-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+                  <div class="pipe-item"><span class="n">4</span><h5>Generación Anclada</h5><p>El LLM redacta la respuesta limitado al contexto normativo recuperado (Grounding)</p></div>
+                  <div class="pipe-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+                  <div class="pipe-item"><span class="n">5</span><h5>Respuesta Citada</h5><p>Entrega con documento, código, versión, numeral y enlace directo verificable</p></div>
+                </div>
+              </div>
+
+              <div class="side-note">
+                <span class="lbl">Fuera de Alcance</span>
+                <ul class="scope-list">
+                  <li>Migración forzosa de SharePoint On-Premise a SharePoint Online, ni administración de la plataforma</li>
+                  <li>Intervención o reprogramación de los asistentes existentes "Fibot" (IBM Watson) ni "Lili" (cobranza)</li>
+                  <li>Redacción, modificación o validación legal del contenido de las normas internas</li>
+                  <li>Licenciamiento de Microsoft 365 completo ni despliegue corporativo de Microsoft Teams</li>
+                </ul>
+              </div>
+            </div>
+            <footer class="s-footer">
+              <span>Campuslands · Exploramos · Despegamos · Conquistamos</span>
+              <span>Propuesta Financiera Comultrasan · Full Service 2026</span>
+              <span class="pg">03</span>
+            </footer>
+          </div>
+        </div>
+
+        <!-- ===== 4 · M1 INGESTA/OCR + M2 PROCESAMIENTO/METADATOS ===== -->
+        <div class="slide" data-slide="4">
+          <div class="slide-inner internal glow-a">
+            <header class="s-header">
+              <img src="assets/logo-campuslands.png" alt="Campuslands" class="brand">
+              <img src="assets/logo-cliente.png" alt="Financiera Comultrasan" class="client">
+            </header>
+            <div class="s-body">
+              <div class="s-eyebrow">03 · Módulos Funcionales</div>
+              <h2 class="s-title">Del documento crudo a la <svg class="gt" viewBox="0 0 10080 1083" style="height:1em;"><text x="0" y="1083" fill="url(#gradBrand)" style="font:italic 900 1000px 'Playfair Display',serif;">norma clasificada</text></svg></h2>
+
+              <div class="merge-split">
+                <div class="merge-half">
+                  <div class="merge-half__head"><span class="merge-half__title">M1. Ingesta, Extracción Multiformato y OCR</span></div>
+                  <p class="merge-half__lead">Conexión al acervo documental y extracción estructurada desde múltiples formatos con OCR avanzado.</p>
+                  <div class="merge-list">
+                    <div class="merge-item"><b>Conexión al acervo documental</b><span>Procesa el universo inicial de ~960 documentos normativos alojados en SharePoint On-Premise.</span></div>
+                    <div class="merge-item"><b>Extracción multiformato</b><span>Texto y estructura desde PDF (nativo/escaneado), Word, Excel, PowerPoint y páginas HTML.</span></div>
+                    <div class="merge-item"><b>OCR avanzado</b><span>Diagramas de flujo, imágenes incrustadas y mapas de proceso, preservando secuencias lógicas.</span></div>
+                    <div class="merge-item"><b>Tablas financieras complejas</b><span>Extracción semántica que preserva la integridad relacional de matrices de riesgo, tasas y plazos.</span></div>
+                  </div>
+                </div>
+                <div class="merge-half">
+                  <div class="merge-half__head"><span class="merge-half__title">M2. Procesamiento, Chunking Semántico y Metadatos</span></div>
+                  <p class="merge-half__lead">Segmentación semántica, enriquecimiento contextual y clasificación automática por tipología normativa.</p>
+                  <div class="merge-list">
+                    <div class="merge-item"><b>Chunking semántico estructurado</b><span>Respeta la jerarquía del documento (secciones, numerales, cláusulas) sin partir ideas a la mitad.</span></div>
+                    <div class="merge-item"><b>Metadatos mandatorios</b><span>Código oficial, versión, fecha de vigencia, responsable y tipología extraídos por fragmento.</span></div>
+                    <div class="merge-item"><b>Clasificación automática</b><span>Asigna cada documento a una de las 6 tipologías oficiales y a su línea de negocio.</span></div>
+                    <div class="merge-item"><b>Auditoría de consistencia</b><span>Reporta en consola de control los documentos sin fecha de vigencia, versión o código explícitos.</span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <footer class="s-footer">
+              <span>Campuslands · Exploramos · Despegamos · Conquistamos</span>
+              <span>Propuesta Financiera Comultrasan · Full Service 2026</span>
+              <span class="pg">04</span>
+            </footer>
+          </div>
+        </div>
+
+        <!-- ===== 5 · M3 BÚSQUEDA HÍBRIDA + M4 RAG + M5 CITACIÓN ===== -->
+        <div class="slide" data-slide="5">
+          <div class="slide-inner internal glow-b">
+            <header class="s-header">
+              <img src="assets/logo-campuslands.png" alt="Campuslands" class="brand">
+              <img src="assets/logo-cliente.png" alt="Financiera Comultrasan" class="client">
+            </header>
+            <div class="s-body">
+              <div class="s-eyebrow">03 · Módulos Funcionales</div>
+              <h2 class="s-title">Respuestas <svg class="gt" viewBox="0 0 10640 1083" style="height:1em;"><text x="0" y="1083" fill="url(#gradBrand)" style="font:italic 900 1000px 'Playfair Display',serif;">ancladas y citables</text></svg></h2>
+
+              <div class="merge-split merge-split--trio">
+                <div class="merge-half">
+                  <div class="merge-half__head"><span class="merge-half__title">M3. Indexación Vectorial y Búsqueda Híbrida</span></div>
+                  <div class="merge-list">
+                    <div class="merge-item"><b>Embeddings especializados</b><span>Modelos en español financiero/jurídico sobre base de datos vectorial de baja latencia (HNSW/IVF).</span></div>
+                    <div class="merge-item"><b>Búsqueda híbrida</b><span>Recuperación densa + léxica BM25 (números de circular, códigos, acrónimos técnicos).</span></div>
+                    <div class="merge-item"><b>Re-ranking y jerga regional</b><span>Cross-encoder contextual con tolerancia a modismos santandereanos ("fiador" vs "codeudor").</span></div>
+                  </div>
+                </div>
+                <div class="merge-half">
+                  <div class="merge-half__head"><span class="merge-half__title">M4. Generación RAG y Consolidación</span></div>
+                  <div class="merge-list">
+                    <div class="merge-item"><b>Consolidación multifuente</b><span>Combina política, instructivos y formatos relacionados en una respuesta coherente.</span></div>
+                    <div class="merge-item"><b>Anclaje estricto (Grounding)</b><span>Limita afirmaciones al contexto recuperado; declara cuando la norma no responde.</span></div>
+                    <div class="merge-item"><b>Manejo de ambigüedad</b><span>Repreguntas inteligentes y tono institucional cooperativo, profesional y empático.</span></div>
+                  </div>
+                </div>
+                <div class="merge-half">
+                  <div class="merge-half__head"><span class="merge-half__title">M5. Citación Estricta y Trazabilidad</span></div>
+                  <div class="merge-list">
+                    <div class="merge-item"><b>Citas verificables 100%</b><span>Documento, código institucional, versión vigente, numeral/sección y fecha de expedición.</span></div>
+                    <div class="merge-item"><b>Enlace directo</b><span>Hipervínculo al documento original en SharePoint On-Premise, abierto con un clic.</span></div>
+                    <div class="merge-item"><b>Alerta de vigencia</b><span>Banner "Documento No Vigente / Obsoleto" + historial de cambios entre versiones.</span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <footer class="s-footer">
+              <span>Campuslands · Exploramos · Despegamos · Conquistamos</span>
+              <span>Propuesta Financiera Comultrasan · Full Service 2026</span>
+              <span class="pg">05</span>
+            </footer>
+          </div>
+        </div>
+
+        <!-- ===== 6 · M6 OMNICANAL + M7 INTEGRACIÓN ===== -->
+        <div class="slide" data-slide="6">
+          <div class="slide-inner internal glow-a">
+            <header class="s-header">
+              <img src="assets/logo-campuslands.png" alt="Campuslands" class="brand">
+              <img src="assets/logo-cliente.png" alt="Financiera Comultrasan" class="client">
+            </header>
+            <div class="s-body">
+              <div class="s-eyebrow">03 · Módulos Funcionales</div>
+              <h2 class="s-title">Un solo asistente, <svg class="gt" viewBox="0 0 9520 1083" style="height:1em;"><text x="0" y="1083" fill="url(#gradBrand)" style="font:italic 900 1000px 'Playfair Display',serif;">todos los canales</text></svg></h2>
+
+              <div class="merge-split">
+                <div class="merge-half">
+                  <div class="merge-half__head"><span class="merge-half__title">M6. Interfaz Conversacional Omnicanal</span></div>
+                  <p class="merge-half__lead">Widget bimodal (voz y texto) disponible en Intranet, Xiscoop y SmartRoad.</p>
+                  <div class="merge-list">
+                    <div class="merge-item"><b>Widget web con SSO</b><span>Chat responsivo para la Intranet corporativa, con autenticación automática (Single Sign-On).</span></div>
+                    <div class="merge-item"><b>Integración embebida</b><span>Panel lateral o ventana modal dentro de Xiscoop (core financiero) y de SmartRoad (fuerza comercial).</span></div>
+                    <div class="merge-item"><b>Voz en tiempo real</b><span>Speech-to-Text y Text-to-Speech en español colombiano, con pausa, reanudación y mute.</span></div>
+                    <div class="merge-item"><b>Historial de sesión</b><span>Memoria conversacional para repreguntas y diseño responsivo para dispositivos de campo.</span></div>
+                  </div>
+                </div>
+                <div class="merge-half">
+                  <div class="merge-half__head"><span class="merge-half__title">M7. Integración y Sincronización con Repositorios</span></div>
+                  <p class="merge-half__lead">Conectores institucionales con reindexación diferencial automatizada.</p>
+                  <div class="merge-list">
+                    <div class="merge-item"><b>Conector SharePoint On-Premise</b><span>CSOM / API REST / Crawler autorizado, con autenticación NTLM/Kerberos.</span></div>
+                    <div class="merge-item"><b>Active Directory</b><span>Validación de identidad de los colaboradores: rol, agencia, cargo y grupo de pertenencia.</span></div>
+                    <div class="merge-item"><b>Reindexación diferencial</b><span>Detecta documentos nuevos, modificados o eliminados en un intervalo programado, sin intervención.</span></div>
+                    <div class="merge-item"><b>Adaptable a M365</b><span>Arquitectura del conector lista para una futura migración transparente a SharePoint Online/Azure.</span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <footer class="s-footer">
+              <span>Campuslands · Exploramos · Despegamos · Conquistamos</span>
+              <span>Propuesta Financiera Comultrasan · Full Service 2026</span>
+              <span class="pg">06</span>
+            </footer>
+          </div>
+        </div>
+
+        <!-- ===== 7 · M8 SEGURIDAD + M9 TELEMETRÍA + M10 AUDITORÍA ===== -->
+        <div class="slide" data-slide="7">
+          <div class="slide-inner internal glow-b">
+            <header class="s-header">
+              <img src="assets/logo-campuslands.png" alt="Campuslands" class="brand">
+              <img src="assets/logo-cliente.png" alt="Financiera Comultrasan" class="client">
+            </header>
+            <div class="s-body">
+              <div class="s-eyebrow">03 · Módulos Funcionales</div>
+              <h2 class="s-title">Seguridad, trazabilidad y <svg class="gt" viewBox="0 0 8400 1083" style="height:1em;"><text x="0" y="1083" fill="url(#gradBrand)" style="font:italic 900 1000px 'Playfair Display',serif;">mejora continua</text></svg></h2>
+
+              <div class="merge-split merge-split--trio">
+                <div class="merge-half">
+                  <div class="merge-half__head"><span class="merge-half__title">M8. Seguridad y Anonimización</span></div>
+                  <div class="merge-list">
+                    <div class="merge-item"><b>RBAC por Active Directory</b><span>Segmenta el acceso a normativas reservadas según los grupos de seguridad del colaborador.</span></div>
+                    <div class="merge-item"><b>Cifrado de extremo a extremo</b><span>TLS 1.3 en tránsito y AES-256 en reposo; llaves en bóveda segura (Key Vault / HSM).</span></div>
+                    <div class="merge-item"><b>Anonimización y guardrails</b><span>Enmascara PII inadvertida y mitiga intentos de prompt injection y jailbreaks.</span></div>
+                  </div>
+                </div>
+                <div class="merge-half">
+                  <div class="merge-half__head"><span class="merge-half__title">M9. Telemetría y Monitoreo FinOps</span></div>
+                  <div class="merge-list">
+                    <div class="merge-item"><b>Dashboard FinOps</b><span>Consultas, consumo de tokens y costo monetario proyectado por día, mes y centro de costos.</span></div>
+                    <div class="merge-item"><b>Monitoreo de latencia</b><span>Alertas automáticas ante incumplimiento del SLA de menos de 10 segundos.</span></div>
+                    <div class="merge-item"><b>Analítica de uso</b><span>Segmentación por agencia, corresponsal y canal, con tasas de adopción regional.</span></div>
+                  </div>
+                </div>
+                <div class="merge-half">
+                  <div class="merge-half__head"><span class="merge-half__title">M10. Auditoría y Calidad</span></div>
+                  <div class="merge-list">
+                    <div class="merge-item"><b>Audit Log inmutable</b><span>Bitácora protegida con usuario, consulta, fragmentos, respuesta, citas y latencia.</span></div>
+                    <div class="merge-item"><b>Retroalimentación</b><span>Pulgar arriba/abajo y consola de supervisión para el equipo de normatividad.</span></div>
+                    <div class="merge-item"><b>Evaluación continua RAGAS</b><span>200 preguntas canónicas midiendo fidelidad, relevancia y exhaustividad.</span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <footer class="s-footer">
+              <span>Campuslands · Exploramos · Despegamos · Conquistamos</span>
+              <span>Propuesta Financiera Comultrasan · Full Service 2026</span>
+              <span class="pg">07</span>
+            </footer>
+          </div>
+        </div>
+
+        <!-- ===== 8 · TAXONOMÍA NORMATIVA + CRITERIOS DE ACEPTACIÓN ===== -->
+        <div class="slide" data-slide="8">
+          <div class="slide-inner internal glow-a">
+            <header class="s-header">
+              <img src="assets/logo-campuslands.png" alt="Campuslands" class="brand">
+              <img src="assets/logo-cliente.png" alt="Financiera Comultrasan" class="client">
+            </header>
+            <div class="s-body">
+              <div class="s-eyebrow">04 · Reglas de Negocio</div>
+              <h2 class="s-title">Seis tipologías, <svg class="gt" viewBox="0 0 7800 1083" style="height:1em;"><text x="0" y="1083" fill="url(#gradBrand)" style="font:italic 900 1000px 'Playfair Display',serif;">una sola verdad</text></svg></h2>
+              <p class="s-lead">El agente respeta la jerarquía y prelación normativa oficial de Comultrasan al clasificar y consolidar cada respuesta.</p>
+
+              <div class="tier-wrap">
+                <div class="tier-row"><div class="tn"><span class="lv">1</span><b>Políticas</b></div><div class="meta">Código POL</div><div class="desc">Directrices estratégicas del Consejo de Administración; prevalecen ante discrepancias interpretativas</div></div>
+                <div class="tier-row"><div class="tn"><span class="lv">2</span><b>Caracterizaciones</b></div><div class="meta">Código CAR</div><div class="desc">Descripción macro del proceso: objetivos, alcance, entradas/salidas, líder y clientes</div></div>
+                <div class="tier-row"><div class="tn"><span class="lv">3</span><b>Procedimientos</b></div><div class="meta">Código PRO</div><div class="desc">Secuencia lógica de pasos para ejecutar operaciones de negocio y apoyo, con roles responsables</div></div>
+                <div class="tier-row"><div class="tn"><span class="lv">4</span><b>Instructivos</b></div><div class="meta">Código INS</div><div class="desc">Guías técnicas detalladas para tareas o manejo de software específico (ej. Xiscoop)</div></div>
+                <div class="tier-row"><div class="tn"><span class="lv">5</span><b>Anexos</b></div><div class="meta">Código ANX</div><div class="desc">Tablas de soporte: matrices de riesgo, cuadros de atribución de crédito, tarifas y tasas</div></div>
+                <div class="tier-row"><div class="tn"><span class="lv">6</span><b>Formatos</b></div><div class="meta">Código FOR</div><div class="desc">Plantillas oficiales y formularios que el colaborador debe diligenciar</div></div>
+              </div>
+
+              <div class="kpi-grid" style="margin-top:.14in;">
+                <div class="kpi-card"><div class="kv">≥85%</div><div class="kl">Exactitud con Sustento</div><div class="kd">Evaluación a ciegas por el Comité Interdisciplinario</div></div>
+                <div class="kpi-card"><div class="kv">≥90%</div><div class="kl">Cobertura de Recuperación</div><div class="kd">Localiza el documento y numeral exacto de la respuesta</div></div>
+                <div class="kpi-card"><div class="kv">100%</div><div class="kl">Trazabilidad y Citación</div><div class="kd">Documento, versión, numeral, vigencia y enlace funcional</div></div>
+              </div>
+            </div>
+            <footer class="s-footer">
+              <span>Campuslands · Exploramos · Despegamos · Conquistamos</span>
+              <span>Propuesta Financiera Comultrasan · Full Service 2026</span>
+              <span class="pg">08</span>
+            </footer>
+          </div>
+        </div>
+
+        <!-- ===== 9 · HOJA DE RUTA E INVERSIÓN ===== -->
+        <div class="slide" data-slide="9">
+          <div class="slide-inner internal glow-b">
+            <header class="s-header">
+              <img src="assets/logo-campuslands.png" alt="Campuslands" class="brand">
+              <img src="assets/logo-cliente.png" alt="Financiera Comultrasan" class="client">
+            </header>
+            <div class="s-body">
+              <div class="s-eyebrow">05 · Hoja de Ruta e Inversión</div>
+              <h2 class="s-title">Cuatro fases, <svg class="gt" viewBox="0 0 6760 1083" style="height:1em;"><text x="0" y="1083" fill="url(#gradBrand)" style="font:italic 900 1000px 'Playfair Display',serif;">una inversión</text></svg></h2>
+
+              <div class="route-row" style="margin-top:.16in;">
+                <div class="route-tile"><div class="rn">Fase 1 · Sem. 1–4</div><div class="rt">Alineación, Arquitectura y PoC</div><div class="rd">Ingesta de muestra piloto (100 docs) y validación de la Prueba de Concepto</div></div>
+                <div class="route-tile"><div class="rn">Fase 2 · Sem. 5–8</div><div class="rt">Ingesta Masiva y RAG Core</div><div class="rd">OCR del universo total (~960 docs), embeddings e integración con Active Directory</div></div>
+                <div class="route-tile"><div class="rn">Fase 3 · Sem. 9–12</div><div class="rt">Omnicanal y Piloto Controlado</div><div class="rd">Widget, Xiscoop, SmartRoad, voz y despliegue piloto en 5 agencias</div></div>
+                <div class="route-tile"><div class="rn">Fase 4 · Sem. 13–16</div><div class="rt">Despliegue General y Soporte</div><div class="rd">Producción en las 52 agencias, transferencia de conocimiento y SLA activo</div></div>
+              </div>
+
+              <div class="inv-wrap">
+                <div class="inv-hero">
+                  <div class="cap">Inversión Total del Proyecto</div>
+                  <div class="big"><svg class="gt" viewBox="0 0 8420 1083" style="height:1em;"><text x="0" y="1083" fill="url(#gradBrand)" style="font:900 1000px 'Playfair Display',serif;">$180.637.460 COP</text></svg></div>
+                  <p class="note">Incluye capacitación técnica y operativa al Comité Interdisciplinario (35 horas), manuales entregables y estrategia de adopción en las 52 agencias. No incluye licenciamiento de LLM/nube en producción ni infraestructura de SharePoint. Cotización válida por 30 días calendario.</p>
+                </div>
+                <div class="inv-pay">
+                  <div class="pay-tile"><span class="pc">40%</span><span class="pv">$72.254.984</span><span class="pl">Anticipo</span></div>
+                  <div class="pay-tile"><span class="pc">40%</span><span class="pv">$72.254.984</span><span class="pl">Avance</span></div>
+                  <div class="pay-tile"><span class="pc">20%</span><span class="pv">$36.127.492</span><span class="pl">Entrega Final</span></div>
+                </div>
+              </div>
+            </div>
+            <footer class="s-footer">
+              <span>Campuslands · Exploramos · Despegamos · Conquistamos</span>
+              <span>Propuesta Financiera Comultrasan · Full Service 2026</span>
+              <span class="pg">09</span>
+            </footer>
+          </div>
+        </div>
+
+        <!-- ===== 10 · CIERRE Y CONTACTO ===== -->
+        <div class="slide" data-slide="10">
+          <div class="slide-inner cover cover--close">
+            <div class="deco-rings"><span></span><span></span><span></span><span></span></div>
+            <div class="cover__topbar">
+              <span></span>
+              <span class="cover-badge-confidential">Confidencial</span>
+            </div>
+            <div class="cover__body">
+              <span class="close-badge">Próxima ventana de lanzamiento: ahora</span>
+              <h1 class="close-title">¿Cuándo <svg class="gt" viewBox="0 0 5470 1083" style="height:1em;"><text x="0" y="1083" fill="url(#gradBrand)" style="font:italic 900 1000px 'Playfair Display',serif;">empezamos</text></svg>?</h1>
+              <div class="close-steps">
+                <div class="close-step"><span class="cs-n">1</span><span>Validación del alcance con el Comité Interdisciplinario.</span></div>
+                <div class="close-step"><span class="cs-n">2</span><span>Firma de contrato y definición del equipo.</span></div>
+                <div class="close-step"><span class="cs-n">3</span><span>Kick-off. Arrancamos.</span></div>
+              </div>
+              <p class="close-statement">Cada consulta sin respuesta clara es un riesgo operativo y de cumplimiento. Un copiloto que ancla cada afirmación a la norma vigente, con trazabilidad al 100%, no es un lujo — es el estándar que exige la gestión del riesgo operativo de una cooperativa financiera. Demos el primer paso juntos.</p>
+              <div class="close-contact">
+                <div class="close-contact__tx"><b>Gabriela Pedraza Rueda</b><span>Directora Full Service Global</span></div>
+                <div class="close-contact__links"><span>gabriela.pedraza@campuslands.com</span><span>+57 300 302 8555</span></div>
+              </div>
+              <div class="cover__lockup">
+                <img src="assets/logo-campuslands.png" alt="Campuslands Full Service" class="cover__lockup-camp">
+                <span class="cover__lockup-x">×</span>
+                <img src="assets/logo-cliente.png" alt="Financiera Comultrasan" class="cover__lockup-client">
+              </div>
+            </div>
+            <footer class="s-footer">
+              <span>Campuslands · Exploramos · Despegamos · Conquistamos</span>
+              <span>Propuesta Financiera Comultrasan · Full Service 2026</span>
+              <span class="pg">10</span>
+            </footer>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ BARRA INFERIOR ============ -->
+  <footer class="slides-footer-controls">
+    <button id="btn-prev-slide" class="control-btn" onclick="navigateSlide(-1)" aria-label="Lámina anterior">
+      <svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="2" fill="none"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+    </button>
+
+    <div class="slide-indicator">
+      <span id="slide-number-display">1 / 10</span>
+      <div class="progress-bar-bg"><div id="slide-progress" class="progress-bar-fill"></div></div>
+      <div class="playback-controls">
+        <button id="btn-autoplay" class="control-btn mini" title="Reproducción automática" onclick="toggleAutoplay()">
+          <svg id="autoplay-icon" viewBox="0 0 24 24" width="16" height="16" fill="currentColor" stroke="none"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <button id="btn-next-slide" class="control-btn" onclick="navigateSlide(1)" aria-label="Lámina siguiente">
+      <svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="2" fill="none"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    </button>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

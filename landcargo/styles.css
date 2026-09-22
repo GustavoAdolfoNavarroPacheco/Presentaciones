@@ -241,6 +241,30 @@ button{ font-family:var(--font-label); cursor:pointer; }
 .contact-card .row{ display:flex; align-items:center; gap:12px; margin-top:11px; font-family:var(--font-body); font-weight:400; font-size:10.6pt; color:var(--text-mid); }
 .contact-card .row svg{ width:16px; height:16px; color:var(--cyan); flex:none; }
 
+/* ---------- 12a2. LAYOUT: Inversión (cifra total + plan de pago) ---------- */
+.invest-wrap{ flex:1; display:flex; flex-direction:column; min-height:0; margin-top:.16in; gap:.36in; justify-content:center; }
+.invest-wrap--centered{ align-items:center; }
+.invest__num .cap{ font-family:var(--font-label); font-weight:600; font-size:9pt; letter-spacing:.24em; text-transform:uppercase; color:var(--cyan); margin-bottom:9px; }
+.invest__num .big{ font-family:var(--font-display); font-weight:900; font-size:40pt; line-height:1.06; }
+.invest__num .sub{ margin-top:12px; font-family:var(--font-body); font-weight:300; font-size:9.4pt; line-height:1.46; color:var(--text-mid); max-width:6.4in; }
+.invest__num--centered{ text-align:center; }
+.invest__num--centered .sub{ margin-left:auto; margin-right:auto; }
+.pay-plan{ display:flex; gap:.16in; }
+.pay-plan--lg{ width:100%; max-width:8in; gap:.28in; }
+.plan-card{ flex:1; position:relative; display:flex; flex-direction:column; align-items:flex-start; gap:5px; background:var(--bg-2); border:var(--card-border); border-radius:12px; padding:.13in .18in; overflow:hidden; }
+.pay-plan--lg .plan-card{ align-items:center; text-align:center; padding:.28in .2in; gap:8px; }
+.plan-card::before{ content:""; position:absolute; left:0; top:0; height:4px; width:100%; background:var(--grad-brand); }
+.plan-card .pct{ display:flex; align-items:baseline; gap:8px; }
+.pay-plan--lg .plan-card .pct{ flex-direction:column; align-items:center; gap:2px; }
+.plan-card .pct .num{ font-family:var(--font-label); font-weight:800; font-size:17pt; line-height:1; color:var(--blue); }
+.pay-plan--lg .plan-card .pct .num{ font-size:26pt; }
+.plan-card .pct .lbl{ font-family:var(--font-label); font-weight:700; font-size:7.2pt; letter-spacing:.1em; text-transform:uppercase; color:var(--text-lo); }
+.plan-card .info span{ font-family:var(--font-body); font-weight:300; font-size:7.8pt; color:var(--text-lo); line-height:1.3; }
+.plan-card .info b{ font-family:var(--font-label); font-weight:700; font-size:8.6pt; color:var(--text-hi); display:block; margin-bottom:1px; }
+.pay-plan--lg .plan-card .info{ display:flex; flex-direction:column; align-items:center; }
+.pay-plan--lg .plan-card .info b{ font-size:12pt; margin-top:4px; }
+.pay-plan--lg .plan-card .info span{ font-size:8.4pt; }
+
 /* ---------- 12b. LAYOUT: Cierre y Contacto (portada centrada) ---------- */
 .cover--close .cover__body{ display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; gap:15px; padding-top:0; }
 .close-badge{ display:inline-flex; align-items:center; gap:8px; font-family:var(--font-label); font-weight:700; font-size:8pt; letter-spacing:.24em; text-transform:uppercase; color:var(--cyan); }
@@ -350,17 +374,23 @@ button{ font-family:var(--font-label); cursor:pointer; }
 .slide.active .merge-item,
 .slide.active .icon-card,
 .slide.active .pipe-item,
-.slide.active .flow-step{ animation:itemFadeUp .48s cubic-bezier(.22,.75,.28,1) both; }
-.slide.active .merge-list .merge-item:nth-child(1),.slide.active .icon-grid .icon-card:nth-child(1),.slide.active .pipe-chain .pipe-item:nth-child(1),.slide.active .flow-col .flow-step:nth-child(1){ animation-delay:.10s; }
-.slide.active .merge-list .merge-item:nth-child(2),.slide.active .icon-grid .icon-card:nth-child(2),.slide.active .pipe-chain .pipe-item:nth-child(2),.slide.active .flow-col .flow-step:nth-child(2){ animation-delay:.16s; }
-.slide.active .merge-list .merge-item:nth-child(3),.slide.active .icon-grid .icon-card:nth-child(3),.slide.active .pipe-chain .pipe-item:nth-child(3),.slide.active .flow-col .flow-step:nth-child(3){ animation-delay:.22s; }
-.slide.active .merge-list .merge-item:nth-child(4),.slide.active .icon-grid .icon-card:nth-child(4),.slide.active .pipe-chain .pipe-item:nth-child(4),.slide.active .flow-col .flow-step:nth-child(4){ animation-delay:.28s; }
-.slide.active .merge-list .merge-item:nth-child(5),.slide.active .icon-grid .icon-card:nth-child(5),.slide.active .pipe-chain .pipe-item:nth-child(5),.slide.active .flow-col .flow-step:nth-child(5){ animation-delay:.34s; }
-.slide.active .merge-list .merge-item:nth-child(6),.slide.active .pipe-chain .pipe-item:nth-child(6){ animation-delay:.40s; }
-.slide.active .pipe-chain .pipe-item:nth-child(7){ animation-delay:.46s; }
-.slide.active .pipe-chain .pipe-item:nth-child(8){ animation-delay:.52s; }
-.slide.active .pipe-chain .pipe-item:nth-child(9){ animation-delay:.58s; }
-.slide.active .pipe-chain .pipe-item:nth-child(10){ animation-delay:.64s; }
+.slide.active .flow-step,
+.slide.active .mod-cost-row,
+.slide.active .plan-card{ animation:itemFadeUp .48s cubic-bezier(.22,.75,.28,1) both; }
+.slide.active .merge-list .merge-item:nth-child(1),.slide.active .icon-grid .icon-card:nth-child(1),.slide.active .pipe-chain .pipe-item:nth-child(1),.slide.active .flow-col .flow-step:nth-child(1),.slide.active .mod-cost-list .mod-cost-row:nth-child(1){ animation-delay:.06s; }
+.slide.active .merge-list .merge-item:nth-child(2),.slide.active .icon-grid .icon-card:nth-child(2),.slide.active .pipe-chain .pipe-item:nth-child(2),.slide.active .flow-col .flow-step:nth-child(2),.slide.active .mod-cost-list .mod-cost-row:nth-child(2){ animation-delay:.10s; }
+.slide.active .merge-list .merge-item:nth-child(3),.slide.active .icon-grid .icon-card:nth-child(3),.slide.active .pipe-chain .pipe-item:nth-child(3),.slide.active .flow-col .flow-step:nth-child(3),.slide.active .mod-cost-list .mod-cost-row:nth-child(3){ animation-delay:.14s; }
+.slide.active .merge-list .merge-item:nth-child(4),.slide.active .icon-grid .icon-card:nth-child(4),.slide.active .pipe-chain .pipe-item:nth-child(4),.slide.active .flow-col .flow-step:nth-child(4),.slide.active .mod-cost-list .mod-cost-row:nth-child(4){ animation-delay:.18s; }
+.slide.active .merge-list .merge-item:nth-child(5),.slide.active .icon-grid .icon-card:nth-child(5),.slide.active .pipe-chain .pipe-item:nth-child(5),.slide.active .flow-col .flow-step:nth-child(5),.slide.active .mod-cost-list .mod-cost-row:nth-child(5){ animation-delay:.22s; }
+.slide.active .merge-list .merge-item:nth-child(6),.slide.active .pipe-chain .pipe-item:nth-child(6),.slide.active .mod-cost-list .mod-cost-row:nth-child(6){ animation-delay:.26s; }
+.slide.active .pipe-chain .pipe-item:nth-child(7),.slide.active .mod-cost-list .mod-cost-row:nth-child(7){ animation-delay:.30s; }
+.slide.active .pipe-chain .pipe-item:nth-child(8),.slide.active .mod-cost-list .mod-cost-row:nth-child(8){ animation-delay:.34s; }
+.slide.active .pipe-chain .pipe-item:nth-child(9),.slide.active .mod-cost-list .mod-cost-row:nth-child(9){ animation-delay:.38s; }
+.slide.active .pipe-chain .pipe-item:nth-child(10),.slide.active .mod-cost-list .mod-cost-row:nth-child(10){ animation-delay:.42s; }
+.slide.active .plan-card:nth-child(1){ animation-delay:.44s; }
+.slide.active .plan-card:nth-child(2){ animation-delay:.50s; }
+.slide.active .plan-card:nth-child(3){ animation-delay:.56s; }
+.slide.active .invest__num{ animation:itemFadeUp .5s ease both .26s; }
 .slide.active .side-note{ animation:itemFadeUp .5s ease both .5s; }
 .slide.active .split-asym__side{ animation:itemFadeUp .5s ease both .1s; }
 .slide.active .split-asym__main .icon-card:nth-child(2){ animation-delay:.18s; }

@@ -193,6 +193,9 @@ button{ font-family:var(--font-label); cursor:pointer; }
 .s-lead{ margin-top:8px; font-family:var(--font-body); font-weight:300; font-size:10.6pt; line-height:1.44; color:var(--text-mid); max-width:8.7in; }
 
 
+.cover__title{ font-size:60pt; line-height:1.04; }
+.cover__client{ margin-top:34px; }
+
 /* ---------- 8. DECORACIÓN: chevrones (eco de la flecha del logo) ---------- */
 .deco-chev{ position:absolute; top:.5in; right:-1.5in; width:4.9in; height:5.0in; z-index:1; pointer-events:none; }
 .deco-chev path{ fill:none; stroke-width:1.6; }
@@ -206,18 +209,19 @@ button{ font-family:var(--font-label); cursor:pointer; }
 .lbl{ font-family:var(--font-label); font-weight:700; font-size:8pt; letter-spacing:.2em; text-transform:uppercase; color:var(--cyan); }
 
 /* ---------- 10. L2: Punto de partida (split con flecha) ---------- */
-.start{ flex:1; display:flex; flex-direction:column; gap:.2in; margin-top:.2in; min-height:0; }
+.start{ flex:1; display:flex; flex-direction:column; gap:.16in; margin-top:.16in; min-height:0; }
+.slide[data-slide="2"] .s-title{ font-size:20pt; white-space:nowrap; }
 .split{ flex:1; display:grid; grid-template-columns:1fr auto 1fr; gap:0; align-items:stretch; min-height:0; }
-.pcard{ position:relative; background:var(--bg-2); border:var(--card-border); border-radius:16px; padding:.3in .32in; display:flex; flex-direction:column; overflow:hidden; }
+.pcard{ position:relative; background:var(--bg-2); border:var(--card-border); border-radius:16px; padding:.24in .3in; display:flex; flex-direction:column; overflow:hidden; }
 .pcard::before{ content:""; position:absolute; left:0; right:0; top:0; height:4px; background:var(--grad-brand); }
 .pcard.is-now{ background:var(--ink); border-color:transparent; }
 .pcard.is-now::before{ background:var(--lime); }
 .pcard .lbl{ margin-bottom:.14in; }
 .pcard.is-now .lbl{ color:var(--lime); }
-.pcard h3{ font-family:var(--font-display); font-weight:800; font-size:17pt; line-height:1.18; color:var(--text-hi); margin-bottom:.16in; }
+.pcard h3{ font-family:var(--font-display); font-weight:800; font-size:15.5pt; line-height:1.18; color:var(--text-hi); margin-bottom:.12in; }
 .pcard.is-now h3{ color:#fff; }
-.plist{ list-style:none; display:flex; flex-direction:column; gap:.13in; margin-top:auto; margin-bottom:auto; }
-.plist li{ display:flex; gap:12px; align-items:flex-start; font-family:var(--font-body); font-weight:400; font-size:10.4pt; line-height:1.42; color:var(--text-mid); }
+.plist{ list-style:none; display:flex; flex-direction:column; gap:.11in; margin-top:auto; margin-bottom:auto; }
+.plist li{ display:flex; gap:12px; align-items:flex-start; font-family:var(--font-body); font-weight:400; font-size:10pt; line-height:1.42; color:var(--text-mid); }
 .plist li b{ font-weight:600; color:var(--text-hi); }
 .pcard.is-now .plist li{ color:rgba(255,255,255,.82); }
 .pcard.is-now .plist li b{ color:#fff; }
@@ -277,23 +281,28 @@ button{ font-family:var(--font-label); cursor:pointer; }
 .proj.max{ background:linear-gradient(120deg,rgba(190,215,49,.22),rgba(255,255,255,1)); }
 
 /* ---------- 13. L5: Capacidad de supervisión (dos topes) ---------- */
-.cap2{ flex:1; display:grid; grid-template-columns:1fr auto 1fr; gap:0; align-items:stretch; margin-top:.2in; min-height:0; }
-.tope{ position:relative; background:var(--bg-2); border:var(--card-border); border-radius:18px; padding:.3in .32in; display:flex; flex-direction:column; overflow:hidden; }
+.cap2{ flex:1; display:grid; grid-template-columns:1fr auto 1fr; gap:0; align-items:stretch; margin-top:.14in; min-height:0; }
+.tope{ position:relative; background:var(--bg-2); border:var(--card-border); border-radius:18px; padding:.2in .3in; display:flex; flex-direction:column; overflow:hidden; }
 .tope::before{ content:""; position:absolute; left:0; right:0; top:0; height:4px; background:var(--grad-brand); }
 .tope .lbl{ margin-bottom:.06in; }
 .tope h3{ font-family:var(--font-display); font-weight:800; font-size:14.5pt; line-height:1.2; color:var(--text-hi); }
-.tope .big{ display:flex; align-items:baseline; gap:12px; margin:.2in 0 .04in; }
-.tope .big b{ font-family:var(--font-display); font-weight:900; font-size:52pt; line-height:.95; color:var(--text-hi); letter-spacing:-1px; }
+.tope .big{ display:flex; align-items:baseline; gap:12px; margin:.1in 0 .02in; }
+.tope .big b{ font-family:var(--font-display); font-weight:900; font-size:42pt; line-height:.95; color:var(--text-hi); letter-spacing:-1px; }
 .tope .big span{ font-family:var(--font-label); font-weight:700; font-size:10.5pt; line-height:1.25; color:var(--cyan); }
 .tope .desc{ font-family:var(--font-body); font-weight:300; font-size:9.6pt; line-height:1.44; color:var(--text-mid); }
-.tope .viz{ margin-top:auto; padding-top:.16in; }
+.tope .viz{ margin-top:auto; padding-top:.1in; }
 .sq-row{ display:grid; grid-template-columns:repeat(5,1fr); gap:8px; }
-.sq-row i{ height:26px; border-radius:7px; background:var(--lime); display:block; }
+.sq-row i{ height:18px; border-radius:7px; background:var(--lime); display:block; }
 .sq-row i:nth-child(n+6){ background:var(--olive); }
 .cl-row{ display:flex; gap:10px; }
-.cl-row div{ flex:1; height:56px; border-radius:50%/50%; border-radius:14px; background:var(--ink); color:var(--lime); display:flex; flex-direction:column; align-items:center; justify-content:center; font-family:var(--font-label); font-weight:700; font-size:8pt; letter-spacing:.06em; line-height:1.2; }
+.cl-row div{ flex:1; height:50px; border-radius:50%/50%; border-radius:14px; background:var(--ink); color:var(--lime); display:flex; flex-direction:column; align-items:center; justify-content:center; font-family:var(--font-label); font-weight:700; font-size:8pt; letter-spacing:.06em; line-height:1.2; }
 .cl-row div b{ font-family:var(--font-display); font-weight:900; font-size:12pt; }
 .vs{ align-self:center; width:.6in; text-align:center; font-family:var(--font-display); font-style:italic; font-weight:400; font-size:15pt; color:var(--text-lo); }
+
+.ready{ margin-top:.16in; background:linear-gradient(120deg,rgba(190,215,49,.22),rgba(46,74,18,.06)); border:var(--card-border); border-radius:14px; padding:.13in .24in; display:flex; align-items:center; gap:16px; }
+.ready .ink-ico{ width:40px; height:40px; }
+.ready b{ display:block; font-family:var(--font-label); font-weight:700; font-size:11pt; color:var(--text-hi); margin-bottom:2px; }
+.ready p{ font-family:var(--font-body); font-weight:400; font-size:9.4pt; line-height:1.4; color:var(--text-mid); }
 
 /* ---------- 14. L6: Dimensionamiento ---------- */
 .dim{ flex:1; display:grid; grid-template-columns:1fr .16in 1fr; gap:0; margin-top:.2in; min-height:0; align-items:stretch; }

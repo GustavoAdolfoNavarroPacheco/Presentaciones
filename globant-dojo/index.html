@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Globant</title>
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preload" as="font" type="font/ttf" href="assets/fonts/PlayfairDisplay-Bold.ttf" crossorigin>
+  <link rel="preload" as="font" type="font/ttf" href="assets/fonts/PlayfairDisplay-Black.ttf" crossorigin>
+  <link rel="preload" as="font" type="font/ttf" href="assets/fonts/PlayfairDisplay-Italic.ttf" crossorigin>
+  <link rel="preload" as="font" type="font/ttf" href="assets/fonts/PlayfairDisplay-BlackItalic.ttf" crossorigin>
+  <link rel="preload" as="font" type="font/ttf" href="assets/fonts/Montserrat-Medium.ttf" crossorigin>
+  <link rel="preload" as="font" type="font/ttf" href="assets/fonts/Montserrat-SemiBold.ttf" crossorigin>
+  <link rel="preload" as="font" type="font/ttf" href="assets/fonts/Montserrat-Bold.ttf" crossorigin>
+  <link rel="preload" as="font" type="font/ttf" href="assets/fonts/Poppins-Light.ttf" crossorigin>
+  <link rel="preload" as="font" type="font/ttf" href="assets/fonts/Poppins-Regular.ttf" crossorigin>
+  <link rel="preload" as="font" type="font/ttf" href="assets/fonts/Poppins-Medium.ttf" crossorigin>
+  <link rel="preload" as="font" type="font/ttf" href="assets/fonts/Poppins-SemiBold.ttf" crossorigin>
+</head>
+<body>
+
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <linearGradient id="gradBrand" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="#6E9418"/>
+        <stop offset="50%" stop-color="#4C7A12"/>
+        <stop offset="100%" stop-color="#2E4A12"/>
+      </linearGradient>
+    </defs>
+  </svg>
+
+  <!-- ============ BARRA SUPERIOR ============ -->
+  <header class="app-header">
+    <div class="header-left">
+      <img src="assets/logo-campuslands.png" alt="Campuslands Full Service">
+      <div class="logo-divider"></div>
+      <img src="assets/logo-cliente.png" alt="Globant" class="logo-client">
+    </div>
+    <div class="header-center"><!-- Un solo escenario: sin switch --></div>
+    <div class="header-right">
+      <span class="badge-confidential">Confidencial</span>
+    </div>
+  </header>
+
+  <!-- ============ CONTENIDO ============ -->
+  <main class="app-content">
+    <section class="slides-viewport">
+      <div class="slides-container" id="slides-container">
+
+        <!-- ===== 1 · PORTADA ===== -->
+        <div class="slide active" data-slide="1">
+          <div class="slide-inner cover">
+            <span class="corner tl"></span><span class="corner tr"></span>
+            <span class="corner bl"></span><span class="corner br"></span>
+            <svg class="deco-chev" viewBox="0 0 400 480" aria-hidden="true">
+              <path class="c3" d="M20 10 L400 240 L20 470 Q190 240 20 10 Z" transform="translate(120 70) scale(.66 .66)"/>
+            </svg>
+            <div class="cover__topbar">
+              <img src="assets/logo-campuslands.png" alt="Campuslands Full Service" class="cover__brand">
+              <span class="cover-badge-confidential">Confidencial</span>
+            </div>
+            <div class="cover__body">
+              <div class="eyebrow cover__eyebrow">Campuslands Full Service · Dojo</div>
+              <span class="cover__scenario">Modelo de células · Supervisión de seniors</span>
+              <h1 class="cover__title">Dojo × Globant:<br><svg class="gt" viewBox="0 0 6581 1083" style="height:1em;"><text x="0" y="1083" fill="url(#gradBrand)" style="font:italic 900 1000px 'Playfair Display',serif;">un gana-gana</text></svg> con seniors</h1>
+              <p class="cover__kicker">Cómo supervisar y hacer crecer el talento del dojo de Campuslands con el acompañamiento de seniors de Globant.</p>
+              <div class="cover__client">
+                <span class="cover__client-para">PARA</span>
+                <img src="assets/logo-cliente.png" alt="Globant" class="cover__client-logo">
+              </div>
+            </div>
+            <div class="cover__meta">
+              <div class="meta-item"><div class="meta-item__label">Preparado para</div><div class="meta-item__value">Globant</div></div>
+              <div class="meta-item"><div class="meta-item__label">Preparado por</div><div class="meta-item__value">Campuslands S.A.S. BIC · Full Service</div></div>
+              <div class="meta-item"><div class="meta-item__label">Fecha</div><div class="meta-item__value">Septiembre 2026</div></div>
+              <div class="meta-item"><div class="meta-item__label">Versión</div><div class="meta-item__value">v1.0</div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ===== 2 ===== -->
+        <div class="slide" data-slide="2">
+          <div class="slide-inner internal glow-a">
+            <header class="s-header">
+              <img src="assets/logo-campuslands.png" alt="Campuslands" class="brand">
+              <img src="assets/logo-cliente.png" alt="Globant" class="client">
+            </header>
+            <div class="s-body">
+              <div class="s-eyebrow">01 · Punto de partida</div>
+              <h2 class="s-title">Lo propuesto y lo que hoy es <svg class="gt" viewBox="0 0 5069 1083" style="height:1em;"><text x="0" y="1083" fill="url(#gradBrand)" style="font:italic 900 1000px 'Playfair Display',serif;">alcanzable</text></svg></h2>
+
+              <div class="start">
+                <div class="split">
+                  <div class="pcard">
+                    <div class="lbl">Propuesta inicial</div>
+                    <h3>Seis meses de dojo, sin costo</h3>
+                    <ul class="plist">
+                      <li><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m7.5 12.5 3 3 6-6.5"/></svg><span>Los <b>primeros seis meses</b> de los chicos del dojo serían <b>gratuitos</b>.</span></li>
+                      <li><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m7.5 12.5 3 3 6-6.5"/></svg><span>Foco en construir <b>plataformas full service</b>: SaaS, EMR y ERP.</span></li>
+                    </ul>
+                  </div>
+                  <div class="split-arrow"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span></div>
+                  <div class="pcard is-now">
+                    <div class="lbl">Revisión actual</div>
+                    <h3>Ajustar a lo realmente alcanzable</h3>
+                    <ul class="plist">
+                      <li><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m7.5 12.5 3 3 6-6.5"/></svg><span>Las <b>cifras de ventas comprometidas</b> originalmente eran <b>muy altas</b>.</span></li>
+                      <li><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m7.5 12.5 3 3 6-6.5"/></svg><span>Se revisa <b>qué es realmente alcanzable</b> antes de definir el modelo de operación.</span></li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="side-note"><span class="chip-lime">Por qué importa</span><p>Con una base más realista, esta propuesta define <b>cómo se supervisa el dojo</b> y <b>quién aporta los seniors</b> para sostenerlo.</p></div>
+              </div>
+            </div>
+            <footer class="s-footer">
+              <span>Campuslands · Exploramos · Despegamos · Conquistamos</span>
+              <span>Propuesta Globant Dojo · Full Service 2026</span>
+              <span class="pg">02</span>
+            </footer>
+          </div>
+        </div>
+
+        <!-- ===== 3 ===== -->
+        <div class="slide" data-slide="3">
+          <div class="slide-inner internal glow-b">
+            <header class="s-header">
+              <img src="assets/logo-campuslands.png" alt="Campuslands" class="brand">
+              <img src="assets/logo-cliente.png" alt="Globant" class="client">
+            </header>
+            <div class="s-body">
+              <div class="s-eyebrow">02 · Escenario financiero</div>
+              <h2 class="s-title">Proyección a tres años, <svg class="gt" viewBox="0 0 7132 1083" style="height:1em;"><text x="0" y="1083" fill="url(#gradBrand)" style="font:italic 900 1000px 'Playfair Display',serif;">alianza 70 / 30</text></svg></h2>
+
+              <div class="fin">
+                <div class="metric-grid">
+                  <div class="mcard"><div class="lbl">Ingresos totales · 3 años</div><div class="mval">17.625<small>M COP</small></div><div class="msub">Año 1: 2.250 · Año 2: 6.840 · Año 3: 8.535</div></div>
+                  <div class="mcard"><div class="lbl">Utilidad neta · 3 años</div><div class="mval">6.079<small>M COP</small></div><div class="msub">Año 1: 106 · Año 2: 2.576 · Año 3: 3.397</div></div>
+                  <div class="mcard"><div class="lbl">Margen neto</div><div class="mval sm">4,7 %<svg class="inl-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="12" x2="20" y2="12"/><polyline points="13 5 20 12 13 19"/></svg>39,8 %</div><div class="msub">Del año 1 al año 3 (año 2: 37,7 %)</div></div>
+                  <div class="mcard"><div class="lbl">Pico de capital de trabajo</div><div class="mval">652,8<small>M COP</small></div><div class="msub">Más CAPEX de 38,4 M COP</div></div>
+                </div>
+                <div class="alliance">
+                  <div class="lbl">Estructura societaria</div>
+                  <h4>Utilidad neta por socio</h4>
+                  <div class="split-bar"><div class="a">Globant 70 %</div><div class="b">30 %</div></div>
+                  <div class="partner"><div class="who"><b>Globant</b><span>4.255 M</span></div><p>Aporta 60 % de gastos comerciales y los desarrolladores del Dojo.</p></div>
+                  <div class="partner"><div class="who"><b>Campuslands</b><span>1.824 M</span></div><p>Aporta 40 % de gastos comerciales.</p></div>
+                  <div class="src">Escenario ácido V2, cifras en millones de pesos (COP). La nómina de desarrolladores del P&amp;G no incluye el costo del dojo. Fuente: Proyección Financiera Campuslands–Globant V2, hojas 06_P&amp;G, 08_CAPEX y 09_Info_Socios.</div>
+                </div>
+              </div>
+            </div>
+            <footer class="s-footer">
+              <span>Campuslands · Exploramos · Despegamos · Conquistamos</span>
+              <span>Propuesta Globant Dojo · Full Service 2026</span>
+              <span class="pg">03</span>
+            </footer>
+          </div>
+        </div>
+
+        <!-- ===== 4 ===== -->
+        <div class="slide" data-slide="4">
+          <div class="slide-inner internal glow-a">
+            <header class="s-header">
+              <img src="assets/logo-campuslands.png" alt="Campuslands" class="brand">
+              <img src="assets/logo-cliente.png" alt="Globant" class="client">
+            </header>
+            <div class="s-body">
+              <div class="s-eyebrow">03 · Modelo de células</div>
+              <h2 class="s-title">Un senior, <svg class="gt" viewBox="0 0 7127 1083" style="height:1em;"><text x="0" y="1083" fill="url(#gradBrand)" style="font:italic 900 1000px 'Playfair Display',serif;">varios staffings</text></svg></h2>
+
+              <div class="cells">
+                <div class="senior-col">
+                  <div class="senior-node">
+                    <span class="ink-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 5v6c0 5.2 3.4 9.5 8 11 4.6-1.5 8-5.8 8-11V5z"/></svg></span>
+                    <h4>Senior de Globant</h4>
+                    <p>Supervisa a los chicos y los acompaña como líder de seguimiento.</p>
+                  </div>
+                  <div class="rule-chip"><b>2–3</b><span>staffings por proyecto</span></div>
+                  <div class="rule-chip"><b>5</b><span>proyectos simultáneos como máximo</span></div>
+                </div>
+                <div class="proj-list"><div class="proj"><span class="pn">Proyecto 1</span><div class="staffs"><span class="st"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg></span><span class="st"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg></span><span class="st maybe"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg></span></div><span class="cap">2 a 3 staffings</span></div><div class="proj"><span class="pn">Proyecto 2</span><div class="staffs"><span class="st"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg></span><span class="st"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg></span><span class="st maybe"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg></span></div><span class="cap">2 a 3 staffings</span></div><div class="proj"><span class="pn">Proyecto 3</span><div class="staffs"><span class="st"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg></span><span class="st"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg></span><span class="st maybe"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg></span></div><span class="cap">2 a 3 staffings</span></div><div class="proj"><span class="pn">Proyecto 4</span><div class="staffs"><span class="st"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg></span><span class="st"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg></span><span class="st maybe"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg></span></div><span class="cap">2 a 3 staffings</span></div><div class="proj max"><span class="pn">Proyecto 5</span><div class="staffs"><span class="st"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg></span><span class="st"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg></span><span class="st maybe"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg></span></div><span class="cap">Hasta 5 proyectos simultáneos</span></div></div>
+              </div>
+            </div>
+            <footer class="s-footer">
+              <span>Campuslands · Exploramos · Despegamos · Conquistamos</span>
+              <span>Propuesta Globant Dojo · Full Service 2026</span>
+              <span class="pg">04</span>
+            </footer>
+          </div>
+        </div>
+
+        <!-- ===== 5 ===== -->
+        <div class="slide" data-slide="5">
+          <div class="slide-inner internal glow-b">
+            <header class="s-header">
+              <img src="assets/logo-campuslands.png" alt="Campuslands" class="brand">
+              <img src="assets/logo-cliente.png" alt="Globant" class="client">
+            </header>
+            <div class="s-body">
+              <div class="s-eyebrow">04 · Capacidad de supervisión</div>
+              <h2 class="s-title">Dos formas de vincular, <svg class="gt" viewBox="0 0 4373 1083" style="height:1em;"><text x="0" y="1083" fill="url(#gradBrand)" style="font:italic 900 1000px 'Playfair Display',serif;">dos topes</text></svg> por senior</h2>
+
+              <div class="cap2">
+                <div class="tope">
+                  <div class="lbl">Chicos vinculados individualmente</div>
+                  <h3>Sin célula: proyectos sueltos</h3>
+                  <div class="big"><b>10</b><span>proyectos<br>como máximo</span></div>
+                  <p class="desc">Se estima un tope de 10 proyectos por senior cuando los chicos se vinculan de manera individual, fuera de una célula.</p>
+                  <div class="viz"><div class="sq-row"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+                </div>
+                <div class="vs">vs.</div>
+                <div class="tope">
+                  <div class="lbl">Chicos organizados en célula</div>
+                  <h3>Célula: equipo de 10 a 15 personas</h3>
+                  <div class="big"><b>5</b><span>células<br>como máximo</span></div>
+                  <p class="desc">Un senior puede manejar hasta 5 células, cada una de entre 10 y 15 personas.</p>
+                  <div class="viz"><div class="cl-row"><div><b>10–15</b>personas</div><div><b>10–15</b>personas</div><div><b>10–15</b>personas</div><div><b>10–15</b>personas</div><div><b>10–15</b>personas</div></div></div>
+                </div>
+              </div>
+            </div>
+            <footer class="s-footer">
+              <span>Campuslands · Exploramos · Despegamos · Conquistamos</span>
+              <span>Propuesta Globant Dojo · Full Service 2026</span>
+              <span class="pg">05</span>
+            </footer>
+          </div>
+        </div>
+
+        <!-- ===== 6 ===== -->
+        <div class="slide" data-slide="6">
+          <div class="slide-inner internal glow-a">
+            <header class="s-header">
+              <img src="assets/logo-campuslands.png" alt="Campuslands" class="brand">
+              <img src="assets/logo-cliente.png" alt="Globant" class="client">
+            </header>
+            <div class="s-body">
+              <div class="s-eyebrow">05 · Dimensionamiento</div>
+              <h2 class="s-title"><svg class="gt" viewBox="0 0 4330 1083" style="height:1em;"><text x="0" y="1083" fill="url(#gradBrand)" style="font:italic 900 1000px 'Playfair Display',serif;">38 chicos</text></svg>, de 3 a 4 seniors</h2>
+
+              <div class="dim">
+                <div class="dcard">
+                  <div class="bignum"><b>38</b><span>chicos saldrán<br>en staffing</span></div>
+                  <p class="dim-cap">Talento del dojo que requiere acompañamiento de un senior mientras opera en proyectos.</p>
+                  <div class="dots"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+                </div>
+                <div></div>
+                <div class="dcard is-ink">
+                  <div class="bignum"><b>3–4</b><span>seniors de Globant<br>como mínimo</span></div>
+                  <p class="dim-cap">Necesarios para supervisar a los 38 chicos que saldrán en staffing.</p>
+                  <ul class="roles">
+                    <li class="role"><span class="ink-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg></span><div><b>Supervisión</b><span>De las células y los staffings del dojo.</span></div></li>
+                    <li class="role"><span class="ink-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span><div><b>Líderes de seguimiento</b><span>Acompañan a los muchachos durante el proceso.</span></div></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <footer class="s-footer">
+              <span>Campuslands · Exploramos · Despegamos · Conquistamos</span>
+              <span>Propuesta Globant Dojo · Full Service 2026</span>
+              <span class="pg">06</span>
+            </footer>
+          </div>
+        </div>
+
+        <!-- ===== 7 ===== -->
+        <div class="slide" data-slide="7">
+          <div class="slide-inner internal glow-b">
+            <header class="s-header">
+              <img src="assets/logo-campuslands.png" alt="Campuslands" class="brand">
+              <img src="assets/logo-cliente.png" alt="Globant" class="client">
+            </header>
+            <div class="s-body">
+              <div class="s-eyebrow">06 · Aporte de seniors</div>
+              <h2 class="s-title">Dos caminos, <svg class="gt" viewBox="0 0 7841 1083" style="height:1em;"><text x="0" y="1083" fill="url(#gradBrand)" style="font:italic 900 1000px 'Playfair Display',serif;">una misma meta</text></svg></h2>
+
+              <div class="start">
+                <div class="opts">
+                  <div class="opt">
+                    <div class="top"><span class="letter">A</span><div><span class="lbl">Opción A</span><h3>Seniors sin costo</h3></div></div>
+                    <p class="lead">Globant presta entre <b>3 y 4 seniors</b> para supervisar las células, sin costo para el dojo.</p>
+                    <ul class="plist">
+                      <li><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m7.5 12.5 3 3 6-6.5"/></svg><span>Los seniors se prestan sin costo para el dojo.</span></li>
+                      <li><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m7.5 12.5 3 3 6-6.5"/></svg><span>Cubre los 3 a 4 seniors que exige el dimensionamiento.</span></li>
+                    </ul>
+                  </div>
+                  <div class="or">o</div>
+                  <div class="opt">
+                    <div class="top"><span class="letter">B</span><div><span class="lbl">Opción B</span><h3>Modelo mitad y mitad</h3></div></div>
+                    <p class="lead">Un esquema <b>similar al del staffing actual</b>, donde se muestra a Globant que el dojo está generando ganancia.</p>
+                    <ul class="plist">
+                      <li><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m7.5 12.5 3 3 6-6.5"/></svg><span>Evidencia de que el dojo genera ganancia.</span></li>
+                      <li><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m7.5 12.5 3 3 6-6.5"/></svg><span>Se apoya en un modelo ya conocido: el del staffing actual.</span></li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="goal"><span class="chip-lime">Meta común</span><p>Contar con <b>3 a 4 seniors de Globant</b> supervisando las células del dojo.</p></div>
+              </div>
+            </div>
+            <footer class="s-footer">
+              <span>Campuslands · Exploramos · Despegamos · Conquistamos</span>
+              <span>Propuesta Globant Dojo · Full Service 2026</span>
+              <span class="pg">07</span>
+            </footer>
+          </div>
+        </div>
+
+        <!-- ===== 8 ===== -->
+        <div class="slide" data-slide="8">
+          <div class="slide-inner internal glow-a">
+            <header class="s-header">
+              <img src="assets/logo-campuslands.png" alt="Campuslands" class="brand">
+              <img src="assets/logo-cliente.png" alt="Globant" class="client">
+            </header>
+            <div class="s-body">
+              <div class="s-eyebrow">07 · Gana-gana</div>
+              <h2 class="s-title">Un problema de raíz, <svg class="gt" viewBox="0 0 3823 1083" style="height:1em;"><text x="0" y="1083" fill="url(#gradBrand)" style="font:italic 900 1000px 'Playfair Display',serif;">resuelto</text></svg></h2>
+
+              <div class="win">
+                <p class="win-quote">Para Globant es un <b>gana-gana</b>: se le soluciona un problema de raíz, <b>sin esperar seis meses</b> para ver retorno.</p>
+                <div class="trio">
+                  <div class="tcard"><div class="lbl">El problema</div><h4>Gaps entre proyectos de los seniors</h4><p>Tiempo de los seniors que hoy queda sin proyecto asignado.</p></div>
+                  <div class="tarrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+                  <div class="tcard"><div class="lbl">La solución</div><h4>Supervisar y liderar el seguimiento del dojo</h4><p>Los seniors acompañan a las células y a los chicos en staffing.</p></div>
+                  <div class="tarrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+                  <div class="tcard is-ink"><div class="lbl">El resultado</div><h4>Retorno sin esperar seis meses</h4><p>Globant ve retorno sin la espera inicial de seis meses.</p></div>
+                </div>
+              </div>
+            </div>
+            <footer class="s-footer">
+              <span>Campuslands · Exploramos · Despegamos · Conquistamos</span>
+              <span>Propuesta Globant Dojo · Full Service 2026</span>
+              <span class="pg">08</span>
+            </footer>
+          </div>
+        </div>
+
+        <!-- ===== 9 ===== -->
+        <div class="slide" data-slide="9">
+          <div class="slide-inner internal glow-b">
+            <header class="s-header">
+              <img src="assets/logo-campuslands.png" alt="Campuslands" class="brand">
+              <img src="assets/logo-cliente.png" alt="Globant" class="client">
+            </header>
+            <div class="s-body">
+              <div class="s-eyebrow">08 · Próximos pasos</div>
+              <h2 class="s-title">Del acuerdo a la <svg class="gt" viewBox="0 0 4766 1083" style="height:1em;"><text x="0" y="1083" fill="url(#gradBrand)" style="font:italic 900 1000px 'Playfair Display',serif;">operación</text></svg></h2>
+
+              <div class="tl">
+                <div class="tl-track">
+                  <div class="tl-step"><span class="n">1</span><div class="tcard"><div class="lbl">Definir</div><h4>Elegir el modelo de aporte</h4><p>Opción A (seniors sin costo) u Opción B (mitad y mitad).</p></div></div>
+                  <div class="tl-step"><span class="n">2</span><div class="tcard"><div class="lbl">Asignar</div><h4>Confirmar los 3 a 4 seniors</h4><p>Los que supervisarán las células y liderarán el seguimiento.</p></div></div>
+                  <div class="tl-step"><span class="n">3</span><div class="tcard"><div class="lbl">Conformar</div><h4>Armar células y staffings</h4><p>Con los 38 chicos que saldrán en staffing.</p></div></div>
+                  <div class="tl-step"><span class="n">4</span><div class="tcard"><div class="lbl">Seguir</div><h4>Medir y ajustar</h4><p>Revisar la ganancia del dojo y la carga de cada senior.</p></div></div>
+                </div>
+                <div class="side-note"><span class="chip-lime">Ruta propuesta</span><p>Los pasos son una propuesta de trabajo; las <b>fechas y responsables</b> se definen con Globant.</p></div>
+              </div>
+            </div>
+            <footer class="s-footer">
+              <span>Campuslands · Exploramos · Despegamos · Conquistamos</span>
+              <span>Propuesta Globant Dojo · Full Service 2026</span>
+              <span class="pg">09</span>
+            </footer>
+          </div>
+        </div>
+
+        <!-- ===== 10 ===== -->
+        <div class="slide" data-slide="10">
+          <div class="slide-inner internal glow-a">
+            <header class="s-header">
+              <img src="assets/logo-campuslands.png" alt="Campuslands" class="brand">
+              <img src="assets/logo-cliente.png" alt="Globant" class="client">
+            </header>
+            <div class="s-body">
+              <div class="s-eyebrow">09 · Cierre</div>
+              <h2 class="s-title">Definamos juntos el <svg class="gt" viewBox="0 0 3457 1083" style="height:1em;"><text x="0" y="1083" fill="url(#gradBrand)" style="font:italic 900 1000px 'Playfair Display',serif;">modelo</text></svg></h2>
+
+              <div class="close">
+                <div class="steps">
+                  <div class="step"><span class="dot">1</span><div class="lab"><b>Elegir el modelo de aporte</b><span>Seniors sin costo o modelo mitad y mitad.</span></div></div>
+                  <div class="step"><span class="dot">2</span><div class="lab"><b>Confirmar de 3 a 4 seniors</b><span>Para supervisar y hacer seguimiento a los chicos.</span></div></div>
+                  <div class="step"><span class="dot">3</span><div class="lab"><b>Arrancar con los 38 chicos</b><span>Organizados en células y staffings supervisados.</span></div></div>
+                </div>
+                <div class="pair-card">
+                  <div class="logos"><img class="cl" src="assets/logo-campuslands.png" alt="Campuslands"><span class="x">×</span><img class="gl" src="assets/logo-cliente.png" alt="Globant"></div>
+                  <div class="tag">Un dojo supervisado por seniors, un gana-gana para ambos.</div>
+                  <p>El talento del dojo y la experiencia de los seniors de Globant, en un mismo modelo.</p>
+                </div>
+              </div>
+            </div>
+            <footer class="s-footer">
+              <span>Campuslands · Exploramos · Despegamos · Conquistamos</span>
+              <span>Propuesta Globant Dojo · Full Service 2026</span>
+              <span class="pg">10</span>
+            </footer>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ BARRA INFERIOR ============ -->
+  <footer class="slides-footer-controls">
+    <button id="btn-prev-slide" class="control-btn" onclick="navigateSlide(-1)" aria-label="Lámina anterior">
+      <svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="2" fill="none"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+    </button>
+
+    <div class="slide-indicator">
+      <span id="slide-number-display">1 / 10</span>
+      <div class="progress-bar-bg"><div id="slide-progress" class="progress-bar-fill"></div></div>
+      <div class="playback-controls">
+        <button id="btn-autoplay" class="control-btn mini" title="Reproducción automática" onclick="toggleAutoplay()">
+          <svg id="autoplay-icon" viewBox="0 0 24 24" width="16" height="16" fill="currentColor" stroke="none"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <button id="btn-next-slide" class="control-btn" onclick="navigateSlide(1)" aria-label="Lámina siguiente">
+      <svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="2" fill="none"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    </button>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

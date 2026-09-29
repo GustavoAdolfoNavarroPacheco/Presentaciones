@@ -327,30 +327,51 @@ button{ font-family:var(--font-label); cursor:pointer; }
 .dcard.is-ink .dim-cap{ color:rgba(255,255,255,.7); }
 
 
-/* ---------- 14b. L6: Portafolio solicitado (3 columnas, LMS a doble altura) ---------- */
-.slide[data-slide="6"] .internal{ padding-top:.4in; gap:.1in; }
-.slide[data-slide="6"] .s-title{ font-size:21pt; }
-.demand{ flex:1; display:grid; grid-template-columns:.98fr 1fr 1fr; grid-template-rows:1fr 1fr; gap:.1in; margin-top:.1in; min-height:0; }
-.sol{ position:relative; background:var(--bg-2); border:var(--card-border); border-radius:14px; padding:.11in .16in; display:flex; flex-direction:column; overflow:hidden; min-height:0; }
-.sol::before{ content:""; position:absolute; left:0; right:0; top:0; height:3px; background:var(--grad-brand); }
-.sol.tall{ grid-row:1 / span 2; padding:.18in .2in; }
-.sol-head{ display:flex; align-items:center; gap:11px; margin-bottom:.06in; }
-.sol-ico{ flex:none; width:36px; height:36px; border-radius:50%; background:var(--ink); color:var(--lime); display:grid; place-items:center; box-shadow:0 0 0 3px rgba(190,215,49,.30); }
-.sol-ico svg{ width:19px; height:19px; }
-.sol.tall .sol-ico{ width:46px; height:46px; }
-.sol.tall .sol-ico svg{ width:24px; height:24px; }
-.sol h3{ font-family:var(--font-label); font-weight:700; font-size:10pt; line-height:1.15; color:var(--text-hi); }
-.sol.tall h3{ font-size:12pt; }
-.sol .tag{ font-family:var(--font-label); font-weight:700; font-size:6.3pt; letter-spacing:.12em; text-transform:uppercase; color:var(--cyan); margin-top:2px; line-height:1.3; }
-.sol p.d{ font-family:var(--font-body); font-weight:400; font-size:8.1pt; line-height:1.36; color:var(--text-mid); }
-.sol.tall p.d{ font-size:9.1pt; line-height:1.42; }
-.sol .inc{ font-family:var(--font-label); font-weight:700; font-size:6.3pt; letter-spacing:.16em; text-transform:uppercase; color:var(--text-lo); margin:.07in 0 .03in; }
-.sol.tall .inc{ margin:.14in 0 .07in; font-size:6.8pt; }
-.sol ul{ list-style:none; display:flex; flex-direction:column; gap:2px; }
-.sol.tall ul{ gap:5px; }
-.sol li{ display:flex; gap:7px; font-family:var(--font-body); font-weight:400; font-size:8pt; line-height:1.3; color:var(--text-mid); }
-.sol.tall li{ font-size:9pt; line-height:1.34; }
-.sol li::before{ content:""; flex:none; width:5px; height:5px; border-radius:50%; background:var(--olive); margin-top:.5em; }
+/* ---------- 14b. L6: Portafolio solicitado (mosaico a pantalla completa) ---------- */
+.portfolio{ padding:.36in .48in .38in; display:flex; flex-direction:column; gap:.15in; }
+.pf-chev{ right:-2.9in; top:-.6in; width:5.6in; height:6.7in; opacity:.9; }
+.pf-head{ position:relative; z-index:5; display:flex; align-items:flex-end; justify-content:space-between; }
+.pf-head .s-title{ font-size:23pt; }
+.pf-count{ font-family:var(--font-label); font-weight:700; font-size:8.5pt; letter-spacing:.18em; text-transform:uppercase; color:var(--text-hi); border:1px solid rgba(20,25,35,.18); background:rgba(255,255,255,.7); border-radius:99px; padding:7px 16px; }
+.pf-count b{ font-family:var(--font-display); font-weight:900; font-size:14pt; letter-spacing:0; color:var(--cyan); margin-right:6px; vertical-align:-1px; }
+.pf-grid{ position:relative; z-index:5; flex:1; display:grid; grid-template-columns:1fr 1fr 1fr; grid-template-rows:1fr 1fr; gap:.13in; min-height:0; }
+.sol{ position:relative; background:var(--bg-2); border:var(--card-border); border-radius:16px; padding:.14in .19in; display:flex; flex-direction:column; overflow:hidden; min-height:0; box-shadow:0 8px 24px rgba(20,25,35,.06); }
+.sol > *{ position:relative; z-index:1; }
+.sol .num{ position:absolute; z-index:2; right:.19in; top:.15in; font-family:var(--font-label); font-weight:700; font-size:7.5pt; letter-spacing:.14em; color:var(--text-lo); }
+.sol.tall{ grid-row:1 / span 2; padding:.22in .24in; }
+.sol.tall .num{ z-index:0; font-family:var(--font-display); font-weight:900; font-size:88pt; letter-spacing:0; line-height:1; right:.18in; top:auto; bottom:-.1in; }
+.sol-head{ display:flex; align-items:center; gap:12px; margin-bottom:.07in; }
+.sol-ico{ flex:none; width:40px; height:40px; border-radius:50%; background:var(--ink); color:var(--lime); display:grid; place-items:center; box-shadow:0 0 0 3px rgba(190,215,49,.35); }
+.sol-ico svg{ width:21px; height:21px; }
+.sol.tall .sol-ico{ width:50px; height:50px; box-shadow:0 0 0 5px rgba(190,215,49,.22), 0 0 26px rgba(190,215,49,.35); }
+.sol.tall .sol-ico svg{ width:26px; height:26px; }
+.sol h3{ font-family:var(--font-label); font-weight:700; font-size:10.8pt; line-height:1.15; color:var(--text-hi); }
+.sol.tall h3{ font-size:13pt; }
+.sol .tag{ font-family:var(--font-label); font-weight:700; font-size:6.7pt; letter-spacing:.13em; text-transform:uppercase; color:var(--cyan); margin-top:3px; line-height:1.3; }
+.sol.tall .tag{ font-size:7pt; }
+.sol p.d{ font-family:var(--font-body); font-weight:400; font-size:8.6pt; line-height:1.38; color:var(--text-mid); }
+.sol.tall p.d{ font-size:9.4pt; line-height:1.46; margin-top:.02in; }
+.sol .inc{ font-family:var(--font-label); font-weight:700; font-size:6.6pt; letter-spacing:.16em; text-transform:uppercase; color:var(--text-lo); margin:.08in 0 .04in; }
+.sol.tall .inc{ margin:.16in 0 .08in; font-size:7pt; }
+.sol ul{ list-style:none; display:flex; flex-direction:column; gap:3px; }
+.sol.tall ul{ gap:6px; }
+.sol li{ display:flex; gap:8px; font-family:var(--font-body); font-weight:400; font-size:8.5pt; line-height:1.32; color:var(--text-mid); }
+.sol.tall li{ font-size:9.3pt; line-height:1.36; }
+.sol li::before{ content:""; flex:none; width:6px; height:6px; border-radius:50%; background:var(--olive); margin-top:.48em; }
+/* variante negra (LMS): ancla visual, eco del wordmark */
+.sol.ink{ background:var(--ink); border-color:transparent; box-shadow:0 14px 34px rgba(20,25,35,.28); }
+.sol.ink::after{ content:""; position:absolute; z-index:0; right:-70px; bottom:-70px; width:230px; height:230px; border-radius:50%; background:radial-gradient(circle,rgba(190,215,49,.30),transparent 68%); }
+.sol.ink .sol-ico{ background:var(--lime); color:var(--ink); box-shadow:0 0 0 5px rgba(190,215,49,.22), 0 0 26px rgba(190,215,49,.35); }
+.sol.ink h3{ color:#fff; } .sol.ink .tag{ color:var(--lime); } .sol.ink p.d{ color:rgba(255,255,255,.80); }
+.sol.ink .inc{ color:rgba(255,255,255,.55); } .sol.ink li{ color:rgba(255,255,255,.88); } .sol.ink li::before{ background:var(--lime); }
+.sol.ink .num{ color:rgba(190,215,49,.16); }
+/* variante lima (Globant): tinta negra sobre lima vivo */
+.sol.lime{ background:linear-gradient(135deg,#C9DF40 0%,#AECB2B 100%); border-color:transparent; box-shadow:0 10px 26px rgba(127,162,27,.28); }
+.sol.lime h3, .sol.lime p.d, .sol.lime li{ color:var(--ink); }
+.sol.lime .tag{ color:#2E4A12; } .sol.lime .inc{ color:rgba(20,25,35,.62); }
+.sol.lime li::before{ background:var(--ink); }
+.sol.lime .num{ color:rgba(20,25,35,.55); }
+.sol.white::before{ content:""; position:absolute; left:0; right:0; top:0; height:3px; background:var(--grad-brand); z-index:1; }
 
 /* ---------- 15. L7: Dos caminos (opciones A / B) ---------- */
 .opts{ flex:1; display:grid; grid-template-columns:1fr auto 1fr; gap:0; margin-top:.2in; align-items:stretch; min-height:0; }

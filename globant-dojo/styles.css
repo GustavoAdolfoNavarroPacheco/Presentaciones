@@ -431,6 +431,44 @@ button{ font-family:var(--font-label); cursor:pointer; }
 .pair-card .tag{ font-family:var(--font-display); font-weight:700; font-size:19pt; line-height:1.18; color:var(--text-hi); }
 .pair-card p{ font-family:var(--font-body); font-weight:300; font-size:10pt; line-height:1.46; color:var(--text-mid); }
 
+
+/* ---------- 18b. PORTADA CENTRADA (v2) ---------- */
+.cover--center{ padding:.6in .72in .5in; }
+.deco-center{ position:absolute; inset:0; width:100%; height:100%; z-index:1; pointer-events:none; }
+.cover--center .deco-chev{ top:50%; width:2.7in; height:3.4in; transform:translateY(-50%); }
+.cover--center .chev-r{ right:-1.3in; }
+.cover--center .chev-l{ left:-1.3in; right:auto; transform:translateY(-50%) scaleX(-1); }
+.cover--center .cover__body{ max-width:none; width:100%; align-self:center; display:flex; flex-direction:column; align-items:center; text-align:center; }
+.cover__logos{ display:flex; align-items:center; justify-content:center; gap:26px; }
+.cover__logos img.lg-cl{ height:60px; width:auto; }
+.cover__logos img.lg-gl{ height:54px; width:auto; }
+.cover__logos .x{ font-family:var(--font-display); font-style:italic; font-weight:400; font-size:26pt; line-height:1; color:var(--text-lo); }
+.cover--center .cover__title{ font-size:56pt; line-height:1.04; margin-top:.36in; text-align:center; }
+.cover__title .con{ font-family:var(--font-display); font-style:italic; font-weight:400; font-size:.5em; letter-spacing:0; color:var(--text-mid); margin-right:.12em; vertical-align:.08em; }
+.cover__pill{ display:block; width:76px; height:5px; border-radius:99px; background:var(--grad-brand); margin-top:.3in; }
+.cover--center .cover__meta{ grid-template-columns:repeat(3,1fr); gap:0; padding-top:.2in; }
+.cover--center .meta-item{ text-align:center; padding:0 .2in; }
+.cover--center .meta-item + .meta-item{ border-left:1px solid rgba(20,25,35,.12); }
+
+/* ---------- 18c. L7: ¿Cuándo empezamos? ---------- */
+.c7{ display:flex; align-items:center; justify-content:center; padding:.5in .7in .7in; }
+.c7 .deco-rings{ right:-9%; }
+.c7-orb{ position:absolute; z-index:1; right:.7in; bottom:.95in; width:1.45in; height:1.45in; border-radius:50%; background:radial-gradient(circle at 35% 30%,rgba(255,255,255,.75),rgba(190,215,49,.30) 55%,rgba(127,162,27,.16)); border:1px solid rgba(127,162,27,.30); box-shadow:0 18px 40px rgba(127,162,27,.16); }
+.c7 .cover-badge-confidential{ position:absolute; top:.5in; right:.66in; z-index:6; }
+.c7-body{ position:relative; z-index:5; display:flex; flex-direction:column; align-items:center; text-align:center; gap:.24in; width:100%; }
+.c7-eyebrow{ display:inline-flex; align-items:center; gap:10px; font-family:var(--font-label); font-weight:700; font-size:10pt; letter-spacing:.26em; text-transform:uppercase; color:var(--cyan); }
+.c7-eyebrow::before{ content:""; width:8px; height:8px; border-radius:50%; background:var(--dot-confidential); }
+.c7-title{ font-family:var(--font-display); font-weight:900; font-size:50pt; line-height:1.05; letter-spacing:-.5px; color:var(--text-hi); }
+.c7-steps{ display:flex; align-items:center; justify-content:center; gap:.4in; flex-wrap:nowrap; }
+.c7-step{ display:flex; align-items:center; gap:12px; text-align:left; }
+.c7-step .n{ flex:none; width:34px; height:34px; border-radius:50%; background:var(--ink); color:var(--lime); display:grid; place-items:center; font-family:var(--font-label); font-weight:700; font-size:11pt; box-shadow:0 0 0 3px rgba(190,215,49,.35); }
+.c7-step .t{ font-family:var(--font-body); font-weight:500; font-size:10.4pt; line-height:1.3; color:var(--text-hi); max-width:2.3in; }
+.c7-lead{ font-family:var(--font-body); font-weight:300; font-size:12pt; line-height:1.55; color:var(--text-mid); max-width:7.6in; }
+.c7-logos{ margin-top:.12in; }
+.c7-logos img.lg-cl{ height:44px; } .c7-logos img.lg-gl{ height:40px; }
+.c7-logos .x{ font-size:20pt; }
+.c7 .s-footer{ position:absolute; left:.66in; right:.66in; bottom:.34in; }
+
 /* ---------- 19. IMPRESIÓN / EXPORT PDF ---------- */
 @media print{
   html,body{ width:11in; height:auto; overflow:visible; background:none; background-image:none; padding:0; -webkit-print-color-adjust:exact; print-color-adjust:exact; }

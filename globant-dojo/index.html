@@ -50,28 +50,36 @@
 
         <!-- ===== 1 · PORTADA ===== -->
         <div class="slide active" data-slide="1">
-          <div class="slide-inner cover">
+          <div class="slide-inner cover cover--center">
             <span class="corner tl"></span><span class="corner tr"></span>
             <span class="corner bl"></span><span class="corner br"></span>
-            <svg class="deco-chev" viewBox="0 0 400 480" aria-hidden="true">
-              <path class="c3" d="M20 10 L400 240 L20 470 Q190 240 20 10 Z" transform="translate(120 70) scale(.66 .66)"/>
+            <svg class="deco-center" viewBox="0 0 1056 594" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+              <defs><radialGradient id="cvGlow" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#BED731" stop-opacity=".20"/><stop offset="100%" stop-color="#BED731" stop-opacity="0"/></radialGradient></defs>
+              <circle cx="528" cy="297" r="240" fill="url(#cvGlow)"/>
+              <circle cx="528" cy="297" r="150" fill="none" stroke="rgba(127,162,27,.30)" stroke-width="1.2"/>
+              <circle cx="528" cy="297" r="235" fill="none" stroke="rgba(20,25,35,.07)" stroke-width="1"/>
+              <circle cx="528" cy="297" r="320" fill="none" stroke="rgba(20,25,35,.055)" stroke-width="1"/>
+              <circle cx="528" cy="297" r="410" fill="none" stroke="rgba(20,25,35,.04)" stroke-width="1"/>
             </svg>
+            <svg class="deco-chev chev-l" viewBox="0 0 400 480" aria-hidden="true"><path class="c3" d="M20 10 L400 240 L20 470 Q190 240 20 10 Z"/></svg>
+            <svg class="deco-chev chev-r" viewBox="0 0 400 480" aria-hidden="true"><path class="c3" d="M20 10 L400 240 L20 470 Q190 240 20 10 Z"/></svg>
             <div class="cover__topbar">
-              <img src="assets/logo-campuslands.png" alt="Campuslands Full Service" class="cover__brand">
+              <span></span>
               <span class="cover-badge-confidential">Confidencial</span>
             </div>
             <div class="cover__body">
-              <h1 class="cover__title">Dojo × <svg class="gt" viewBox="0 0 3816 1083" style="height:1em;"><text x="0" y="1083" fill="url(#gradBrand)" style="font:italic 900 1000px 'Playfair Display',serif;">Globant</text></svg></h1>
-              <div class="cover__client">
-                <span class="cover__client-para">PARA</span>
-                <img src="assets/logo-cliente.png" alt="Globant" class="cover__client-logo">
+              <div class="cover__logos">
+                <img src="assets/logo-campuslands.png" alt="Campuslands" class="lg-cl">
+                <span class="x">×</span>
+                <img src="assets/logo-cliente.png" alt="Globant" class="lg-gl">
               </div>
+              <h1 class="cover__title">Modelo de desarrollo<br><span class="con">con</span> <svg class="gt" viewBox="0 0 2076 1083" style="height:1em;"><text x="0" y="1083" fill="url(#gradBrand)" style="font:italic 900 1000px 'Playfair Display',serif;">dojo</text></svg></h1>
+              <span class="cover__pill"></span>
             </div>
             <div class="cover__meta">
               <div class="meta-item"><div class="meta-item__label">Preparado para</div><div class="meta-item__value">Globant</div></div>
               <div class="meta-item"><div class="meta-item__label">Preparado por</div><div class="meta-item__value">Campuslands S.A.S. BIC</div></div>
-              <div class="meta-item"><div class="meta-item__label">Fecha</div><div class="meta-item__value">Septiembre 2026</div></div>
-              <div class="meta-item"><div class="meta-item__label">Versión</div><div class="meta-item__value">v1.0</div></div>
+              <div class="meta-item"><div class="meta-item__label">Fecha</div><div class="meta-item__value">2026</div></div>
             </div>
           </div>
         </div>
@@ -242,6 +250,35 @@
           </div>
         </div>
 
+        <!-- ===== 7 · ¿CUÁNDO EMPEZAMOS? ===== -->
+        <div class="slide" data-slide="7">
+          <div class="slide-inner c7 glow-a">
+            <div class="deco-rings"><span></span><span></span><span></span></div>
+            <span class="c7-orb"></span>
+            <span class="cover-badge-confidential">Confidencial</span>
+            <div class="c7-body">
+              <div class="c7-eyebrow">Próximo paso: propuesta técnica y económica</div>
+              <h2 class="c7-title">¿Cuándo <svg class="gt" viewBox="0 0 5473 1083" style="height:1em;"><text x="0" y="1083" fill="url(#gradBrand)" style="font:italic 900 1000px 'Playfair Display',serif;">empezamos</text></svg>?</h2>
+              <div class="c7-steps">
+                <div class="c7-step"><span class="n">1</span><span class="t">Validación del alcance y del modelo de operación.</span></div>
+                <div class="c7-step"><span class="n">2</span><span class="t">Propuesta técnica y económica.</span></div>
+                <div class="c7-step"><span class="n">3</span><span class="t">Kick-off. Arrancamos.</span></div>
+              </div>
+              <p class="c7-lead">Unir el talento del dojo con el acompañamiento de seniors permite crear productos escalables para las industrias. El siguiente paso es nuestro.</p>
+              <div class="cover__logos c7-logos">
+                <img src="assets/logo-campuslands.png" alt="Campuslands" class="lg-cl">
+                <span class="x">×</span>
+                <img src="assets/logo-cliente.png" alt="Globant" class="lg-gl">
+              </div>
+            </div>
+            <footer class="s-footer">
+              <span>Exploramos · Despegamos · Conquistamos</span>
+              <span>Propuesta Globant Dojo · Campuslands</span>
+              <span class="pg">07</span>
+            </footer>
+          </div>
+        </div>
+
       </div>
     </section>
   </main>
@@ -253,7 +290,7 @@
     </button>
 
     <div class="slide-indicator">
-      <span id="slide-number-display">1 / 6</span>
+      <span id="slide-number-display">1 / 7</span>
       <div class="progress-bar-bg"><div id="slide-progress" class="progress-bar-fill"></div></div>
       <div class="playback-controls">
         <button id="btn-autoplay" class="control-btn mini" title="Reproducción automática" onclick="toggleAutoplay()">

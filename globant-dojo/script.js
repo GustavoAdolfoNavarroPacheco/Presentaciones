@@ -5,7 +5,7 @@
 
 const state = {
     currentSlide: 1,
-    totalSlides: 6,
+    totalSlides: 7,
     autoplayActive: false,
     autoplayTimer: null,
 };

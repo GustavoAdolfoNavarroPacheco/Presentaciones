@@ -349,15 +349,13 @@ button{ font-family:var(--font-label); cursor:pointer; }
 .sol h3{ font-family:var(--font-label); font-weight:700; font-size:10.8pt; line-height:1.15; color:var(--text-hi); }
 .sol.tall h3{ font-size:13pt; }
 .sol .tag{ font-family:var(--font-label); font-weight:700; font-size:6.7pt; letter-spacing:.13em; text-transform:uppercase; color:var(--cyan); margin-top:3px; line-height:1.3; }
-.sol.tall .tag{ font-size:7pt; }
-.sol p.d{ font-family:var(--font-body); font-weight:400; font-size:8.6pt; line-height:1.38; color:var(--text-mid); }
-.sol.tall p.d{ font-size:9.4pt; line-height:1.46; margin-top:.02in; }
+.sol p.d{ font-family:var(--font-body); font-weight:400; font-size:8.6pt; line-height:1.4; color:var(--text-mid); }
+.sol.tall p.d{ margin-top:.02in; }
 .sol .inc{ font-family:var(--font-label); font-weight:700; font-size:6.6pt; letter-spacing:.16em; text-transform:uppercase; color:var(--text-lo); margin:.12in 0 .06in; }
-.sol.tall .inc{ margin:.2in 0 .1in; font-size:7pt; }
+.sol.tall .inc{ margin:.2in 0 .1in; }
 .sol ul{ list-style:none; display:flex; flex-direction:column; gap:4px; }
 .sol.tall ul{ gap:6px; }
-.sol li{ display:flex; gap:8px; font-family:var(--font-body); font-weight:400; font-size:8.5pt; line-height:1.32; color:var(--text-mid); }
-.sol.tall li{ font-size:9.3pt; line-height:1.36; }
+.sol li{ display:flex; gap:8px; font-family:var(--font-body); font-weight:400; font-size:8.6pt; line-height:1.34; color:var(--text-mid); }
 .sol li::before{ content:""; flex:none; width:6px; height:6px; border-radius:50%; background:var(--olive); margin-top:.48em; }
 /* variante negra (LMS): ancla visual, eco del wordmark */
 .sol.ink{ background:var(--ink); border-color:transparent; box-shadow:0 14px 34px rgba(20,25,35,.28); }

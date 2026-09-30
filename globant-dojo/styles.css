@@ -328,19 +328,20 @@ button{ font-family:var(--font-label); cursor:pointer; }
 
 
 /* ---------- 14b. L6: Portafolio solicitado (mosaico a pantalla completa) ---------- */
-.portfolio{ padding:.36in .48in .38in; display:flex; flex-direction:column; gap:.15in; }
+.portfolio{ padding:.36in .48in .42in; display:flex; flex-direction:column; gap:.3in; }
 .pf-chev{ right:-2.9in; top:-.6in; width:5.6in; height:6.7in; opacity:.9; }
 .pf-head{ position:relative; z-index:5; display:flex; align-items:flex-end; justify-content:space-between; }
 .pf-head .s-title{ font-size:23pt; }
+.pf-head .s-eyebrow{ margin-bottom:.14in; }
 .pf-count{ font-family:var(--font-label); font-weight:700; font-size:8.5pt; letter-spacing:.18em; text-transform:uppercase; color:var(--text-hi); border:1px solid rgba(20,25,35,.18); background:rgba(255,255,255,.7); border-radius:99px; padding:7px 16px; }
 .pf-count b{ font-family:var(--font-display); font-weight:900; font-size:14pt; letter-spacing:0; color:var(--cyan); margin-right:6px; vertical-align:-1px; }
-.pf-grid{ position:relative; z-index:5; flex:1; display:grid; grid-template-columns:1fr 1fr 1fr; grid-template-rows:1fr 1fr; gap:.13in; min-height:0; }
-.sol{ position:relative; background:var(--bg-2); border:var(--card-border); border-radius:16px; padding:.14in .19in; display:flex; flex-direction:column; overflow:hidden; min-height:0; box-shadow:0 8px 24px rgba(20,25,35,.06); }
+.pf-grid{ position:relative; z-index:5; flex:1; display:grid; grid-template-columns:1fr 1fr 1fr; grid-template-rows:1.04fr 1fr; gap:.15in; min-height:0; }
+.sol{ position:relative; background:var(--bg-2); border:var(--card-border); border-radius:16px; padding:.18in .21in .2in; display:flex; flex-direction:column; overflow:hidden; min-height:0; box-shadow:0 8px 24px rgba(20,25,35,.06); }
 .sol > *{ position:relative; z-index:1; }
-.sol .num{ position:absolute; z-index:2; right:.19in; top:.15in; font-family:var(--font-label); font-weight:700; font-size:7.5pt; letter-spacing:.14em; color:var(--text-lo); }
-.sol.tall{ grid-row:1 / span 2; padding:.22in .24in; }
-.sol.tall .num{ z-index:0; font-family:var(--font-display); font-weight:900; font-size:88pt; letter-spacing:0; line-height:1; right:.18in; top:auto; bottom:-.1in; }
-.sol-head{ display:flex; align-items:center; gap:12px; margin-bottom:.07in; }
+.sol .num{ position:absolute; z-index:2; right:.21in; bottom:.13in; font-family:var(--font-label); font-weight:700; font-size:7.5pt; letter-spacing:.14em; color:var(--text-lo); }
+.sol.tall{ grid-row:1 / span 2; padding:.28in .26in .26in; }
+.sol.tall .num{ z-index:0; font-family:var(--font-display); font-weight:900; font-size:60pt; letter-spacing:0; line-height:1; right:.22in; bottom:.1in; }
+.sol-head{ display:flex; align-items:center; gap:13px; margin-bottom:.14in; }
 .sol-ico{ flex:none; width:40px; height:40px; border-radius:50%; background:var(--ink); color:var(--lime); display:grid; place-items:center; box-shadow:0 0 0 3px rgba(190,215,49,.35); }
 .sol-ico svg{ width:21px; height:21px; }
 .sol.tall .sol-ico{ width:50px; height:50px; box-shadow:0 0 0 5px rgba(190,215,49,.22), 0 0 26px rgba(190,215,49,.35); }
@@ -351,9 +352,9 @@ button{ font-family:var(--font-label); cursor:pointer; }
 .sol.tall .tag{ font-size:7pt; }
 .sol p.d{ font-family:var(--font-body); font-weight:400; font-size:8.6pt; line-height:1.38; color:var(--text-mid); }
 .sol.tall p.d{ font-size:9.4pt; line-height:1.46; margin-top:.02in; }
-.sol .inc{ font-family:var(--font-label); font-weight:700; font-size:6.6pt; letter-spacing:.16em; text-transform:uppercase; color:var(--text-lo); margin:.08in 0 .04in; }
-.sol.tall .inc{ margin:.16in 0 .08in; font-size:7pt; }
-.sol ul{ list-style:none; display:flex; flex-direction:column; gap:3px; }
+.sol .inc{ font-family:var(--font-label); font-weight:700; font-size:6.6pt; letter-spacing:.16em; text-transform:uppercase; color:var(--text-lo); margin:.12in 0 .06in; }
+.sol.tall .inc{ margin:.2in 0 .1in; font-size:7pt; }
+.sol ul{ list-style:none; display:flex; flex-direction:column; gap:4px; }
 .sol.tall ul{ gap:6px; }
 .sol li{ display:flex; gap:8px; font-family:var(--font-body); font-weight:400; font-size:8.5pt; line-height:1.32; color:var(--text-mid); }
 .sol.tall li{ font-size:9.3pt; line-height:1.36; }

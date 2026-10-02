@@ -1,0 +1,293 @@
+/* ============================================================
+   CAMPUSLANDS FULL SERVICE — SISTEMA DE DISEÑO v4 (Brandbook 2023 + ajustes del usuario)
+   Fuente normativa: recursos/brandbook/Campuslands_Brandbook.pdf
+   REGLAS DEL USUARIO (2026-10-02):
+   · POPPINS en toda la presentación (títulos y cuerpo). Roboto Mono ya no se usa.
+   · Fondo de lámina y de la página web = BLANCO #FFFFFF (tema claro). Navy/violeta/dorado/verde/celeste/arena = tarjetas, franjas y acentos.
+   · Logos Campuslands × Cliente solo en portada, cierre y barra del visor (ahí, grandes). «×» centrada; áreas iguales (--k-cliente).
+   · Sin «Confidencial», sin indicadores de página/módulo, sin difuminación celeste, banners sin borde dorado.
+   · Numeral de sección pequeño y difuminado (arriba a la derecha). Pie (migas) abajo a la IZQUIERDA.
+   · Cada marco de contenido lleva «decoraciones» (anillos, puntos, rayas, cruces, chevrones) discretas.
+   ============================================================ */
+
+/* ---------- 1. FUENTES LOCALES ---------- */
+@font-face{ font-family:'Poppins'; src:url('assets/fonts/Poppins-Regular.ttf') format('truetype'); font-weight:400; font-style:normal; font-display:swap; }
+@font-face{ font-family:'Poppins'; src:url('assets/fonts/Poppins-Medium.ttf') format('truetype'); font-weight:500; font-style:normal; font-display:swap; }
+@font-face{ font-family:'Poppins'; src:url('assets/fonts/Poppins-SemiBold.ttf') format('truetype'); font-weight:600; font-style:normal; font-display:swap; }
+@font-face{ font-family:'Poppins'; src:url('assets/fonts/Poppins-Black.ttf') format('truetype'); font-weight:900; font-style:normal; font-display:swap; }
+@font-face{ font-family:'Poppins'; src:url('assets/fonts/Poppins-BlackItalic.ttf') format('truetype'); font-weight:900; font-style:italic; font-display:swap; }
+/* Nutmeg (destacados) es comercial y no está licenciada en el repo: los destacados usan Poppins Black. */
+
+/* ---------- 2. TOKENS ---------- */
+:root{
+  --violet:#5E3AE2; --gold:#F4B422; --green:#00AA80; --navy:#000087; --sky:#2CAAFF; --sand:#E4E4DB;
+  --white:#FFFFFF; --ink:#373435;
+  --font-title:'Poppins','Segoe UI',sans-serif;
+  --font-body:'Poppins','Segoe UI',sans-serif;
+  --font-accent:'Nutmeg','Poppins','Segoe UI',sans-serif;
+  --slide-w:11in; --slide-h:6.1875in; --pad-x:.62in; --radius:18px;
+  --line:rgba(0,0,135,.12);
+  --logo-h-cover:64px;      /* alto del logo de Campuslands en portada y cierre */
+  --logo-h-shell:44px;      /* alto del logo de Campuslands en la barra del visor (grande) */
+  --k-cliente:1.0381;          /* peso visual del logo del cliente: herramientas/igualar_logos.py (= √(ratio Campuslands / ratio cliente)) */
+  --bar-h:76px;             /* altura ÚNICA de la barra superior y la inferior del visor (iguales) */
+  --header-h:var(--bar-h); --footer-h:var(--bar-h);
+}
+
+/* ---------- 3. RESET ---------- */
+*{ box-sizing:border-box; margin:0; padding:0; }
+@page{ size:11in 6.1875in; margin:0; }
+html{ height:100%; }
+body{ height:100vh; overflow:hidden; display:flex; flex-direction:column; background:#FFFFFF; color:var(--ink); font-family:var(--font-body); -webkit-font-smoothing:antialiased; }
+button{ font-family:var(--font-body); cursor:pointer; }
+
+/* ---------- 4. VISOR (shell de pantalla — no afecta al PDF) · TEMA CLARO BLANCO ---------- */
+.app-header{ flex:none; height:var(--header-h); padding:0 38px; display:flex; align-items:center; justify-content:flex-start; background:#FFFFFF; border:0; box-shadow:0 8px 26px rgba(0,0,135,.10), 0 1px 4px rgba(0,0,135,.06); position:relative; z-index:50; }   /* barra separada por SOMBRA, sin línea */
+.cobrand{ --lh:var(--logo-h-shell); display:flex; align-items:center; gap:var(--gap-cb,22px); }
+.cobrand img{ height:var(--lh); width:auto; display:block; }                                            /* Campuslands */
+.cobrand img[data-logo="cliente"]{ height:calc(var(--lh) * var(--k-cliente)); }                         /* cliente: mismo PESO VISUAL */
+.cobrand .x{ flex:none; display:grid; place-items:center; width:calc(var(--lh)*.5); height:calc(var(--lh)*.5); color:var(--violet); }   /* «×» centrada en vertical */
+.cobrand .x svg{ width:100%; height:100%; fill:none; stroke:currentColor; stroke-width:2.6; stroke-linecap:round; }
+.app-content{ flex:1; min-height:0; display:flex; background:#FFFFFF; }
+.slides-container{ flex:1; position:relative; display:flex; align-items:center; justify-content:center; padding:22px 40px; min-width:0; }
+.slide{ position:absolute; width:1056px; height:594px; zoom:var(--slide-scale,1); display:none; opacity:0; transform:translateY(16px); transition:opacity .45s ease, transform .45s ease; border-radius:var(--radius); overflow:hidden; border:0; outline:0; box-shadow:0 16px 46px rgba(0,0,135,.20), 0 2px 10px rgba(0,0,135,.08); }   /* recuadro separado por SOMBRA, sin borde */
+.slide.active{ display:block; opacity:1; transform:translateY(0); }
+.slides-footer-controls{ flex:none; height:var(--footer-h); padding:0 38px; display:flex; align-items:center; justify-content:space-between; background:#FFFFFF; border:0; box-shadow:0 -8px 26px rgba(0,0,135,.10), 0 -1px 4px rgba(0,0,135,.06); position:relative; z-index:50; }
+.control-btn{ background:#FFFFFF; border:0; color:var(--navy); width:40px; height:40px; border-radius:50%; display:flex; align-items:center; justify-content:center; transition:all .25s ease; box-shadow:0 5px 14px rgba(0,0,135,.18), 0 1px 3px rgba(0,0,135,.10); }   /* botones con SOMBRA, sin borde */
+.control-btn:hover{ background:var(--gold); color:var(--navy); box-shadow:0 8px 20px rgba(244,180,34,.45), 0 1px 3px rgba(0,0,135,.10); }
+.control-btn:active{ transform:translateY(1px); box-shadow:0 2px 7px rgba(0,0,135,.20); }
+.control-btn.mini{ width:32px; height:32px; }
+.control-btn.active{ background:var(--gold); color:var(--navy); box-shadow:0 8px 20px rgba(244,180,34,.45), 0 1px 3px rgba(0,0,135,.10); }
+.slide-indicator{ display:flex; align-items:center; gap:18px; flex:1; max-width:520px; margin:0 26px; }
+#slide-number-display{ font-size:12px; color:var(--ink); min-width:48px; text-align:right; }
+.progress-bar-bg{ flex:1; height:5px; background:rgba(0,0,135,.12); border-radius:3px; overflow:hidden; }
+.progress-bar-fill{ height:100%; width:10%; background:var(--gold); transition:width .3s ease; }
+.playback-controls{ display:flex; align-items:center; }
+
+/* ---------- 5. LÁMINA BASE (fondo #FFFFFF) ---------- */
+.sl{ position:relative; width:100%; height:100%; overflow:hidden; display:flex; flex-direction:column; padding:.42in var(--pad-x) .36in; }
+.sl[data-bg="white"]{ background:#FFFFFF; color:var(--ink); }      /* ÚNICO fondo de lámina permitido */
+.sl > *{ position:relative; z-index:3; }
+/* numeral grande de sección: PEQUEÑO y DIFUMINADO, arriba a la derecha */
+.ghost{ position:absolute !important; z-index:1 !important; right:.5in; top:.3in; font-family:var(--font-title); font-weight:900; font-size:52pt; line-height:1; letter-spacing:-.02em; color:rgba(0,0,135,.07); filter:blur(1.6px); pointer-events:none; }
+/* pie: migas abajo a la IZQUIERDA; lema a la derecha. Sin indicador de página */
+.ft{ flex:none; display:flex; align-items:center; justify-content:space-between; height:22px; font-family:var(--font-body); font-size:8pt; letter-spacing:.03em; color:var(--ink); }
+.ft .crumbs{ text-align:left; }
+.ft .crumbs i{ font-style:normal; opacity:.5; padding:0 .45em; }
+.ft .lema{ text-align:right; opacity:.75; }
+
+/* ---------- 6. TIPOGRAFÍA Y MARCADORES (todo Poppins) ---------- */
+.sec{ font-family:var(--font-title); font-weight:900; line-height:1.06; letter-spacing:-.012em; color:var(--navy); }
+.sec .mark{ color:var(--violet); }
+.sec .em{ font-style:italic; color:var(--violet); }
+.sec-top{ font-size:26pt; margin-top:.04in; max-width:8.4in; }       /* el título abre la lámina (sin cabecera de logos) y no pisa el numeral */
+.label{ font-family:var(--font-title); font-weight:900; font-size:8.5pt; letter-spacing:.14em; text-transform:uppercase; color:var(--violet); }
+.body{ font-size:10.5pt; line-height:1.55; }
+.lede{ font-size:12.5pt; line-height:1.6; max-width:7.2in; }
+.tagline{ font-size:10.5pt; letter-spacing:.08em; font-weight:500; }
+.tagline::before{ content:"<= "; color:var(--violet); } .tagline::after{ content:" =>"; color:var(--violet); }
+
+/* ---------- 7. ICONOS (trazo uniforme) ---------- */
+.ic{ flex:none; width:42px; height:42px; border-radius:13px; display:grid; place-items:center; position:relative; z-index:1; }
+.ic svg{ width:22px; height:22px; fill:none; stroke:currentColor; stroke-width:1.9; stroke-linecap:round; stroke-linejoin:round; }
+.ic--lg{ width:56px; height:56px; border-radius:17px; } .ic--lg svg{ width:30px; height:30px; }
+.ic--sm{ width:34px; height:34px; border-radius:11px; } .ic--sm svg{ width:18px; height:18px; }
+.ic--round{ border-radius:50%; }
+.ic--violet{ background:var(--violet); color:#fff; } .ic--sky{ background:var(--sky); color:var(--navy); } .ic--gold{ background:var(--gold); color:var(--navy); }
+.ic--green{ background:var(--green); color:#fff; } .ic--navy{ background:var(--navy); color:var(--gold); } .ic--white{ background:#fff; color:var(--navy); }
+.ic--t-violet{ background:rgba(94,58,226,.12); color:var(--violet); } .ic--t-sky{ background:rgba(44,170,255,.16); color:#0B6BC2; }
+.ic--t-green{ background:rgba(0,170,128,.14); color:#007A5C; } .ic--t-gold{ background:rgba(244,180,34,.22); color:#8A5A00; } .ic--t-navy{ background:rgba(0,0,135,.10); color:var(--navy); }
+
+/* ---------- 8. TARJETAS Y DECORACIONES ---------- */
+.card{ position:relative; overflow:hidden; border-radius:var(--radius); padding:.22in .24in; background:#FFFFFF; color:var(--ink); border:1px solid var(--line); box-shadow:0 12px 28px rgba(0,0,135,.07);
+       --deco:rgba(0,0,135,.05); --deco-dot:rgba(0,0,135,.22); --r1:64px; --r2:112px; --r3:138px; --r4:170px; }
+.card > *{ position:relative; z-index:1; }
+.card--sand{ background:var(--sand); border-color:transparent; box-shadow:none; --deco:rgba(255,255,255,.55); --deco-dot:rgba(0,0,135,.2); }
+.card--navy{ background:var(--navy); color:#fff; border-color:transparent; box-shadow:0 16px 34px rgba(0,0,135,.28); --deco:rgba(255,255,255,.075); --deco-dot:rgba(255,255,255,.28); }
+.card--violet{ background:var(--violet); color:#fff; border-color:transparent; box-shadow:0 16px 34px rgba(94,58,226,.30); --deco:rgba(255,255,255,.12); --deco-dot:rgba(255,255,255,.34); }
+.card--gold{ background:var(--gold); color:var(--navy); border-color:transparent; box-shadow:0 14px 30px rgba(244,180,34,.34); --deco:rgba(255,255,255,.30); --deco-dot:rgba(0,0,135,.22); }
+.card--sky{ background:var(--sky); color:var(--navy); border-color:transparent; box-shadow:0 14px 30px rgba(44,170,255,.32); --deco:rgba(255,255,255,.30); --deco-dot:rgba(0,0,135,.2); }
+/* decoraciones: anillos concéntricos (esquina), puntos, rayas, cruces, chevrones. Son pseudo-elementos: nunca llevan texto. */
+.fx::before, .fx::after{ content:""; position:absolute; pointer-events:none; z-index:0; }
+.fx--arcs::before{ inset:0; background:radial-gradient(circle at var(--ax,100%) var(--ay,0%),
+  transparent 0 var(--r1), var(--deco) var(--r1) var(--r2), transparent var(--r2) var(--r3), var(--deco) var(--r3) var(--r4), transparent var(--r4)); }
+.fx--arcs.bl::before{ --ax:0%; --ay:100%; } .fx--arcs.br::before{ --ax:100%; --ay:100%; } .fx--arcs.tl::before{ --ax:0%; --ay:0%; }
+.fx--dots::after{ right:.2in; bottom:.16in; width:1.2in; height:.8in; background:radial-gradient(var(--deco-dot) 1.7px, transparent 2.1px) 0 0/13px 13px; -webkit-mask-image:linear-gradient(315deg,#000 15%,transparent 85%); mask-image:linear-gradient(315deg,#000 15%,transparent 85%); }
+.fx--dots.dl::after{ right:auto; left:.2in; -webkit-mask-image:linear-gradient(45deg,#000 15%,transparent 85%); mask-image:linear-gradient(45deg,#000 15%,transparent 85%); }
+.fx--stripes::after{ right:0; bottom:0; width:1.5in; height:1.1in; background:repeating-linear-gradient(135deg, var(--deco) 0 3px, transparent 3px 11px); -webkit-mask-image:linear-gradient(315deg,#000 10%,transparent 80%); mask-image:linear-gradient(315deg,#000 10%,transparent 80%); }
+.fx--plus::after{ right:.18in; top:.18in; width:1.1in; height:.7in; background:
+  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='22' height='22'%3E%3Cpath d='M11 6v10M6 11h10' stroke='%23000087' stroke-opacity='.22' stroke-width='1.6' stroke-linecap='round'/%3E%3C/svg%3E") 0 0/22px 22px; -webkit-mask-image:linear-gradient(225deg,#000 10%,transparent 85%); mask-image:linear-gradient(225deg,#000 10%,transparent 85%); }
+.card--navy.fx--plus::after, .card--violet.fx--plus::after{ background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='22' height='22'%3E%3Cpath d='M11 6v10M6 11h10' stroke='%23ffffff' stroke-opacity='.3' stroke-width='1.6' stroke-linecap='round'/%3E%3C/svg%3E"); }
+.fx--chev::after{ right:.14in; bottom:.1in; width:1.1in; height:.9in; background:
+  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='46' height='46'%3E%3Cpath d='M12 8l16 15-16 15' fill='none' stroke='%235E3AE2' stroke-opacity='.2' stroke-width='5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") 0 0/46px 46px; -webkit-mask-image:linear-gradient(315deg,#000 10%,transparent 85%); mask-image:linear-gradient(315deg,#000 10%,transparent 85%); }
+.card--navy.fx--chev::after{ background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='46' height='46'%3E%3Cpath d='M12 8l16 15-16 15' fill='none' stroke='%232CAAFF' stroke-opacity='.3' stroke-width='5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); }
+.pill{ display:inline-flex; align-items:center; gap:8px; font-family:var(--font-title); font-weight:900; font-size:7.5pt; letter-spacing:.14em; text-transform:uppercase; border-radius:99px; padding:5px 13px; }
+.pill--violet{ background:rgba(94,58,226,.12); color:var(--violet); } .pill--gold{ background:var(--gold); color:var(--navy); }
+.pill--navy{ background:var(--navy); color:#fff; } .pill--white{ background:rgba(255,255,255,.18); color:#fff; border:1px solid rgba(255,255,255,.4); }
+.row-ic{ display:flex; gap:.14in; align-items:flex-start; font-size:10.5pt; line-height:1.5; }
+.row-ic .ic{ margin-top:2px; }
+.list{ list-style:none; display:flex; flex-direction:column; gap:.1in; font-size:10.5pt; line-height:1.5; }
+.list li{ display:flex; gap:10px; align-items:flex-start; }
+.list li::before{ content:""; flex:none; width:18px; height:18px; margin-top:2px; border-radius:50%; background:var(--violet) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='3.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 12.5 4 4 8-9'/%3E%3C/svg%3E") center/11px no-repeat; }
+.card--navy .list li::before, .card--violet .list li::before{ background-color:var(--gold); background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000087' stroke-width='3.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 12.5 4 4 8-9'/%3E%3C/svg%3E"); }
+.go{ flex:none; width:46px; height:46px; border-radius:50%; background:var(--gold); color:var(--navy); display:grid; place-items:center; box-shadow:0 10px 22px rgba(244,180,34,.45); }
+.go svg{ width:22px; height:22px; fill:none; stroke:currentColor; stroke-width:2.6; stroke-linecap:round; stroke-linejoin:round; }
+.neon{ border:3px solid var(--gold); box-shadow:0 0 0 1px rgba(244,180,34,.55), 0 0 26px rgba(244,180,34,.5), inset 0 0 24px rgba(244,180,34,.2); }   /* SOLO un dato/tarjeta clave; nunca banners */
+
+/* ---------- 9. PORTADA Y CIERRE: logos grandes, «×» centrada, fondo de anillos y hojas ---------- */
+.deco-cover{ position:absolute !important; inset:0; width:100%; height:100%; z-index:0 !important; pointer-events:none; }
+.deco-cover .ring{ fill:none; stroke:rgba(0,0,135,.07); stroke-width:1; } .deco-cover .ring.r2{ stroke:rgba(0,0,135,.055); } .deco-cover .ring.r3{ stroke:rgba(0,0,135,.04); }
+.deco-cover .ring.accent{ stroke:rgba(94,58,226,.30); stroke-width:1.2; }
+.deco-cover .blade{ stroke-width:1.6; }
+.deco-cover .blade--l{ fill:rgba(94,58,226,.09); stroke:rgba(94,58,226,.28); } .deco-cover .blade--r{ fill:rgba(44,170,255,.10); stroke:rgba(44,170,255,.38); }
+.cover{ justify-content:space-between; padding:.46in var(--pad-x) .44in; }
+.cover .mid{ flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; gap:.34in; }
+.cover .cobrand{ --lh:var(--logo-h-cover); --gap-cb:30px; }
+.cover h1{ font-size:44pt; max-width:8.8in; }
+.cover .meta{ display:grid; grid-template-columns:repeat(3,1fr); border-top:1px solid rgba(55,52,53,.25); padding-top:.17in; }
+.cover .meta div{ text-align:center; padding:0 .2in; } .cover .meta div + div{ border-left:1px solid rgba(55,52,53,.2); }
+.cover .meta small{ display:block; font-family:var(--font-title); font-weight:900; font-size:7.5pt; letter-spacing:.18em; text-transform:uppercase; color:var(--violet); margin-bottom:5px; }
+.cover .meta span{ font-family:var(--font-title); font-weight:500; font-size:11.5pt; color:var(--ink); }
+.close{ justify-content:space-between; padding:.46in var(--pad-x) .36in; }
+.close .mid{ flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; gap:.26in; }
+.close h2{ font-size:38pt; max-width:8.4in; }
+.close .steps{ display:flex; gap:.34in; align-items:center; justify-content:center; }
+.close .steps div{ display:flex; align-items:center; gap:12px; text-align:left; font-size:10.5pt; line-height:1.4; max-width:2.4in; }
+.close .steps b{ flex:none; width:36px; height:36px; border-radius:50%; background:var(--gold); color:var(--navy); display:grid; place-items:center; font-family:var(--font-title); font-weight:900; font-size:12pt; }
+.close .cobrand{ --lh:var(--logo-h-cover); --gap-cb:26px; }
+
+/* ---------- 10. IMPRESIÓN / EXPORT PDF ---------- */
+@media print{
+  html,body{ width:11in; height:auto; overflow:visible; background:none; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  .app-header, .slides-footer-controls{ display:none !important; }
+  .app-content{ display:block; height:auto; background:none; }
+  .slides-container{ display:block; padding:0; }
+  .slide{ display:block !important; position:relative; width:11in; height:6.1875in; zoom:1; opacity:1; transform:none; margin:0 auto; border-radius:0; box-shadow:none; outline:none; page-break-after:always; break-after:page; overflow:hidden; }
+  .slide:last-child{ page-break-after:auto; break-after:auto; }
+}
+
+
+/* ============================================================
+   COMULTRASAN · AGENTE DE IA PARA EL SISTEMA NORMATIVO — componentes del deck (sistema v4)
+   ============================================================ */
+:root{ --k-cliente:1.1993; }   /* Comultrasan 3,00:1 vs Campuslands 4,31:1 → alto del cliente = alto Campuslands × √(4,31/3,00) */
+b, strong{ font-weight:600; }
+h3,h4{ font-family:var(--font-title); font-weight:900; line-height:1.1; }
+.cover h1{ font-size:40pt; max-width:9.2in; }
+.cover h1 .l2{ display:block; }
+.sec-top{ font-size:25pt; }
+
+/* 2 · el desafío */
+.ch{ flex:1; display:grid; grid-template-columns:3in 1fr; gap:.22in; margin:.26in 0 .12in; min-height:0; }
+.ch-stat{ display:flex; flex-direction:column; justify-content:center; gap:.18in; padding:.28in .3in; }
+.ch-stat .big{ font-family:var(--font-title); font-weight:900; font-size:64pt; line-height:.95; color:var(--gold); letter-spacing:-.03em; }
+.ch-stat .big small{ display:block; font-size:10pt; letter-spacing:.02em; font-weight:600; color:#fff; margin-top:.08in; line-height:1.3; }
+.ch-grid{ display:grid; grid-template-columns:1fr 1fr; grid-template-rows:1fr 1fr; gap:.16in; min-height:0; }
+.ch-grid .card{ display:flex; flex-direction:column; justify-content:center; gap:.1in; padding:.18in .22in; }
+.ch-grid h4{ font-size:11.5pt; color:var(--navy); }
+.ch-grid p{ font-size:9.8pt; line-height:1.5; }
+.ch-grid .top{ display:flex; align-items:center; gap:.12in; }
+
+/* 3 · la solución: 5 pasos */
+.flow5{ flex:1; display:grid; grid-template-columns:repeat(5,1fr); gap:.18in; align-items:start; margin:.28in 0 .14in; min-height:0; }
+.flow5 .card{ position:relative; display:flex; flex-direction:column; gap:.1in; padding:.2in .18in; min-height:2.5in; }
+.flow5 .card:nth-child(2){ margin-top:.12in; } .flow5 .card:nth-child(3){ margin-top:.24in; } .flow5 .card:nth-child(4){ margin-top:.36in; } .flow5 .card:nth-child(5){ margin-top:.48in; }
+.flow5 .n{ font-family:var(--font-title); font-weight:900; font-size:34pt; line-height:1; color:var(--violet); }
+.flow5 h4{ font-size:12.5pt; color:var(--navy); }
+.flow5 p{ font-size:9.6pt; line-height:1.5; }
+.flow5 .card--navy .n{ color:var(--gold); } .flow5 .card--navy h4{ color:#fff; }
+.note{ flex:none; display:flex; align-items:center; gap:.2in; padding:.15in .28in; margin:0 0 .08in; }
+.note b{ flex:none; font-family:var(--font-title); font-weight:900; font-size:10.5pt; color:#fff; white-space:nowrap; }
+.note span{ font-size:10.5pt; line-height:1.5; }
+
+/* módulos en tarjetas con cabecera de color */
+.mcols{ flex:1; display:grid; grid-template-columns:repeat(3,1fr); gap:.2in; margin:.24in 0 .1in; min-height:0; }
+.mc{ display:flex; flex-direction:column; padding:0; }
+.mc-h{ position:relative; overflow:hidden; padding:.2in .22in .18in; display:flex; flex-direction:column; justify-content:flex-end; gap:.08in; min-height:1.75in; --deco:rgba(255,255,255,.14); }
+.mc-h > *{ position:relative; z-index:1; }
+.mc-h--violet{ background:var(--violet); color:#fff; } .mc-h--navy{ background:var(--navy); color:#fff; }
+.mc-h--gold{ background:var(--gold); color:var(--navy); --deco:rgba(255,255,255,.26); } .mc-h--sky{ background:var(--sky); color:var(--navy); --deco:rgba(255,255,255,.28); }
+.mc-h .tag{ font-family:var(--font-title); font-weight:900; font-size:7.5pt; letter-spacing:.14em; text-transform:uppercase; }
+.mc-h h3{ font-size:13.5pt; }
+.mc-b{ flex:1; display:flex; flex-direction:column; gap:.1in; padding:.18in .22in .16in; }
+.mc-b .list{ font-size:9.8pt; gap:.1in; }
+.mc-b .sub{ font-family:var(--font-title); font-weight:900; font-size:7.5pt; letter-spacing:.14em; text-transform:uppercase; color:var(--violet); }
+
+/* 5 · módulos 4 y 5 */
+.duo{ flex:1; display:grid; grid-template-columns:1.35fr 1fr; gap:.22in; margin:.24in 0 .1in; min-height:0; }
+.duo .big{ display:flex; flex-direction:column; gap:.14in; padding:.26in .3in; }
+.duo .big .hd{ display:flex; align-items:center; gap:.16in; }
+.duo .big h3{ font-size:17pt; } .duo .big .tag{ font-family:var(--font-title); font-weight:900; font-size:7.5pt; letter-spacing:.14em; text-transform:uppercase; color:var(--gold); margin-bottom:4px; }
+.duo .cols{ flex:1; display:grid; grid-template-columns:1fr 1fr; gap:.22in; }
+.duo .cols .sub{ font-family:var(--font-title); font-weight:900; font-size:7.5pt; letter-spacing:.14em; text-transform:uppercase; color:var(--sky); margin-bottom:.08in; }
+.duo .cols .list{ font-size:10.5pt; gap:.13in; }
+.duo .side{ display:flex; flex-direction:column; gap:.14in; padding:.26in .28in; }
+.duo .side .hd{ display:flex; align-items:center; gap:.16in; }
+.duo .side h3{ font-size:15pt; } .duo .side .tag{ font-family:var(--font-title); font-weight:900; font-size:7.5pt; letter-spacing:.14em; text-transform:uppercase; margin-bottom:4px; }
+.duo .side .list{ font-size:10.8pt; gap:.16in; }
+.cite{ margin-top:auto; border-radius:12px; padding:.12in .16in; background:rgba(255,255,255,.14); font-size:9.6pt; line-height:1.5; }
+.cite b{ font-weight:600; }
+
+/* 6 · módulos 6 y 7 */
+.pair{ flex:1; display:grid; grid-template-columns:1fr 1fr; gap:.22in; margin:.24in 0 .1in; min-height:0; }
+.pair .card{ display:flex; flex-direction:column; gap:.14in; padding:.22in .26in; }
+.pair .hd{ display:flex; align-items:center; gap:.16in; }
+.pair h3{ font-size:14pt; color:var(--navy); line-height:1.12; } .pair .tag{ font-family:var(--font-title); font-weight:900; font-size:7.5pt; letter-spacing:.14em; text-transform:uppercase; color:var(--violet); margin-bottom:4px; }
+.pair .rows{ flex:1; display:flex; flex-direction:column; justify-content:space-between; gap:.08in; }
+.pair .r{ display:flex; gap:.14in; align-items:center; font-size:10.8pt; line-height:1.45; }
+
+/* 7 · módulos 8, 9 y 10 (bandas) */
+.bands{ flex:1; display:flex; flex-direction:column; gap:.16in; margin:.22in 0 .1in; min-height:0; }
+.band{ flex:1; display:grid; grid-template-columns:3.05in 1fr 1fr; align-items:stretch; gap:.2in; padding:0; min-height:0; }
+.band .bh{ display:flex; align-items:center; gap:.16in; padding:.12in .22in; position:relative; overflow:hidden; }
+.band .bh > *{ position:relative; z-index:1; }
+.band .bh h3{ font-size:12pt; line-height:1.12; } .band .bh .tag{ font-family:var(--font-title); font-weight:900; font-size:7.5pt; letter-spacing:.14em; text-transform:uppercase; margin-bottom:3px; opacity:.9; }
+.band .bc{ display:flex; flex-direction:column; justify-content:center; gap:.05in; padding:.1in 0; font-size:10pt; line-height:1.45; }
+.band .bc:last-child{ padding-right:.24in; }
+.band .bc b{ font-family:var(--font-title); font-weight:900; font-size:8pt; letter-spacing:.1em; text-transform:uppercase; color:var(--violet); }
+
+/* 8 · tipologías y cómo responde */
+.typ{ flex:1; display:grid; grid-template-columns:1.1fr 1fr; gap:.24in; margin:.24in 0 .1in; min-height:0; }
+.typ-grid{ display:grid; grid-template-columns:repeat(2,1fr); grid-template-rows:repeat(3,1fr); gap:.14in; }
+.typ-grid .card{ display:flex; align-items:center; gap:.14in; padding:.1in .18in; }
+.typ-grid .card b{ font-family:var(--font-title); font-weight:900; font-size:11pt; color:var(--navy); }
+.typ-grid .n{ font-family:var(--font-title); font-weight:900; font-size:9pt; color:var(--violet); display:block; letter-spacing:.1em; }
+.ask{ display:flex; flex-direction:column; gap:.12in; min-height:0; }
+.ask .lbl{ font-family:var(--font-title); font-weight:900; font-size:8.5pt; letter-spacing:.14em; text-transform:uppercase; color:var(--violet); }
+.ask .q{ flex:1; display:grid; grid-template-columns:1fr auto 1fr; align-items:center; gap:.1in; min-height:0; }
+.ask .q .a{ display:flex; align-items:center; gap:.1in; padding:.09in .14in; height:100%; font-size:9.4pt; line-height:1.4; }
+.ask .q .a.u{ background:#fff; font-weight:500; }
+.ask .q .arr{ width:26px; height:26px; border-radius:50%; background:var(--gold); color:var(--navy); display:grid; place-items:center; }
+.ask .q .arr svg{ width:14px; height:14px; fill:none; stroke:currentColor; stroke-width:2.6; stroke-linecap:round; stroke-linejoin:round; }
+
+/* 9 · esfuerzo e inversión */
+.eff{ flex:1; display:grid; grid-template-columns:1.6fr 1fr; gap:.24in; margin:.24in 0 .1in; min-height:0; }
+.bars{ display:flex; flex-direction:column; justify-content:center; gap:.17in; padding:.26in .32in; }
+.bars .lbl{ font-family:var(--font-title); font-weight:900; font-size:8.5pt; letter-spacing:.14em; text-transform:uppercase; color:var(--violet); margin-bottom:.02in; }
+.bar{ display:grid; grid-template-columns:2.5in 1fr 3.4em; align-items:center; gap:.16in; font-size:11pt; }
+.bar .t{ height:26px; border-radius:99px; background:rgba(0,0,135,.07); }
+.bar .t i{ display:block; height:100%; border-radius:99px; background:var(--c,var(--violet)); width:var(--w); }
+.bar b{ font-family:var(--font-title); font-weight:900; text-align:right; color:var(--navy); }
+.inv{ display:flex; flex-direction:column; justify-content:center; gap:.16in; padding:.3in .3in; }
+.inv .tot{ font-family:var(--font-title); font-weight:900; font-size:46pt; line-height:1; color:var(--gold); letter-spacing:-.02em; }
+.inv .tot small{ display:block; font-size:10pt; font-weight:600; color:#fff; letter-spacing:0; margin-top:.08in; }
+.inv .pend{ align-self:flex-start; }
+.inv p{ font-size:10.5pt; line-height:1.55; }
+.close .lead{ max-width:7.6in; font-size:11pt; line-height:1.6; }
+/* ============================================================
+   REGLA (2026-10-02): dentro de las láminas, SOMBRAS en lugar de bordes y líneas divisorias.
+   Sin borde fino en tarjetas, sin líneas en la portada, en rótulos «¿Qué incluye?», en bloques «Partner», ni en cajas de logos/píldoras.
+   Se permiten los acentos de color (barras ≥ 3 px), los conectores estructurales y el marco neón de UN dato clave.
+   ============================================================ */
+.card{ border:0; box-shadow:0 12px 30px rgba(0,0,135,.13), 0 2px 7px rgba(0,0,135,.07); }
+.card--sand{ box-shadow:0 8px 20px rgba(0,0,135,.08); }
+.card--navy{ box-shadow:0 16px 36px rgba(0,0,135,.30), 0 2px 8px rgba(0,0,135,.12); }
+.card--violet{ box-shadow:0 16px 36px rgba(94,58,226,.32), 0 2px 8px rgba(94,58,226,.14); }
+.card--gold{ box-shadow:0 14px 32px rgba(244,180,34,.38), 0 2px 8px rgba(244,180,34,.16); }
+.card--sky{ box-shadow:0 14px 32px rgba(44,170,255,.36), 0 2px 8px rgba(44,170,255,.14); }
+.card.neon{ border:3px solid var(--gold); }
+.pill--white{ border:0; box-shadow:0 3px 10px rgba(0,0,60,.25); }
+.cover .meta{ border:0; padding:.16in .2in; margin:0 .2in; background:#FFFFFF; border-radius:18px; box-shadow:0 12px 30px rgba(0,0,135,.12), 0 2px 7px rgba(0,0,135,.06); }
+.cover .meta div + div{ border:0; }
+.delta{ border:0; padding:.14in .18in; margin-top:auto; background:rgba(0,0,135,.05); border-radius:14px; }
+.card--navy .delta{ background:rgba(255,255,255,.09); }

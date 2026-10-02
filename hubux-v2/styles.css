@@ -328,5 +328,13 @@ h3{ font-family:var(--font-title); font-weight:900; line-height:1.1; }
 .stats.fx--dots::after{ right:.14in; bottom:.1in; width:.5in; height:.9in; }
 .plan .pic{ height:46%; }
 
+/* v2 · lámina 5: «Desde» y nota del equipo en el plan con equipo; contenido alineado arriba para que los 3 precios queden a la misma altura */
+.plan .pic{ height:38%; }
+.plan .bd{ justify-content:flex-start; padding-top:.17in; gap:.05in; }
+.plan .price{ font-size:30pt; }
+.plan .from{ font-weight:600; font-size:10pt; line-height:1.1; color:var(--ink); margin-bottom:-.02in; }
+.plan .from--ghost{ visibility:hidden; }
+.plan .fn{ font-size:8pt; line-height:1.4; color:var(--ink); font-weight:500; }
+
 /* lámina 4 · la píldora del equipo de cómputo es más larga: sin mayúsculas y en una sola línea */
 .mod .opt{ text-transform:none; letter-spacing:.02em; font-weight:600; font-size:8pt; white-space:nowrap; padding:5px 12px; }

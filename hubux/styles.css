@@ -286,9 +286,11 @@ h3{ font-family:var(--font-title); font-weight:900; line-height:1.1; }
 .plans{ flex:1; min-height:0; display:grid; grid-template-columns:repeat(3,1fr); gap:.22in; margin:.22in 0 .16in; }
 .plan{ padding:0; display:flex; flex-direction:column; }
 .plan .pic{ position:relative; flex:none; height:41%; }
-.plan .pic .pill{ position:absolute; left:12px; top:12px; box-shadow:0 5px 12px rgba(0,0,60,.28); }
 .plan .pic img{ display:block; width:100%; height:100%; object-fit:cover; }
-.plan .pic img.top{ object-position:50% 58%; }
+.plan .pic img.top{ object-position:50% 47%; }
+.plan--gray{ border:3px solid #D5D9E2; }
+.plan--blue{ border:3px solid var(--navy); }
+.plan--gold{ border:3px solid var(--gold); }
 .plan .bd{ flex:1; min-height:0; display:flex; flex-direction:column; justify-content:center; align-items:flex-start; gap:.06in; padding:.14in .24in .16in; }
 .plan .label{ color:var(--violet); }
 .plan .price{ font-family:var(--font-title); font-weight:900; font-size:32pt; line-height:1; letter-spacing:-.02em; color:var(--navy); }

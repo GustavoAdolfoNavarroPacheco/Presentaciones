@@ -4,7 +4,9 @@
    · Colorimetría (p.12): #5E3AE2 · #F4B422 · #00AA80 · #000087 · #2CAAFF · #E4E4DB
    · Tipografía (p.10): Poppins (títulos: Regular/Black) · Roboto Mono (cuerpos) · Nutmeg (destacados/web)
    · Lenguaje gráfico: </ ... />, { }, <= =>, chevrones >>, marco neón dorado, numerales grandes
-   REGLA: los FONDOS de lámina usan SIEMPRE colores Campuslands (navy, violeta, arena).
+   REGLAS DE TEMA (usuario, 2026-10-02): TEMA CLARO OBLIGATORIO en la web (visor) y en las láminas → todo fondo de lámina es
+   ARENA #E4E4DB (color de la paleta). Navy/violeta/dorado/verde/celeste solo como tarjetas, franjas, acentos y figuras
+   difuminadas. Sin rótulo «Confidencial». Entre logos va una «×» centrada en vertical. Logos a igual PESO VISUAL (--k-cliente).
    ============================================================ */
 
 /* ---------- 1. FUENTES LOCALES (solo las del Brandbook) ---------- */
@@ -21,12 +23,7 @@
   --violet:#5E3AE2; --gold:#F4B422; --green:#00AA80; --navy:#000087; --sky:#2CAAFF; --sand:#E4E4DB;
   /* neutros de apoyo: blanco solo para texto/logo sobre oscuro y superficies de tarjeta; tinta = color del wordmark */
   --white:#FFFFFF; --ink:#373435;
-  /* fondos de lámina: ÚNICAMENTE colores de la paleta (sólidos o degradados entre ellos) */
-  --bg-navy:
-    radial-gradient(90% 80% at 88% 8%, rgba(94,58,226,.60) 0%, transparent 58%),
-    radial-gradient(70% 70% at 0% 100%, rgba(44,170,255,.22) 0%, transparent 62%),
-    #000087;
-  --bg-violet:linear-gradient(135deg,#5E3AE2 0%,#000087 135%);
+  /* fondo de lámina: ÚNICAMENTE arena (tema claro); los degradados son resplandores de colores de la paleta con alfa */
   --bg-sand:
     radial-gradient(80% 70% at 100% 0%, rgba(44,170,255,.20) 0%, transparent 60%),
     radial-gradient(60% 60% at 0% 100%, rgba(94,58,226,.13) 0%, transparent 62%),
@@ -35,8 +32,9 @@
   --font-body:'Roboto Mono',ui-monospace,Menlo,monospace;
   --font-accent:'Nutmeg','Poppins','Segoe UI',sans-serif;   /* destacados: Nutmeg pendiente → Poppins Black */
   --slide-w:11in; --slide-h:6.1875in; --pad-x:.62in; --radius:16px;
-  --logo-h:30px;            /* altura ÚNICA de ambos logos en cabecera (Campuslands = cliente) */
-  --logo-h-cover:64px;      /* altura única de ambos logos en portada y cierre */
+  --logo-h:30px;            /* alto del logo de Campuslands en cabecera (el del cliente = alto × --k-cliente: ÁREAS IGUALES) */
+  --logo-h-cover:64px;      /* alto del logo de Campuslands en portada y cierre */
+  --k-cliente:.8939;          /* factor de peso visual del logo del cliente: herramientas/igualar_logos.py (= √(ratio Campuslands / ratio cliente)) */
   --header-h:68px; --footer-h:60px;
 }
 
@@ -44,50 +42,44 @@
 *{ box-sizing:border-box; margin:0; padding:0; }
 @page{ size:11in 6.1875in; margin:0; }
 html{ height:100%; }
-body{ height:100vh; overflow:hidden; display:flex; flex-direction:column; background:var(--navy); color:var(--white); font-family:var(--font-body); -webkit-font-smoothing:antialiased; }
+body{ height:100vh; overflow:hidden; display:flex; flex-direction:column; background:var(--sand); color:var(--ink); font-family:var(--font-body); -webkit-font-smoothing:antialiased; }
 button{ font-family:var(--font-body); cursor:pointer; }
 
 /* ---------- 4. VISOR (shell de pantalla — no afecta al PDF) ---------- */
-.app-header{ flex:none; height:var(--header-h); padding:0 34px; display:flex; align-items:center; justify-content:space-between; background:var(--navy); border-bottom:1px solid rgba(228,228,219,.18); position:relative; z-index:50; }
-.cobrand{ display:flex; align-items:center; gap:var(--gap-cb,18px); }
-.cobrand img{ height:var(--logo-h-shell,26px); width:auto; display:block; }      /* MISMA altura para ambos logos */
-.cobrand .sep{ width:1px; height:calc(var(--logo-h-shell,26px)*1.3); background:rgba(228,228,219,.55); }
-.badge-confidential{ display:inline-flex; align-items:center; gap:8px; font-family:var(--font-body); font-size:10px; letter-spacing:.18em; text-transform:uppercase; color:var(--sand); border:1px solid rgba(228,228,219,.35); border-radius:99px; padding:7px 16px; }
-.badge-confidential::before{ content:""; width:7px; height:7px; border-radius:50%; background:var(--gold); box-shadow:0 0 8px 1px rgba(244,180,34,.7); }
-.app-content{ flex:1; min-height:0; display:flex; background:var(--bg-navy); }
+.app-header{ flex:none; height:var(--header-h); padding:0 34px; display:flex; align-items:center; justify-content:flex-start; background:var(--sand); border-bottom:1px solid rgba(0,0,135,.16); position:relative; z-index:50; }
+.cobrand{ --lh:var(--logo-h-shell,26px); display:flex; align-items:center; gap:var(--gap-cb,18px); }
+.cobrand img{ height:var(--lh); width:auto; display:block; }                                            /* Campuslands */
+.cobrand img[data-logo="cliente"]{ height:calc(var(--lh) * var(--k-cliente)); }                         /* cliente: mismo PESO VISUAL */
+.cobrand .x{ flex:none; display:grid; place-items:center; width:calc(var(--lh)*.5); height:calc(var(--lh)*.5); color:var(--violet); }   /* «×» centrada en vertical por align-items:center */
+.cobrand .x svg{ width:100%; height:100%; fill:none; stroke:currentColor; stroke-width:2.6; stroke-linecap:round; }
+.app-content{ flex:1; min-height:0; display:flex; background:var(--sand); }
 .slides-container{ flex:1; position:relative; display:flex; align-items:center; justify-content:center; padding:22px 40px; min-width:0; }
-.slide{ position:absolute; width:1056px; height:594px; zoom:var(--slide-scale,1); display:none; opacity:0; transform:translateY(16px); transition:opacity .45s ease, transform .45s ease; border-radius:var(--radius); overflow:hidden; box-shadow:0 22px 60px rgba(0,0,40,.55); }
+.slide{ position:absolute; width:1056px; height:594px; zoom:var(--slide-scale,1); display:none; opacity:0; transform:translateY(16px); transition:opacity .45s ease, transform .45s ease; border-radius:var(--radius); overflow:hidden; box-shadow:0 18px 48px rgba(0,0,135,.22); outline:1px solid rgba(0,0,135,.12); }
 .slide.active{ display:block; opacity:1; transform:translateY(0); }
-.slides-footer-controls{ flex:none; height:var(--footer-h); padding:0 34px; display:flex; align-items:center; justify-content:space-between; background:var(--navy); border-top:1px solid rgba(228,228,219,.18); position:relative; z-index:50; }
-.control-btn{ background:none; border:1px solid rgba(228,228,219,.4); color:var(--white); width:40px; height:40px; border-radius:50%; display:flex; align-items:center; justify-content:center; transition:all .25s ease; }
+.slides-footer-controls{ flex:none; height:var(--footer-h); padding:0 34px; display:flex; align-items:center; justify-content:space-between; background:var(--sand); border-top:1px solid rgba(0,0,135,.16); position:relative; z-index:50; }
+.control-btn{ background:none; border:1px solid rgba(0,0,135,.4); color:var(--navy); width:40px; height:40px; border-radius:50%; display:flex; align-items:center; justify-content:center; transition:all .25s ease; }
 .control-btn:hover{ background:var(--gold); border-color:var(--gold); color:var(--navy); }
 .control-btn.mini{ width:32px; height:32px; }
 .control-btn.active{ background:var(--gold); border-color:var(--gold); color:var(--navy); }
 .slide-indicator{ display:flex; align-items:center; gap:18px; flex:1; max-width:520px; margin:0 26px; }
-#slide-number-display{ font-size:12px; color:var(--sand); min-width:48px; text-align:right; }
-.progress-bar-bg{ flex:1; height:5px; background:rgba(228,228,219,.2); border-radius:3px; overflow:hidden; }
+#slide-number-display{ font-size:12px; color:var(--ink); min-width:48px; text-align:right; }
+.progress-bar-bg{ flex:1; height:5px; background:rgba(0,0,135,.16); border-radius:3px; overflow:hidden; }
 .progress-bar-fill{ height:100%; width:10%; background:var(--gold); transition:width .3s ease; }
 .playback-controls{ display:flex; align-items:center; }
 
 /* ---------- 5. LÁMINA BASE ---------- */
 .sl{ position:relative; width:100%; height:100%; overflow:hidden; display:flex; flex-direction:column; padding:.42in var(--pad-x) .38in; }
-.sl[data-bg="navy"]{ background:var(--bg-navy); color:var(--white); }
-.sl[data-bg="violet"]{ background:var(--bg-violet); color:var(--white); }
-.sl[data-bg="sand"]{ background:var(--bg-sand); color:var(--ink); }
+.sl[data-bg="sand"]{ background:var(--bg-sand); color:var(--ink); }      /* ÚNICO fondo de lámina permitido */
 .sl > *{ position:relative; z-index:3; }
 
-/* cabecera interna: co-branding agrupado (Campuslands PRIMERO, misma altura, separador) + migas de pan */
+/* cabecera interna: co-branding «Campuslands × Cliente» agrupado (Campuslands PRIMERO, mismo peso visual, × centrada) + migas de pan */
 .hd{ flex:none; display:flex; align-items:center; justify-content:space-between; height:40px; }
-.hd .cobrand img{ height:var(--logo-h); }
-.hd .cobrand .sep{ height:calc(var(--logo-h)*1.35); }
-[data-bg="sand"] .cobrand .sep{ background:rgba(55,52,53,.45); }
-[data-bg="navy"] .cobrand .sep, [data-bg="violet"] .cobrand .sep{ background:rgba(228,228,219,.6); }
+.hd .cobrand{ --lh:var(--logo-h); }
 .crumbs{ font-family:var(--font-body); font-size:7.5pt; letter-spacing:.04em; }
 .crumbs i{ font-style:normal; opacity:.55; padding:0 .5em; }
 .sec-top{ font-size:26pt; margin-top:.3in; }
 /* numeral grande translúcido de sección (Brandbook: números 1–5 en gris) */
 .ghost{ position:absolute !important; z-index:1 !important; right:.42in; top:.2in; font-family:var(--font-title); font-weight:900; font-size:96pt; line-height:1; letter-spacing:-.02em; pointer-events:none; }
-[data-bg="navy"] .ghost, [data-bg="violet"] .ghost{ color:rgba(228,228,219,.10); }
 [data-bg="sand"] .ghost{ color:rgba(0,0,135,.07); }
 
 .ft{ flex:none; display:grid; grid-template-columns:1fr auto 1fr; align-items:center; height:22px; font-family:var(--font-body); font-size:7.5pt; letter-spacing:.05em; opacity:.8; }
@@ -100,11 +92,9 @@ button{ font-family:var(--font-body); cursor:pointer; }
 .sec{ font-family:var(--font-title); font-weight:900; line-height:1.05; letter-spacing:-.01em; }
 .sec .em{ font-style:italic; color:var(--gold); }
 [data-bg="sand"] .sec{ color:var(--navy); } [data-bg="sand"] .sec .em{ color:var(--violet); }
-[data-bg="navy"] .sec .em{ color:var(--gold); }
 .label{ font-family:var(--font-title); font-weight:900; font-size:9.5pt; color:var(--sky); letter-spacing:.02em; }
 .label::before{ content:"{ "; opacity:.8; } .label::after{ content:" }"; opacity:.8; }
 [data-bg="sand"] .label{ color:var(--violet); }
-[data-bg="violet"] .label{ color:var(--sand); }          /* celeste sobre violeta = 2.61:1 ✗ → arena 5.16:1 ✓ */
 .body{ font-family:var(--font-body); font-size:10pt; line-height:1.55; }
 .lede{ font-family:var(--font-body); font-size:11pt; line-height:1.6; max-width:7.4in; }
 .code-list{ list-style:none; display:flex; flex-direction:column; gap:.1in; font-family:var(--font-body); font-size:9.5pt; line-height:1.45; }
@@ -115,6 +105,9 @@ button{ font-family:var(--font-body); cursor:pointer; }
 [data-bg="sand"] .tagline::before, [data-bg="sand"] .tagline::after{ color:var(--violet); }
 
 /* ---------- 7. DECORACIÓN (siempre aria-hidden; nunca cruza texto) ---------- */
+/* figuras difuminadas de fondo (reemplazan a los chevrones laterales): colores de la paleta + blur */
+.blob{ position:absolute !important; z-index:0 !important; pointer-events:none; border-radius:50%; filter:blur(34px); opacity:.8; }
+.blob--violet{ background:var(--violet); } .blob--sky{ background:var(--sky); } .blob--gold{ background:var(--gold); } .blob--green{ background:var(--green); } .blob--navy{ background:var(--navy); opacity:.45; }
 .chev{ position:absolute !important; z-index:1 !important; pointer-events:none; }
 .chev path{ fill:none; stroke-linecap:round; stroke-linejoin:round; }
 .chev .a{ stroke:var(--sky); stroke-width:15; } .chev .b{ stroke:var(--green); stroke-width:9; } .chev .c{ stroke:var(--gold); stroke-width:6; }
@@ -126,7 +119,7 @@ button{ font-family:var(--font-body); cursor:pointer; }
 /* ---------- 8. COMPONENTES ---------- */
 .card{ border-radius:var(--radius); padding:.2in .22in; }
 [data-bg="sand"] .card{ background:var(--white); box-shadow:0 10px 26px rgba(0,0,135,.10); color:var(--ink); }
-[data-bg="navy"] .card, [data-bg="violet"] .card{ background:rgba(255,255,255,.09); border:1px solid rgba(228,228,219,.22); }
+.card--navy{ background:var(--navy) !important; color:var(--white) !important; box-shadow:0 14px 34px rgba(0,0,135,.28) !important; }   /* tarjeta oscura = acento sobre arena */
 .pill{ display:inline-flex; align-items:center; gap:8px; font-family:var(--font-body); font-size:8pt; letter-spacing:.14em; text-transform:uppercase; border-radius:99px; padding:6px 14px; }
 .pill--gold{ background:var(--gold); color:var(--navy); } .pill--sky{ background:var(--sky); color:var(--navy); } .pill--green{ background:var(--green); color:var(--white); } .pill--violet{ background:var(--violet); color:var(--white); }
 .ico{ flex:none; width:44px; height:44px; border-radius:50%; display:grid; place-items:center; }
@@ -134,24 +127,21 @@ button{ font-family:var(--font-body); cursor:pointer; }
 .ico--sky{ background:var(--sky); color:var(--navy); } .ico--gold{ background:var(--gold); color:var(--navy); } .ico--green{ background:var(--green); color:var(--white); } .ico--violet{ background:var(--violet); color:var(--white); } .ico--navy{ background:var(--navy); color:var(--gold); }
 
 /* ---------- 9. LÁMINAS ---------- */
-/* 1 · portada */
+/* 1 · portada: figuras difuminadas + co-branding «Campuslands × Cliente» + pie en Poppins (Mes Año) */
 .cover{ justify-content:space-between; padding:.46in var(--pad-x) .44in; }
-.cover .top{ display:flex; justify-content:flex-end; }
-.cover .mid{ flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; gap:.3in; }
-.cover .cobrand{ --gap-cb:30px; }
-.cover .cobrand img{ height:var(--logo-h-cover); }
-.cover .cobrand .sep{ height:calc(var(--logo-h-cover)*1.3); background:rgba(228,228,219,.7); }
-.cover h1{ font-size:44pt; max-width:8.6in; }
+.cover .mid{ flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; gap:.34in; }
+.cover .cobrand{ --lh:var(--logo-h-cover); --gap-cb:30px; }
+.cover h1{ font-size:44pt; max-width:8.8in; color:var(--navy); }
 .cover .tagline{ opacity:.9; }
-.cover .meta{ display:grid; grid-template-columns:repeat(3,1fr); border-top:1px solid rgba(228,228,219,.28); padding-top:.17in; }
-.cover .meta div{ text-align:center; padding:0 .2in; } .cover .meta div + div{ border-left:1px solid rgba(228,228,219,.22); }
-.cover .meta small{ display:block; font-size:7pt; letter-spacing:.2em; text-transform:uppercase; color:var(--gold); margin-bottom:5px; }
-.cover .meta span{ font-size:9.5pt; }
+.cover .meta{ display:grid; grid-template-columns:repeat(3,1fr); border-top:1px solid rgba(55,52,53,.3); padding-top:.17in; font-family:var(--font-title); }
+.cover .meta div{ text-align:center; padding:0 .2in; } .cover .meta div + div{ border-left:1px solid rgba(55,52,53,.25); }
+.cover .meta small{ display:block; font-family:var(--font-title); font-weight:900; font-size:7.5pt; letter-spacing:.18em; text-transform:uppercase; color:var(--violet); margin-bottom:5px; }
+.cover .meta span{ font-family:var(--font-title); font-weight:400; font-size:11pt; color:var(--ink); }
 /* 2 · statement */
 .statement{ flex:1; display:grid; grid-template-columns:1.5fr 1fr; gap:.55in; align-items:center; margin-top:.05in; margin-bottom:.1in; }
 .statement h2{ font-size:38pt; }
 .statement .lede{ margin-top:.26in; max-width:5.7in; font-size:12pt; }
-.stat-neon{ padding:.5in .3in; text-align:center; background:rgba(0,0,135,.45); }
+.stat-neon{ padding:.5in .3in; text-align:center; background:var(--navy); color:var(--white); }
 .stat-neon b{ display:block; font-family:var(--font-title); font-weight:900; font-size:78pt; line-height:1; color:var(--gold); }
 .stat-neon span{ display:block; margin-top:.1in; font-size:9.5pt; line-height:1.5; }
 /* 3 · métricas */
@@ -169,8 +159,8 @@ button{ font-family:var(--font-body); cursor:pointer; }
 .flow{ display:grid; grid-template-columns:repeat(4,1fr); gap:.18in; align-items:start; margin-top:.22in; }
 .step{ position:relative; padding:.22in .22in .24in; min-height:2.1in; }
 .step:nth-child(2){ margin-top:.17in; } .step:nth-child(3){ margin-top:.34in; } .step:nth-child(4){ margin-top:.51in; }
-.step .n{ font-family:var(--font-title); font-weight:900; font-size:36pt; line-height:1; color:var(--gold); }
-.step h3{ font-family:var(--font-title); font-weight:900; font-size:14pt; margin:.08in 0 .08in; line-height:1.15; }
+.step .n{ font-family:var(--font-title); font-weight:900; font-size:36pt; line-height:1; color:var(--violet); }
+.step h3{ font-family:var(--font-title); font-weight:900; color:var(--navy); font-size:14pt; margin:.08in 0 .08in; line-height:1.15; }
 .step p{ font-size:9.3pt; line-height:1.55; }
 .step .go{ position:absolute; right:-.19in; top:50%; margin-top:-14px; width:28px; height:28px; border-radius:50%; background:var(--gold); color:var(--navy); display:grid; place-items:center; z-index:4; }
 .step .go svg{ width:15px; height:15px; fill:none; stroke:currentColor; stroke-width:3; stroke-linecap:round; stroke-linejoin:round; }
@@ -194,9 +184,10 @@ button{ font-family:var(--font-body); cursor:pointer; }
 /* 6 · módulos */
 .mods{ flex:1; display:grid; grid-template-columns:repeat(3,1fr); grid-template-rows:1fr 1fr; gap:.16in; margin-top:.2in; margin-bottom:.08in; }
 .mod{ display:flex; flex-direction:column; gap:.1in; padding:.2in .22in; }
-.mod h3{ font-family:var(--font-title); font-weight:900; font-size:12pt; line-height:1.15; }
+.mod h3{ font-family:var(--font-title); font-weight:900; font-size:12pt; line-height:1.15; color:var(--navy); }
+.mod.card--navy h3{ color:var(--gold); }
 .mod p{ font-size:8.8pt; line-height:1.5; opacity:.92; }
-.mod.neon{ background:rgba(0,0,135,.4); }
+.mod.neon{ background:var(--navy); color:var(--white); }
 /* 7 · cierre */
 .close{ justify-content:space-between; padding:.46in var(--pad-x) .4in; }
 .close .mid{ flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; gap:.26in; }
@@ -204,8 +195,7 @@ button{ font-family:var(--font-body); cursor:pointer; }
 .close .steps{ display:flex; gap:.34in; align-items:center; justify-content:center; }
 .close .steps div{ display:flex; align-items:center; gap:12px; text-align:left; font-size:9.5pt; line-height:1.4; max-width:2.25in; }
 .close .steps b{ flex:none; width:34px; height:34px; border-radius:50%; background:var(--gold); color:var(--navy); display:grid; place-items:center; font-family:var(--font-title); font-weight:900; font-size:12pt; }
-.close .cobrand{ --gap-cb:26px; } .close .cobrand img{ height:var(--logo-h-cover); }
-.close .cobrand .sep{ height:calc(var(--logo-h-cover)*1.3); background:rgba(228,228,219,.7); }
+.close .cobrand{ --lh:var(--logo-h-cover); --gap-cb:26px; }
 
 /* ---------- 10. IMPRESIÓN / EXPORT PDF ---------- */
 @media print{

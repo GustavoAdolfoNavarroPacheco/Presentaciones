@@ -269,10 +269,11 @@ h3,h4{ font-family:var(--font-title); font-weight:900; line-height:1.1; }
 .bar .t i{ display:block; height:100%; border-radius:99px; background:var(--c,var(--violet)); width:var(--w); }
 .bar b{ font-family:var(--font-title); font-weight:900; text-align:right; color:var(--navy); }
 .inv{ display:flex; flex-direction:column; justify-content:center; gap:.16in; padding:.3in .3in; }
-.inv .tot{ font-family:var(--font-title); font-weight:900; font-size:46pt; line-height:1; color:var(--gold); letter-spacing:-.02em; }
-.inv .tot small{ display:block; font-size:10pt; font-weight:600; color:#fff; letter-spacing:0; margin-top:.08in; }
-.inv .pend{ align-self:flex-start; }
-.inv p{ font-size:10.5pt; line-height:1.55; }
+.inv .label{ color:var(--sky); }
+.inv .tot{ font-family:var(--font-title); font-weight:900; font-size:34pt; line-height:1; color:var(--gold); letter-spacing:-.02em; white-space:nowrap; }
+.inv .tot small{ display:block; font-size:12pt; font-weight:600; color:#fff; letter-spacing:.1em; margin-top:.1in; }
+.inv .days{ display:flex; align-items:center; gap:.14in; padding:.12in .16in; border-radius:14px; background:rgba(255,255,255,.1); font-size:10.5pt; line-height:1.4; }
+.inv .days b{ font-family:var(--font-title); font-weight:900; font-size:15pt; color:var(--gold); }
 .close .lead{ max-width:7.6in; font-size:11pt; line-height:1.6; }
 /* ============================================================
    REGLA (2026-10-02): dentro de las láminas, SOMBRAS en lugar de bordes y líneas divisorias.

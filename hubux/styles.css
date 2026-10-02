@@ -27,8 +27,8 @@
   --font-accent:'Nutmeg','Poppins','Segoe UI',sans-serif;
   --slide-w:11in; --slide-h:6.1875in; --pad-x:.62in; --radius:18px;
   --line:rgba(0,0,135,.12);
-  --logo-h-cover:64px;      /* alto del logo de Campuslands en portada y cierre */
-  --logo-h-shell:44px;      /* alto del logo de Campuslands en la barra del visor (grande) */
+  --logo-h-cover:46px;      /* alto del logo de Campuslands en portada y cierre */
+  --logo-h-shell:40px;      /* alto del logo de Campuslands en la barra del visor (grande) */
   --k-cliente:1.0568;        /* peso visual del logo del cliente: herramientas/igualar_logos.py (= √(ratio Campuslands / ratio cliente)) */
   --bar-h:76px;             /* altura ÚNICA de la barra superior y la inferior del visor (iguales) */
   --header-h:var(--bar-h); --footer-h:var(--bar-h);
@@ -249,7 +249,7 @@ h3{ font-family:var(--font-title); font-weight:900; line-height:1.1; }
 .cover{ padding:.44in var(--pad-x) .38in; gap:.22in; }
 .cover .cv{ flex:1; min-height:0; display:grid; grid-template-columns:1.1fr .9fr; gap:.55in; align-items:center; }
 .cover .cv-l{ display:flex; flex-direction:column; align-items:flex-start; gap:.3in; text-align:left; }
-.cover .cobrand{ --lh:44px; --gap-cb:19px; }
+.cover .cobrand{ --lh:38px; --gap-cb:17px; }
 .cover h1{ font-size:40pt; max-width:none; }
 .cover .cv-r{ height:100%; padding:.1in .16in .16in 0; }
 .cover .cv-r .shot{ height:100%; }

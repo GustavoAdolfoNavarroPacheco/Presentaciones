@@ -280,3 +280,24 @@ h3{ font-family:var(--font-title); font-weight:900; line-height:1.1; }
 .prof .logo{ width:1.75in; height:1in; } .prof .logo img{ max-width:1.45in; max-height:.84in; }
 .fact b{ font-size:21pt; } .fact span{ font-size:9pt; }
 .prof .edu{ padding:.09in .16in; font-size:9.5pt; }
+
+/* ============================================================
+   PREVIEW (prueba pedida por el usuario): dentro de las láminas, SOMBRAS en lugar de bordes y líneas.
+   Se quitan: borde fino de las tarjetas, líneas de la portada, línea del rótulo «¿Qué incluye?», líneas de «Partner»,
+   borde de la caja de logos y borde de las píldoras. Se conservan los acentos de color (barras de colores, conectores del árbol,
+   avatar opcional punteado) porque son color/estructura, no líneas divisorias.
+   ============================================================ */
+.card{ border:0; box-shadow:0 12px 30px rgba(0,0,135,.13), 0 2px 7px rgba(0,0,135,.07); }
+.card--sand{ box-shadow:0 8px 20px rgba(0,0,135,.08); }
+.card--navy{ box-shadow:0 16px 36px rgba(0,0,135,.30), 0 2px 8px rgba(0,0,135,.12); }
+.card--violet{ box-shadow:0 16px 36px rgba(94,58,226,.32), 0 2px 8px rgba(94,58,226,.14); }
+.card--gold{ box-shadow:0 14px 32px rgba(244,180,34,.38), 0 2px 8px rgba(244,180,34,.16); }
+.card--sky{ box-shadow:0 14px 32px rgba(44,170,255,.36), 0 2px 8px rgba(44,170,255,.14); }
+.card.neon{ border:3px solid var(--gold); }
+.pill--white{ border:0; box-shadow:0 3px 10px rgba(0,0,60,.25); }
+.cover .meta{ border:0; padding:.16in .2in; margin:0 .2in; background:#FFFFFF; border-radius:18px; box-shadow:0 12px 30px rgba(0,0,135,.12), 0 2px 7px rgba(0,0,135,.06); }
+.cover .meta div + div{ border:0; }
+.lbl-row::after{ display:none; }
+.hero .partner-big{ border:0; margin-top:auto; padding:.12in .16in; background:rgba(255,255,255,.09); border-radius:14px; box-shadow:0 6px 16px rgba(0,0,60,.25); }
+.fac-hero .partner-big{ border:0; padding:.1in .2in; background:rgba(255,255,255,.09); border-radius:14px; box-shadow:0 6px 16px rgba(0,0,60,.25); }
+.prof .logo{ border:0; box-shadow:0 6px 16px rgba(0,0,135,.14), 0 1px 4px rgba(0,0,135,.08); }

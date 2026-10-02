@@ -30,7 +30,8 @@
   --logo-h-cover:64px;      /* alto del logo de Campuslands en portada y cierre */
   --logo-h-shell:44px;      /* alto del logo de Campuslands en la barra del visor (grande) */
   --k-cliente:1;            /* peso visual del logo del cliente: herramientas/igualar_logos.py (= √(ratio Campuslands / ratio cliente)) */
-  --header-h:88px; --footer-h:60px;
+  --bar-h:76px;             /* altura ÚNICA de la barra superior y la inferior del visor (iguales) */
+  --header-h:var(--bar-h); --footer-h:var(--bar-h);
 }
 
 /* ---------- 3. RESET ---------- */

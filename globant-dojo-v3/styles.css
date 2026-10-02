@@ -337,10 +337,6 @@ button{ font-family:var(--font-body); cursor:pointer; }
 .pf2 .pcard .pc-desc{ font-size:9pt; }
 
 /* ===== portafolio en 3 láminas (Roboto Mono es ancha: un producto denso por lámina) ===== */
-.sol-dots{ display:flex; align-items:center; gap:8px; margin-bottom:.07in; }
-.sol-dots i{ width:11px; height:11px; border-radius:50%; border:2px solid currentColor; opacity:.55; }
-.sol-dots i.on{ background:var(--gold); border-color:var(--gold); opacity:1; box-shadow:0 0 10px rgba(244,180,34,.7); }
-.sol-dots span{ font-size:8pt; letter-spacing:.12em; text-transform:uppercase; margin-left:6px; opacity:.85; }
 /* 4 · LMS */
 .lms{ flex:1; display:grid; grid-template-columns:.78fr 1.5fr; gap:.2in; margin-top:.16in; margin-bottom:.06in; min-height:0; }
 .lms-main{ background:var(--navy); color:var(--white); border-radius:var(--radius); padding:.26in .26in; display:flex; flex-direction:column; gap:.14in; box-shadow:0 14px 34px rgba(0,0,135,.28); }
@@ -381,7 +377,6 @@ button{ font-family:var(--font-body); cursor:pointer; }
 /* ajustes tras la primera revisión a la vista */
 .pf-head{ margin-top:.14in; }
 .pf-head .sec{ font-size:22pt; white-space:nowrap; }
-.sol-dots span{ margin-left:4px; white-space:nowrap; }
 .lms-grid .it:last-child{ grid-column:1 / -1; }
 .fac-tiles .ft2 span{ font-size:8.6pt; }
 .lms, .fac, .pf2, .prof2, .start-note{ margin-bottom:.16in; }

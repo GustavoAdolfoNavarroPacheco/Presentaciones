@@ -41,7 +41,7 @@ body{ height:100vh; overflow:hidden; display:flex; flex-direction:column; backgr
 button{ font-family:var(--font-body); cursor:pointer; }
 
 /* ---------- 4. VISOR (shell de pantalla — no afecta al PDF) · TEMA CLARO BLANCO ---------- */
-.app-header{ flex:none; height:var(--header-h); padding:0 38px; display:flex; align-items:center; justify-content:flex-start; background:#FFFFFF; border-bottom:1px solid var(--line); position:relative; z-index:50; }
+.app-header{ flex:none; height:var(--header-h); padding:0 38px; display:flex; align-items:center; justify-content:flex-start; background:#FFFFFF; border:0; box-shadow:0 8px 26px rgba(0,0,135,.10), 0 1px 4px rgba(0,0,135,.06); position:relative; z-index:50; }   /* barra separada por SOMBRA, sin línea */
 .cobrand{ --lh:var(--logo-h-shell); display:flex; align-items:center; gap:var(--gap-cb,22px); }
 .cobrand img{ height:var(--lh); width:auto; display:block; }                                            /* Campuslands */
 .cobrand img[data-logo="cliente"]{ height:calc(var(--lh) * var(--k-cliente)); }                         /* cliente: mismo PESO VISUAL */
@@ -49,13 +49,14 @@ button{ font-family:var(--font-body); cursor:pointer; }
 .cobrand .x svg{ width:100%; height:100%; fill:none; stroke:currentColor; stroke-width:2.6; stroke-linecap:round; }
 .app-content{ flex:1; min-height:0; display:flex; background:#FFFFFF; }
 .slides-container{ flex:1; position:relative; display:flex; align-items:center; justify-content:center; padding:22px 40px; min-width:0; }
-.slide{ position:absolute; width:1056px; height:594px; zoom:var(--slide-scale,1); display:none; opacity:0; transform:translateY(16px); transition:opacity .45s ease, transform .45s ease; border-radius:var(--radius); overflow:hidden; box-shadow:0 18px 50px rgba(0,0,135,.16); outline:1px solid rgba(0,0,135,.14); }
+.slide{ position:absolute; width:1056px; height:594px; zoom:var(--slide-scale,1); display:none; opacity:0; transform:translateY(16px); transition:opacity .45s ease, transform .45s ease; border-radius:var(--radius); overflow:hidden; border:0; outline:0; box-shadow:0 16px 46px rgba(0,0,135,.20), 0 2px 10px rgba(0,0,135,.08); }   /* recuadro separado por SOMBRA, sin borde */
 .slide.active{ display:block; opacity:1; transform:translateY(0); }
-.slides-footer-controls{ flex:none; height:var(--footer-h); padding:0 38px; display:flex; align-items:center; justify-content:space-between; background:#FFFFFF; border-top:1px solid var(--line); position:relative; z-index:50; }
-.control-btn{ background:none; border:1px solid rgba(0,0,135,.4); color:var(--navy); width:40px; height:40px; border-radius:50%; display:flex; align-items:center; justify-content:center; transition:all .25s ease; }
-.control-btn:hover{ background:var(--gold); border-color:var(--gold); color:var(--navy); }
+.slides-footer-controls{ flex:none; height:var(--footer-h); padding:0 38px; display:flex; align-items:center; justify-content:space-between; background:#FFFFFF; border:0; box-shadow:0 -8px 26px rgba(0,0,135,.10), 0 -1px 4px rgba(0,0,135,.06); position:relative; z-index:50; }
+.control-btn{ background:#FFFFFF; border:0; color:var(--navy); width:40px; height:40px; border-radius:50%; display:flex; align-items:center; justify-content:center; transition:all .25s ease; box-shadow:0 5px 14px rgba(0,0,135,.18), 0 1px 3px rgba(0,0,135,.10); }   /* botones con SOMBRA, sin borde */
+.control-btn:hover{ background:var(--gold); color:var(--navy); box-shadow:0 8px 20px rgba(244,180,34,.45), 0 1px 3px rgba(0,0,135,.10); }
+.control-btn:active{ transform:translateY(1px); box-shadow:0 2px 7px rgba(0,0,135,.20); }
 .control-btn.mini{ width:32px; height:32px; }
-.control-btn.active{ background:var(--gold); border-color:var(--gold); color:var(--navy); }
+.control-btn.active{ background:var(--gold); color:var(--navy); box-shadow:0 8px 20px rgba(244,180,34,.45), 0 1px 3px rgba(0,0,135,.10); }
 .slide-indicator{ display:flex; align-items:center; gap:18px; flex:1; max-width:520px; margin:0 26px; }
 #slide-number-display{ font-size:12px; color:var(--ink); min-width:48px; text-align:right; }
 .progress-bar-bg{ flex:1; height:5px; background:rgba(0,0,135,.12); border-radius:3px; overflow:hidden; }

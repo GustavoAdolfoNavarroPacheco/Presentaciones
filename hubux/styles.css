@@ -232,8 +232,6 @@ h3{ font-family:var(--font-title); font-weight:900; line-height:1.1; }
 /* ============================================================
    HUBUX — componentes propios del deck (Campuslands Coworking)
    ============================================================ */
-/* logo del cliente sobre PLACA NAVY: el degradé cian→verde de Hubux no contrasta con el blanco (1,3–1,55 : 1) y el logo no se recolorea */
-.cobrand .chip{ flex:none; display:grid; place-items:center; background:var(--navy); border-radius:calc(var(--lh)*.3); padding:calc(var(--lh)*.13) calc(var(--lh)*.28); box-shadow:0 8px 20px rgba(0,0,135,.28), 0 1px 4px rgba(0,0,135,.14); }
 .t24{ font-size:24pt; }
 .sec-top.t24{ max-width:9.2in; }
 .body{ font-size:10pt; line-height:1.55; }

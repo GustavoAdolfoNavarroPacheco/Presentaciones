@@ -209,3 +209,21 @@ h3{ font-family:var(--font-title); font-weight:900; line-height:1.1; }
 .mod h3{ font-size:14pt; color:var(--navy); } .mod.card--navy h3{ color:var(--gold); }
 .mod p{ font-size:10.5pt; line-height:1.55; }
 /* 7 · cierre */
+
+/* ============================================================
+   REGLA (2026-10-02): dentro de las láminas, SOMBRAS en lugar de bordes y líneas divisorias.
+   Sin borde fino en tarjetas, sin líneas en la portada, en rótulos «¿Qué incluye?», en bloques «Partner», ni en cajas de logos/píldoras.
+   Se permiten los acentos de color (barras ≥ 3 px), los conectores estructurales y el marco neón de UN dato clave.
+   ============================================================ */
+.card{ border:0; box-shadow:0 12px 30px rgba(0,0,135,.13), 0 2px 7px rgba(0,0,135,.07); }
+.card--sand{ box-shadow:0 8px 20px rgba(0,0,135,.08); }
+.card--navy{ box-shadow:0 16px 36px rgba(0,0,135,.30), 0 2px 8px rgba(0,0,135,.12); }
+.card--violet{ box-shadow:0 16px 36px rgba(94,58,226,.32), 0 2px 8px rgba(94,58,226,.14); }
+.card--gold{ box-shadow:0 14px 32px rgba(244,180,34,.38), 0 2px 8px rgba(244,180,34,.16); }
+.card--sky{ box-shadow:0 14px 32px rgba(44,170,255,.36), 0 2px 8px rgba(44,170,255,.14); }
+.card.neon{ border:3px solid var(--gold); }
+.pill--white{ border:0; box-shadow:0 3px 10px rgba(0,0,60,.25); }
+.cover .meta{ border:0; padding:.16in .2in; margin:0 .2in; background:#FFFFFF; border-radius:18px; box-shadow:0 12px 30px rgba(0,0,135,.12), 0 2px 7px rgba(0,0,135,.06); }
+.cover .meta div + div{ border:0; }
+.delta{ border:0; padding:.14in .18in; margin-top:auto; background:rgba(0,0,135,.05); border-radius:14px; }
+.card--navy .delta{ background:rgba(255,255,255,.09); }

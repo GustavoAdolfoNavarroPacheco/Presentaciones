@@ -282,10 +282,9 @@ h3{ font-family:var(--font-title); font-weight:900; line-height:1.1; }
 .prof .edu{ padding:.09in .16in; font-size:9.5pt; }
 
 /* ============================================================
-   PREVIEW (prueba pedida por el usuario): dentro de las láminas, SOMBRAS en lugar de bordes y líneas.
-   Se quitan: borde fino de las tarjetas, líneas de la portada, línea del rótulo «¿Qué incluye?», líneas de «Partner»,
-   borde de la caja de logos y borde de las píldoras. Se conservan los acentos de color (barras de colores, conectores del árbol,
-   avatar opcional punteado) porque son color/estructura, no líneas divisorias.
+   REGLA (2026-10-02): dentro de las láminas, SOMBRAS en lugar de bordes y líneas divisorias.
+   Sin borde fino en tarjetas, sin líneas en la portada, en rótulos «¿Qué incluye?», en bloques «Partner», ni en cajas de logos/píldoras.
+   Se permiten los acentos de color (barras ≥ 3 px), los conectores estructurales y el marco neón de UN dato clave.
    ============================================================ */
 .card{ border:0; box-shadow:0 12px 30px rgba(0,0,135,.13), 0 2px 7px rgba(0,0,135,.07); }
 .card--sand{ box-shadow:0 8px 20px rgba(0,0,135,.08); }

@@ -169,7 +169,7 @@ button{ font-family:var(--font-body); cursor:pointer; }
 /* ============================================================
    GLOBANT · MODELO DE DESARROLLO CON DOJO — componentes del deck (sistema v4)
    ============================================================ */
-:root{ --k-cliente:.7925; }   /* Globant 5,09:1 vs Campuslands 3,20:1 → alto del cliente = alto Campuslands × √(3,20/5,09) */
+:root{ --k-cliente:.9203; }   /* Globant 5,09:1 vs Campuslands 4,31:1 (logo vigente desde 2026-10-02) → alto del cliente = alto Campuslands × √(4,31/5,09) */
 b, strong{ font-weight:600; }
 .cover h1 .small{ font-size:.5em; font-style:italic; font-weight:400; color:var(--ink); margin:0 .1em 0 .06em; vertical-align:.1em; }
 .cover h1{ font-size:46pt; max-width:9in; }

@@ -279,6 +279,10 @@ h3,h4{ font-family:var(--font-title); font-weight:900; line-height:1.1; }
 .strip3{ flex:none; display:grid; grid-template-columns:repeat(3,1fr); gap:.16in; margin-bottom:.06in; }
 .strip3 .card{ display:flex; align-items:center; gap:.12in; padding:.09in .16in; font-size:8.6pt; line-height:1.38; }
 .strip3 b{ display:block; font-family:var(--font-title); font-weight:900; font-size:9.6pt; color:var(--navy); }
+
+.cl2 .val{ justify-content:center; align-items:flex-start; gap:.06in; padding:.2in .24in; }
+.cl2 .val .amt{ font-family:var(--font-title); font-weight:900; font-size:24pt; line-height:1.1; color:var(--gold); }
+.cl2 .val .amt small{ font-size:11pt; font-weight:600; color:#fff; }
 /* ============================================================
    REGLA (2026-10-02): dentro de las láminas, SOMBRAS en lugar de bordes y líneas divisorias.
    Sin borde fino en tarjetas, sin líneas en la portada, en rótulos «¿Qué incluye?», en bloques «Partner», ni en cajas de logos/píldoras.

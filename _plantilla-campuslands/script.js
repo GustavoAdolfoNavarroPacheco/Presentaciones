@@ -116,3 +116,53 @@ window.addEventListener('DOMContentLoaded', () => {
     updateSlideDisplay();
     setupRotateHint();
 });
+
+// ---- PDF / impresión: sombras difuminadas → sombras vectoriales escalonadas ----
+// Chrome exporta box-shadow con desenfoque como máscaras de luminosidad (SMask); varios visores de PDF de celular
+// no las soportan y pintan rectángulos grises alrededor de cada tarjeta. Las sombras sin desenfoque son vectores simples.
+(function pdfSafeShadows() {
+    const saved = [];
+    function split(s) { const out = []; let d = 0, cur = ''; for (const ch of s) { if (ch === '(') d++; if (ch === ')') d--; if (ch === ',' && d === 0) { out.push(cur.trim()); cur = ''; } else cur += ch; } if (cur.trim()) out.push(cur.trim()); return out; }
+    function convert(shadow) {
+        const out = [];
+        split(shadow).forEach((one) => {
+            const m = one.match(/(rgba?\([^)]*\))/);
+            if (!m || /inset/.test(one)) { out.push(one); return; }
+            const rest = one.replace(m[1], '').trim().split(/\s+/).map(parseFloat);
+            const [x, y, blur] = [rest[0] || 0, rest[1] || 0, rest[2] || 0];
+            if (blur <= 0) { out.push(one); return; }
+            const c = m[1].match(/[\d.]+/g).map(Number); const a = c.length > 3 ? c[3] : 1;
+            const n = Math.min(6, Math.max(3, Math.round(blur / 6)));
+            for (let i = 1; i <= n; i++) {
+                const k = i / n;
+                out.push(`${(x * k).toFixed(1)}px ${(y * k).toFixed(1)}px 0 ${(blur / 7 * k).toFixed(1)}px rgba(${c[0]},${c[1]},${c[2]},${(a * 0.9 / n).toFixed(4)})`);
+            }
+        });
+        return out.join(', ');
+    }
+    function convertText(shadow) {
+        const out = [];
+        split(shadow).forEach((one) => {
+            const m = one.match(/(rgba?\([^)]*\))/);
+            if (!m) { out.push(one); return; }
+            const rest = one.replace(m[1], '').trim().split(/\s+/).map(parseFloat);
+            const [x, y, blur] = [rest[0] || 0, rest[1] || 0, rest[2] || 0];
+            if (blur <= 0) { out.push(one); return; }
+            const c = m[1].match(/[\d.]+/g).map(Number); const a = c.length > 3 ? c[3] : 1;
+            for (let i = 1; i <= 4; i++) out.push(`${(x * i / 4).toFixed(1)}px ${(y * i / 4).toFixed(1)}px 0 rgba(${c[0]},${c[1]},${c[2]},${(a * 0.4 / 2).toFixed(3)})`);
+        });
+        return out.join(', ');
+    }
+    function before() {
+        if (saved.length) return;
+        document.querySelectorAll('.slide *').forEach((el) => {
+            const cs = getComputedStyle(el), bs = cs.boxShadow, ts = cs.textShadow;
+            if (bs && bs !== 'none' && /\d+px/.test(bs)) { saved.push([el, 'box-shadow', el.style.boxShadow]); el.style.setProperty('box-shadow', convert(bs), 'important'); }
+            if (ts && ts !== 'none' && /\d+px/.test(ts)) { saved.push([el, 'text-shadow', el.style.textShadow]); el.style.setProperty('text-shadow', convertText(ts), 'important'); }
+        });
+    }
+    function after() { while (saved.length) { const [el, prop, v] = saved.pop(); if (v) el.style.setProperty(prop, v); else el.style.removeProperty(prop); } }
+    window.addEventListener('beforeprint', before);
+    window.addEventListener('afterprint', after);
+    if (window.matchMedia) { const mq = window.matchMedia('print'); const h = (e) => (e.matches ? before() : after()); if (mq.addEventListener) mq.addEventListener('change', h); else if (mq.addListener) mq.addListener(h); }
+})();

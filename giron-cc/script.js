@@ -17,6 +17,9 @@ const SLIDE_NATIVE_H = 594;  // 6.1875in a 96dpi
 function resizeSlideStage() {
     const container = document.getElementById('slides-container');
     if (!container) return;
+    // iOS/iPadOS: 100vh incluye la zona bajo la barra de Safari y esconde la barra inferior → se usa el alto visible real
+    const vv = window.visualViewport;
+    document.documentElement.style.setProperty('--app-h', Math.round(vv ? vv.height : window.innerHeight) + 'px');
     const availW = container.clientWidth - 16;
     const availH = container.clientHeight - 16;
     const scale = Math.min(availW / SLIDE_NATIVE_W, availH / SLIDE_NATIVE_H, 1.35);
@@ -66,6 +69,39 @@ document.addEventListener('keydown', (e) => {
 });
 
 window.addEventListener('resize', resizeSlideStage);
+window.addEventListener('orientationchange', () => { setTimeout(resizeSlideStage, 250); });
+if (window.visualViewport) window.visualViewport.addEventListener('resize', resizeSlideStage);
+
+// ---- Táctil: deslizar a izquierda/derecha cambia de lámina (un solo dedo; el pellizco para zoom no se toca) ----
+(function setupSwipe() {
+    let x0 = null, y0 = null;
+    document.addEventListener('touchstart', (e) => {
+        if (e.touches.length !== 1 || (e.target.closest && e.target.closest('button'))) { x0 = null; return; }
+        x0 = e.touches[0].clientX; y0 = e.touches[0].clientY;
+    }, { passive: true });
+    document.addEventListener('touchend', (e) => {
+        if (x0 === null) return;
+        const dx = e.changedTouches[0].clientX - x0, dy = e.changedTouches[0].clientY - y0;
+        x0 = null;
+        if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy) * 1.5) navigateSlide(dx < 0 ? 1 : -1);
+    }, { passive: true });
+})();
+
+// ---- Celular en vertical: aviso (descartable) para girar el equipo ----
+function setupRotateHint() {
+    const host = document.getElementById('slides-container');
+    if (!host) return;
+    try { if (sessionStorage.getItem('rotateHintOff')) return; } catch (err) { /* sin storage */ }
+    const hint = document.createElement('div');
+    hint.className = 'rotate-hint on';
+    hint.setAttribute('role', 'status');
+    hint.innerHTML = '<span>Gira el celular en horizontal para ver mejor la presentación.</span><button type="button" aria-label="Cerrar aviso">&times;</button>';
+    hint.querySelector('button').addEventListener('click', () => {
+        hint.remove();
+        try { sessionStorage.setItem('rotateHintOff', '1'); } catch (err) { /* sin storage */ }
+    });
+    host.appendChild(hint);
+}
 
 // Fuerza la carga de todas las @font-face: las láminas ocultas no las piden por sí solas,
 // y el export a PDF (Chrome headless) caería a Georgia/Times en títulos y cursivas.
@@ -78,4 +114,5 @@ window.addEventListener('DOMContentLoaded', () => {
     preloadAllFonts();
     resizeSlideStage();
     updateSlideDisplay();
+    setupRotateHint();
 });

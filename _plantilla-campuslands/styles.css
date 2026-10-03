@@ -228,3 +228,30 @@ h3{ font-family:var(--font-title); font-weight:900; line-height:1.1; }
 .cover .meta div + div{ border:0; }
 .delta{ border:0; padding:.14in .18in; margin-top:auto; background:rgba(0,0,135,.05); border-radius:14px; }
 .card--navy .delta{ background:rgba(255,255,255,.09); }
+
+/* ---------- 11. VISOR EN iPad / CELULAR (solo pantalla; no afecta al escritorio ni al PDF) ---------- */
+@media screen{
+  /* iOS/iPadOS: 100vh incluye la zona bajo la barra de Safari y esconde la barra inferior (flechas). script.js fija --app-h = alto visible real. */
+  body{ height:100vh; height:var(--app-h,100vh); }
+  .control-btn, .rotate-hint button{ -webkit-tap-highlight-color:transparent; touch-action:manipulation; }
+  .slides-container{ touch-action:pan-y pinch-zoom; }
+}
+.rotate-hint{ display:none; position:absolute; top:8px; left:50%; transform:translateX(-50%); z-index:60; align-items:center; gap:10px; width:max-content; max-width:calc(100% - 20px); background:#FFFFFF; color:var(--navy); border-radius:99px; padding:6px 6px 6px 16px; font-size:12px; font-weight:500; line-height:1.3; box-shadow:0 8px 22px rgba(74,54,8,.18), 0 1px 4px rgba(74,54,8,.10); }
+.rotate-hint button{ flex:none; width:32px; height:32px; border-radius:50%; border:0; background:var(--sand,#F3EBD6); color:var(--navy); font-size:16px; line-height:1; }
+@media screen and (max-width:700px) and (orientation:portrait){ .rotate-hint.on{ display:flex; } }
+@media screen and (max-width:900px), screen and (max-height:560px){
+  :root{ --bar-h:60px; --logo-h-shell:24px; }
+  .app-header{ padding:0 16px; }
+  .slides-footer-controls{ padding:0 14px; }
+  .slides-container{ padding:8px 6px; }
+  .slide-indicator{ gap:10px; margin:0 12px; }
+  .control-btn{ width:44px; height:44px; }
+  .control-btn.mini{ width:40px; height:40px; }
+}
+@media screen and (max-height:480px){
+  :root{ --bar-h:48px; --logo-h-shell:20px; }
+  .slides-container{ padding:4px 6px; }
+  .control-btn{ width:40px; height:40px; }
+  .control-btn.mini{ width:36px; height:36px; }
+}
+@media print{ .rotate-hint{ display:none !important; } }

@@ -273,10 +273,9 @@ h3,h4{ font-family:var(--font-title); font-weight:900; line-height:1.1; }
 
 .valor{ display:flex; flex-direction:column; align-items:center; gap:.02in; }
 .valor small{ font-family:var(--font-title); font-weight:900; font-size:8pt; letter-spacing:.16em; text-transform:uppercase; color:var(--violet); }
-.valor .amt{ font-family:var(--font-title); font-weight:900; font-size:28pt; line-height:1.1; color:var(--navy); }
+.valor .amt{ font-family:var(--font-title); font-weight:900; font-size:28pt; line-height:1.1; color:#2B1F03; }
 .valor .amt em{ font-style:normal; font-size:12pt; font-weight:600; color:var(--violet); }
-.valor .num{ position:relative; display:inline-block; isolation:isolate; }
-.valor .num::before{ content:""; position:absolute; inset:-6px -26px; z-index:-1; border-radius:50%; background:radial-gradient(closest-side, rgba(240,194,78,.85), rgba(240,194,78,.35) 62%, rgba(240,194,78,0)); filter:blur(7px); }
+.valor .num{ display:inline-block; text-shadow:1px 2px 0 rgba(217,163,46,.60), 0 5px 12px rgba(74,54,8,.34), 0 12px 26px rgba(74,54,8,.18); }
 .crew2{ width:9.3in; display:grid; grid-template-columns:1fr 1.55fr; align-items:center; gap:.3in; padding:.16in .26in; text-align:left; font-size:8.8pt; line-height:1.45; }
 .crew2 .cw-l{ display:flex; flex-direction:column; gap:.07in; }
 .crew2 b.t{ font-family:var(--font-title); font-weight:900; font-size:11pt; color:var(--navy); }

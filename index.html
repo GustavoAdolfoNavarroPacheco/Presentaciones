@@ -1,201 +1,174 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-session="out">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Campuslands Full Service — Estudio de Presentaciones</title>
-  <meta name="description" content="Portal privado de propuestas comerciales, ecosistemas de agentes de IA y demos de Campuslands Full Service.">
+  <title>Presentaciones — Campuslands Full Service</title>
+  <meta name="description" content="Acceso rápido a las presentaciones, demos y archivos de Campuslands Full Service.">
   <meta name="robots" content="noindex, nofollow">
   <meta name="theme-color" content="#FFFFFF">
   <link rel="icon" type="image/png" href="assets/favicon.png">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/portal/portal.css?v=10">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,900;1,900&display=swap" rel="stylesheet">
+
+  <script>
+    // La sesión se detecta antes del primer pintado para evitar parpadeos (portal.js la valida).
+    (function () {
+      var session = 'out';
+      try {
+        [localStorage, sessionStorage].forEach(function (store) {
+          var raw = store.getItem('fs_session');
+          if (raw && JSON.parse(raw).exp > Date.now()) session = 'in';
+        });
+        if (localStorage.getItem('campus_auth') === 'true') session = 'in';
+      } catch (e) { /* almacenamiento bloqueado: sin sesión */ }
+      document.documentElement.setAttribute('data-session', session);
+    })();
+  </script>
+  <link rel="stylesheet" href="assets/portal/portal.css?v=11">
 </head>
 <body>
+  <a class="skip-link" href="#main">Saltar al contenido</a>
+  <div class="sentinel" id="sentinel" aria-hidden="true"></div>
 
-<!-- ===== Biblioteca de íconos (trazo uniforme) ===== -->
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <defs>
-    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></symbol>
-    <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol>
-    <symbol id="i-copy" viewBox="0 0 24 24"><rect width="14" height="14" x="8" y="8" rx="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></symbol>
-    <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
-    <symbol id="i-external" viewBox="0 0 24 24"><path d="M15 3h6v6M10 14 21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></symbol>
-    <symbol id="i-pdf" viewBox="0 0 24 24"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></symbol>
-    <symbol id="i-play" viewBox="0 0 24 24"><path d="M6 3 20 12 6 21Z"/></symbol>
-    <symbol id="i-play-circle" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m10 8 6 4-6 4Z"/></symbol>
-    <symbol id="i-slides" viewBox="0 0 24 24"><path d="M2 3h20M21 3v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V3M7 21l5-5 5 5"/></symbol>
-    <symbol id="i-calendar" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></symbol>
-    <symbol id="i-logout" viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"/></symbol>
-    <symbol id="i-chev" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
-    <symbol id="i-building" viewBox="0 0 24 24"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2M10 6h4M10 10h4M10 14h4M10 18h4"/></symbol>
-    <symbol id="i-link" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></symbol>
-    <symbol id="i-zap" viewBox="0 0 24 24"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></symbol>
-    <symbol id="i-lock" viewBox="0 0 24 24"><rect width="18" height="11" x="3" y="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></symbol>
-    <symbol id="i-mail" viewBox="0 0 24 24"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></symbol>
-    <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></symbol>
-    <symbol id="i-eye-off" viewBox="0 0 24 24"><path d="M9.88 9.88a3 3 0 1 0 4.24 4.24M10.73 5.08A10.43 10.43 0 0 1 12 5c7 0 10 7 10 7a13.16 13.16 0 0 1-1.67 2.68M6.61 6.61A13.53 13.53 0 0 0 2 12s3 7 10 7a9.74 9.74 0 0 0 5.39-1.61M2 2l20 20"/></symbol>
-    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></symbol>
-    <symbol id="i-wallet" viewBox="0 0 24 24"><path d="M19 7V4a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4"/></symbol>
-    <symbol id="i-alert" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></symbol>
-    <symbol id="i-sort" viewBox="0 0 24 24"><path d="m21 16-4 4-4-4M17 20V4M3 8l4-4 4 4M7 4v16"/></symbol>
-    <symbol id="i-reset" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8M3 3v5h5"/></symbol>
-    <symbol id="i-file-search" viewBox="0 0 24 24"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><path d="M14 2v6h6"/><circle cx="11.5" cy="14.5" r="2.5"/><path d="m13.3 16.3 1.7 1.7"/></symbol>
-    <symbol id="i-share" viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.59 13.51 6.83 3.98M15.41 6.51l-6.82 3.98"/></symbol>
-  </defs>
-</svg>
-
-<div class="bg-fx" aria-hidden="true"><i class="r1"></i><i class="r2"></i></div>
-<a class="skip" href="#results">Saltar a los resultados</a>
-
-<!-- ==========================================================================
-     LOGIN
-     ========================================================================== -->
-<section id="loginView" class="login" hidden aria-label="Acceso al portal">
-  <aside class="login-art" aria-hidden="true">
-    <img class="login-art__logo" src="assets/logo-campuslands-blanco.png" alt="">
-    <div class="login-art__body">
-      <h2>Todas tus propuestas, <em>en un solo lugar.</em></h2>
-      <p>Encuentra la presentación correcta, copia su enlace y compártelo con tu cliente en segundos.</p>
-      <ul class="login-points">
-        <li><span class="chip-ic"><svg class="ic"><use href="#i-search"/></svg></span>Busca por cliente, tecnología o tipo de solución</li>
-        <li><span class="chip-ic"><svg class="ic"><use href="#i-link"/></svg></span>Enlaces limpios y listos para compartir</li>
-        <li><span class="chip-ic"><svg class="ic"><use href="#i-pdf"/></svg></span>Versión web y PDF de cada propuesta</li>
-      </ul>
-    </div>
-    <div class="login-art__foot"><b>Exploramos</b> · <b>Despegamos</b> · <b>Conquistamos</b></div>
-  </aside>
-
-  <main class="login-main">
-    <div class="login-card">
-      <img class="mobile-logo" src="assets/logo-campuslands-color.png" alt="Campuslands">
-      <h1>Bienvenido</h1>
-      <p class="lead">Ingresa con tu correo corporativo para ver el catálogo de presentaciones.</p>
-
-      <form id="loginForm" class="form" novalidate>
-        <div class="field">
-          <label for="loginEmail">Correo corporativo</label>
-          <div class="field-box">
-            <svg class="ic"><use href="#i-mail"/></svg>
-            <input class="input" id="loginEmail" type="email" inputmode="email" autocomplete="username" placeholder="nombre@campuslands.com" required autofocus>
-          </div>
-        </div>
-        <div class="field">
-          <label for="loginPass">Contraseña</label>
-          <div class="field-box">
-            <svg class="ic"><use href="#i-lock"/></svg>
-            <input class="input" id="loginPass" type="password" autocomplete="current-password" placeholder="Tu contraseña" required>
-            <button type="button" class="toggle" id="togglePass" aria-label="Mostrar contraseña" aria-pressed="false"><svg class="ic"><use href="#i-eye"/></svg></button>
-          </div>
-          <div class="hint" id="capsHint" hidden><svg class="ic ic--sm"><use href="#i-alert"/></svg>Bloq Mayús está activado</div>
-        </div>
-        <div class="form-row">
-          <label class="check"><input type="checkbox" id="remember" checked><span class="box"><svg class="ic"><use href="#i-check"/></svg></span>Mantener sesión iniciada</label>
-        </div>
-        <div class="alert" id="loginAlert" role="alert" hidden><svg class="ic"><use href="#i-alert"/></svg><span id="loginAlertMsg"></span></div>
-        <button class="btn btn--primary" id="loginSubmit" type="submit"><span>Ingresar</span><svg class="ic"><use href="#i-arrow"/></svg></button>
-      </form>
-
-      <div class="login-note"><svg class="ic"><use href="#i-lock"/></svg>Acceso exclusivo para el equipo de Campuslands Full Service.</div>
-    </div>
-  </main>
-</section>
-
-<!-- ==========================================================================
-     APLICACIÓN
-     ========================================================================== -->
-<div id="app" hidden>
+  <!-- ENCABEZADO: identidad · buscador · sesión -->
   <header class="topbar" id="topbar">
-    <div class="topbar-in">
-      <a class="brand" href="./" aria-label="Campuslands · Estudio de Presentaciones (inicio)">
-        <img src="assets/logo-campuslands-color.png" alt="Campuslands">
+    <div class="topbar__inner">
+      <a class="brand" href="./" aria-label="Presentaciones Campuslands — inicio">
+        <img class="brand__logo" src="assets/logo-campuslands-color.png" alt="Campuslands">
+        <span class="brand__sep" aria-hidden="true"></span>
+        <h1 class="brand__name">Presentaciones</h1>
       </a>
 
-      <div class="search" id="searchBox" role="search">
-        <svg class="ic"><use href="#i-search"/></svg>
-        <input class="input" id="q" type="text" autocomplete="off" spellcheck="false" aria-label="Buscar presentaciones" placeholder="Buscar por cliente, proyecto o tecnología…">
-        <span class="kbd" aria-hidden="true">/</span>
-        <button class="clear" id="qClear" type="button" aria-label="Limpiar búsqueda" hidden><svg class="ic"><use href="#i-x"/></svg></button>
+      <div class="search" id="search" role="search" data-auth="in">
+        <svg class="search__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <label class="sr-only" for="q">Buscar presentaciones</label>
+        <input id="q" class="search__input" type="search" placeholder="Buscar cliente o proyecto…" autocomplete="off" spellcheck="false" enterkeyhint="search">
+        <kbd class="search__kbd" aria-hidden="true">/</kbd>
+        <button type="button" id="searchClear" class="search__clear" aria-label="Limpiar búsqueda">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
       </div>
 
-      <div class="usermenu">
-        <button class="user-btn" id="userBtn" type="button" aria-haspopup="true" aria-expanded="false">
-          <span class="avatar" id="avatar">GN</span>
-          <b id="userName">Usuario</b>
-          <svg class="ic ic--sm"><use href="#i-chev"/></svg>
+      <div class="topbar__actions">
+        <!-- Sesión cerrada -->
+        <button type="button" id="loginBtn" class="btn" data-auth="out">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
+          <span>Iniciar sesión</span>
         </button>
-        <div class="menu" id="userMenu" role="menu">
-          <div class="menu-head">
-            <span class="avatar" id="avatar2">GN</span>
-            <span class="who"><b id="userName2">Usuario</b><span id="userEmail">—</span></span>
-          </div>
-          <button class="menu-item" id="copyView" type="button" role="menuitem"><svg class="ic"><use href="#i-share"/></svg>Copiar esta vista filtrada</button>
-          <button class="menu-item" id="logout" type="button" role="menuitem"><svg class="ic"><use href="#i-logout"/></svg>Cerrar sesión</button>
+
+        <!-- Sesión iniciada -->
+        <div class="user-chip" id="userChip" data-auth="in">
+          <span class="user-chip__avatar" id="userInitials" aria-hidden="true"></span>
+          <span class="user-chip__name" id="userName"></span>
         </div>
+        <button type="button" id="logoutBtn" class="icon-btn" data-auth="in" aria-label="Cerrar sesión" title="Cerrar sesión">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+        </button>
       </div>
     </div>
   </header>
 
-  <main class="wrap" id="results" tabindex="-1">
-    <div class="title-row"><h1>Presentaciones <em>Campuslands</em></h1></div>
-
-    <div class="bar">
-      <div class="tabs" role="group" aria-label="Tipo de solución">
-        <div class="tab-btns" id="tabBtns"><span class="tab-ind" id="tabInd" aria-hidden="true"></span></div>
-      </div>
-      <div class="tools">
-        <div class="dd" id="ddClient">
-          <button class="dd-btn" type="button" aria-haspopup="listbox" aria-expanded="false" aria-label="Filtrar por cliente">
-            <svg class="ic ic--sm"><use href="#i-building"/></svg><span class="dd-label">Todos los clientes</span><svg class="ic ic--sm chev"><use href="#i-chev"/></svg>
-          </button>
-          <div class="dd-menu" role="presentation">
-            <div class="dd-search"><svg class="ic ic--sm"><use href="#i-search"/></svg><input class="input" type="text" autocomplete="off" spellcheck="false" placeholder="Buscar cliente…" aria-label="Buscar cliente"></div>
-            <div class="dd-list" role="listbox" aria-label="Clientes"></div>
-          </div>
-        </div>
-        <div class="dd dd--right" id="ddSort">
-          <button class="dd-btn" type="button" aria-haspopup="listbox" aria-expanded="false" aria-label="Ordenar por">
-            <svg class="ic ic--sm"><use href="#i-sort"/></svg><span class="dd-label">Más recientes</span><svg class="ic ic--sm chev"><use href="#i-chev"/></svg>
-          </button>
-          <div class="dd-menu" role="presentation">
-            <div class="dd-list" role="listbox" aria-label="Ordenar por"></div>
+  <main class="page" id="main">
+    <!-- CATÁLOGO (solo con sesión iniciada) -->
+    <section data-auth="in" aria-label="Catálogo de presentaciones">
+      <div class="toolbar" role="group" aria-label="Filtros y orden">
+        <div class="toolbar__group" id="filterSlot"></div>
+        <div class="toolbar__group" id="sortSlot">
+          <div class="seg" id="viewToggle" data-value="grid" role="group" aria-label="Tipo de vista">
+            <span class="seg__thumb" aria-hidden="true"></span>
+            <button type="button" class="seg__btn" data-view="grid" aria-pressed="true" aria-label="Vista de cuadrícula" title="Cuadrícula">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="13.5" width="7" height="7" rx="1.5"/></svg>
+            </button>
+            <button type="button" class="seg__btn" data-view="lista" aria-pressed="false" aria-label="Vista de lista" title="Lista">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><circle cx="3.5" cy="6" r=".8"/><circle cx="3.5" cy="12" r=".8"/><circle cx="3.5" cy="18" r=".8"/></svg>
+            </button>
           </div>
         </div>
       </div>
-    </div>
 
-    <div class="meta"><span id="meta" aria-live="polite"></span><button type="button" id="resetAll" hidden>Limpiar filtros</button></div>
+      <div class="status">
+        <p class="status__count" id="count" aria-live="polite"></p>
+        <ul class="chips" id="chips" aria-label="Filtros activos"></ul>
+        <button type="button" class="link-btn" id="clearAll" hidden>Limpiar todo</button>
+      </div>
 
-    <div class="rows" id="list"></div>
+      <!-- Skeletons: se reemplazan en cuanto portal.js construye las tarjetas -->
+      <ul class="grid" id="grid" data-view="grid" aria-busy="true" aria-label="Presentaciones">
+        <li class="card card--skeleton" aria-hidden="true"><div class="card__inner"><div class="skeleton skeleton--logo"></div><div class="skeleton skeleton--line" style="width:40%"></div><div class="skeleton skeleton--title"></div><div class="skeleton skeleton--line"></div><div class="skeleton skeleton--line" style="width:88%"></div><div class="skeleton skeleton--btn" style="margin-top:auto"></div></div></li>
+        <li class="card card--skeleton" aria-hidden="true"><div class="card__inner"><div class="skeleton skeleton--logo"></div><div class="skeleton skeleton--line" style="width:40%"></div><div class="skeleton skeleton--title"></div><div class="skeleton skeleton--line"></div><div class="skeleton skeleton--line" style="width:88%"></div><div class="skeleton skeleton--btn" style="margin-top:auto"></div></div></li>
+        <li class="card card--skeleton" aria-hidden="true"><div class="card__inner"><div class="skeleton skeleton--logo"></div><div class="skeleton skeleton--line" style="width:40%"></div><div class="skeleton skeleton--title"></div><div class="skeleton skeleton--line"></div><div class="skeleton skeleton--line" style="width:88%"></div><div class="skeleton skeleton--btn" style="margin-top:auto"></div></div></li>
+      </ul>
 
-    <div class="empty" id="empty" hidden>
-      <div class="big"><svg class="ic"><use href="#i-file-search"/></svg></div>
-      <h3>No encontramos presentaciones</h3>
-      <p id="emptyMsg">Prueba con otra palabra o quita algunos filtros.</p>
-      <button class="btn btn--primary" id="emptyReset" type="button"><svg class="ic"><use href="#i-reset"/></svg>Limpiar filtros</button>
-    </div>
+      <div class="state" id="empty" hidden>
+        <div class="state__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+        </div>
+        <h2 class="state__title">Nada por aquí todavía</h2>
+        <p class="state__text" id="emptyText"></p>
+        <button type="button" class="btn btn--primary" id="emptyReset"><span class="btn__label">Limpiar filtros</span></button>
+      </div>
+    </section>
+
+    <!-- Sin sesión -->
+    <section class="state" id="locked" data-auth="out">
+      <div class="state__icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
+      </div>
+      <h2 class="state__title">Contenido restringido</h2>
+      <p class="state__text">Inicia sesión para ver y abrir las presentaciones.</p>
+      <button type="button" class="btn btn--primary" id="lockedLogin"><span class="btn__label">Iniciar sesión</span></button>
+    </section>
   </main>
 
-  <footer class="foot"><b>Exploramos</b> · <b>Despegamos</b> · <b>Conquistamos</b></footer>
-</div>
+  <!-- LOGIN (modal) -->
+  <dialog class="modal" id="loginDialog" aria-labelledby="loginTitle">
+    <div class="modal__panel">
+      <button type="button" class="icon-btn modal__close" id="loginClose" aria-label="Cerrar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+      <h2 class="modal__title" id="loginTitle">Iniciar sesión</h2>
+      <p class="modal__text">Accede para ver y abrir las presentaciones.</p>
 
-<!-- Panel de detalle -->
-<div class="scrim" id="scrim"></div>
-<aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-labelledby="dTitle" aria-hidden="true">
-  <div class="drawer-top">
-    <span class="crumb" id="dCrumb">Detalle</span>
-    <button class="btn btn--soft btn--icon btn--sm" id="dClose" type="button" aria-label="Cerrar detalle"><svg class="ic"><use href="#i-x"/></svg></button>
+      <form class="form" id="loginForm">
+        <div class="field">
+          <label class="field__label" for="loginEmail">Correo corporativo</label>
+          <div class="field__control">
+            <svg class="field__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="22 6 12 13 2 6"/></svg>
+            <input class="field__input" id="loginEmail" type="email" placeholder="usuario@campuslands.com" autocomplete="username" required>
+          </div>
+        </div>
+        <div class="field">
+          <label class="field__label" for="loginPass">Contraseña</label>
+          <div class="field__control">
+            <svg class="field__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
+            <input class="field__input" id="loginPass" type="password" placeholder="••••••••" autocomplete="current-password" required>
+            <button type="button" class="icon-btn field__action" id="togglePass" aria-label="Mostrar contraseña" aria-pressed="false">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+            </button>
+          </div>
+        </div>
+        <p class="form__hint" id="capsHint" hidden>Bloq Mayús está activado</p>
+        <label class="check"><input type="checkbox" id="remember"><span>Mantener la sesión 30 días en este equipo</span></label>
+        <div class="form__alert" id="loginAlert" role="alert" hidden>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          <span id="loginAlertMsg">Correo o contraseña incorrectos.</span>
+        </div>
+        <button type="submit" class="btn btn--primary btn--block" id="loginSubmit"><span class="btn__label">Ingresar</span></button>
+      </form>
+    </div>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+    <span class="toast__msg"></span>
   </div>
-  <div class="drawer-body" id="dBody"></div>
-  <div class="drawer-foot" id="dFoot"></div>
-</aside>
 
-<div class="toasts" id="toasts" aria-live="polite"></div>
-
-<script src="assets/portal/decks.js?v=10"></script>
-<script src="assets/portal/portal.js?v=10"></script>
+  <!-- El catálogo vive en assets/portal/decks.js (ver el encabezado de ese archivo para registrar un deck nuevo). -->
+  <script src="assets/portal/decks.js?v=11"></script>
+  <script src="assets/portal/ui.js?v=11"></script>
+  <script src="assets/portal/portal.js?v=11"></script>
 </body>
 </html>

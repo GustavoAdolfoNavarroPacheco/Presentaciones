@@ -122,12 +122,11 @@ html[data-session="in"] [data-auth="out"] { display: none !important; }
 .topbar.is-stuck::after { opacity: 1; }
 .topbar__inner {
   max-width: 1240px; margin: 0 auto; padding: 12px 24px;
-  display: grid; grid-template-columns: auto minmax(0, 1fr) auto;
+  display: grid; grid-template-columns: minmax(0, 1fr) minmax(280px, 640px) minmax(0, 1fr);
   align-items: center; gap: 20px;
 }
-.brand { display: inline-flex; align-items: center; gap: 14px; border-radius: var(--r-sm); }
+.brand { justify-self: start; display: inline-flex; align-items: center; gap: 14px; border-radius: var(--r-sm); }
 .brand__logo { height: 34px; width: auto; }
-.brand__name { font-size: 17px; font-weight: 600; letter-spacing: -.01em; }
 
 .topbar__actions { display: flex; align-items: center; gap: 8px; justify-self: end; }
 
@@ -582,7 +581,6 @@ html[data-session="out"] .page { min-height: 100vh; display: grid; place-items: 
   .topbar__inner { gap: 10px; }
   .brand { gap: 10px; }
 
-  .brand__name { font-size: 14.5px; }
   .brand__logo { height: 24px; }
   .topbar__actions { gap: 2px; }
   .toolbar, .toolbar__group { width: 100%; }

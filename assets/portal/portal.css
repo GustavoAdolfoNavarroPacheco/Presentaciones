@@ -40,7 +40,7 @@
   /* Reposo de las tarjetas: contacto + sombra media + ambiente amplio, para que se despeguen del fondo blanco. */
   --shadow-card: 0 1px 2px rgba(15, 15, 61, .12), 0 3px 6px rgba(15, 15, 61, .07), 0 10px 20px rgba(15, 15, 61, .08), 0 22px 36px -10px rgba(15, 15, 61, .12);
   --shadow-soft: 0 1px 2px rgba(15, 15, 61, .14), 0 2px 5px rgba(15, 15, 61, .08);
-  --ring: 0 0 0 3px rgba(94, 58, 226, .38);
+  --ring: 0 0 0 2px #fff, 0 0 0 4px #5E3AE2;
   --shadow-2: 0 2px 4px rgba(15, 15, 61, .06), 0 8px 18px rgba(15, 15, 61, .08), 0 18px 40px rgba(15, 15, 61, .08);
   --shadow-3: 0 4px 8px rgba(15, 15, 61, .07), 0 16px 32px rgba(15, 15, 61, .12), 0 32px 64px rgba(15, 15, 61, .12);
 }
@@ -66,7 +66,7 @@ body {
   background: var(--bg);
   -webkit-font-smoothing: antialiased;
 }
-/* Lavado de color fijo detrás del contenido: da profundidad sin recargar. */
+/* Fondo de la pantalla de login (sin sesión): blanco con un lavado muy tenue de la marca. */
 body::before {
   content: '';
   position: fixed;
@@ -76,6 +76,25 @@ body::before {
   background:
     radial-gradient(60% 50% at 12% -8%, var(--wash-a), transparent 70%),
     radial-gradient(50% 45% at 92% 4%, var(--wash-b), transparent 70%);
+}
+/* Fondo del catálogo (con sesión): lavanda luminoso construido con capas en distintos tonos del morado
+   de la marca (#5E3AE2) — luz central, manchas lilas y violetas en las esquinas — más anillos
+   concéntricos muy tenues (lenguaje gráfico de la marca) para dar profundidad. Fijo al viewport. */
+html[data-session="in"] body { background: #E8E0FF; }
+html[data-session="in"] body::before {
+  background:
+    radial-gradient(34% 30% at 52% 42%, rgba(255, 255, 255, .62), transparent 70%),
+    radial-gradient(48% 42% at 6% 6%, rgba(167, 139, 250, .72), transparent 70%),
+    radial-gradient(44% 40% at 96% 4%, rgba(94, 58, 226, .38), transparent 70%),
+    radial-gradient(52% 46% at 90% 74%, rgba(196, 181, 253, .75), transparent 72%),
+    radial-gradient(46% 46% at 4% 90%, rgba(124, 92, 255, .38), transparent 72%),
+    linear-gradient(168deg, #F4F0FF 0%, #E6DDFF 48%, #D8CBFF 100%);
+}
+html[data-session="in"] body::after {
+  content: ''; position: fixed; z-index: -1; right: -240px; top: -240px; width: 760px; height: 760px; border-radius: 50%;
+  pointer-events: none;
+  background: repeating-radial-gradient(circle, transparent 0 52px, rgba(94, 58, 226, .10) 53px 54px);
+  -webkit-mask: radial-gradient(circle, #000 25%, transparent 70%); mask: radial-gradient(circle, #000 25%, transparent 70%);
 }
 h1, h2, h3, p, ul { margin: 0; padding: 0; }
 ul { list-style: none; }
@@ -254,7 +273,7 @@ html[data-session="in"] [data-auth="out"] { display: none !important; }
 .select__chevron { width: 16px; height: 16px; color: var(--text-3); transition: transform var(--t-base) var(--ease); }
 .select.is-open .select__chevron { transform: rotate(180deg); }
 .select.is-open .select__trigger { box-shadow: var(--ring), var(--shadow-1); }
-.select.is-active .select__trigger { background: var(--primary-tint); box-shadow: 0 0 0 3px var(--primary-tint), var(--shadow-1); }
+.select.is-active .select__trigger { background: #F1ECFF; box-shadow: 0 0 0 3px rgba(255, 255, 255, .7), var(--shadow-1); }
 .select.is-active .select__value { color: var(--primary-ink); }
 
 .select__list {
@@ -299,12 +318,12 @@ html[data-session="in"] [data-auth="out"] { display: none !important; }
 
 /* Fila de estado: contador + filtros activos */
 .status { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 10px; margin: 18px 0 22px; min-height: 30px; }
-.status__count { font-size: 13px; color: var(--text-3); margin-right: 4px; }
+.status__count { font-size: 13px; color: var(--text-2); margin-right: 4px; }
 .status__count strong { color: var(--text); font-weight: 600; font-variant-numeric: tabular-nums; }
 .chips { display: contents; }
 .chip {
   display: inline-flex; align-items: center; gap: 4px; height: 30px; padding: 0 4px 0 12px;
-  border-radius: 999px; background: var(--primary-tint); color: var(--primary-ink);
+  border-radius: 999px; background: #fff; color: var(--primary-ink); box-shadow: var(--shadow-soft);
   font-size: 12.5px; font-weight: 600; max-width: 100%;
 }
 .chip.is-new { animation: chip-in .3s var(--ease) backwards; }
@@ -315,7 +334,7 @@ html[data-session="in"] [data-auth="out"] { display: none !important; }
 }
 .chip__x:hover { background: var(--primary-tint); transform: scale(1.12); }
 .chip__x svg { width: 12px; height: 12px; }
-.link-btn { border: 0; background: none; padding: 4px 6px; font-size: 12.5px; font-weight: 600; color: var(--text-3); border-radius: 6px; }
+.link-btn { border: 0; background: none; padding: 4px 6px; font-size: 12.5px; font-weight: 600; color: var(--text-2); border-radius: 6px; }
 .link-btn:hover { color: var(--text); text-decoration: underline; }
 
 /* 6. TARJETAS (grilla y lista) ---------------------------------------------- */

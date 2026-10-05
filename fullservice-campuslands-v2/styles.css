@@ -111,22 +111,14 @@ ul{ list-style:none; }
 .cover__sub{ margin-top:.24in; font-family:var(--f-body); font-weight:300; font-size:11.4pt; line-height:1.55; color:var(--tx-mid); max-width:4.3in; }
 .cover__sub b{ font-weight:500; color:var(--tx); }
 
-.cover__right{ position:relative; z-index:5; display:flex; flex-direction:column; justify-content:center; gap:.1in; }
-.svc{ position:relative; display:flex; align-items:center; gap:16px; padding:.1in .24in .1in .2in; border-radius:20px;
+.cover__right{ position:relative; z-index:5; display:flex; flex-direction:column; justify-content:center; gap:.16in; }
+.svc{ position:relative; flex:1; max-height:1.5in; display:flex; align-items:center; gap:20px; padding:.12in .28in .12in .24in; border-radius:20px;
   background:linear-gradient(150deg,var(--card-a),var(--card-b)); box-shadow:var(--sh-card); overflow:hidden; }
 .svc::before{ content:""; position:absolute; left:0; top:0; bottom:0; width:4px; background:linear-gradient(180deg,var(--blue),var(--blue-2)); }
 .svc--amber::before{ background:linear-gradient(180deg,#FFD25C,var(--amber-2)); }
 .svc__n{ position:absolute; right:16px; top:9px; font-family:var(--f-display); font-weight:900; font-style:italic; font-size:15pt; color:rgba(255,255,255,.14); }
-.svc__body h3{ font-family:var(--f-label); font-weight:700; font-size:12.4pt; color:var(--tx); margin-bottom:2px; }
-.svc__body p{ font-family:var(--f-body); font-weight:300; font-size:8.9pt; line-height:1.42; color:var(--tx-mid); }
-.svc--main{ padding:.15in .26in .15in .22in; background:linear-gradient(140deg,#1B7CF5 0%,#0B46C9 55%,#06267A 100%); box-shadow:0 20px 44px rgba(0,0,0,.5), 0 0 40px rgba(44,170,255,.30); }
-.svc--main::before{ background:linear-gradient(180deg,#FFD25C,var(--amber-2)); }
-.svc--main .svc__body h3{ font-size:14pt; }
-.svc--main .svc__body p{ font-size:9.3pt; color:#E4EEFF; }
-.svc--main .svc__n{ color:rgba(255,255,255,.2); }
-.svc__links{ display:flex; gap:8px; margin-top:6px; }
-.link{ display:inline-flex; align-items:center; gap:5px; font-family:var(--f-label); font-weight:700; font-size:7.4pt; letter-spacing:.04em; color:var(--ink); background:linear-gradient(145deg,#FFD25C,var(--amber-2)); padding:4px 11px; border-radius:99px; box-shadow:var(--sh-pill); }
-.link svg{ width:8px; height:8px; fill:none; stroke:currentColor; stroke-width:2.6; stroke-linecap:round; stroke-linejoin:round; }
+.svc__body h3{ font-family:var(--f-label); font-weight:700; font-size:15pt; color:var(--tx); margin-bottom:5px; }
+.svc__body p{ font-family:var(--f-body); font-weight:300; font-size:10.4pt; line-height:1.5; color:var(--tx-mid); }
 
 .strip{ grid-column:1 / -1; position:relative; z-index:5; display:flex; align-items:center; justify-content:space-between; padding:.09in .3in; border-radius:99px;
   background:rgba(255,255,255,.06); box-shadow:var(--sh-soft); }
@@ -171,11 +163,11 @@ ul{ list-style:none; }
 /* ---------- 8. LÁMINA 3 — AGENTES ---------- */
 .p-body--2{ grid-template-columns:repeat(3,1fr); gap:.2in; }
 .ag{ position:relative; display:flex; flex-direction:column; border-radius:var(--r); overflow:hidden; background:linear-gradient(170deg,var(--panel-a),var(--panel-b)); box-shadow:var(--sh-card); }
-.ag__h{ position:relative; overflow:hidden; flex:none; min-height:1.6in; padding:.22in .24in .2in; display:flex; flex-direction:column; justify-content:space-between; gap:.1in; }
+.ag__h{ position:relative; overflow:hidden; flex:none; padding:.17in .22in .15in; display:flex; flex-direction:column; gap:.09in; }
 .ag__h::after{ content:""; position:absolute; right:-60px; top:-60px; width:180px; height:180px; border-radius:50%;
   background:radial-gradient(circle, transparent 0 36%, rgba(255,255,255,.14) 36.5% 38%, transparent 38.5% 54%, rgba(255,255,255,.11) 54.5% 56%, transparent 56.5%); pointer-events:none; }
-.ag__row{ display:flex; align-items:center; justify-content:space-between; gap:10px; position:relative; z-index:1; }
-.ag__h h3{ position:relative; z-index:1; font-family:var(--f-label); font-weight:800; font-size:14.5pt; line-height:1.12; white-space:nowrap; }
+.ag__row{ display:flex; align-items:center; gap:14px; position:relative; z-index:1; }
+.ag__h h3{ position:relative; z-index:1; font-family:var(--f-label); font-weight:800; font-size:15pt; line-height:1.12; white-space:nowrap; }
 .ag__h .tag{ position:relative; z-index:1; }
 .ag__h--blue{ background:linear-gradient(135deg,#1B7CF5,#0B3FB8); color:var(--tx); }
 .ag__h--blue .tag{ color:#FFD25C; }
@@ -183,11 +175,23 @@ ul{ list-style:none; }
 .ag__h--amber .tag{ color:#4A2D00; }
 .ag__h--sky{ background:linear-gradient(135deg,#5CC3FF,#2492EC); color:var(--ink); }
 .ag__h--sky .tag{ color:#00205A; }
-.ag__b{ flex:1; padding:.28in .26in .22in; display:flex; flex-direction:column; }
-.ag__d{ font-family:var(--f-body); font-weight:400; font-size:11.6pt; line-height:1.5; color:#E6EEFF; }
-.ag__b .lbl{ margin-top:.3in; margin-bottom:.14in; font-size:8.2pt; color:var(--blue); }
-.ag__b .dotlist{ display:flex; flex-direction:column; gap:.12in; }
-.ag__b .dotlist li{ font-size:10.8pt; line-height:1.42; color:#E6EEFF; padding-left:17px; }
+.ag__b{ flex:1; padding:.19in .22in .15in; display:flex; flex-direction:column; }
+.ag__d{ font-family:var(--f-body); font-weight:400; font-size:8.9pt; line-height:1.48; color:#E6EEFF; }
+.ag__b .lbl{ margin-top:.15in; margin-bottom:.09in; font-size:7.4pt; color:var(--blue); }
+.ag__b .dotlist{ display:flex; flex-direction:column; gap:.055in; }
+.ag__b .dotlist li{ font-size:8.6pt; line-height:1.38; color:#E6EEFF; padding-left:15px; }
+
+/* Lámina 3: contenido largo → márgenes y tipografía compactos */
+.port--3{ padding:.26in .42in .26in; gap:.12in; }
+.port--3 .p-body--2{ gap:.16in; }
+.port--3 .ag__h{ padding:.14in .2in .12in; gap:.07in; }
+.port--3 .ag__h .ico--lg{ width:44px; height:44px; }
+.port--3 .ag__h h3{ font-size:14pt; }
+.port--3 .ag__b{ padding:.15in .2in .1in; }
+.port--3 .ag__d{ font-size:8.8pt; line-height:1.45; }
+.port--3 .ag__b .lbl{ margin-top:.11in; margin-bottom:.07in; }
+.port--3 .ag__b .dotlist{ gap:.04in; }
+.port--3 .ag__b .dotlist li{ font-size:8.6pt; line-height:1.36; padding-left:14px; }
 
 /* ---------- 9. IMPRESIÓN ---------- */
 @media print{

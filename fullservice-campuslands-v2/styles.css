@@ -4,7 +4,7 @@
      · COLORES ........ Brochure General Campuslands (azul marino profundo, azul eléctrico, ámbar)
      · FUENTES ........ deck del Agente (Playfair Display + Montserrat + Poppins)
      · DISTRIBUCIÓN ... Brochure (título a la izquierda / rejilla de tarjetas / franja inferior)
-     · SOMBRAS/FORMAS . deck del Agente (tarjetas muy redondeadas, halos en iconos, pastillas «Partner»;
+     · SOMBRAS/FORMAS . deck del Agente (tarjetas muy redondeadas, halos en iconos;
                         todo separado por sombra, sin bordes)
    ============================================================ */
 
@@ -89,11 +89,6 @@ ul{ list-style:none; }
 .tag{ font-family:var(--f-label); font-weight:700; font-size:7.2pt; letter-spacing:.14em; text-transform:uppercase; color:var(--amber); line-height:1.3; }
 .lbl{ font-family:var(--f-label); font-weight:700; font-size:7.2pt; letter-spacing:.2em; text-transform:uppercase; color:var(--tx-lo); }
 
-.partner{ display:inline-flex; align-items:center; gap:9px; padding:5px 15px 5px 13px; border-radius:99px;
-  background:rgba(255,255,255,.09); box-shadow:var(--sh-pill); white-space:nowrap; }
-.partner small{ font-family:var(--f-label); font-weight:600; font-size:7pt; letter-spacing:.2em; text-transform:uppercase; color:var(--tx-lo); }
-.partner i{ width:3px; height:15px; border-radius:2px; background:var(--amber); }
-.partner b{ font-family:var(--f-label); font-weight:700; font-size:9pt; color:var(--tx); }
 
 .dotlist li{ position:relative; padding-left:15px; font-family:var(--f-body); font-weight:400; color:var(--tx-mid); }
 .dotlist li::before{ content:""; position:absolute; left:0; top:.55em; width:6px; height:6px; border-radius:50%; background:var(--amber); box-shadow:0 0 8px rgba(244,180,34,.6); }
@@ -137,7 +132,7 @@ ul{ list-style:none; }
   background:rgba(255,255,255,.06); box-shadow:var(--sh-soft); }
 .strip__tag{ font-family:var(--f-display); font-style:italic; font-weight:400; font-size:11.5pt; color:var(--tx-mid); }
 .strip__lema{ display:flex; align-items:center; gap:26px; }
-.strip__lema span{ display:inline-flex; align-items:center; gap:9px; font-family:var(--f-label); font-weight:700; font-size:8pt; letter-spacing:.16em; text-transform:uppercase; color:var(--tx); }
+.strip__lema > span{ display:inline-flex; align-items:center; gap:9px; font-family:var(--f-label); font-weight:700; font-size:8pt; letter-spacing:.16em; text-transform:uppercase; color:var(--tx); }
 
 /* ---------- 7. LÁMINA 2 — LMS + FACTURACIÓN ---------- */
 .port{ padding:.3in .5in .3in; display:flex; flex-direction:column; gap:.15in; }
@@ -151,12 +146,11 @@ ul{ list-style:none; }
   background:radial-gradient(circle, transparent 0 34%, rgba(255,255,255,.07) 34.5% 36%, transparent 36.5% 52%, rgba(255,255,255,.06) 52.5% 54%, transparent 54.5%); pointer-events:none; }
 .lms__id{ display:flex; align-items:center; gap:14px; }
 .lms__id h3, .fac__id h3{ font-family:var(--f-label); font-weight:700; font-size:15pt; line-height:1.15; color:var(--tx); }
-.lms .partner{ margin-top:.1in; align-self:flex-start; }
-.lms__p{ margin-top:.11in; font-family:var(--f-body); font-weight:400; font-size:8.5pt; line-height:1.46; color:#E0EAFF; }
+.lms__p{ margin-top:.17in; font-family:var(--f-body); font-weight:400; font-size:8.9pt; line-height:1.48; color:#E0EAFF; }
 .lms__p + .lms__p{ margin-top:.06in; color:var(--tx-mid); font-weight:300; }
-.lms .lbl{ margin-top:.11in; margin-bottom:.06in; color:var(--blue); }
-.lms .dotlist{ display:flex; flex-direction:column; gap:.035in; }
-.lms .dotlist li{ font-size:8.3pt; line-height:1.36; color:#E0EAFF; }
+.lms .lbl{ margin-top:.15in; margin-bottom:.08in; color:var(--blue); }
+.lms .dotlist{ display:flex; flex-direction:column; gap:.045in; }
+.lms .dotlist li{ font-size:8.7pt; line-height:1.38; color:#E0EAFF; }
 
 .fac{ position:relative; overflow:hidden; display:flex; flex-direction:column; border-radius:var(--r); padding:.19in .26in .14in;
   background:linear-gradient(165deg,var(--panel-a),var(--panel-b)); box-shadow:var(--sh-card); }
@@ -181,8 +175,6 @@ ul{ list-style:none; }
 .ag__h::after{ content:""; position:absolute; right:-60px; top:-60px; width:180px; height:180px; border-radius:50%;
   background:radial-gradient(circle, transparent 0 36%, rgba(255,255,255,.14) 36.5% 38%, transparent 38.5% 54%, rgba(255,255,255,.11) 54.5% 56%, transparent 56.5%); pointer-events:none; }
 .ag__row{ display:flex; align-items:center; justify-content:space-between; gap:10px; position:relative; z-index:1; }
-.ag .partner{ white-space:normal; max-width:60%; }
-.ag .partner b{ line-height:1.15; }
 .ag__h h3{ position:relative; z-index:1; font-family:var(--f-label); font-weight:800; font-size:14.5pt; line-height:1.12; white-space:nowrap; }
 .ag__h .tag{ position:relative; z-index:1; }
 .ag__h--blue{ background:linear-gradient(135deg,#1B7CF5,#0B3FB8); color:var(--tx); }
@@ -191,12 +183,6 @@ ul{ list-style:none; }
 .ag__h--amber .tag{ color:#4A2D00; }
 .ag__h--sky{ background:linear-gradient(135deg,#5CC3FF,#2492EC); color:var(--ink); }
 .ag__h--sky .tag{ color:#00205A; }
-.ag__h .partner{ background:rgba(0,12,37,.28); }
-.ag__h--amber .partner, .ag__h--sky .partner{ background:rgba(0,12,37,.14); box-shadow:0 5px 14px rgba(0,12,37,.25); }
-.ag__h--blue .partner small{ color:#BFD6FF; }
-.ag__h--amber .partner small, .ag__h--sky .partner small{ color:#1C2A52; }
-.ag__h--amber .partner b, .ag__h--sky .partner b{ color:var(--ink); }
-.ag__h--amber .partner i, .ag__h--sky .partner i{ background:var(--ink); }
 .ag__b{ flex:1; padding:.28in .26in .22in; display:flex; flex-direction:column; }
 .ag__d{ font-family:var(--f-body); font-weight:400; font-size:11.6pt; line-height:1.5; color:#E6EEFF; }
 .ag__b .lbl{ margin-top:.3in; margin-bottom:.14in; font-size:8.2pt; color:var(--blue); }

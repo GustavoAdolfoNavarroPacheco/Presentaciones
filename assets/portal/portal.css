@@ -78,6 +78,24 @@ body::before {
     radial-gradient(60% 50% at 12% -8%, var(--wash-a), transparent 70%),
     radial-gradient(50% 45% at 92% 4%, var(--wash-b), transparent 70%);
 }
+/* Textura del fondo del login: retícula de puntos + anillos concéntricos en dos esquinas (lenguaje gráfico
+   de la marca), tintados de violeta y desvanecidos hacia el centro para que la tarjeta respire. */
+html[data-session="out"] body::before {
+  background:
+    radial-gradient(55% 45% at 10% -5%, rgba(94, 58, 226, .14), transparent 70%),
+    radial-gradient(50% 45% at 95% 100%, rgba(0, 0, 135, .10), transparent 70%),
+    radial-gradient(40% 35% at 50% 50%, rgba(255, 255, 255, .9), transparent 75%),
+    linear-gradient(170deg, #F8F6FF 0%, #EFEAFF 100%);
+}
+html[data-session="out"] body::after {
+  content: ''; position: fixed; inset: 0; z-index: -1; pointer-events: none;
+  background:
+    repeating-radial-gradient(circle at 100% 0%, transparent 0 56px, rgba(94, 58, 226, .12) 57px 58px),
+    repeating-radial-gradient(circle at 0% 100%, transparent 0 56px, rgba(0, 0, 135, .09) 57px 58px),
+    radial-gradient(circle, rgba(94, 58, 226, .26) 1.4px, transparent 1.9px) 0 0 / 24px 24px;
+  -webkit-mask-image: radial-gradient(80% 80% at 50% 50%, transparent 22%, #000 90%);
+  mask-image: radial-gradient(80% 80% at 50% 50%, transparent 22%, #000 90%);
+}
 /* Fondo del catálogo (con sesión): lavanda luminoso construido con capas en distintos tonos del morado
    de la marca (#5E3AE2) — luz central, manchas lilas y violetas en las esquinas — más anillos
    concéntricos muy tenues (lenguaje gráfico de la marca) para dar profundidad. Fijo al viewport. */

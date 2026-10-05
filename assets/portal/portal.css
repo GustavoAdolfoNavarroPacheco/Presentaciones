@@ -4,7 +4,7 @@
      1. Tokens (paleta, sombras, radios)   5. Barra de filtros y selects
      2. Base y utilidades                  6. Tarjetas (grilla / lista)
      3. Cabecera                           7. Estados (vacío, bloqueado, skeleton)
-     4. Botones y campos                   8. Login (modal), toast, movimiento
+     4. Botones y campos                   8. Login, toast, movimiento
    Regla de animación: solo `transform` y `opacity`.
    ========================================================================== */
 
@@ -109,9 +109,17 @@ html[data-session="in"] [data-auth="out"] { display: none !important; }
   background: var(--header-bg);
   -webkit-backdrop-filter: saturate(1.4) blur(14px);
   backdrop-filter: saturate(1.4) blur(14px);
-  transition: box-shadow var(--t-base);
 }
-.topbar.is-stuck { box-shadow: 0 2px 4px rgba(15, 15, 61, .04), 0 8px 24px rgba(15, 15, 61, .09); }
+/* Sombra separadora: degradado con paradas suavizadas (sin corte visible) que cae sobre el contenido.
+   En reposo es sutil; al hacer scroll se intensifica. Solo anima `opacity`. */
+.topbar::after {
+  content: ''; position: absolute; left: 0; right: 0; top: 100%; height: 32px; pointer-events: none;
+  background: linear-gradient(to bottom,
+    rgba(15, 15, 61, .16) 0%, rgba(15, 15, 61, .11) 14%, rgba(15, 15, 61, .07) 30%,
+    rgba(15, 15, 61, .035) 52%, rgba(15, 15, 61, .012) 76%, rgba(15, 15, 61, 0) 100%);
+  opacity: .4; transition: opacity var(--t-base) var(--ease);
+}
+.topbar.is-stuck::after { opacity: 1; }
 .topbar__inner {
   max-width: 1240px; margin: 0 auto; padding: 12px 24px;
   display: grid; grid-template-columns: auto minmax(0, 1fr) auto;
@@ -445,35 +453,96 @@ html[data-session="in"] [data-auth="out"] { display: none !important; }
 .skeleton--title { height: 18px; width: 75%; }
 .skeleton--btn { height: 32px; width: 120px; border-radius: 9px; }
 
-/* 8. LOGIN (MODAL), TOAST Y MOVIMIENTO -------------------------------------- */
-.modal {
-  width: min(420px, calc(100vw - 32px)); padding: 0; border: 0; border-radius: 22px; background: transparent; color: var(--text);
-  overflow: visible; opacity: 0; transform: translateY(14px) scale(.97);
-  transition: opacity var(--t-base) ease, transform .35s var(--ease);
-}
-.modal.is-open { opacity: 1; transform: none; }
-.modal::backdrop {
-  background: var(--overlay); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
-  opacity: 0; transition: opacity var(--t-base) ease;
-}
-.modal.is-open::backdrop { opacity: 1; }
-.modal__panel {
-  position: relative; overflow: hidden; padding: 32px 30px 28px; border-radius: 22px;
-  background: var(--surface); box-shadow: var(--shadow-3);
-}
-.modal__panel::before { content: ''; position: absolute; inset: 0 0 auto; height: 4px; background: var(--grad); }
-.modal__close { position: absolute; right: 12px; top: 14px; width: 36px; height: 36px; }
-.modal__title { font-size: 21px; font-weight: 600; letter-spacing: -.01em; margin-bottom: 4px; }
-.modal__text { font-size: 13.5px; color: var(--text-2); margin-bottom: 22px; }
+/* 8. LOGIN, TOAST Y MOVIMIENTO -------------------------------------- */
 .form { display: grid; gap: 16px; }
 .form__alert {
   display: flex; align-items: center; gap: 8px; padding: 10px 12px; border-radius: 10px;
   background: var(--danger-tint); color: var(--danger); font-size: 13px; font-weight: 500;
 }
 .form__alert svg { width: 16px; height: 16px; }
-.form__hint { font-size: 12.5px; color: var(--text-3); margin-top: -8px; }
-.check { display: flex; align-items: center; gap: 10px; font-size: 13px; color: var(--text-2); cursor: pointer; }
-.check input { width: 18px; height: 18px; accent-color: var(--primary-solid); cursor: pointer; }
+.form__hint { font-size: 12.5px; color: var(--text-3); }
+
+/* Pantalla de login: panel de marca + formulario. Con sesión cerrada la cabecera se oculta. */
+html[data-session="out"] .topbar { display: none; }
+html[data-session="out"] .page { min-height: 100vh; display: grid; place-items: center; padding: 28px 16px; }
+.login { width: 100%; max-width: 980px; }
+.login__card {
+  display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); min-height: 590px;
+  border-radius: 28px; background: var(--surface); box-shadow: var(--shadow-3); overflow: hidden;
+  animation: login-in .65s var(--ease) backwards;
+}
+.login__brand {
+  position: relative; isolation: isolate; overflow: hidden; color: #fff;
+  display: flex; flex-direction: column; justify-content: space-between; gap: 36px; padding: 42px;
+  background: linear-gradient(150deg, #5E3AE2 0%, #3A2BC4 50%, #000087 100%);
+}
+.login__brand::before {
+  content: ''; position: absolute; z-index: -1; inset: 0;
+  background: radial-gradient(60% 45% at 8% 0%, rgba(44, 170, 255, .38), transparent 70%);
+}
+/* Anillos concéntricos: lenguaje gráfico de la marca */
+.login__arcs {
+  position: absolute; z-index: -1; right: -200px; bottom: -200px; width: 600px; height: 600px; border-radius: 50%;
+  background: repeating-radial-gradient(circle, transparent 0 38px, rgba(255, 255, 255, .16) 39px 40px);
+  -webkit-mask: radial-gradient(circle, #000 20%, transparent 70%); mask: radial-gradient(circle, #000 20%, transparent 70%);
+}
+.login__logo { height: 42px; width: auto; align-self: flex-start; }
+.login__headline {
+  font-size: clamp(28px, 3.4vw, 40px); font-weight: 900; font-style: italic; line-height: 1.12; letter-spacing: -.02em;
+  max-width: 14ch; margin-bottom: 26px;
+}
+.login__points { display: grid; gap: 14px; }
+.login__points li { display: flex; align-items: center; gap: 12px; font-size: 14px; color: rgba(255, 255, 255, .92); }
+.login__tick {
+  flex: none; display: grid; place-items: center; width: 24px; height: 24px; border-radius: 50%;
+  background: rgba(255, 255, 255, .18); box-shadow: 0 2px 6px rgba(0, 0, 40, .25);
+}
+.login__tick svg { width: 13px; height: 13px; }
+.login__motto { font-size: 11.5px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: rgba(255, 255, 255, .8); }
+
+.login__panel { display: flex; flex-direction: column; justify-content: center; padding: 52px 54px; }
+.login__eyebrow {
+  display: inline-flex; align-items: center; gap: 8px; margin-bottom: 10px;
+  font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--primary-ink);
+}
+.login__eyebrow::before { content: ''; width: 8px; height: 8px; border-radius: 50%; background: var(--gold); box-shadow: 0 0 0 4px rgba(244, 180, 34, .25); }
+.login__title { font-size: 32px; font-weight: 700; letter-spacing: -.02em; line-height: 1.15; margin-bottom: 8px; }
+.login__text { font-size: 14px; color: var(--text-2); margin-bottom: 30px; max-width: 36ch; }
+.login__panel .form { gap: 20px; }
+.login .field { gap: 8px; }
+.login .field__label { font-size: 13px; }
+.login .field__input { height: 52px; font-size: 14.5px; padding-left: 48px; background: var(--surface-2); box-shadow: none; }
+.login .field__input:focus { background: var(--surface); box-shadow: var(--ring), var(--shadow-1); }
+.login .field__icon { left: 16px; }
+.login .field__action { margin-top: -20px; width: 40px; height: 40px; }
+.login__submit { height: 54px; font-size: 15px; margin-top: 4px; }
+.login__submit svg { transition: transform var(--t-base) var(--ease); }
+.login__submit:hover svg { transform: translateX(4px); }
+.login__submit.is-loading svg { opacity: 0; }
+
+/* Interruptor "mantener sesión" */
+.switch { display: flex; align-items: center; gap: 12px; font-size: 13px; color: var(--text-2); cursor: pointer; user-select: none; }
+.switch input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+.switch__track {
+  position: relative; flex: none; width: 42px; height: 24px; border-radius: 999px; background: #D5D5E2;
+  box-shadow: inset 0 1px 3px rgba(15, 15, 61, .25); transition: background var(--t-base);
+}
+.switch__track::after {
+  content: ''; position: absolute; top: 3px; left: 3px; width: 18px; height: 18px; border-radius: 50%; background: #fff;
+  box-shadow: 0 1px 3px rgba(15, 15, 61, .4); transition: transform var(--t-base) var(--ease);
+}
+.switch input:checked + .switch__track { background: var(--primary-solid); }
+.switch input:checked + .switch__track::after { transform: translateX(18px); }
+.switch input:focus-visible + .switch__track { box-shadow: var(--ring); }
+
+/* Entrada escalonada del formulario */
+.login__panel > *, .login__panel .form > * { animation: rise .55s var(--ease) backwards; }
+.login__panel > :nth-child(1) { animation-delay: .18s; } .login__panel > :nth-child(2) { animation-delay: .24s; }
+.login__panel > :nth-child(3) { animation-delay: .3s; } .login__panel > :nth-child(4) { animation-delay: .36s; }
+.login__panel .form > :nth-child(1) { animation-delay: .4s; } .login__panel .form > :nth-child(2) { animation-delay: .46s; }
+.login__panel .form > :nth-child(3) { animation-delay: .52s; } .login__panel .form > :nth-child(5) { animation-delay: .58s; }
+@keyframes login-in { from { opacity: 0; transform: translateY(20px) scale(.985); } }
+@keyframes rise { from { opacity: 0; transform: translateY(12px); } }
 
 .toast {
   position: fixed; left: 50%; bottom: 24px; z-index: 90; max-width: calc(100vw - 32px);
@@ -520,7 +589,19 @@ html[data-session="in"] [data-auth="out"] { display: none !important; }
   .toolbar__group .select { flex: 1 1 calc(50% - 8px); min-width: 0; }
   .toolbar__group .select__trigger { width: 100%; }
   .toolbar__group .select__value { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; }
-  .modal__panel { padding: 28px 22px 22px; }
+}
+
+@media (max-width: 860px) {
+  .login__card { grid-template-columns: 1fr; min-height: 0; }
+  .login__brand { padding: 28px; gap: 20px; }
+  .login__arcs { width: 420px; height: 420px; right: -170px; bottom: -230px; }
+  .login__headline { font-size: 26px; max-width: none; margin-bottom: 0; }
+  .login__points, .login__motto { display: none; }
+  .login__panel { padding: 34px 28px 36px; }
+}
+@media (max-width: 560px) {
+  .login__panel { padding: 28px 22px 30px; }
+  .login__title { font-size: 27px; }
 }
 
 @media (prefers-reduced-motion: reduce) {

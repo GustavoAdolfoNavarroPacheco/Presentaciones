@@ -7,7 +7,7 @@
 (function () {
   'use strict';
 
-  const { createSelect, toast, openDialog, closeDialog, bindDialog, esc, prefersReducedMotion } = window.UI;
+  const { createSelect, toast, esc, prefersReducedMotion } = window.UI;
   const $ = (sel, root) => (root || document).querySelector(sel);
   const EASE = 'cubic-bezier(.22, .8, .24, 1)';
 
@@ -433,7 +433,7 @@
   // "/" enfoca el buscador desde cualquier parte
   document.addEventListener('keydown', (e) => {
     if (e.key !== '/' || e.ctrlKey || e.metaKey || e.altKey || !isLoggedIn()) return;
-    if (/^(INPUT|TEXTAREA|SELECT)$/.test(document.activeElement.tagName) || document.querySelector('dialog[open]')) return;
+    if (/^(INPUT|TEXTAREA|SELECT)$/.test(document.activeElement.tagName)) return;
     e.preventDefault();
     searchInput.focus();
     searchInput.select();
@@ -477,20 +477,13 @@
     new IntersectionObserver(([entry]) => $('#topbar').classList.toggle('is-stuck', !entry.isIntersecting)).observe($('#sentinel'));
   }
 
-  /* ----- Login (modal) ----- */
-  const dialog = $('#loginDialog');
+  /* ----- Login ----- */
   const form = $('#loginForm');
   const emailInput = $('#loginEmail');
   const passInput = $('#loginPass');
   const alertEl = $('#loginAlert');
   const submitBtn = $('#loginSubmit');
   let busy = false, fails = 0, lockUntil = 0;
-  bindDialog(dialog);
-
-  const openLogin = () => { openDialog(dialog); setTimeout(() => emailInput.focus(), 60); };
-  $('#loginBtn').addEventListener('click', openLogin);
-  $('#lockedLogin').addEventListener('click', openLogin);
-  $('#loginClose').addEventListener('click', () => closeDialog(dialog));
 
   $('#togglePass').addEventListener('click', (e) => {
     const show = passInput.type === 'password';
@@ -507,7 +500,7 @@
     $('#loginAlertMsg').textContent = message;
     alertEl.hidden = false;
     if (!prefersReducedMotion()) {
-      $('.modal__panel', dialog).animate(
+      $('#loginCard').animate(
         [{ transform: 'translateX(0)' }, { transform: 'translateX(-9px)' }, { transform: 'translateX(8px)' }, { transform: 'translateX(-5px)' }, { transform: 'translateX(0)' }],
         { duration: 340, easing: 'ease-in-out' });
     }
@@ -550,7 +543,6 @@
   function onLogin(user, remember) {
     session = saveSession(user, remember);
     form.reset();
-    closeDialog(dialog);
     paintSession();
     render(); // el catálogo ya es visible: se recalcula y se anima la entrada
     stagger([...cards.values()].filter((el) => !el.hidden));
@@ -564,7 +556,7 @@
     Object.values(selects).forEach((s) => s.close());
     paintSession();
     toast('Sesión cerrada');
-    $('#loginBtn').focus();
+    setTimeout(() => emailInput.focus({ preventScroll: true }), 80);
   });
 
   /* ---------- 8. ARRANQUE ---------- */
@@ -578,5 +570,5 @@
   grid.removeAttribute('aria-busy');
   render();
 
-  if (!isLoggedIn()) setTimeout(openLogin, 250);
+  if (!isLoggedIn()) emailInput.focus({ preventScroll: true });
 })();

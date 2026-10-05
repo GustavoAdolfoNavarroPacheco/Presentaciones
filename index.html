@@ -52,12 +52,6 @@
       </div>
 
       <div class="topbar__actions">
-        <!-- Sesión cerrada -->
-        <button type="button" id="loginBtn" class="btn" data-auth="out">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
-          <span>Iniciar sesión</span>
-        </button>
-
         <!-- Sesión iniciada -->
         <div class="user-chip" id="userChip" data-auth="in">
           <span class="user-chip__avatar" id="userInitials" aria-hidden="true"></span>
@@ -111,54 +105,65 @@
       </div>
     </section>
 
-    <!-- Sin sesión -->
-    <section class="state" id="locked" data-auth="out">
-      <div class="state__icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
+    <!-- Sin sesión: pantalla de acceso -->
+    <section class="login" data-auth="out" aria-labelledby="loginTitle">
+      <div class="login__card" id="loginCard">
+        <aside class="login__brand">
+          <div class="login__arcs" aria-hidden="true"></div>
+          <img class="login__logo" src="assets/logo-campuslands-blanco.png" alt="Campuslands">
+          <div class="login__pitch">
+            <p class="login__headline">Tus presentaciones, en un solo lugar.</p>
+            <ul class="login__points">
+              <li><span class="login__tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></span>Busca por cliente, proyecto o fecha</li>
+              <li><span class="login__tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></span>Abre la versión web o el PDF en un clic</li>
+              <li><span class="login__tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></span>Comparte enlaces limpios con tu cliente</li>
+            </ul>
+          </div>
+          <p class="login__motto">Exploramos · Despegamos · Conquistamos</p>
+        </aside>
+
+        <div class="login__panel">
+          <p class="login__eyebrow">Acceso privado</p>
+          <h1 class="login__title" id="loginTitle">Bienvenido</h1>
+          <p class="login__text">Ingresa con tu correo corporativo para ver las presentaciones.</p>
+
+          <form class="form" id="loginForm">
+            <div class="field">
+              <label class="field__label" for="loginEmail">Correo corporativo</label>
+              <div class="field__control">
+                <svg class="field__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="22 6 12 13 2 6"/></svg>
+                <input class="field__input" id="loginEmail" type="email" placeholder="usuario@campuslands.com" autocomplete="username" required>
+              </div>
+            </div>
+            <div class="field">
+              <label class="field__label" for="loginPass">Contraseña</label>
+              <div class="field__control">
+                <svg class="field__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
+                <input class="field__input" id="loginPass" type="password" placeholder="Tu contraseña" autocomplete="current-password" required>
+                <button type="button" class="icon-btn field__action" id="togglePass" aria-label="Mostrar contraseña" aria-pressed="false">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                </button>
+              </div>
+              <p class="form__hint" id="capsHint" hidden>Bloq Mayús está activado</p>
+            </div>
+            <label class="switch">
+              <input type="checkbox" id="remember" role="switch">
+              <span class="switch__track" aria-hidden="true"></span>
+              <span>Mantener la sesión 30 días en este equipo</span>
+            </label>
+            <div class="form__alert" id="loginAlert" role="alert" hidden>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+              <span id="loginAlertMsg">Correo o contraseña incorrectos.</span>
+            </div>
+            <button type="submit" class="btn btn--primary btn--block login__submit" id="loginSubmit">
+              <span class="btn__label">Ingresar</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </button>
+          </form>
+        </div>
       </div>
-      <h2 class="state__title">Contenido restringido</h2>
-      <p class="state__text">Inicia sesión para ver y abrir las presentaciones.</p>
-      <button type="button" class="btn btn--primary" id="lockedLogin"><span class="btn__label">Iniciar sesión</span></button>
     </section>
   </main>
-
-  <!-- LOGIN (modal) -->
-  <dialog class="modal" id="loginDialog" aria-labelledby="loginTitle">
-    <div class="modal__panel">
-      <button type="button" class="icon-btn modal__close" id="loginClose" aria-label="Cerrar">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-      </button>
-      <h2 class="modal__title" id="loginTitle">Iniciar sesión</h2>
-      <p class="modal__text">Accede para ver y abrir las presentaciones.</p>
-
-      <form class="form" id="loginForm">
-        <div class="field">
-          <label class="field__label" for="loginEmail">Correo corporativo</label>
-          <div class="field__control">
-            <svg class="field__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="22 6 12 13 2 6"/></svg>
-            <input class="field__input" id="loginEmail" type="email" placeholder="usuario@campuslands.com" autocomplete="username" required>
-          </div>
-        </div>
-        <div class="field">
-          <label class="field__label" for="loginPass">Contraseña</label>
-          <div class="field__control">
-            <svg class="field__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
-            <input class="field__input" id="loginPass" type="password" placeholder="••••••••" autocomplete="current-password" required>
-            <button type="button" class="icon-btn field__action" id="togglePass" aria-label="Mostrar contraseña" aria-pressed="false">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
-            </button>
-          </div>
-        </div>
-        <p class="form__hint" id="capsHint" hidden>Bloq Mayús está activado</p>
-        <label class="check"><input type="checkbox" id="remember"><span>Mantener la sesión 30 días en este equipo</span></label>
-        <div class="form__alert" id="loginAlert" role="alert" hidden>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-          <span id="loginAlertMsg">Correo o contraseña incorrectos.</span>
-        </div>
-        <button type="submit" class="btn btn--primary btn--block" id="loginSubmit"><span class="btn__label">Ingresar</span></button>
-      </form>
-    </div>
-  </dialog>
 
   <div class="toast" id="toast" role="status" aria-live="polite">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>

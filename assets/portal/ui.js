@@ -3,7 +3,6 @@
    Expone `window.UI`:
      UI.createSelect(cfg)  Desplegable propio, accesible (patrón ARIA "select-only combobox")
      UI.toast(msg)         Aviso breve, anunciado a lectores de pantalla
-     UI.openDialog / UI.closeDialog   <dialog> modal con animación de entrada y salida
      UI.prefersReducedMotion()
    ========================================================================== */
 (function (global) {
@@ -176,27 +175,5 @@
     toastTimer = setTimeout(() => toastEl.classList.remove('is-show'), 3200);
   }
 
-  /* ------------------------------------------------------------------------
-     DIALOG — usa <dialog> nativo (foco atrapado y Esc incluidos) + animación
-     ------------------------------------------------------------------------ */
-  function openDialog(dialog) {
-    if (dialog.open) return;
-    dialog.showModal();
-    requestAnimationFrame(() => dialog.classList.add('is-open'));
-  }
-
-  function closeDialog(dialog) {
-    if (!dialog.open) return;
-    dialog.classList.remove('is-open');
-    if (prefersReducedMotion()) { dialog.close(); return; }
-    setTimeout(() => { if (dialog.open && !dialog.classList.contains('is-open')) dialog.close(); }, 220);
-  }
-
-  /** Conecta Esc y clic en el fondo al cierre animado. */
-  function bindDialog(dialog) {
-    dialog.addEventListener('cancel', (e) => { e.preventDefault(); closeDialog(dialog); });
-    dialog.addEventListener('mousedown', (e) => { if (e.target === dialog) closeDialog(dialog); });
-  }
-
-  global.UI = { createSelect, toast, openDialog, closeDialog, bindDialog, esc, prefersReducedMotion };
+  global.UI = { createSelect, toast, esc, prefersReducedMotion };
 })(window);

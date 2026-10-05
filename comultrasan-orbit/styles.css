@@ -297,6 +297,23 @@ h3,h4{ font-family:var(--font-title); font-weight:900; line-height:1.1; }
 .pay{ display:grid; grid-template-columns:repeat(3,1fr); gap:.1in; }
 .pay div{ border-radius:12px; padding:.09in .1in; background:rgba(255,255,255,.1); text-align:center; font-size:7.8pt; line-height:1.35; }
 .pay b{ display:block; font-family:var(--font-title); font-weight:900; font-size:15pt; color:var(--gold); }
+
+/* 9 · tripulación dedicada (reemplaza las barras de días) y plan de pago en fila */
+.crew{ display:flex; flex-direction:column; gap:.1in; padding:.2in .28in; }
+.crew .lbl{ font-family:var(--font-title); font-weight:900; font-size:8.5pt; letter-spacing:.14em; text-transform:uppercase; color:var(--violet); }
+.crew .sub{ font-size:9.4pt; line-height:1.4; }
+.crew .tg{ flex:1; display:grid; grid-template-columns:1fr 1fr; grid-auto-rows:1fr; gap:.1in; min-height:0; }
+.tm{ display:flex; align-items:center; gap:.12in; padding:.05in .14in; border-radius:12px; background:#fff; box-shadow:0 6px 16px rgba(0,0,135,.11), 0 1px 3px rgba(0,0,135,.06); min-width:0; }
+.tm.w{ grid-column:1 / -1; }
+.tm .ic{ font-family:var(--font-title); font-weight:900; font-size:9pt; }
+.tm .tx{ display:flex; flex-direction:column; min-width:0; }
+.tm b{ font-weight:600; font-size:9.6pt; line-height:1.2; color:var(--navy); }
+.tm small{ font-size:7pt; font-weight:500; letter-spacing:.08em; text-transform:uppercase; color:#6b6a78; }
+.crew .camp{ flex:none; padding:.08in .16in; border-radius:12px; background:rgba(244,180,34,.16); font-size:8.8pt; line-height:1.4; }
+.crew .camp b{ font-weight:600; color:var(--navy); }
+.pay{ grid-template-columns:1fr; gap:.09in; }
+.pay div{ display:flex; align-items:center; gap:.14in; text-align:left; padding:.08in .16in; font-size:9.4pt; }
+.pay b{ display:inline; flex:none; min-width:.8in; font-size:17pt; line-height:1; }
 .guar{ flex:none; display:flex; align-items:center; gap:.18in; padding:.13in .26in; margin-bottom:.08in; font-size:9.6pt; line-height:1.5; }
 .guar b{ flex:none; font-family:var(--font-title); font-weight:900; font-size:10pt; color:#fff; white-space:nowrap; }
 

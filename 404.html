@@ -4,126 +4,92 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Página no encontrada — Campuslands Full Service</title>
+  <meta name="robots" content="noindex, nofollow">
   <link rel="icon" type="image/png" href="/assets/favicon.png">
-  
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Playfair+Display:ital,wght@0,700;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,900;1,900&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --bg-base: #06080E;
-      --cyan: #35D0F0;
-      --blue: #4A7DFF;
-      --violet: #8B5CF6;
-      --magenta: #C05CF6;
-      --grad-campus: linear-gradient(100deg, #35D0F0, #4A7DFF 42%, #8B5CF6 76%, #C05CF6);
-      --text-hi: #FFFFFF;
-      --text-mid: #CBD5E1;
-      --text-muted: #8291A5;
-      --font-display: 'Playfair Display', Georgia, serif;
-      --font-sans: 'Plus Jakarta Sans', sans-serif;
-      --font-mono: 'Montserrat', sans-serif;
-    }
-
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-
-    body {
-      background-color: var(--bg-base);
-      color: var(--text-hi);
-      font-family: var(--font-sans);
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 24px;
-      position: relative;
-      background-image: 
-        radial-gradient(circle at 50% 30%, rgba(53, 208, 240, 0.12), transparent 50%),
-        radial-gradient(circle at 80% 80%, rgba(139, 92, 246, 0.08), transparent 40%);
-    }
-
-    .top-accent-line {
-      height: 3px;
-      width: 100%;
-      background: var(--grad-campus);
-      position: fixed;
-      top: 0;
-      left: 0;
-    }
-
-    .card-404 {
-      background: rgba(15, 22, 36, 0.75);
-      border: 1px solid rgba(110, 140, 200, 0.2);
-      border-radius: 24px;
-      padding: 48px 36px;
-      max-width: 540px;
-      width: 100%;
-      backdrop-filter: blur(16px);
-      box-shadow: 0 20px 50px rgba(0,0,0,0.5);
-    }
-
-    .code-404 {
-      font-family: var(--font-display);
-      font-weight: 900;
-      font-size: 76px;
-      line-height: 1;
-      background: var(--grad-campus);
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
-      margin-bottom: 12px;
-    }
-
-    .title-404 {
-      font-family: var(--font-display);
-      font-size: 24px;
-      font-weight: 700;
-      margin-bottom: 12px;
-    }
-
-    .desc-404 {
-      font-size: 14px;
-      color: var(--text-mid);
-      margin-bottom: 28px;
-      line-height: 1.6;
-    }
-
-    .btn-home {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 12px 24px;
-      border-radius: 12px;
-      background: var(--grad-campus);
-      color: #FFFFFF;
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 14px;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-      box-shadow: 0 4px 16px rgba(53, 208, 240, 0.3);
-    }
-
-    .btn-home:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(53, 208, 240, 0.45);
-    }
+    :root{--navy:#000087;--violet:#5E3AE2;--gold:#F4B422;--sky:#2CAAFF;--ink:#0F0F3D;--ink-2:#44445F;--ink-3:#686882;--soft:#F6F6F1;
+      --sh:0 1px 2px rgba(15,15,61,.05),0 6px 18px rgba(15,15,61,.08);--sh2:0 2px 4px rgba(15,15,61,.06),0 18px 40px rgba(15,15,61,.15)}
+    *,*::before,*::after{box-sizing:border-box}
+    body{margin:0;min-height:100vh;background:#fff;color:var(--ink);font-family:'Poppins',system-ui,sans-serif;-webkit-font-smoothing:antialiased;
+      display:grid;place-items:center;padding:28px 20px;position:relative;overflow-x:hidden}
+    body::before{content:"";position:fixed;right:-220px;top:-220px;width:720px;height:720px;border-radius:50%;pointer-events:none;
+      background:repeating-radial-gradient(circle,transparent 0 46px,rgba(94,58,226,.09) 47px 48px);
+      -webkit-mask:radial-gradient(circle,#000 30%,transparent 72%);mask:radial-gradient(circle,#000 30%,transparent 72%)}
+    main{position:relative;width:100%;max-width:640px;text-align:center}
+    img.logo{height:44px;width:auto;margin:0 auto 34px;display:block}
+    .code{font-weight:900;font-style:italic;font-size:clamp(84px,18vw,128px);line-height:.95;letter-spacing:-.03em;
+      background:linear-gradient(100deg,var(--sky),var(--violet) 55%,var(--navy));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+    h1{margin:14px 0 10px;font-weight:700;font-size:24px}
+    p.lead{margin:0 auto;max-width:46ch;color:var(--ink-2);font-size:14.5px;line-height:1.65}
+    .path{display:inline-block;margin-top:14px;padding:6px 14px;border-radius:999px;background:var(--soft);color:var(--ink-2);font-weight:500;font-size:13px;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;vertical-align:bottom}
+    .btn{display:inline-flex;align-items:center;gap:9px;margin-top:28px;height:48px;padding:0 24px;border-radius:13px;font-weight:600;font-size:14px;color:#fff;text-decoration:none;
+      background:linear-gradient(100deg,var(--violet),var(--navy));box-shadow:0 6px 18px rgba(94,58,226,.35);transition:transform .15s,box-shadow .2s}
+    .btn:hover{transform:translateY(-1px);box-shadow:0 10px 26px rgba(94,58,226,.45)}
+    .btn svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+    .sug{margin-top:38px;text-align:left}
+    .sug h2{margin:0 0 12px;font-size:11.5px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-3);text-align:center}
+    .sug ul{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+    .sug a{display:flex;align-items:center;gap:14px;padding:13px 16px;border-radius:14px;background:#fff;box-shadow:var(--sh);color:inherit;text-decoration:none;transition:transform .15s,box-shadow .2s}
+    .sug a:hover{transform:translateX(3px);box-shadow:var(--sh2)}
+    .sug b{display:block;font-weight:600;font-size:14px;line-height:1.3}
+    .sug small{color:var(--ink-3);font-size:12px}
+    .sug em{margin-left:auto;font-style:normal;font-weight:500;font-size:12px;color:var(--violet);white-space:nowrap}
+    :focus-visible{outline:none;box-shadow:0 0 0 3px rgba(94,58,226,.38);border-radius:13px}
   </style>
 </head>
 <body>
-  <div class="top-accent-line"></div>
-  <div class="card-404">
-    <div class="code-404">404</div>
-    <h1 class="title-404">Presentación no encontrada</h1>
-    <p class="desc-404">
-      La URL solicitada no existe o ha sido reubicada. Puedes explorar todas las propuestas activas en el portal principal.
-    </p>
-    <a href="/" class="btn-home">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
-      Ir al Portal Principal
+  <main>
+    <img class="logo" src="/assets/logo-campuslands-color.png" alt="Campuslands">
+    <div class="code" aria-hidden="true">404</div>
+    <h1>Esta presentación no existe</h1>
+    <p class="lead">El enlace puede estar mal escrito o la propuesta cambió de dirección. Búscala en el portal o prueba una de las sugerencias.</p>
+    <span class="path" id="path"></span><br>
+    <a class="btn" href="/">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></svg>
+      Ir al portal de presentaciones
     </a>
-  </div>
+    <section class="sug" id="sug" hidden aria-label="Presentaciones parecidas">
+      <h2>¿Buscabas alguna de estas?</h2>
+      <ul id="sugList"></ul>
+    </section>
+  </main>
+
+  <script src="/assets/portal/decks.js"></script>
+  <script>
+  (function () {
+    var path = decodeURIComponent(location.pathname).replace(/\/+$/, '') || '/';
+    document.getElementById('path').textContent = path;
+    var decks = window.DECKS || [];
+    var fold = function (s) { return String(s || '').normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase(); };
+    var words = fold(path).split(/[^a-z0-9]+/).filter(function (w) { return w.length >= 3; });
+    if (!words.length || !decks.length) return;
+    var scored = decks.map(function (d) {
+      var slug = fold(d.slug), hay = fold(d.client + ' ' + d.title + ' ' + d.keywords), s = 0;
+      words.forEach(function (w) {
+        if (slug === w) s += 8; else if (slug.indexOf(w) !== -1 || w.indexOf(slug) !== -1) s += 5;
+        if (hay.indexOf(w) !== -1) s += 2;
+        if (slug.slice(0, 4) === w.slice(0, 4)) s += 2;
+      });
+      return { d: d, s: s };
+    }).filter(function (x) { return x.s > 0; })
+      .sort(function (a, b) { return b.s - a.s || b.d.date.localeCompare(a.d.date); }).slice(0, 4);
+    if (!scored.length) return;
+    var list = document.getElementById('sugList');
+    scored.forEach(function (x) {
+      var li = document.createElement('li'), a = document.createElement('a');
+      a.href = '/' + x.d.slug + '/';
+      var box = document.createElement('div');
+      var b = document.createElement('b'); b.textContent = x.d.title;
+      var sm = document.createElement('small'); sm.textContent = x.d.client;
+      box.appendChild(b); box.appendChild(sm);
+      var em = document.createElement('em'); em.textContent = '/' + x.d.slug;
+      a.appendChild(box); a.appendChild(em); li.appendChild(a); list.appendChild(li);
+    });
+    document.getElementById('sug').hidden = false;
+  })();
+  </script>
 </body>
 </html>

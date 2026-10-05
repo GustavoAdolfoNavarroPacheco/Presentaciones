@@ -50,7 +50,6 @@
     web: '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.6v14.8a1 1 0 0 0 1.5.86l12-7.4a1 1 0 0 0 0-1.72l-12-7.4A1 1 0 0 0 7 4.6z"/></svg>',
     demo: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="13 2 4 14 12 14 11 22 20 10 12 10 13 2"/></svg>',
     pdf: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="14" y2="17"/></svg>',
-    calendar: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>',
     copy: '<svg class="i-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg><svg class="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>',
     x: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>',
     eye: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>',
@@ -74,6 +73,8 @@
       _order: index,
       _month: d.date.slice(0, 7),
       _dateLabel: day + ' ' + MONTH_SHORT[m - 1] + ' ' + y,
+      _day: day,
+      _monYear: MONTH_SHORT[m - 1] + ' ' + y,
       _mono: monogram(d.client),
       _hay: norm([d.client, d.company, d.title, d.desc, d.keywords, d.slug, d.categoryLabel, d.investment, d.slides,
         (CAT_BY_ID[d.category] || {}).label, MONTH_NAMES[m - 1], day + ' ' + MONTH_SHORT[m - 1] + ' ' + y].join(' ')),
@@ -221,7 +222,7 @@
       '<article class="card__inner">' +
         '<div class="card__tex tex-' + (h % TEXTURES) + '" aria-hidden="true"></div>' +
         '<div class="logo is-loading"><span class="logo__mono" aria-hidden="true">' + esc(d._mono) + '</span><img alt="" loading="lazy" decoding="async"></div>' +
-        '<time class="card__date" datetime="' + esc(d.date) + '">' + ICON.calendar + esc(d._dateLabel) + '</time>' +
+        '<time class="card__date" datetime="' + esc(d.date) + '" title="' + esc(d._dateLabel) + '"><span class="card__day">' + d._day + '</span><span class="card__mon">' + esc(d._monYear) + '</span></time>' +
         '<div class="card__body">' +
           '<p class="card__company" title="' + esc(d.company) + '">' + esc(d.client) + '</p>' +
           '<h2 class="card__title"><a class="card__link" href="' + esc(openHref(d)) + '" target="_blank" rel="noopener">' + esc(d.title) + '</a></h2>' +

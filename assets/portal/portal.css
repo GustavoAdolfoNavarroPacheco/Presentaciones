@@ -390,12 +390,12 @@ html[data-session="in"] [data-auth="out"] { display: none !important; }
 /* Texturas de tarjeta: una por deck (ver TEXTURES en portal.js). Capa decorativa detrás del texto,
    tintada con el color de la categoría (--tex) y desvanecida desde una esquina (--cx / --cy). */
 .card__tex {
-  position: absolute; inset: 0; z-index: -1; pointer-events: none; opacity: .85;
+  position: absolute; inset: 0; z-index: -1; pointer-events: none; opacity: .45;
   -webkit-mask-image: radial-gradient(95% 95% at var(--cx, 100%) var(--cy, 0%), #000 0%, rgba(0, 0, 0, .6) 38%, transparent 78%);
   mask-image: radial-gradient(95% 95% at var(--cx, 100%) var(--cy, 0%), #000 0%, rgba(0, 0, 0, .6) 38%, transparent 78%);
   transition: opacity var(--t-base) var(--ease);
 }
-.card:hover .card__tex { opacity: 1; }
+.card:hover .card__tex { opacity: .65; }
 .tex-0 { background: repeating-radial-gradient(circle at var(--cx, 100%) var(--cy, 0%), transparent 0 20px, var(--tex) 21px 22px); }                         /* anillos */
 .tex-1 { background: radial-gradient(circle, var(--tex) 1.5px, transparent 1.9px) 0 0 / 13px 13px; }                                                         /* puntos */
 .tex-2 { background: repeating-linear-gradient(135deg, var(--tex) 0 1.5px, transparent 1.5px 11px); }                                                        /* rayas */
@@ -403,8 +403,19 @@ html[data-session="in"] [data-auth="out"] { display: none !important; }
 .tex-4 { background: repeating-linear-gradient(45deg, var(--tex) 0 1px, transparent 1px 12px), repeating-linear-gradient(-45deg, var(--tex) 0 1px, transparent 1px 12px); } /* rombos */
 .tex-5 { background: radial-gradient(circle at 50% 0, transparent 9px, var(--tex) 9.5px 10.5px, transparent 11px) 0 0 / 22px 12px; }                         /* escamas */
 
-.card__date { grid-area: date; justify-self: end; font-size: 12px; color: var(--text-3); white-space: nowrap; display: inline-flex; gap: 6px; align-items: center; }
-.card__date svg { width: 13px; height: 13px; }
+/* Fecha como "hoja de calendario": cinta con el color de la categoría, día grande y mes/año debajo. */
+.card__date {
+  grid-area: date; justify-self: end; position: relative; overflow: hidden;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1px;
+  width: 66px; height: 58px; padding-top: 5px; border-radius: 14px; white-space: nowrap;
+  background: color-mix(in srgb, var(--dot, var(--primary-solid)) 12%, #fff);
+  box-shadow: 0 2px 4px rgba(15, 15, 61, .12), 0 6px 14px -4px rgba(15, 15, 61, .18);
+  transition: transform var(--t-base) var(--ease);
+}
+.card__date::before { content: ''; position: absolute; left: 0; right: 0; top: 0; height: 5px; background: var(--accent, var(--grad)); }
+.card:hover .card__date { transform: translateY(-2px) rotate(2deg); }
+.card__day { font-size: 21px; font-weight: 700; line-height: 1; letter-spacing: -.02em; color: var(--text); font-variant-numeric: tabular-nums; }
+.card__mon { font-size: 10.5px; font-weight: 600; line-height: 1.2; letter-spacing: .08em; text-transform: uppercase; color: var(--text-2); }
 
 .card__body { grid-area: body; min-width: 0; }
 .card__company { font-size: 12px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--text-3); margin-bottom: 4px; }
@@ -463,6 +474,7 @@ html[data-session="in"] [data-auth="out"] { display: none !important; }
 .grid[data-view="lista"] .card__desc { -webkit-line-clamp: 1; line-clamp: 1; }
 .grid[data-view="lista"] .card__foot { padding-top: 0; }
 .grid[data-view="lista"] .card__date { justify-self: start; }
+.grid[data-view="lista"] .card:hover .card__date { transform: none; }
 /* En lista una sola línea de tags: solo el de inversión (el más largo) se recorta con elipsis. */
 .grid[data-view="lista"] .tags { max-width: 400px; flex-wrap: nowrap; }
 .grid[data-view="lista"] .tag:not(:last-child) { flex: none; }
@@ -612,6 +624,9 @@ html[data-session="out"] .page { min-height: 100vh; display: grid; place-items: 
     grid-template-areas: "logo body" ". date" ". foot";
   }
   .grid[data-view="lista"] .logo { width: 48px; height: 48px; }
+  .grid[data-view="lista"] .card__date { flex-direction: row; align-items: center; gap: 6px; width: auto; height: 32px; padding: 0 12px 0 14px; border-radius: 10px; }
+  .grid[data-view="lista"] .card__date::before { top: 0; bottom: 0; right: auto; width: 4px; height: auto; }
+  .grid[data-view="lista"] .card__day { font-size: 15px; }
   .grid[data-view="lista"] .card__foot { justify-content: space-between; }
 }
 @media (max-width: 560px) {

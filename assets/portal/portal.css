@@ -58,6 +58,7 @@
 /* 2. BASE Y UTILIDADES ------------------------------------------------------ */
 *, *::before, *::after { box-sizing: border-box; }
 html { -webkit-text-size-adjust: 100%; }
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } } /* anclas y scrollIntoView; la rueda la gestiona smoothScroll() */
 body {
   margin: 0;
   min-height: 100vh;

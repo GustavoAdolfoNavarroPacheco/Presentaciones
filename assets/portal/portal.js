@@ -7,7 +7,7 @@
 (function () {
   'use strict';
 
-  const { createSelect, toast, esc, prefersReducedMotion } = window.UI;
+  const { createSelect, toast, smoothScroll, esc, prefersReducedMotion } = window.UI;
   const $ = (sel, root) => (root || document).querySelector(sel);
   const EASE = 'cubic-bezier(.22, .8, .24, 1)';
 
@@ -577,6 +577,8 @@
   });
 
   /* ---------- 8. ARRANQUE ---------- */
+
+  smoothScroll();
 
   state = readUrl();
   syncControls();

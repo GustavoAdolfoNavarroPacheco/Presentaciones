@@ -3,6 +3,7 @@
    Expone `window.UI`:
      UI.createSelect(cfg)  Desplegable propio, accesible (patrón ARIA "select-only combobox")
      UI.toast(msg)         Aviso breve, anunciado a lectores de pantalla
+     UI.smoothScroll()     Scroll con inercia para la rueda del ratón
      UI.prefersReducedMotion()
    ========================================================================== */
 (function (global) {
@@ -175,5 +176,61 @@
     toastTimer = setTimeout(() => toastEl.classList.remove('is-show'), 3200);
   }
 
-  global.UI = { createSelect, toast, esc, prefersReducedMotion };
+  /* ------------------------------------------------------------------------
+     SMOOTH SCROLL — desplazamiento con inercia para la rueda del ratón (sin dependencias)
+     Interpola la posición hacia el destino con un suavizado independiente de los FPS.
+     Se desactiva con `prefers-reduced-motion` y en pantallas táctiles (ya tienen inercia nativa);
+     respeta el scroll de listas internas, el zoom (Ctrl + rueda) y el desplazamiento horizontal.
+     ------------------------------------------------------------------------ */
+  function smoothScroll(options) {
+    const smoothing = (options && options.smoothing) || 0.14; // fracción de la distancia que se recorre por cuadro a 60 FPS
+    if (prefersReducedMotion() || global.matchMedia('(pointer: coarse)').matches) return;
+
+    const root = doc.documentElement;
+    const maxScroll = () => root.scrollHeight - global.innerHeight;
+    let target = global.scrollY;
+    let current = target;
+    let frame = 0;
+    let last = 0;
+
+    // ¿El elemento (o un ancestro) puede desplazarse por sí mismo en esa dirección?
+    function nestedScroller(el, dy) {
+      for (; el && el !== doc.body && el !== root; el = el.parentElement) {
+        const overflowY = global.getComputedStyle(el).overflowY;
+        if ((overflowY === 'auto' || overflowY === 'scroll') && el.scrollHeight > el.clientHeight) {
+          if ((dy < 0 && el.scrollTop > 0) || (dy > 0 && el.scrollTop + el.clientHeight < el.scrollHeight - 1)) return true;
+        }
+      }
+      return false;
+    }
+
+    function tick(now) {
+      const dt = Math.min(now - last, 64);
+      last = now;
+      current += (target - current) * (1 - Math.pow(1 - smoothing, dt / 16.67));
+      if (Math.abs(target - current) < 0.4) {
+        current = target;
+        frame = 0;
+        global.scrollTo({ top: current, behavior: 'instant' });
+        return;
+      }
+      global.scrollTo({ top: current, behavior: 'instant' });
+      frame = global.requestAnimationFrame(tick);
+    }
+
+    global.addEventListener('wheel', (e) => {
+      if (e.ctrlKey || e.shiftKey || e.defaultPrevented || Math.abs(e.deltaX) > Math.abs(e.deltaY)) return;
+      if (nestedScroller(e.target, e.deltaY)) return;
+      e.preventDefault();
+      const unit = e.deltaMode === 1 ? 32 : e.deltaMode === 2 ? global.innerHeight : 1; // líneas / páginas / píxeles
+      if (!frame) { current = global.scrollY; target = current; }
+      target = Math.max(0, Math.min(maxScroll(), target + e.deltaY * unit));
+      if (!frame) { last = global.performance.now(); frame = global.requestAnimationFrame(tick); }
+    }, { passive: false });
+
+    // Si la posición cambia por otro medio (teclado, barra de scroll, anclas), se vuelve a sincronizar.
+    global.addEventListener('scroll', () => { if (!frame) { current = target = global.scrollY; } }, { passive: true });
+  }
+
+  global.UI = { createSelect, toast, smoothScroll, esc, prefersReducedMotion };
 })(window);

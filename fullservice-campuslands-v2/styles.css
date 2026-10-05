@@ -1,0 +1,211 @@
+/* ============================================================
+   FULLSERVICE CAMPUSLANDS v2 — Presentación Corporativa
+   Mezcla pedida por el usuario (2026-10-05):
+     · COLORES ........ Brochure General Campuslands (azul marino profundo, azul eléctrico, ámbar)
+     · FUENTES ........ deck del Agente (Playfair Display + Montserrat + Poppins)
+     · DISTRIBUCIÓN ... Brochure (título a la izquierda / rejilla de tarjetas / franja inferior)
+     · SOMBRAS/FORMAS . deck del Agente (tarjetas muy redondeadas, halos en iconos, pastillas «Partner»;
+                        todo separado por sombra, sin bordes)
+   ============================================================ */
+
+/* ---------- 1. FUENTES LOCALES ---------- */
+@font-face{ font-family:'Playfair Display'; src:url('assets/fonts/PlayfairDisplay-Bold.ttf') format('truetype'); font-weight:700; font-style:normal; font-display:swap; }
+@font-face{ font-family:'Playfair Display'; src:url('assets/fonts/PlayfairDisplay-Black.ttf') format('truetype'); font-weight:900; font-style:normal; font-display:swap; }
+@font-face{ font-family:'Playfair Display'; src:url('assets/fonts/PlayfairDisplay-Italic.ttf') format('truetype'); font-weight:400; font-style:italic; font-display:swap; }
+@font-face{ font-family:'Playfair Display'; src:url('assets/fonts/PlayfairDisplay-BlackItalic.ttf') format('truetype'); font-weight:900; font-style:italic; font-display:swap; }
+@font-face{ font-family:'Montserrat'; src:url('assets/fonts/Montserrat-Medium.ttf') format('truetype'); font-weight:500; font-style:normal; font-display:swap; }
+@font-face{ font-family:'Montserrat'; src:url('assets/fonts/Montserrat-SemiBold.ttf') format('truetype'); font-weight:600; font-style:normal; font-display:swap; }
+@font-face{ font-family:'Montserrat'; src:url('assets/fonts/Montserrat-Bold.ttf') format('truetype'); font-weight:700; font-style:normal; font-display:swap; }
+@font-face{ font-family:'Montserrat'; src:url('assets/fonts/Montserrat-ExtraBold.ttf') format('truetype'); font-weight:800; font-style:normal; font-display:swap; }
+@font-face{ font-family:'Poppins'; src:url('assets/fonts/Poppins-Light.ttf') format('truetype'); font-weight:300; font-style:normal; font-display:swap; }
+@font-face{ font-family:'Poppins'; src:url('assets/fonts/Poppins-Regular.ttf') format('truetype'); font-weight:400; font-style:normal; font-display:swap; }
+@font-face{ font-family:'Poppins'; src:url('assets/fonts/Poppins-Medium.ttf') format('truetype'); font-weight:500; font-style:normal; font-display:swap; }
+@font-face{ font-family:'Poppins'; src:url('assets/fonts/Poppins-SemiBold.ttf') format('truetype'); font-weight:600; font-style:normal; font-display:swap; }
+
+/* ---------- 2. TOKENS ---------- */
+:root{
+  /* Brochure: fondo azul marino casi negro + azul eléctrico + ámbar */
+  --bg-0:#00091F; --bg-1:#000C25; --bg-2:#001247;
+  --blue:#2CAAFF; --blue-2:#1B7CF5; --blue-3:#0B3FB8;
+  --amber:#F4B422; --amber-2:#F29A1D;
+  --card-a:#0B2A78; --card-b:#061A52;   /* tarjeta navy iluminada */
+  --panel-a:#08205F; --panel-b:#05143F; /* panel grande */
+  --mini:#0D2A6E;                       /* minitarjeta */
+  --tx:#F4F8FF; --tx-mid:#BCC9E6; --tx-lo:#8C9DC6; --ink:#000C25;
+
+  --f-display:'Playfair Display',Georgia,serif;
+  --f-label:'Montserrat','Segoe UI',sans-serif;
+  --f-body:'Poppins','Segoe UI',sans-serif;
+
+  --slide-w:11in; --slide-h:6.1875in; --r:22px;
+  --sh-card:0 18px 40px rgba(0,0,0,.50), 0 0 34px rgba(44,170,255,.16);
+  --sh-soft:0 10px 24px rgba(0,0,0,.40);
+  --sh-pill:0 5px 14px rgba(0,0,0,.40);
+}
+
+/* ---------- 3. RESET ---------- */
+*{ box-sizing:border-box; margin:0; padding:0; }
+@page{ size:11in 6.1875in; margin:0; }
+html,body{ background:#02040E; font-family:var(--f-body); color:var(--tx); -webkit-font-smoothing:antialiased; }
+body{ display:flex; flex-direction:column; align-items:center; padding:24px; }
+a{ text-decoration:none; color:inherit; }
+ul{ list-style:none; }
+
+/* ---------- 4. LÁMINA BASE ---------- */
+.slide{
+  position:relative; width:var(--slide-w); height:var(--slide-h); overflow:hidden; margin-bottom:28px;
+  border-radius:var(--r); color:var(--tx);
+  background:
+    radial-gradient(52% 60% at 92% 4%, rgba(44,170,255,.20) 0%, transparent 62%),
+    radial-gradient(46% 55% at 2% 100%, rgba(244,180,34,.09) 0%, transparent 62%),
+    linear-gradient(160deg,#001036 0%,#000A22 55%,#00133F 100%);
+  box-shadow:0 22px 60px rgba(0,0,0,.55);
+}
+
+/* Decoraciones (solo pseudo-elementos / SVG sin texto) */
+.fx{ position:absolute; pointer-events:none; z-index:1; }
+.fx--rings{ top:-1.5in; right:-1.5in; width:4.6in; height:4.6in; border-radius:50%;
+  background:radial-gradient(circle, transparent 0 24%, rgba(44,170,255,.10) 24.5% 25.5%, transparent 26% 40%, rgba(44,170,255,.09) 40.5% 41.5%, transparent 42% 56%, rgba(244,180,34,.08) 56.5% 57.5%, transparent 58% 72%, rgba(44,170,255,.07) 72.5% 73.5%, transparent 74%);
+}
+.fx--dots{ top:.3in; left:.34in; width:1.1in; height:.7in; opacity:.55;
+  background-image:radial-gradient(rgba(44,170,255,.55) 1.4px, transparent 1.6px); background-size:11px 11px; }
+.fx--dots-r{ bottom:.28in; right:.34in; width:1.1in; height:.6in; opacity:.45;
+  background-image:radial-gradient(rgba(244,180,34,.55) 1.4px, transparent 1.6px); background-size:11px 11px; }
+.fx--trace{ bottom:0; left:0; width:3.2in; height:1.2in; opacity:.5; }
+.fx--glow-l{ left:-1.2in; top:1.2in; width:3in; height:3in; border-radius:50%; background:radial-gradient(circle, rgba(27,124,245,.22), transparent 66%); }
+
+/* ---------- 5. PIEZAS REUTILIZABLES ---------- */
+.ico{ flex:none; display:grid; place-items:center; width:46px; height:46px; border-radius:50%;
+  background:linear-gradient(145deg,var(--blue),var(--blue-2)); color:var(--ink);
+  box-shadow:0 0 0 7px rgba(44,170,255,.16), 0 0 22px rgba(44,170,255,.45); }
+.ico svg{ width:55%; height:55%; fill:none; stroke:currentColor; stroke-width:1.9; stroke-linecap:round; stroke-linejoin:round; }
+.ico--amber{ background:linear-gradient(145deg,#FFD25C,var(--amber-2)); color:var(--ink); box-shadow:0 0 0 7px rgba(244,180,34,.18), 0 0 22px rgba(244,180,34,.45); }
+.ico--navy{ background:linear-gradient(145deg,#06236E,#000C25); color:var(--amber); box-shadow:0 0 0 7px rgba(0,12,37,.16), 0 6px 18px rgba(0,12,37,.45); }
+.ico--lg{ width:52px; height:52px; }
+.ico--sm{ width:30px; height:30px; box-shadow:0 0 0 4px rgba(44,170,255,.14), 0 0 12px rgba(44,170,255,.35); }
+.ico--sm-amber{ width:30px; height:30px; background:linear-gradient(145deg,#FFD25C,var(--amber-2)); color:var(--ink); box-shadow:0 0 0 4px rgba(244,180,34,.16), 0 0 12px rgba(244,180,34,.35); }
+
+.eyebrow{ font-family:var(--f-label); font-weight:700; font-size:8.6pt; letter-spacing:.3em; text-transform:uppercase; color:var(--blue); }
+.tag{ font-family:var(--f-label); font-weight:700; font-size:7.2pt; letter-spacing:.14em; text-transform:uppercase; color:var(--amber); line-height:1.3; }
+.lbl{ font-family:var(--f-label); font-weight:700; font-size:7.2pt; letter-spacing:.2em; text-transform:uppercase; color:var(--tx-lo); }
+
+.partner{ display:inline-flex; align-items:center; gap:9px; padding:5px 15px 5px 13px; border-radius:99px;
+  background:rgba(255,255,255,.09); box-shadow:var(--sh-pill); white-space:nowrap; }
+.partner small{ font-family:var(--f-label); font-weight:600; font-size:7pt; letter-spacing:.2em; text-transform:uppercase; color:var(--tx-lo); }
+.partner i{ width:3px; height:15px; border-radius:2px; background:var(--amber); }
+.partner b{ font-family:var(--f-label); font-weight:700; font-size:9pt; color:var(--tx); }
+
+.dotlist li{ position:relative; padding-left:15px; font-family:var(--f-body); font-weight:400; color:var(--tx-mid); }
+.dotlist li::before{ content:""; position:absolute; left:0; top:.55em; width:6px; height:6px; border-radius:50%; background:var(--amber); box-shadow:0 0 8px rgba(244,180,34,.6); }
+
+/* Título de sección (láminas 2 y 3) */
+.p-head{ position:relative; z-index:5; display:flex; align-items:flex-end; justify-content:space-between; }
+.p-head .eyebrow{ margin-bottom:.07in; }
+.p-title{ font-family:var(--f-display); font-weight:700; font-size:22pt; line-height:1.1; color:var(--tx); letter-spacing:-.2px; }
+.p-title em{ font-style:italic; font-weight:900; color:var(--blue); }
+.count{ display:inline-flex; align-items:center; gap:9px; font-family:var(--f-label); font-weight:700; font-size:8.4pt; letter-spacing:.2em; text-transform:uppercase; color:var(--tx); padding:8px 20px; border-radius:99px; background:rgba(255,255,255,.08); box-shadow:var(--sh-pill); }
+.count b{ font-family:var(--f-display); font-weight:900; font-size:15pt; letter-spacing:0; color:var(--amber); }
+
+/* ---------- 6. LÁMINA 1 — PORTADA + SERVICIOS ---------- */
+.cover{ padding:.38in .56in .34in; display:grid; grid-template-columns:.82fr 1.3fr; grid-template-rows:minmax(0,1fr) auto; column-gap:.46in; row-gap:.17in; }
+.cover__left{ position:relative; z-index:5; display:flex; flex-direction:column; justify-content:center; }
+.cover__logo{ height:34px; width:auto; align-self:flex-start; margin-bottom:.3in; }
+.pill{ align-self:flex-start; display:inline-flex; font-family:var(--f-label); font-weight:700; font-size:7.8pt; letter-spacing:.26em; text-transform:uppercase; color:var(--blue); padding:8px 20px; border-radius:99px; background:rgba(44,170,255,.10); box-shadow:var(--sh-pill); }
+.cover__title{ margin-top:.2in; font-family:var(--f-display); font-weight:700; font-size:41pt; line-height:1.02; letter-spacing:-.5px; color:var(--tx); }
+.cover__title em{ display:block; font-style:italic; font-weight:900; font-size:1.08em; color:var(--blue); }
+.cover__sub{ margin-top:.24in; font-family:var(--f-body); font-weight:300; font-size:11.4pt; line-height:1.55; color:var(--tx-mid); max-width:4.3in; }
+.cover__sub b{ font-weight:500; color:var(--tx); }
+
+.cover__right{ position:relative; z-index:5; display:flex; flex-direction:column; justify-content:center; gap:.1in; }
+.svc{ position:relative; display:flex; align-items:center; gap:16px; padding:.1in .24in .1in .2in; border-radius:20px;
+  background:linear-gradient(150deg,var(--card-a),var(--card-b)); box-shadow:var(--sh-card); overflow:hidden; }
+.svc::before{ content:""; position:absolute; left:0; top:0; bottom:0; width:4px; background:linear-gradient(180deg,var(--blue),var(--blue-2)); }
+.svc--amber::before{ background:linear-gradient(180deg,#FFD25C,var(--amber-2)); }
+.svc__n{ position:absolute; right:16px; top:9px; font-family:var(--f-display); font-weight:900; font-style:italic; font-size:15pt; color:rgba(255,255,255,.14); }
+.svc__body h3{ font-family:var(--f-label); font-weight:700; font-size:12.4pt; color:var(--tx); margin-bottom:2px; }
+.svc__body p{ font-family:var(--f-body); font-weight:300; font-size:8.9pt; line-height:1.42; color:var(--tx-mid); }
+.svc--main{ padding:.15in .26in .15in .22in; background:linear-gradient(140deg,#1B7CF5 0%,#0B46C9 55%,#06267A 100%); box-shadow:0 20px 44px rgba(0,0,0,.5), 0 0 40px rgba(44,170,255,.30); }
+.svc--main::before{ background:linear-gradient(180deg,#FFD25C,var(--amber-2)); }
+.svc--main .svc__body h3{ font-size:14pt; }
+.svc--main .svc__body p{ font-size:9.3pt; color:#E4EEFF; }
+.svc--main .svc__n{ color:rgba(255,255,255,.2); }
+.svc__links{ display:flex; gap:8px; margin-top:6px; }
+.link{ display:inline-flex; align-items:center; gap:5px; font-family:var(--f-label); font-weight:700; font-size:7.4pt; letter-spacing:.04em; color:var(--ink); background:linear-gradient(145deg,#FFD25C,var(--amber-2)); padding:4px 11px; border-radius:99px; box-shadow:var(--sh-pill); }
+.link svg{ width:8px; height:8px; fill:none; stroke:currentColor; stroke-width:2.6; stroke-linecap:round; stroke-linejoin:round; }
+
+.strip{ grid-column:1 / -1; position:relative; z-index:5; display:flex; align-items:center; justify-content:space-between; padding:.09in .3in; border-radius:99px;
+  background:rgba(255,255,255,.06); box-shadow:var(--sh-soft); }
+.strip__tag{ font-family:var(--f-display); font-style:italic; font-weight:400; font-size:11.5pt; color:var(--tx-mid); }
+.strip__lema{ display:flex; align-items:center; gap:26px; }
+.strip__lema span{ display:inline-flex; align-items:center; gap:9px; font-family:var(--f-label); font-weight:700; font-size:8pt; letter-spacing:.16em; text-transform:uppercase; color:var(--tx); }
+
+/* ---------- 7. LÁMINA 2 — LMS + FACTURACIÓN ---------- */
+.port{ padding:.3in .5in .3in; display:flex; flex-direction:column; gap:.15in; }
+.p-body{ position:relative; z-index:5; flex:1; min-height:0; display:grid; gap:.17in; }
+.p-body--1{ grid-template-columns:.74fr 1fr; }
+
+.lms{ position:relative; overflow:hidden; display:flex; flex-direction:column; border-radius:var(--r); padding:.2in .26in .18in;
+  background:linear-gradient(160deg,#0F3BA8 0%,#08266F 55%,#041846 100%); box-shadow:0 20px 44px rgba(0,0,0,.55), 0 0 40px rgba(44,170,255,.22); }
+.lms::before{ content:""; position:absolute; left:0; right:0; top:0; height:4px; background:linear-gradient(90deg,var(--blue),#4D8DFF,var(--amber)); }
+.lms::after{ content:""; position:absolute; right:-70px; bottom:-70px; width:220px; height:220px; border-radius:50%;
+  background:radial-gradient(circle, transparent 0 34%, rgba(255,255,255,.07) 34.5% 36%, transparent 36.5% 52%, rgba(255,255,255,.06) 52.5% 54%, transparent 54.5%); pointer-events:none; }
+.lms__id{ display:flex; align-items:center; gap:14px; }
+.lms__id h3, .fac__id h3{ font-family:var(--f-label); font-weight:700; font-size:15pt; line-height:1.15; color:var(--tx); }
+.lms .partner{ margin-top:.1in; align-self:flex-start; }
+.lms__p{ margin-top:.11in; font-family:var(--f-body); font-weight:400; font-size:8.5pt; line-height:1.46; color:#E0EAFF; }
+.lms__p + .lms__p{ margin-top:.06in; color:var(--tx-mid); font-weight:300; }
+.lms .lbl{ margin-top:.11in; margin-bottom:.06in; color:var(--blue); }
+.lms .dotlist{ display:flex; flex-direction:column; gap:.035in; }
+.lms .dotlist li{ font-size:8.3pt; line-height:1.36; color:#E0EAFF; }
+
+.fac{ position:relative; overflow:hidden; display:flex; flex-direction:column; border-radius:var(--r); padding:.19in .26in .14in;
+  background:linear-gradient(165deg,var(--panel-a),var(--panel-b)); box-shadow:var(--sh-card); }
+.fac::before{ content:""; position:absolute; left:0; right:0; top:0; height:4px; background:linear-gradient(90deg,var(--amber),#FFD25C 40%,var(--blue)); }
+.fac__top{ display:flex; align-items:center; justify-content:space-between; gap:12px; }
+.fac__id{ display:flex; align-items:center; gap:14px; }
+.fac__p{ margin-top:.11in; font-family:var(--f-body); font-weight:300; font-size:8.6pt; line-height:1.46; color:var(--tx-mid); }
+.fac .lbl{ margin-top:.1in; margin-bottom:.06in; color:var(--blue); }
+.fac__grid{ flex:1; min-height:0; display:grid; grid-template-columns:repeat(3,1fr); grid-auto-rows:1fr; gap:.08in; }
+.mini{ position:relative; border-radius:16px; padding:.085in .12in .08in; background:var(--mini); box-shadow:var(--sh-soft); display:flex; flex-direction:column; gap:.045in; overflow:hidden; }
+.mini__h{ display:flex; align-items:center; gap:8px; }
+.mini h4{ font-family:var(--f-label); font-weight:800; font-size:7.6pt; letter-spacing:.1em; text-transform:uppercase; line-height:1.2; color:var(--tx); }
+.mini p{ font-family:var(--f-body); font-weight:400; font-size:7.6pt; line-height:1.36; color:var(--tx-mid); }
+.mini--amber{ background:linear-gradient(145deg,#FFD25C,var(--amber-2)); box-shadow:0 12px 28px rgba(244,154,29,.32), 0 0 28px rgba(244,180,34,.28); }
+.mini--amber h4{ color:var(--ink); }
+.mini--amber p{ color:#2A1A00; font-weight:500; }
+
+/* ---------- 8. LÁMINA 3 — AGENTES ---------- */
+.p-body--2{ grid-template-columns:repeat(3,1fr); gap:.2in; }
+.ag{ position:relative; display:flex; flex-direction:column; border-radius:var(--r); overflow:hidden; background:linear-gradient(170deg,var(--panel-a),var(--panel-b)); box-shadow:var(--sh-card); }
+.ag__h{ position:relative; overflow:hidden; flex:none; min-height:1.6in; padding:.22in .24in .2in; display:flex; flex-direction:column; justify-content:space-between; gap:.1in; }
+.ag__h::after{ content:""; position:absolute; right:-60px; top:-60px; width:180px; height:180px; border-radius:50%;
+  background:radial-gradient(circle, transparent 0 36%, rgba(255,255,255,.14) 36.5% 38%, transparent 38.5% 54%, rgba(255,255,255,.11) 54.5% 56%, transparent 56.5%); pointer-events:none; }
+.ag__row{ display:flex; align-items:center; justify-content:space-between; gap:10px; position:relative; z-index:1; }
+.ag .partner{ white-space:normal; max-width:60%; }
+.ag .partner b{ line-height:1.15; }
+.ag__h h3{ position:relative; z-index:1; font-family:var(--f-label); font-weight:800; font-size:14.5pt; line-height:1.12; white-space:nowrap; }
+.ag__h .tag{ position:relative; z-index:1; }
+.ag__h--blue{ background:linear-gradient(135deg,#1B7CF5,#0B3FB8); color:var(--tx); }
+.ag__h--blue .tag{ color:#FFD25C; }
+.ag__h--amber{ background:linear-gradient(135deg,#FFD25C,var(--amber-2)); color:var(--ink); }
+.ag__h--amber .tag{ color:#4A2D00; }
+.ag__h--sky{ background:linear-gradient(135deg,#5CC3FF,#2492EC); color:var(--ink); }
+.ag__h--sky .tag{ color:#00205A; }
+.ag__h .partner{ background:rgba(0,12,37,.28); }
+.ag__h--amber .partner, .ag__h--sky .partner{ background:rgba(0,12,37,.14); box-shadow:0 5px 14px rgba(0,12,37,.25); }
+.ag__h--blue .partner small{ color:#BFD6FF; }
+.ag__h--amber .partner small, .ag__h--sky .partner small{ color:#1C2A52; }
+.ag__h--amber .partner b, .ag__h--sky .partner b{ color:var(--ink); }
+.ag__h--amber .partner i, .ag__h--sky .partner i{ background:var(--ink); }
+.ag__b{ flex:1; padding:.28in .26in .22in; display:flex; flex-direction:column; }
+.ag__d{ font-family:var(--f-body); font-weight:400; font-size:11.6pt; line-height:1.5; color:#E6EEFF; }
+.ag__b .lbl{ margin-top:.3in; margin-bottom:.14in; font-size:8.2pt; color:var(--blue); }
+.ag__b .dotlist{ display:flex; flex-direction:column; gap:.12in; }
+.ag__b .dotlist li{ font-size:10.8pt; line-height:1.42; color:#E6EEFF; padding-left:17px; }
+
+/* ---------- 9. IMPRESIÓN ---------- */
+@media print{
+  html,body{ width:11in; height:auto; background:none; padding:0; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  .slide{ width:11in; height:6.1875in; margin:0; border-radius:0; box-shadow:none; overflow:hidden; break-inside:avoid; }
+  .slide + .slide{ page-break-before:always; break-before:page; }
+}

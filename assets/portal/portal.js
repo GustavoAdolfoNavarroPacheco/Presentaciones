@@ -18,12 +18,22 @@
 
   // Color por categoría (Brandbook): punto del tag, filete superior y resplandor del logo.
   const CATS = [
-    { id: 'ia', label: 'Agentes de IA', dot: '#5E3AE2', grad: 'linear-gradient(100deg, #5E3AE2, #3A2BC4)', glow: 'rgba(94, 58, 226, .35)' },
-    { id: 'software', label: 'Software & ecosistemas', dot: '#2CAAFF', grad: 'linear-gradient(100deg, #0A67AE, #000087)', glow: 'rgba(10, 103, 174, .35)' },
-    { id: 'demos', label: 'Demos', dot: '#00AA80', grad: 'linear-gradient(100deg, #00896A, #005E48)', glow: 'rgba(0, 137, 106, .35)' },
-    { id: 'institucional', label: 'Institucional', dot: '#000087', grad: 'linear-gradient(100deg, #000087, #3A2BC4)', glow: 'rgba(0, 0, 135, .3)' },
+    { id: 'ia', label: 'Agentes de IA', dot: '#5E3AE2', grad: 'linear-gradient(100deg, #5E3AE2, #3A2BC4)', glow: 'rgba(94, 58, 226, .35)', tex: 'rgba(94, 58, 226, .24)' },
+    { id: 'software', label: 'Software & ecosistemas', dot: '#2CAAFF', grad: 'linear-gradient(100deg, #0A67AE, #000087)', glow: 'rgba(10, 103, 174, .35)', tex: 'rgba(10, 103, 174, .24)' },
+    { id: 'demos', label: 'Demos', dot: '#00AA80', grad: 'linear-gradient(100deg, #00896A, #005E48)', glow: 'rgba(0, 137, 106, .35)', tex: 'rgba(0, 137, 106, .24)' },
+    { id: 'institucional', label: 'Institucional', dot: '#000087', grad: 'linear-gradient(100deg, #000087, #3A2BC4)', glow: 'rgba(0, 0, 135, .3)', tex: 'rgba(0, 0, 135, .2)' },
   ];
   const CAT_BY_ID = Object.fromEntries(CATS.map((c) => [c.id, c]));
+
+  // Texturas de tarjeta (definidas en portal.css como .tex-0 … .tex-5). Cada deck recibe una combinación
+  // textura + esquina a partir de su slug: estable (no cambia al agregar decks nuevos) y variada entre vecinas.
+  const TEXTURES = 6;
+  const ANCHORS = [['100%', '0%'], ['0%', '0%'], ['100%', '60%']];
+  function hashOf(text) {
+    let h = 2166136261;
+    for (let i = 0; i < text.length; i++) { h ^= text.charCodeAt(i); h = Math.imul(h, 16777619); }
+    return h >>> 0;
+  }
   const SORTS = [
     { value: 'recent', label: 'Más recientes' },
     { value: 'oldest', label: 'Más antiguos' },
@@ -197,6 +207,11 @@
     li.style.setProperty('--accent', cat.grad);
     li.style.setProperty('--glow', cat.glow);
     li.style.setProperty('--dot', cat.dot);
+    li.style.setProperty('--tex', cat.tex);
+    const h = hashOf(d.slug);
+    const anchor = ANCHORS[(h >>> 5) % ANCHORS.length];
+    li.style.setProperty('--cx', anchor[0]);
+    li.style.setProperty('--cy', anchor[1]);
 
     const files = filesOf(d).map((f) =>
       '<a class="file file--' + f.kind + '" href="' + esc(f.href) + '" target="_blank" rel="noopener" title="' + esc(f.title) +
@@ -204,6 +219,7 @@
 
     li.innerHTML =
       '<article class="card__inner">' +
+        '<div class="card__tex tex-' + (h % TEXTURES) + '" aria-hidden="true"></div>' +
         '<div class="logo is-loading"><span class="logo__mono" aria-hidden="true">' + esc(d._mono) + '</span><img alt="" loading="lazy" decoding="async"></div>' +
         '<time class="card__date" datetime="' + esc(d.date) + '">' + ICON.calendar + esc(d._dateLabel) + '</time>' +
         '<div class="card__body">' +

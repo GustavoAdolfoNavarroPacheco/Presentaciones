@@ -353,7 +353,7 @@ html[data-session="in"] [data-auth="out"] { display: none !important; }
 }
 .card__inner {
   position: relative; height: 100%; overflow: hidden; border-radius: inherit;
-  background: var(--surface); box-shadow: var(--shadow-card);
+  isolation: isolate; background: var(--surface); box-shadow: var(--shadow-card);
   display: grid; align-content: start; gap: 14px; padding: 20px;
   grid-template-columns: auto 1fr;
   grid-template-rows: auto 1fr auto auto;
@@ -386,6 +386,22 @@ html[data-session="in"] [data-auth="out"] { display: none !important; }
   background: linear-gradient(100deg, transparent 20%, rgba(255, 255, 255, .55) 50%, transparent 80%);
   transform: translateX(-100%); animation: shimmer 1.3s ease-in-out infinite;
 }
+
+/* Texturas de tarjeta: una por deck (ver TEXTURES en portal.js). Capa decorativa detrás del texto,
+   tintada con el color de la categoría (--tex) y desvanecida desde una esquina (--cx / --cy). */
+.card__tex {
+  position: absolute; inset: 0; z-index: -1; pointer-events: none; opacity: .85;
+  -webkit-mask-image: radial-gradient(95% 95% at var(--cx, 100%) var(--cy, 0%), #000 0%, rgba(0, 0, 0, .6) 38%, transparent 78%);
+  mask-image: radial-gradient(95% 95% at var(--cx, 100%) var(--cy, 0%), #000 0%, rgba(0, 0, 0, .6) 38%, transparent 78%);
+  transition: opacity var(--t-base) var(--ease);
+}
+.card:hover .card__tex { opacity: 1; }
+.tex-0 { background: repeating-radial-gradient(circle at var(--cx, 100%) var(--cy, 0%), transparent 0 20px, var(--tex) 21px 22px); }                         /* anillos */
+.tex-1 { background: radial-gradient(circle, var(--tex) 1.5px, transparent 1.9px) 0 0 / 13px 13px; }                                                         /* puntos */
+.tex-2 { background: repeating-linear-gradient(135deg, var(--tex) 0 1.5px, transparent 1.5px 11px); }                                                        /* rayas */
+.tex-3 { background: linear-gradient(var(--tex) 1px, transparent 1px) 0 0 / 16px 16px, linear-gradient(90deg, var(--tex) 1px, transparent 1px) 0 0 / 16px 16px; } /* cuadrícula */
+.tex-4 { background: repeating-linear-gradient(45deg, var(--tex) 0 1px, transparent 1px 12px), repeating-linear-gradient(-45deg, var(--tex) 0 1px, transparent 1px 12px); } /* rombos */
+.tex-5 { background: radial-gradient(circle at 50% 0, transparent 9px, var(--tex) 9.5px 10.5px, transparent 11px) 0 0 / 22px 12px; }                         /* escamas */
 
 .card__date { grid-area: date; justify-self: end; font-size: 12px; color: var(--text-3); white-space: nowrap; display: inline-flex; gap: 6px; align-items: center; }
 .card__date svg { width: 13px; height: 13px; }

@@ -20,6 +20,22 @@
    ============================================================================ */
 window.DECKS = [
   {
+    slug: "ai-academy",
+    client: "Campuslands",
+    company: "Campuslands S.A.S.",
+    title: "Campuslands AI Academy — Formación en IA (18 horas)",
+    desc: "Formación presencial de 18 horas (6 sesiones de 3 horas) para pasar de usar la IA a dirigir un agente propio con ChatGPT y Claude: rampa de asistentes, creación de agentes, entregables por sesión e inversión por participante.",
+    category: "ia",
+    categoryLabel: "Formación en IA",
+    slides: "10 Láminas",
+    investment: "$1.000.000 COP por participante",
+    path: "ai-academy/index.html",
+    pdf: "ai-academy/ai-academy.pdf",
+    logo: "assets/logo-campuslands-color.png",
+    date: "2026-10-09",
+    keywords: "campuslands ai academy formacion capacitacion curso inteligencia artificial agentes asistentes chatgpt claude prompt engineering 18 horas presencial participantes"
+  },
+  {
     slug: "fullservice-campuslands-v2",
     client: "Campuslands",
     company: "Campuslands S.A.S.",

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Campuslands AI Academy</title>
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Barra del visor (BLANCA): logo de Campuslands a color. Es un programa propio de Campuslands (sin cliente), por eso no lleva «× Cliente». -->
+  <header class="app-header"><div class="cobrand"><img src="assets/logo-campuslands-color.png" alt="Campuslands"></div></header>
+  <main class="app-content"><section class="slides-container" id="slides-container">
+<div class="slide active" data-slide="1"><div class="sl"><img src="assets/slides/s01.jpg" width="1672" height="941" decoding="async" alt="Portada. Deja de usar la IA. Empieza a dirigirla. Crea y dirige tu propio agente de IA con ChatGPT y Claude. Formación presencial de 18 horas en 6 sesiones de 3 horas."></div></div>
+<div class="slide" data-slide="2"><div class="sl"><img src="assets/slides/s02.jpg" width="1672" height="941" decoding="async" alt="IA que se aprende haciendo. Aprender: comprender cómo funciona la IA y cuándo utilizarla. Aplicar: resolver necesidades reales durante la formación. Construir: crear activos de IA reutilizables."></div></div>
+<div class="slide" data-slide="3"><div class="sl"><img src="assets/slides/s03.jpg" width="1672" height="941" decoding="async" alt="No es una formación genérica. Diagnóstico y personalización de la ruta. Usted dirige el 10 %, la IA ejecuta el 80 % y usted valida el 10 %. IA con control humano, criterio y uso responsable de la información."></div></div>
+<div class="slide" data-slide="4"><div class="sl"><img src="assets/slides/s04.jpg" width="1672" height="941" decoding="async" alt="De chat a asistente especializado, sesiones 1 a 3. Introducción a la IA, prompt engineering y asistentes especializados: de chat suelto a buena delegación y a asistente especializado."></div></div>
+<div class="slide" data-slide="5"><div class="sl"><img src="assets/slides/s05.jpg" width="1672" height="941" decoding="async" alt="De asistente a agente de IA, sesiones 4 a 6. Creación de agentes, agente frente a casos reales y reto final: de asistente a agente V1, agente V2 y agente final."></div></div>
+<div class="slide" data-slide="6"><div class="sl"><img src="assets/slides/s06.jpg" width="1672" height="941" decoding="async" alt="Cada sesión produce algo utilizable, sesiones 1 a 3. Entregables: mapa de oportunidades, kit de delegación y asistente especializado. Menos teoría aislada, más activos que siguen generando valor."></div></div>
+<div class="slide" data-slide="7"><div class="sl"><img src="assets/slides/s07.jpg" width="1672" height="941" decoding="async" alt="El resultado final es un agente propio, sesiones 4 a 6: agente V1, agente V2 y agente final. La formación también incluye 18 horas presenciales, diagnóstico inicial, un entregable funcional por sesión, horarios acordados, certificado de participación y canal de WhatsApp de acompañamiento."></div></div>
+<div class="slide" data-slide="8"><div class="sl"><img src="assets/slides/s08.jpg" width="1672" height="941" decoding="async" alt="Inversión en la formación. Valor por participante: $1.000.000 COP, 18 horas presenciales en 6 sesiones de 3 horas. Grupo de 10 a 15 participantes. ChatGPT y Claude en versiones pagas los asume directamente cada participante."></div></div>
+<div class="slide" data-slide="9"><div class="sl"><img src="assets/slides/s09.jpg" width="1672" height="941" decoding="async" alt="No termina con una lista de trucos: termina con un activo propio. Antes: le pregunto a la IA. Después: dirijo un agente que conoce cómo quiero trabajar. Siguiente nivel: evolucionar hacia escenarios de mayor automatización."></div></div>
+<div class="slide" data-slide="10"><div class="sl"><img src="assets/slides/s10.jpg" width="1672" height="941" decoding="async" alt="La IA genera más valor cuando dejamos de solo usarla y empezamos a dirigirla. Conversemos sobre la formación: Gabriela Pedraza, +57 300 3028555, Líder Full Service Global."></div></div>
+  </section></main>
+  <footer class="slides-footer-controls">
+    <button id="btn-prev-slide" class="control-btn" onclick="navigateSlide(-1)" aria-label="Lámina anterior"><svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="2" fill="none"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg></button>
+    <div class="slide-indicator"><span id="slide-number-display">1 / 10</span><div class="progress-bar-bg"><div id="slide-progress" class="progress-bar-fill"></div></div>
+      <div class="playback-controls"><button id="btn-autoplay" class="control-btn mini" title="Reproducción automática" onclick="toggleAutoplay()"><svg id="autoplay-icon" viewBox="0 0 24 24" width="16" height="16" fill="currentColor" stroke="none"><polygon points="5 3 19 12 5 21 5 3"/></svg></button></div></div>
+    <button id="btn-next-slide" class="control-btn" onclick="navigateSlide(1)" aria-label="Lámina siguiente"><svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="2" fill="none"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>

@@ -2,15 +2,19 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>FullService Campuslands S.A.S.</title>
   <link rel="icon" type="image/png" href="assets/favicon.png">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <!-- Barra del visor (blanca) -->
+  <header class="app-header"><img src="assets/logo-campuslands-color.png" alt="Campuslands"></header>
+  <main class="app-content"><section class="slides-container" id="slides-container">
+
 
   <!-- ===== 1 · PORTADA + SERVICIOS ===== -->
-  <section class="slide cover">
+  <div class="slide active" data-slide="1"><section class="sl3 cover">
     <span class="fx fx--rings"></span>
     <span class="fx fx--dots"></span>
     <span class="fx fx--glow-l"></span>
@@ -59,10 +63,10 @@
         <span><span class="ico ico--sm"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><path d="M4 22v-7"/></svg></span>Conquistamos</span>
       </span>
     </div>
-  </section>
+  </section></div>
 
   <!-- ===== 2 · STAFFING ===== -->
-  <section class="slide nw">
+  <div class="slide" data-slide="2"><section class="sl3 nw">
     <span class="fx fx--rings"></span>
 
     <header class="n-head">
@@ -122,10 +126,10 @@
         <p class="mod__txt">La inversión se determina según el perfil, nivel de experiencia, dedicación y condiciones de prestación del servicio.</p>
       </div>
     </div>
-  </section>
+  </section></div>
 
   <!-- ===== 3 · BPO ===== -->
-  <section class="slide nw">
+  <div class="slide" data-slide="3"><section class="sl3 nw">
     <span class="fx fx--rings"></span>
 
     <header class="n-head">
@@ -179,10 +183,10 @@
         <p class="mod__txt">Cotización personalizada según el alcance del proceso, los perfiles requeridos, la cantidad de recursos asignados y las condiciones operativas.</p>
       </div>
     </div>
-  </section>
+  </section></div>
 
   <!-- ===== 4 · PORTAFOLIO SOLICITADO · 1 DE 2 (LMS + FACTURACIÓN) ===== -->
-  <section class="slide port">
+  <div class="slide" data-slide="4"><section class="sl3 port">
     <span class="fx fx--rings"></span>
 
     <header class="p-head">
@@ -254,10 +258,10 @@
         </div>
       </article>
     </div>
-  </section>
+  </section></div>
 
   <!-- ===== 5 · PORTAFOLIO SOLICITADO · 2 DE 2 (AGENTES + NÉBULA) ===== -->
-  <section class="slide port port--3">
+  <div class="slide" data-slide="5"><section class="sl3 port port--3">
     <span class="fx fx--rings"></span>
 
     <header class="p-head">
@@ -334,10 +338,10 @@
         </div>
       </article>
     </div>
-  </section>
+  </section></div>
 
   <!-- ===== 6 · COMPARATIVO + CIERRE ===== -->
-  <section class="slide cmp-slide">
+  <div class="slide" data-slide="6"><section class="sl3 cmp-slide">
     <span class="fx fx--rings"></span>
 
     <header class="p-head">
@@ -374,78 +378,15 @@
       <p class="close__msg">En Campuslands conectamos <b>talento, tecnología e inteligencia artificial</b> para transformar las necesidades de tu empresa en soluciones.</p>
       <span class="cta">Hablemos de las necesidades tecnológicas de tu empresa<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
     </div>
-  </section>
+  </section></div>
 
-
-<script>
-// ---- PDF / impresión: sombras difuminadas → sombras vectoriales escalonadas ----
-// Chrome exporta box-shadow/text-shadow con desenfoque como máscaras de luminosidad (SMask); varios visores de PDF de celular
-// no las soportan y pintan rectángulos grises alrededor de cada tarjeta. Las sombras sin desenfoque son vectores simples.
-// Cubre elementos y pseudoelementos (::before/::after), sombras externas e internas (inset). Solo actúa al imprimir/exportar.
-(function pdfSafeShadows() {
-    const saved = [];
-    let styleEl = null;
-    function split(s) { const out = []; let d = 0, cur = ''; for (const ch of s) { if (ch === '(') d++; if (ch === ')') d--; if (ch === ',' && d === 0) { out.push(cur.trim()); cur = ''; } else cur += ch; } if (cur.trim()) out.push(cur.trim()); return out; }
-    function parse(one) {
-        const m = one.match(/(rgba?\([^)]*\))/); if (!m) return null;
-        const inset = /inset/.test(one);
-        const nums = one.replace(m[1], '').replace('inset', '').trim().split(/\s+/).map(parseFloat);
-        const c = m[1].match(/[\d.]+/g).map(Number);
-        return { inset, x: nums[0] || 0, y: nums[1] || 0, blur: nums[2] || 0, c, a: c.length > 3 ? c[3] : 1 };
-    }
-    function convertBox(shadow) {
-        const out = [];
-        split(shadow).forEach((one) => {
-            const s = parse(one);
-            if (!s || s.blur <= 0) { out.push(one); return; }
-            const n = Math.min(6, Math.max(3, Math.round(s.blur / 6)));
-            for (let i = 1; i <= n; i++) {
-                const k = i / n;
-                if (s.inset) out.push(`inset ${(s.x * k).toFixed(1)}px ${(s.y * k).toFixed(1)}px 0 ${(s.blur / 2 * k).toFixed(1)}px rgba(${s.c[0]},${s.c[1]},${s.c[2]},${(s.a * 0.8 / n).toFixed(4)})`);
-                else out.push(`${(s.x * k).toFixed(1)}px ${(s.y * k).toFixed(1)}px 0 ${(s.blur / 7 * k).toFixed(1)}px rgba(${s.c[0]},${s.c[1]},${s.c[2]},${(s.a * 0.9 / n).toFixed(4)})`);
-            }
-        });
-        return out.join(', ');
-    }
-    function convertText(shadow) {
-        const out = [];
-        split(shadow).forEach((one) => {
-            const s = parse(one);
-            if (!s || s.blur <= 0) { out.push(one); return; }
-            for (let i = 1; i <= 4; i++) out.push(`${(s.x * i / 4).toFixed(1)}px ${(s.y * i / 4).toFixed(1)}px 0 rgba(${s.c[0]},${s.c[1]},${s.c[2]},${(s.a * 0.2).toFixed(3)})`);
-        });
-        return out.join(', ');
-    }
-    function before() {
-        if (saved.length || styleEl) return;
-        let css = '', id = 0;
-        document.body.querySelectorAll('*').forEach((el) => {
-            if (el.classList && el.classList.contains('slide')) return;   // el marco de la lámina no lleva sombra en el PDF
-            const cs = getComputedStyle(el), bs = cs.boxShadow, ts = cs.textShadow;
-            if (bs && bs !== 'none' && /\d+px/.test(bs)) { saved.push([el, 'box-shadow', el.style.boxShadow]); el.style.setProperty('box-shadow', convertBox(bs), 'important'); }
-            if (ts && ts !== 'none' && /\d+px/.test(ts)) { saved.push([el, 'text-shadow', el.style.textShadow]); el.style.setProperty('text-shadow', convertText(ts), 'important'); }
-            ['::before', '::after'].forEach((ps) => {
-                const pc = getComputedStyle(el, ps), pb = pc.boxShadow, pt = pc.textShadow;
-                if ((pb && pb !== 'none' && /\d+px/.test(pb)) || (pt && pt !== 'none' && /\d+px/.test(pt))) {
-                    const tag = 'pdfsh' + (++id); el.setAttribute('data-pdfsh', (el.getAttribute('data-pdfsh') || '') + ' ' + tag);
-                    css += `[data-pdfsh~="${tag}"]${ps}{` + ((pb && pb !== 'none') ? `box-shadow:${convertBox(pb)} !important;` : '') + ((pt && pt !== 'none') ? `text-shadow:${convertText(pt)} !important;` : '') + '}\n';
-                    saved.push([el, 'data-pdfsh', null]);
-                }
-            });
-        });
-        styleEl = document.createElement('style'); styleEl.textContent = css; document.head.appendChild(styleEl);
-    }
-    function after() {
-        while (saved.length) { const [el, prop, v] = saved.pop(); if (prop === 'data-pdfsh') el.removeAttribute('data-pdfsh'); else if (v) el.style.setProperty(prop, v); else el.style.removeProperty(prop); }
-        if (styleEl) { styleEl.remove(); styleEl = null; }
-    }
-    window.addEventListener('beforeprint', before);
-    window.addEventListener('afterprint', after);
-    if (window.matchMedia) { const mq = window.matchMedia('print'); const h = (e) => (e.matches ? before() : after()); if (mq.addEventListener) mq.addEventListener('change', h); else if (mq.addListener) mq.addListener(h); }
-})();
-
-// Fuerza la carga de todas las @font-face (las de láminas ocultas no se piden solas y el PDF caería a Liberation/Georgia).
-(function preloadFontsForPdf() { if (document.fonts) document.fonts.forEach((face) => { face.load().catch(() => {}); }); })();
-</script>
+  </section></main>
+  <footer class="slides-footer-controls">
+    <button id="btn-prev-slide" class="control-btn" onclick="navigateSlide(-1)" aria-label="Lámina anterior"><svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="2" fill="none"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg></button>
+    <div class="slide-indicator"><span id="slide-number-display">1 / 6</span><div class="progress-bar-bg"><div id="slide-progress" class="progress-bar-fill"></div></div>
+      <div class="playback-controls"><button id="btn-autoplay" class="control-btn mini" title="Reproducción automática" onclick="toggleAutoplay()"><svg id="autoplay-icon" viewBox="0 0 24 24" width="16" height="16" fill="currentColor" stroke="none"><polygon points="5 3 19 12 5 21 5 3"/></svg></button></div></div>
+    <button id="btn-next-slide" class="control-btn" onclick="navigateSlide(1)" aria-label="Lámina siguiente"><svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="2" fill="none"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
+  </footer>
+  <script src="script.js"></script>
 </body>
 </html>

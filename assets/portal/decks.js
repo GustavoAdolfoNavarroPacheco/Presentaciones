@@ -20,6 +20,22 @@
    ============================================================================ */
 window.DECKS = [
   {
+    slug: "fullservice-campuslands-v3",
+    client: "Campuslands",
+    company: "Campuslands S.A.S.",
+    title: "FullService — Presentación Corporativa v3",
+    desc: "Actualización de la v2 con fondo gris claro y tres láminas nuevas: Staffing (talento tecnológico especializado), BPO (tercerización de operaciones tecnológicas) y comparativo «¿Qué servicio necesita tu empresa?» con llamado a la acción. Conserva el portafolio solicitado (LMS, Facturación electrónica, Agente maestro, Nébula y Agente RR. HH.).",
+    category: "institucional",
+    categoryLabel: "Corporativo",
+    slides: "6 Láminas",
+    investment: "Cotización personalizada",
+    path: "fullservice-campuslands-v3/index.html",
+    pdf: "fullservice-campuslands-v3/fullservice-campuslands-v3.pdf",
+    logo: "assets/logo-campuslands-color.png",
+    date: "2026-10-14",
+    keywords: "campuslands fullservice corporativo institucional v3 staffing bpo talento tecnologico tercerizacion comparativo portafolio lms facturacion electronica agente maestro nebula recursos humanos"
+  },
+  {
     slug: "ai-academy",
     client: "Campuslands",
     company: "Campuslands S.A.S.",

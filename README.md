@@ -11,7 +11,7 @@ Cada presentación es una carpeta propia que se despliega como sitio estático. 
 ```text
 /presentaciones/
 ├── assets/
-│   ├── fonts/              # Tipografías compartidas (22 archivos .ttf)
+│   ├── fonts/              # Tipografías compartidas (22 archivos .woff2)
 │   ├── shared/             # Imágenes idénticas usadas en más de una presentación
 │   ├── logos/              # Logos de clientes usados por el portal
 │   ├── portal/             # Portal de presentaciones (decks.js, portal.js)
@@ -29,12 +29,13 @@ Cada presentación es una carpeta propia que se despliega como sitio estático. 
 
 ### Recursos compartidos (`assets/`)
 
-- **Fuentes (`assets/fonts/`):** 22 archivos `.ttf`. Hay dos versiones de `PlayfairDisplay-BlackItalic`: `PlayfairDisplay-BlackItalic.ttf` (la usa la mayoría de presentaciones) y `PlayfairDisplay-BlackItalic-alt.ttf` (la usan `colbeef-flujo-ia` y `colbeef-plan-trabajo`). Se conservan ambas a propósito: no las unifiques sin revisar el render de esas dos presentaciones.
+- **Fuentes (`assets/fonts/`):** 22 archivos `.woff2`. Hay dos versiones de `PlayfairDisplay-BlackItalic`: `PlayfairDisplay-BlackItalic.woff2` (la usa la mayoría de presentaciones) y `PlayfairDisplay-BlackItalic-alt.woff2` (la usan `colbeef-flujo-ia` y `colbeef-plan-trabajo`). Se conservan ambas a propósito: no las unifiques sin revisar el render de esas dos presentaciones.
+- **Formato y alcance:** son recortes de los TTF originales. Incluyen el rango Latino (ASCII, Latin-1 y Latin Extended-A), puntuación, flechas, símbolos matemáticos y cualquier carácter que use el sitio. Si necesitas otro carácter (por ejemplo, cirílico o griego), regenera el recorte desde el TTF original, que sigue en el historial de git antes de este cambio. Los emojis y los íconos no son parte de las fuentes: se muestran con la fuente del sistema.
 - **Imágenes (`assets/shared/`):** archivos idénticos que antes estaban repetidos en varias presentaciones. Se nombran `<presentación>-<nombre original>` (por ejemplo `giron-logo-cliente.png`) para saber de dónde vienen. Si un logo o favicon ya existe en `assets/`, esa es la ruta a usar.
 - **Cómo se referencian:** la ruta es relativa al archivo que la usa. Desde `<slug>/index.html` o `<slug>/styles.css` es `../assets/fonts/...`. Desde `<slug>/docs/` (demos de Multinal y Colbeef) es `../../assets/...`.
 
   ```css
-  @font-face { font-family:'Poppins'; src:url('../assets/fonts/Poppins-Regular.ttf') format('truetype'); font-weight:400; font-style:normal; }
+  @font-face { font-family:'Poppins'; src:url('../assets/fonts/Poppins-Regular.woff2') format('woff2'); font-weight:400; font-style:normal; }
   ```
 
 - **Por qué:** el espacio que usa el proyecto en Vercel depende del peso de cada despliegue. Un archivo repetido en cada presentación se contaba en cada despliegue. Ahora se guarda una sola vez, y el árbol desplegable pesa más de la mitad menos que antes.

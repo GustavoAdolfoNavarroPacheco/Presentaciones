@@ -11,11 +11,11 @@
    ============================================================ */
 
 /* ---------- 1. FUENTES LOCALES ---------- */
-@font-face{ font-family:'Poppins'; src:url('../assets/fonts/Poppins-Regular.ttf') format('truetype'); font-weight:400; font-style:normal; font-display:swap; }
-@font-face{ font-family:'Poppins'; src:url('../assets/fonts/Poppins-Medium.ttf') format('truetype'); font-weight:500; font-style:normal; font-display:swap; }
-@font-face{ font-family:'Poppins'; src:url('../assets/fonts/Poppins-SemiBold.ttf') format('truetype'); font-weight:600; font-style:normal; font-display:swap; }
-@font-face{ font-family:'Poppins'; src:url('../assets/fonts/Poppins-Black.ttf') format('truetype'); font-weight:900; font-style:normal; font-display:swap; }
-@font-face{ font-family:'Poppins'; src:url('../assets/fonts/Poppins-BlackItalic.ttf') format('truetype'); font-weight:900; font-style:italic; font-display:swap; }
+@font-face{ font-family:'Poppins'; src:url('../assets/fonts/Poppins-Regular.woff2') format('woff2'); font-weight:400; font-style:normal; font-display:swap; }
+@font-face{ font-family:'Poppins'; src:url('../assets/fonts/Poppins-Medium.woff2') format('woff2'); font-weight:500; font-style:normal; font-display:swap; }
+@font-face{ font-family:'Poppins'; src:url('../assets/fonts/Poppins-SemiBold.woff2') format('woff2'); font-weight:600; font-style:normal; font-display:swap; }
+@font-face{ font-family:'Poppins'; src:url('../assets/fonts/Poppins-Black.woff2') format('woff2'); font-weight:900; font-style:normal; font-display:swap; }
+@font-face{ font-family:'Poppins'; src:url('../assets/fonts/Poppins-BlackItalic.woff2') format('woff2'); font-weight:900; font-style:italic; font-display:swap; }
 /* Nutmeg (destacados) es comercial y no está licenciada en el repo: los destacados usan Poppins Black. */
 
 /* ---------- 2. TOKENS ---------- */

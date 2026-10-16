@@ -20,6 +20,22 @@
    ============================================================================ */
 window.DECKS = [
   {
+    slug: "land-cargo-v2",
+    client: "Landcargo",
+    company: "Landcargo S.A.S.",
+    title: "Sistema Integrado TMS + ERP a la Medida — v2",
+    desc: "Versión 2 del documento de alcance funcional para la transformación de Landcargo de operador 2PL a 4PL: despacho, manifiestos y remesas con transmisión automática al RNDC, cumplidos con retención FOPAC, liquidaciones, tesorería, tráfico con GPS/geocercas/PESV, flota propia y el componente contable ERP. Esta versión excluye la lámina de inversión.",
+    category: "software",
+    categoryLabel: "Logística & Trazabilidad",
+    slides: "10 Láminas",
+    investment: "",
+    path: "land-cargo-v2/index.html",
+    pdf: "land-cargo-v2/land-cargo-v2.pdf",
+    logo: "assets/logos/Land Cargo.png",
+    date: "2026-10-16",
+    keywords: "landcargo land cargo v2 tms erp transporte carga 2pl 4pl despacho manifiestos remesas rndc cumplidos fopac liquidaciones tesoreria trafico gps geocercas pesv flota propia contabilidad exogena dian"
+  },
+  {
     slug: "fullservice-campuslands-v3",
     client: "Campuslands",
     company: "Campuslands S.A.S.",

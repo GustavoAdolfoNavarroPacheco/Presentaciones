@@ -5,8 +5,8 @@
    ============================================================ */
 
 /* ---------- 1. FUENTES LOCALES (solo las que usa el visor: contador y aviso) ---------- */
-@font-face{ font-family:'Poppins'; src:url('assets/fonts/Poppins-Regular.ttf') format('truetype'); font-weight:400; font-style:normal; font-display:swap; }
-@font-face{ font-family:'Poppins'; src:url('assets/fonts/Poppins-Medium.ttf') format('truetype'); font-weight:500; font-style:normal; font-display:swap; }
+@font-face{ font-family:'Poppins'; src:url('../assets/fonts/Poppins-Regular.ttf') format('truetype'); font-weight:400; font-style:normal; font-display:swap; }
+@font-face{ font-family:'Poppins'; src:url('../assets/fonts/Poppins-Medium.ttf') format('truetype'); font-weight:500; font-style:normal; font-display:swap; }
 
 /* ---------- 2. TOKENS ---------- */
 :root{
